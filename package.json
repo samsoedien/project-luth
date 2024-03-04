@@ -1,0 +1,10 @@
+{
+  "name": "project-luth",
+  "version": "1.0.0",
+  "description": "Full stack web application for a startup business idea",
+  "main": "index.js",
+  "repository": "https://github.com/samsoedien/project-luth.git",
+  "author": "Nathan Samsoedien <info@samsoedien.com>",
+  "license": "MIT",
+  "private": true
+}
