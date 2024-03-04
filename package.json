@@ -6,5 +6,6 @@
   "repository": "https://github.com/samsoedien/project-luth.git",
   "author": "Nathan Samsoedien <info@samsoedien.com>",
   "license": "MIT",
-  "private": true
+  "private": true,
+  "packageManager": "yarn@4.1.0"
 }
