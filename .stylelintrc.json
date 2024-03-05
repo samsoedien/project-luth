@@ -1,0 +1,8 @@
+{
+  "processors": [],
+  "extends": ["stylelint-config-standard", "stylelint-prettier/recommended"],
+  "plugins": ["stylelint-prettier"],
+  "rules": {
+    "custom-property-empty-line-before": null
+  }
+}
