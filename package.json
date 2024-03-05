@@ -16,6 +16,8 @@
     "postinstall": "manypkg check",
     "deps": "manypkg fix",
     "dev": "turbo dev",
+    "client": "turbo dev --scope client",
+    "server": "turbo dev --scope server",
     "lint": "yarn lint:scripts && yarn lint:styles",
     "lint:scripts": "eslint . --ext .ts,.tsx",
     "lint:styles": "stylelint \"**/*.scss\"",
@@ -23,7 +25,10 @@
     "test": "jest",
     "pre-commit": "yarn lint-staged",
     "format": "prettier --write .",
-    "storybook": "turbo storybook"
+    "storybook": "turbo storybook",
+    "kill": "kill-port 3000 5000 8000 8001",
+    "clean": "turbo clean",
+    "docker": "docker compose watch"
   },
   "lint-staged": {
     "packages/**/*.{html,css,scss,js,jsx,ts,tsx,json,md,mdx}": [

@@ -16,7 +16,7 @@
     }
   },
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --port 8000",
     "build": "tsc && vite build && yarn build:styles",
     "build:styles": "npx tailwindcss -i ./src/tokens/globals.css  -o ./lib/tokens/globals.css --postcss --minify",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 99 --fix",
