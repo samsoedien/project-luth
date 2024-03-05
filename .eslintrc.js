@@ -1,0 +1,28 @@
+module.exports = {
+  env: {
+    browser: true,
+    es2021: true,
+    node: true,
+  },
+  extends: ['standard-with-typescript', 'airbnb-base', 'airbnb-typescript/base', 'prettier'],
+  overrides: [
+    {
+      env: {
+        node: true,
+      },
+      files: ['.eslintrc.{js,cjs}'],
+      parserOptions: {
+        sourceType: 'script',
+      },
+    },
+  ],
+  parserOptions: {
+    ecmaVersion: 'latest',
+    sourceType: 'module',
+    parser: '@typescript-eslint/parser',
+    project: './tsconfig.base.json',
+    tsconfigRootDir: __dirname,
+  },
+  plugins: ['react'],
+  rules: {},
+}

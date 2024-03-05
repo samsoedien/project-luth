@@ -1,4 +1,5 @@
 {
+  "extends": "../../tsconfig.base.json",
   "compilerOptions": {
     "target": "ES2020",
     "useDefineForClassFields": true,
@@ -11,15 +12,20 @@
     "allowImportingTsExtensions": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "noEmit": true,
+    // "noEmit": true,
     "jsx": "react-jsx",
-    "jsxImportSource": "preact",
+    "jsxImportSource": "react",
+    "declaration": true,
+    "declarationMap": true,
+    "declarationDir": "lib/types",
+    "emitDeclarationOnly": true,
 
     /* Linting */
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
+
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"],
@@ -28,5 +34,6 @@
     }
   },
   "include": ["src"],
+  "exclude": ["lib", "tests", "**/*.test.*", "**/*.stories.*"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

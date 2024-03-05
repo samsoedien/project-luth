@@ -19,6 +19,7 @@
     "lint": "yarn lint:scripts && yarn lint:styles",
     "lint:scripts": "eslint . --ext .ts,.tsx",
     "lint:styles": "stylelint \"**/*.scss\"",
+    "build": "turbo build",
     "test": "echo \"Error: no test specified\"",
     "pre-commit": "yarn lint-staged",
     "format": "prettier --write ."
@@ -43,18 +44,19 @@
     "eslint-plugin-n": "^16.6.2",
     "eslint-plugin-promise": "^6.1.1",
     "husky": "^9.0.11",
+    "kill-port": "^2.0.1",
     "lint-staged": "^15.2.2",
     "prettier": "^3.2.5",
+    "rimraf": "^5.0.5",
+    "stylelint": "^16.2.1",
+    "stylelint-config-standard": "^36.0.0",
     "turbo": "^1.12.4",
-    "typescript": "^5.2.2"
+    "typescript": "^5.2.2",
+    "vite-plugin-dts": "^3.7.3"
   },
   "alias": {
     "react": "preact/compat",
     "react-dom": "preact/compat",
     "react/jsx-runtime": "preact/jsx-runtime"
-  },
-  "devDependencies": {
-    "stylelint": "^16.2.1",
-    "stylelint-config-standard": "^36.0.0"
   }
 }
