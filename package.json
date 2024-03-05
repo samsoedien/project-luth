@@ -22,7 +22,8 @@
     "build": "turbo build",
     "test": "echo \"Error: no test specified\"",
     "pre-commit": "yarn lint-staged",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "storybook": "turbo storybook"
   },
   "lint-staged": {
     "packages/**/*.{html,css,scss,js,jsx,ts,tsx,json,md,mdx}": [
