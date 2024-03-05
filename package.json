@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Full stack web application for a startup business idea",
   "main": "index.js",
-  "repository": "https://github.com/samsoedien/project-luth.git",
+  "repository": "https://github.com/samsoedien/project-luth",
   "author": "Nathan Samsoedien <info@samsoedien.com>",
   "license": "MIT",
   "private": true,
@@ -13,24 +13,27 @@
     "apps/*"
   ],
   "scripts": {
-    "start": "turbo dev",
     "prepare": "husky",
+    "postinstall": "manypkg check",
+    "deps": "manypkg fix",
+    "dev": "turbo dev",
     "test": "echo \"Error: no test specified\"",
     "pre-commit": "yarn lint-staged",
     "format": "prettier --write ."
-  },
-  "devDependencies": {
-    "@commitlint/cli": "^19.0.3",
-    "@commitlint/config-conventional": "^19.0.3",
-    "husky": "^9.0.11",
-    "lint-staged": "^15.2.2",
-    "prettier": "^3.2.5",
-    "turbo": "^1.12.4",
-    "typescript": "^5.3.3"
   },
   "lint-staged": {
     "packages/**/*.{html,css,scss,js,jsx,ts,tsx,json,md,mdx}": [
       "yarn format"
     ]
+  },
+  "dependencies": {
+    "@commitlint/cli": "^19.0.3",
+    "@commitlint/config-conventional": "^19.0.3",
+    "@manypkg/cli": "^0.21.2",
+    "husky": "^9.0.11",
+    "lint-staged": "^15.2.2",
+    "prettier": "^3.2.5",
+    "turbo": "^1.12.4",
+    "typescript": "^5.2.2"
   }
 }
