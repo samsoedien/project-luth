@@ -3205,7 +3205,6 @@ __metadata:
     "@storybook/test": "npm:^7.6.17"
     "@types/node": "npm:^20.11.24"
     autoprefixer: "npm:^10.4.18"
-    changeset: "npm:^0.2.6"
     class-variance-authority: "npm:^0.7.0"
     clsx: "npm:^2.1.0"
     lucide-react: "npm:^0.344.0"
@@ -6699,16 +6698,6 @@ __metadata:
     ansi-styles: "npm:^4.1.0"
     supports-color: "npm:^7.1.0"
   checksum: 10c0/4a3fef5cc34975c898ffe77141450f679721df9dde00f6c304353fa9c8b571929123b26a0e4617bde5018977eb655b31970c297b91b63ee83bb82aeb04666880
-  languageName: node
-  linkType: hard
-
-"changeset@npm:^0.2.6":
-  version: 0.2.6
-  resolution: "changeset@npm:0.2.6"
-  dependencies:
-    udc: "npm:^1.0.0"
-    underscore: "npm:^1.8.3"
-  checksum: 10c0/6a8139aec4d192c96411eee786b5d50160ba012b299378f1086958379efd090b265885763ab5d558f87e49b2b18d887775230b2c4b6b5f8a6c0efc0c9a147d33
   languageName: node
   linkType: hard
 
@@ -15726,13 +15715,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"udc@npm:^1.0.0":
-  version: 1.0.1
-  resolution: "udc@npm:1.0.1"
-  checksum: 10c0/9e2e5dfe4fc0cd6d807b8be9fee327efc8c65319a94e8f32afab6837347e61ddb7d9844edc106cdda2f0feefd5939a49da97f1346522ac7bdf9fb68cbaab80c0
-  languageName: node
-  linkType: hard
-
 "ufo@npm:^1.4.0":
   version: 1.4.0
   resolution: "ufo@npm:1.4.0"
@@ -15765,13 +15747,6 @@ __metadata:
   version: 2.0.5
   resolution: "undefsafe@npm:2.0.5"
   checksum: 10c0/96c0466a5fbf395917974a921d5d4eee67bca4b30d3a31ce7e621e0228c479cf893e783a109af6e14329b52fe2f0cb4108665fad2b87b0018c0df6ac771261d5
-  languageName: node
-  linkType: hard
-
-"underscore@npm:^1.8.3":
-  version: 1.13.6
-  resolution: "underscore@npm:1.13.6"
-  checksum: 10c0/5f57047f47273044c045fddeb8b141dafa703aa487afd84b319c2495de2e685cecd0b74abec098292320d518b267c0c4598e45aa47d4c3628d0d4020966ba521
   languageName: node
   linkType: hard
 
