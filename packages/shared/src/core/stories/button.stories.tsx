@@ -1,5 +1,5 @@
 import type { Meta } from '@storybook/preact'
-import { Button as RadixButton } from './button'
+import { Button as RadixButton } from '../ui/button'
 import React from 'react'
 
 export default {
@@ -9,4 +9,7 @@ export default {
 
 export const DefaultButton = {
   render: () => <RadixButton>Default</RadixButton>,
+}
+export const DestructiveButton = {
+  render: () => <RadixButton variant="destructive">Destructive</RadixButton>,
 }
