@@ -1,5 +1,5 @@
 import path from 'path'
-import express, { Application, Request, Response } from 'express'
+import express, { type Application, type Request, type Response } from 'express'
 import dotenv from 'dotenv'
 import morgan from 'morgan'
 import compression from 'compression'
@@ -37,6 +37,7 @@ app.use(hpp())
 app.use(cors())
 app.use(limiter)
 
+// eslint-disable-next-line consistent-return
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', '*')
   res.setHeader(
@@ -47,7 +48,7 @@ app.use((req, res, next) => {
   if (req.method === 'OPTIONS') {
     return res.status(200).end()
   }
-  return next()
+  next()
 })
 
 app.get('/', (req: Request, res: Response) => res.send('Rest API Running.'))
@@ -57,7 +58,7 @@ app.get('/', (req: Request, res: Response) => res.send('Rest API Running.'))
 
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static('client/build'))
-  app.get('*', (req, res, next) => {
+  app.get('*', (req, res) => {
     res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
   })
 }

@@ -6,7 +6,7 @@ import app from './api/app'
 
 dotenv.config()
 
-const PORT = process.env.PORT || 5001
+const PORT = process.env.PORT != null || 5001
 const server = http.createServer(app)
 
 server
