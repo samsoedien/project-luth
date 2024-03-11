@@ -7,6 +7,7 @@ import dts from 'vite-plugin-dts'
 export default defineConfig({
   plugins: [preact(), dts({ outDir: 'lib/types' })],
   resolve: {
+    environment: 'node',
     alias: {
       '@': path.resolve(__dirname, './src'),
       react: 'preact/compat',
@@ -34,9 +35,7 @@ export default defineConfig({
           dir: 'lib/esm',
           preserveModules: true,
           preserveModulesRoot: 'src',
-          entryFileNames: ({ name: fileName }) => {
-            return `${fileName}.js`
-          },
+          entryFileNames: ({ name: fileName }) => `${fileName}.js`,
         },
         {
           format: 'cjs',
@@ -46,9 +45,7 @@ export default defineConfig({
           dir: 'lib/cjs',
           preserveModules: true,
           preserveModulesRoot: 'src',
-          entryFileNames: ({ name: fileName }) => {
-            return `${fileName}.js`
-          },
+          entryFileNames: ({ name: fileName }) => `${fileName}.js`,
         },
       ],
     },
