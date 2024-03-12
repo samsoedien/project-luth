@@ -3145,6 +3145,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@project-luth/client@workspace:packages/client"
   dependencies:
+    "@project-luth/shared": "npm:*"
     "@types/node": "npm:^20.11.24"
     "@types/react": "npm:^18"
     "@types/react-dom": "npm:^18"
@@ -3197,7 +3198,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@project-luth/shared@workspace:packages/shared":
+"@project-luth/shared@npm:*, @project-luth/shared@workspace:packages/shared":
   version: 0.0.0-use.local
   resolution: "@project-luth/shared@workspace:packages/shared"
   dependencies:
@@ -13456,6 +13457,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"object-path@npm:^0.11.8":
+  version: 0.11.8
+  resolution: "object-path@npm:0.11.8"
+  checksum: 10c0/73b1f33bb30a7032d8cce2e3dcffd82b80a83d8304e80b4f83b4f456165625de9907f1ca7f7441d4dfb5e73429ace1e5bf9d9315636ac0aacc76392cc21d1672
+  languageName: node
+  linkType: hard
+
 "object.assign@npm:^4.1.2, object.assign@npm:^4.1.4, object.assign@npm:^4.1.5":
   version: 4.1.5
   resolution: "object.assign@npm:4.1.5"
@@ -14049,6 +14057,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"postcss-replace@npm:^2.0.1":
+  version: 2.0.1
+  resolution: "postcss-replace@npm:2.0.1"
+  dependencies:
+    kind-of: "npm:^6.0.3"
+    object-path: "npm:^0.11.8"
+  peerDependencies:
+    postcss: ^8.4
+  checksum: 10c0/40b82e8e031d175cf9dab212665160ca49bc44652e8927a423de83e4c83199548415ace7afd0826410c6fd321cdbc210cc30e623692d08f6be08613d1a4f9a36
+  languageName: node
+  linkType: hard
+
 "postcss-resolve-nested-selector@npm:^0.1.1":
   version: 0.1.1
   resolution: "postcss-resolve-nested-selector@npm:0.1.1"
@@ -14227,6 +14247,7 @@ __metadata:
     jest: "npm:^29.7.0"
     kill-port: "npm:^2.0.1"
     lint-staged: "npm:^15.2.2"
+    postcss-replace: "npm:^2.0.1"
     prettier: "npm:^3.2.5"
     rimraf: "npm:^5.0.5"
     stylelint: "npm:^16.2.1"
