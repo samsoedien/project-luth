@@ -17,10 +17,10 @@
       "path": "./packages/common"
     },
     {
-      "path": "./packages/client"
+      "path": "./apps/client"
     },
     {
-      "path": "./packages/server"
+      "path": "./apps/server"
     }
   ]
 }
