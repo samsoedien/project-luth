@@ -3270,6 +3270,7 @@ __metadata:
   dependencies:
     "@auth/prisma-adapter": "npm:^1.4.0"
     "@prisma/client": "npm:^5.10.2"
+    "@project-luth/common": "npm:*"
     "@t3-oss/env-nextjs": "npm:^0.9.2"
     "@tanstack/react-query": "npm:^4.36.1"
     "@trpc/client": "npm:^10.45.1"
@@ -3300,7 +3301,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@project-luth/common@workspace:apps/common":
+"@project-luth/common@npm:*, @project-luth/common@workspace:apps/common":
   version: 0.0.0-use.local
   resolution: "@project-luth/common@workspace:apps/common"
   dependencies:
@@ -3313,6 +3314,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@project-luth/server@workspace:apps/server"
   dependencies:
+    "@project-luth/common": "npm:*"
     "@types/compression": "npm:^1.7.5"
     "@types/cookie-parser": "npm:^1.4.7"
     "@types/cors": "npm:^2.8.17"
