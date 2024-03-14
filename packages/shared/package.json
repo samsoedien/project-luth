@@ -16,7 +16,7 @@
     }
   },
   "scripts": {
-    "dev": "vite --port 8000",
+    "dev": "vite --port 8001",
     "build": "tsc && vite build && yarn build:styles",
     "build:styles": "npx tailwindcss -i ./src/tokens/globals.css  -o ./lib/tokens/globals.css --postcss --minify",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 99 --fix",
@@ -31,7 +31,7 @@
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
     "lucide-react": "^0.344.0",
-    "preact": "^10.19.5",
+    "preact": "^10.19.6",
     "tailwind-merge": "^2.2.1",
     "tailwindcss-animate": "^1.0.7"
   },
@@ -54,6 +54,12 @@
     "storybook": "^7.6.17",
     "tailwindcss": "^3.4.1",
     "typescript": "^5.2.2",
-    "vite": "^5.1.4"
+    "vite": "^5.1.6",
+    "vite-plugin-dts": "^3.7.3"
+  },
+  "alias": {
+    "react": "preact/compat",
+    "react-dom": "preact/compat",
+    "react/jsx-runtime": "preact/jsx-runtime"
   }
 }

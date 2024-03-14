@@ -2,10 +2,7 @@ import "~/styles/globals.css";
 
 import { Inter } from "next/font/google";
 
-import { sum } from "@project-luth/common";
 import { TRPCReactProvider } from "~/trpc/react";
-
-console.log(sum(4, 4));
 
 const inter = Inter({
   subsets: ["latin"],

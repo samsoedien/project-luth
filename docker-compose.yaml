@@ -3,6 +3,7 @@ services:
   web:
     depends_on:
       - api
+      - common
     build:
       context: .
       dockerfile: ./apps/client/Dockerfile
@@ -32,6 +33,8 @@ services:
       # - DISCORD_CLIENT_ID="test"
       # - DISCORD_CLIENT_SECRET="test"
   api:
+    depends_on:
+      - common
     build:
       context: .
       dockerfile: ./apps/server/Dockerfile
@@ -40,8 +43,7 @@ services:
       - 5001:5001
     networks:
       - app_network
-    develop: # depends_on:
-      #   - db
+    develop:
       watch:
         - path: ./package.json
           action: rebuild
@@ -53,8 +55,16 @@ services:
     environment:
       - NODE_ENV=production
       - TURBO_TELEMETRY_DISABLED=1
+  common:
+    build:
+      context: .
+      dockerfile: ./apps/common/Dockerfile
+    restart: always
+    ports:
+      - 8000:8000
+    networks:
+      - app_network
 
-      # - DB_URL=mongodb://db/luth
   # db:
   #   image: mongo:latest
   #   ports:
