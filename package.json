@@ -31,7 +31,7 @@
     "test": "turbo run test",
     "build": "turbo build",
     "build:common": "turbo build --scope common",
-    "clean": "turbo clean",
+    "clean": "turbo clean && rimraf out",
     "docker": "docker compose watch",
     "docker:network": "docker network create app_network",
     "docker:prune": "docker system prune -a",
