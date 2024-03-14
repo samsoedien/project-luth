@@ -40,7 +40,7 @@ services:
       dockerfile: ./apps/server/Dockerfile
     restart: always
     ports:
-      - 5001:5001
+      - 5001:5000
     networks:
       - app_network
     develop:
@@ -61,9 +61,11 @@ services:
       dockerfile: ./apps/common/Dockerfile
     restart: always
     ports:
-      - 8000:8000
+      - 8000:80
     networks:
       - app_network
+    environment:
+      - NODE_ENV=production
 
   # db:
   #   image: mongo:latest

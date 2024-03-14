@@ -3494,7 +3494,6 @@ __metadata:
     preact: "npm:^10.19.6"
     preact-custom-element: "npm:^4.3.0"
     preact-reconciler: "npm:^0.1.8"
-    react: "npm:^18.2.0"
     three: "npm:^0.162.0"
     typescript: "npm:^5.2.2"
     vite: "npm:^5.1.6"

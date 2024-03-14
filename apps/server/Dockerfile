@@ -43,7 +43,7 @@ COPY turbo.json turbo.json
 # ARG TURBO_TOKEN
 # ENV TURBO_TOKEN=$TURBO_TOKEN
 
-RUN yarn turbo build --filter=@project-luth/server...
+RUN yarn turbo build --filter=server...
 
 FROM base AS runner
 WORKDIR /usr/src/app
@@ -52,8 +52,10 @@ WORKDIR /usr/src/app
 RUN addgroup --system --gid 1001 expressjs
 RUN adduser --system --uid 1001 expressjs
 USER expressjs
+
 COPY --from=installer /usr/src/app .
 
 EXPOSE 5001
 
 CMD node apps/server/dist/index.js
+

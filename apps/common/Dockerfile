@@ -1,4 +1,4 @@
-FROM node:20-alpine AS base
+FROM node:alpine as base
 
 # This Dockerfile is copy-pasted into our main docs at /docs/handbook/deploying-with-docker.
 # Make sure you update both files!
@@ -38,18 +38,20 @@ COPY turbo.json turbo.json
 # ARG TURBO_TOKEN
 # ENV TURBO_TOKEN=$TURBO_TOKEN
 
-RUN yarn turbo build --filter=client...
+RUN yarn turbo build --filter=common...
 
 FROM base AS runner
 WORKDIR /usr/src/app
 
 # Don't run production as root
-RUN addgroup --system --gid 1001 nodejs
-RUN adduser --system --uid 1001 nextjs
-USER nextjs
+RUN addgroup --system --gid 1001 common
+RUN adduser --system --uid 1001 common
+USER common
 
-COPY --from=installer /usr/src/app/apps/common/package.json .
+FROM nginx:alpine as production
 
-EXPOSE 8000
+COPY --from=installer /usr/src/app/apps/common/dist /usr/share/nginx/html
 
-CMD node apps/common/server.js
+EXPOSE 80
+
+ENTRYPOINT ["nginx", "-g", "daemon off;"]
