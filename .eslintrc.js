@@ -4,7 +4,13 @@ module.exports = {
     es2021: true,
     node: true,
   },
-  extends: ['standard-with-typescript', 'airbnb-base', 'airbnb-typescript/base', 'prettier'],
+  extends: [
+    'standard-with-typescript',
+    'airbnb-base',
+    'airbnb-typescript/base',
+    'eslint-config-turbo',
+    'prettier',
+  ],
   overrides: [
     {
       env: {
@@ -17,12 +23,16 @@ module.exports = {
     },
   ],
   parserOptions: {
+    parser: '@typescript-eslint/parser',
+    project: 'tsconfig.base.json',
+    tsconfigRootDir: __dirname,
     ecmaVersion: 'latest',
     sourceType: 'module',
-    parser: '@typescript-eslint/parser',
-    project: './tsconfig.base.json',
-    tsconfigRootDir: __dirname,
   },
   plugins: ['react'],
-  rules: {},
+  rules: {
+    'import/prefer-default-export': 'warn',
+    'no-param-reassign': 'warn',
+    '@typescript-eslint/triple-slash-reference': 'warn',
+  },
 }

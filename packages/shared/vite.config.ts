@@ -34,9 +34,7 @@ export default defineConfig({
           dir: 'lib/esm',
           preserveModules: true,
           preserveModulesRoot: 'src',
-          entryFileNames: ({ name: fileName }) => {
-            return `${fileName}.js`
-          },
+          entryFileNames: ({ name: fileName }) => `${fileName}.js`,
         },
         {
           format: 'cjs',
@@ -46,9 +44,7 @@ export default defineConfig({
           dir: 'lib/cjs',
           preserveModules: true,
           preserveModulesRoot: 'src',
-          entryFileNames: ({ name: fileName }) => {
-            return `${fileName}.js`
-          },
+          entryFileNames: ({ name: fileName }) => `${fileName}.js`,
         },
       ],
     },

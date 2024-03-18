@@ -1,8 +1,10 @@
 {
   "processors": [],
-  "extends": ["stylelint-config-standard", "stylelint-prettier/recommended"],
-  "plugins": ["stylelint-prettier"],
+  "extends": ["stylelint-config-standard"],
+  "plugins": [],
   "rules": {
-    "custom-property-empty-line-before": null
+    "custom-property-empty-line-before": null,
+    "at-rule-no-unknown": null,
+    "rule-empty-line-before": null
   }
 }

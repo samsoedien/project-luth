@@ -131,3 +131,5 @@ dist
  
 .turbo
 lib
+
+vite.config.ts.timestamp-*.mjs
