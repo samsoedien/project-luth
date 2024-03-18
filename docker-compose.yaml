@@ -1,0 +1,82 @@
+version: '3.8'
+services:
+  web:
+    depends_on:
+      - api
+      - common
+    build:
+      context: .
+      dockerfile: ./apps/client/Dockerfile
+    restart: always
+    ports:
+      - 3000:3000
+    networks:
+      - app_network
+    env_file:
+      - ./apps/client/.env.local
+    develop:
+      watch:
+        - path: ./package.json
+          action: rebuild
+        - path: ./next.config.js
+          action: rebuild
+        - path: ./yarn.lock
+          action: rebuild
+        - path: .
+          target: /app
+          action: sync
+    environment:
+      - NEXT_TELEMETRY_DISABLED=1
+      - TURBO_TELEMETRY_DISABLED=1
+      - DATABASE_URL=file:./db.sqlite
+      # - NEXTAUTH_SECRET=fV+vFDy2FrxdsS/U9RzRKUDLit09K+KC+KXBRDGsa+I=
+      # - DISCORD_CLIENT_ID="test"
+      # - DISCORD_CLIENT_SECRET="test"
+  api:
+    depends_on:
+      - common
+    build:
+      context: .
+      dockerfile: ./apps/server/Dockerfile
+    restart: always
+    ports:
+      - 5001:5000
+    networks:
+      - app_network
+    develop:
+      watch:
+        - path: ./package.json
+          action: rebuild
+        - path: ./yarn.lock
+          action: rebuild
+        - path: .
+          target: /app
+          action: sync
+    environment:
+      - NODE_ENV=production
+      - TURBO_TELEMETRY_DISABLED=1
+  common:
+    build:
+      context: .
+      dockerfile: ./apps/common/Dockerfile
+    restart: always
+    ports:
+      - 8000:80
+    networks:
+      - app_network
+    environment:
+      - NODE_ENV=production
+
+  # db:
+  #   image: mongo:latest
+  #   ports:
+  #     - 27017:27017
+  #   volumes:
+  #     - luth:/data/db
+
+networks:
+  app_network:
+    external: true
+
+volumes:
+  luth:

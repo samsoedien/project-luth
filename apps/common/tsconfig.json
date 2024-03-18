@@ -1,11 +1,15 @@
 {
-  // "extends": "../../tsconfig.base.json",
   "compilerOptions": {
     "target": "ES2020",
     "useDefineForClassFields": true,
     "module": "ESNext",
     "lib": ["ES2020", "DOM", "DOM.Iterable"],
     "skipLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "react": ["./node_modules/preact/compat/"],
+      "react-dom": ["./node_modules/preact/compat/"]
+    },
 
     /* Bundler mode */
     "moduleResolution": "bundler",
@@ -18,18 +22,10 @@
 
     /* Linting */
     "strict": true,
-    "noUnusedLocals": false,
-    "noUnusedParameters": false,
-    "noFallthroughCasesInSwitch": true,
-
-    "baseUrl": ".",
-    "paths": {
-      "@/*": ["./src/*"],
-      "react": ["./node_modules/preact/compat/"],
-      "react-dom": ["./node_modules/preact/compat/"]
-    }
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true
   },
-  "include": ["src", "vite.config.ts"],
-  "exclude": ["lib", "tests", "**/*.test.*", "**/*.stories.*"],
+  "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

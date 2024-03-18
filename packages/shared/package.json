@@ -16,7 +16,7 @@
     }
   },
   "scripts": {
-    "dev": "vite --port 8000",
+    "dev": "vite --port 8001",
     "build": "tsc && vite build && yarn build:styles",
     "build:styles": "npx tailwindcss -i ./src/tokens/globals.css  -o ./lib/tokens/globals.css --postcss --minify",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 99 --fix",
@@ -24,9 +24,9 @@
     "release": "yarn changeset version && yarn changeset publish",
     "storybook": "storybook dev -p 6006",
     "storybook:build": "storybook build",
-    "clean": "yarn rimraf ./lib",
     "ui:scaffold": "npx shadcn-ui@latest add",
-    "ui:diff": "npx shadcn-ui diff"
+    "ui:diff": "npx shadcn-ui diff",
+    "clean": "yarn rimraf ./lib vite.config.ts.timestamp-*.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.3.4",
@@ -95,6 +95,12 @@
     "storybook": "^7.6.17",
     "tailwindcss": "^3.4.1",
     "typescript": "^5.2.2",
-    "vite": "^5.1.4"
+    "vite": "^5.1.6",
+    "vite-plugin-dts": "^3.7.3"
+  },
+  "alias": {
+    "react": "preact/compat",
+    "react-dom": "preact/compat",
+    "react/jsx-runtime": "preact/jsx-runtime"
   }
 }

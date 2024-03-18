@@ -20,6 +20,8 @@
     "pkief.material-icon-theme",
     "silvenon.mdx",
     "stylelint.vscode-stylelint",
-    "wayou.vscode-todo-highlight"
+    "wayou.vscode-todo-highlight",
+    "Prisma.prisma",
+    "bradlc.vscode-tailwindcss"
   ]
 }
