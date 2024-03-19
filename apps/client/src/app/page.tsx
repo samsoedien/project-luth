@@ -1,11 +1,13 @@
 import { unstable_noStore as noStore } from "next/cache";
 import Link from "next/link";
 
+import { Button } from "@project-luth/core";
+
 import { CreatePost } from "~/app/_components/create-post";
 import { getServerAuthSession } from "~/server/auth";
 import { api } from "~/trpc/server";
 
-export default async function Home() {
+export default async function Home(): Promise<JSX.Element> {
   noStore();
   const hello = await api.post.hello.query({ text: "from tRPC" });
   const session = await getServerAuthSession();
@@ -57,6 +59,8 @@ export default async function Home() {
             </Link>
           </div>
         </div>
+
+        <Button />
 
         <CrudShowcase />
       </div>
