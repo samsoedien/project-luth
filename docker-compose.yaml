@@ -30,8 +30,8 @@ services:
       - TURBO_TELEMETRY_DISABLED=1
       - DATABASE_URL=file:./db.sqlite
       # - NEXTAUTH_SECRET=fV+vFDy2FrxdsS/U9RzRKUDLit09K+KC+KXBRDGsa+I=
-      # - DISCORD_CLIENT_ID="test"
-      # - DISCORD_CLIENT_SECRET="test"
+      # - GITHUB_CLIENT_ID="test"
+      # - GITHUB_CLIENT_SECRET="test"
   api:
     depends_on:
       - common
