@@ -12,5 +12,6 @@
   },
   "dependencies": {
     "yaml": "^2.4.1"
-  }
+  },
+  "repository": "https://github.com/samsoedien/project-luth/tree/master/packages/tokens"
 }
