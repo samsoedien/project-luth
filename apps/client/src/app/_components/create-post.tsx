@@ -5,6 +5,8 @@ import { useState } from "react";
 
 import { api } from "~/trpc/react";
 
+import { Button } from "@project-luth/core";
+
 export function CreatePost() {
   const router = useRouter();
   const [name, setName] = useState("");
@@ -38,6 +40,8 @@ export function CreatePost() {
       >
         {createPost.isLoading ? "Submitting..." : "Submit"}
       </button>
+
+      <Button variant="destructive">Core Button</Button>
     </form>
   );
 }
