@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "baseUrl": "./packages",
+    "baseUrl": ".",
     "strict": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
@@ -11,10 +11,13 @@
   "files": [],
   "references": [
     {
-      "path": "./packages/shared"
+      "path": "./packages/tokens"
     },
     {
-      "path": "./packages/common"
+      "path": "./packages/core"
+    },
+    {
+      "path": "./apps/common"
     },
     {
       "path": "./apps/client"

@@ -3,6 +3,7 @@
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
+import { Button } from "@project-luth/core";
 import { api } from "~/trpc/react";
 
 export function CreatePost() {
@@ -38,6 +39,8 @@ export function CreatePost() {
       >
         {createPost.isLoading ? "Submitting..." : "Submit"}
       </button>
+
+      <Button variant="destructive">Core Button</Button>
     </form>
   );
 }

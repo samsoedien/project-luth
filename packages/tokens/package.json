@@ -1,0 +1,17 @@
+{
+  "name": "@project-luth/tokens",
+  "description": "Design tokens variables used to maintain consistent style choices througout the design system",
+  "packageManager": "yarn@4.1.1",
+  "main": "generated/web/es6/tokens.js",
+  "types": "typings/index.d.ts",
+  "scripts": {
+    "build": "style-dictionary build --config ./sd.config.js"
+  },
+  "devDependencies": {
+    "style-dictionary": "^3.9.2"
+  },
+  "dependencies": {
+    "yaml": "^2.4.1"
+  },
+  "repository": "https://github.com/samsoedien/project-luth/tree/master/packages/tokens"
+}
