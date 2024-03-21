@@ -3206,7 +3206,6 @@ __metadata:
     react-dom: "npm:^18.2.0"
     react-hook-form: "npm:^7.51.1"
     react-resizable-panels: "npm:^2.0.13"
-    rollup-plugin-node-externals: "npm:^7.0.1"
     sonner: "npm:^1.4.3"
     storybook: "npm:^8.0.1"
     tailwind-merge: "npm:^2.2.2"
@@ -16482,15 +16481,6 @@ __metadata:
   bin:
     rimraf: ./bin.js
   checksum: 10c0/f1e646f8c567795f2916aef7aadf685b543da6b9a53e482bb04b07472c7eef2b476045ba1e29f401c301c66b630b22b815ab31fdd60c5e1ae6566ff523debf45
-  languageName: node
-  linkType: hard
-
-"rollup-plugin-node-externals@npm:^7.0.1":
-  version: 7.0.1
-  resolution: "rollup-plugin-node-externals@npm:7.0.1"
-  peerDependencies:
-    rollup: ^3.0.0 || ^4.0.0
-  checksum: 10c0/c80ee6ada97e34ebad0c917dc631a8cdd420816cf1ef814520e1453eb8ab9d20a574ffeea966e53ab0bb8ccdbf68fe6808fa606873fb4b70a025e54ede7c7826
   languageName: node
   linkType: hard
 
