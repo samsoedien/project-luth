@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react'
+import type { Meta } from '@storybook/react'
 import { fn } from '@storybook/test'
 import { Button } from '../components/ui/button'
 
@@ -15,7 +15,7 @@ const meta = {
 } satisfies Meta<typeof Button>
 
 export default meta
-type Story = StoryObj<typeof meta>
+// type Story = StoryObj<typeof meta>
 
 export const PrimaryButton = {
   render: () => <Button variant="default">Primary</Button>,

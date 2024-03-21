@@ -3112,7 +3112,7 @@ __metadata:
     server-only: "npm:^0.0.1"
     superjson: "npm:^2.2.1"
     tailwindcss: "npm:^3.4.1"
-    typescript: "npm:^5.2.2"
+    typescript: "npm:^5.4.3"
     webpack: "npm:5.90.3"
     zod: "npm:^3.22.4"
   languageName: unknown
@@ -3134,8 +3134,8 @@ __metadata:
     preact-reconciler: "npm:^0.1.8"
     react: "npm:@preact/compat@latest"
     three: "npm:^0.162.0"
-    typescript: "npm:^5.2.2"
-    vite: "npm:^5.1.6"
+    typescript: "npm:^5.4.3"
+    vite: "npm:^5.2.2"
   languageName: unknown
   linkType: soft
 
@@ -3206,14 +3206,15 @@ __metadata:
     react-dom: "npm:^18.2.0"
     react-hook-form: "npm:^7.51.1"
     react-resizable-panels: "npm:^2.0.13"
+    rollup-plugin-node-externals: "npm:^7.0.1"
     sonner: "npm:^1.4.3"
     storybook: "npm:^8.0.1"
     tailwind-merge: "npm:^2.2.2"
     tailwindcss: "npm:^3.4.1"
     tailwindcss-animate: "npm:^1.0.7"
-    typescript: "npm:^5.2.2"
+    typescript: "npm:^5.4.3"
     vaul: "npm:^0.9.0"
-    vite: "npm:^5.1.6"
+    vite: "npm:^5.2.2"
     vite-plugin-dts: "npm:^3.7.3"
     zod: "npm:^3.22.4"
   languageName: unknown
@@ -3242,7 +3243,7 @@ __metadata:
     morgan: "npm:^1.10.0"
     nodemon: "npm:^3.1.0"
     ts-node: "npm:^10.9.2"
-    typescript: "npm:^5.2.2"
+    typescript: "npm:^5.4.3"
     xss-clean: "npm:^0.1.4"
   languageName: unknown
   linkType: soft
@@ -15568,7 +15569,7 @@ __metadata:
     stylelint-selector-bem-pattern: "npm:^4.0.0"
     ts-jest: "npm:^29.1.2"
     turbo: "npm:^1.12.5"
-    typescript: "npm:^5.2.2"
+    typescript: "npm:^5.4.3"
   languageName: unknown
   linkType: soft
 
@@ -16481,6 +16482,15 @@ __metadata:
   bin:
     rimraf: ./bin.js
   checksum: 10c0/f1e646f8c567795f2916aef7aadf685b543da6b9a53e482bb04b07472c7eef2b476045ba1e29f401c301c66b630b22b815ab31fdd60c5e1ae6566ff523debf45
+  languageName: node
+  linkType: hard
+
+"rollup-plugin-node-externals@npm:^7.0.1":
+  version: 7.0.1
+  resolution: "rollup-plugin-node-externals@npm:7.0.1"
+  peerDependencies:
+    rollup: ^3.0.0 || ^4.0.0
+  checksum: 10c0/c80ee6ada97e34ebad0c917dc631a8cdd420816cf1ef814520e1453eb8ab9d20a574ffeea966e53ab0bb8ccdbf68fe6808fa606873fb4b70a025e54ede7c7826
   languageName: node
   linkType: hard
 
@@ -18413,13 +18423,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:^5.2.2":
-  version: 5.4.2
-  resolution: "typescript@npm:5.4.2"
+"typescript@npm:^5.4.3":
+  version: 5.4.3
+  resolution: "typescript@npm:5.4.3"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 10c0/583ff68cafb0c076695f72d61df6feee71689568179fb0d3a4834dac343df6b6ed7cf7b6f6c801fa52d43cd1d324e2f2d8ae4497b09f9e6cfe3d80a6d6c9ca52
+  checksum: 10c0/22443a8760c3668e256c0b34b6b45c359ef6cecc10c42558806177a7d500ab1a7d7aac1f976d712e26989ddf6731d2fbdd3212b7c73290a45127c1c43ba2005a
   languageName: node
   linkType: hard
 
@@ -18433,13 +18443,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@npm%3A^5.2.2#optional!builtin<compat/typescript>":
-  version: 5.4.2
-  resolution: "typescript@patch:typescript@npm%3A5.4.2#optional!builtin<compat/typescript>::version=5.4.2&hash=5adc0c"
+"typescript@patch:typescript@npm%3A^5.4.3#optional!builtin<compat/typescript>":
+  version: 5.4.3
+  resolution: "typescript@patch:typescript@npm%3A5.4.3#optional!builtin<compat/typescript>::version=5.4.3&hash=5adc0c"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 10c0/fcf6658073d07283910d9a0e04b1d5d0ebc822c04dbb7abdd74c3151c7aa92fcddbac7d799404e358197222006ccdc4c0db219d223d2ee4ccd9e2b01333b49be
+  checksum: 10c0/6e51f8b7e6ec55b897b9e56b67e864fe8f44e30f4a14357aad5dc0f7432db2f01efc0522df0b6c36d361c51f2dc3dcac5c832efd96a404cfabf884e915d38828
   languageName: node
   linkType: hard
 
@@ -18843,7 +18853,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite@npm:^5.1.6":
+"vite@npm:^5.2.2":
   version: 5.2.2
   resolution: "vite@npm:5.2.2"
   dependencies:
