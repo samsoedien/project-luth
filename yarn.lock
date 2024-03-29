@@ -3138,7 +3138,7 @@ __metadata:
     eslint-config-next: "npm:^14.1.0"
     next: "npm:^14.1.0"
     next-auth: "npm:^4.24.6"
-    postcss: "npm:^8.4.36"
+    postcss: "npm:^8.4.38"
     prettier: "npm:^3.2.5"
     prettier-plugin-tailwindcss: "npm:^0.5.11"
     prisma: "npm:^5.10.2"
@@ -3235,7 +3235,7 @@ __metadata:
     eslint-plugin-storybook: "npm:^0.8.0"
     input-otp: "npm:^1.2.2"
     next-themes: "npm:^0.3.0"
-    postcss: "npm:^8.4.36"
+    postcss: "npm:^8.4.38"
     postcss-replace: "npm:^2.0.1"
     react: "npm:^18.2.0"
     react-day-picker: "npm:^8.10.0"
@@ -3291,7 +3291,7 @@ __metadata:
     cookie-parser: "npm:^1.4.6"
     cors: "npm:^2.8.5"
     dotenv: "npm:^16.4.5"
-    express: "npm:^4.18.3"
+    express: "npm:^4.19.2"
     express-mongo-sanitize: "npm:^2.2.0"
     express-rate-limit: "npm:^7.2.0"
     helmet: "npm:^7.1.0"
@@ -11016,7 +11016,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"express@npm:^4.17.3, express@npm:^4.18.3":
+"express@npm:^4.17.3":
   version: 4.18.3
   resolution: "express@npm:4.18.3"
   dependencies:
@@ -11052,6 +11052,45 @@ __metadata:
     utils-merge: "npm:1.0.1"
     vary: "npm:~1.1.2"
   checksum: 10c0/0b9eeafbac549e3c67d92d083bf1773e358359f41ad142b92121935c6348d29079b75054555b3f62de39263fffc8ba06898b09fdd3e213e28e714c03c5d9f44c
+  languageName: node
+  linkType: hard
+
+"express@npm:^4.19.2":
+  version: 4.19.2
+  resolution: "express@npm:4.19.2"
+  dependencies:
+    accepts: "npm:~1.3.8"
+    array-flatten: "npm:1.1.1"
+    body-parser: "npm:1.20.2"
+    content-disposition: "npm:0.5.4"
+    content-type: "npm:~1.0.4"
+    cookie: "npm:0.6.0"
+    cookie-signature: "npm:1.0.6"
+    debug: "npm:2.6.9"
+    depd: "npm:2.0.0"
+    encodeurl: "npm:~1.0.2"
+    escape-html: "npm:~1.0.3"
+    etag: "npm:~1.8.1"
+    finalhandler: "npm:1.2.0"
+    fresh: "npm:0.5.2"
+    http-errors: "npm:2.0.0"
+    merge-descriptors: "npm:1.0.1"
+    methods: "npm:~1.1.2"
+    on-finished: "npm:2.4.1"
+    parseurl: "npm:~1.3.3"
+    path-to-regexp: "npm:0.1.7"
+    proxy-addr: "npm:~2.0.7"
+    qs: "npm:6.11.0"
+    range-parser: "npm:~1.2.1"
+    safe-buffer: "npm:5.2.1"
+    send: "npm:0.18.0"
+    serve-static: "npm:1.15.0"
+    setprototypeof: "npm:1.2.0"
+    statuses: "npm:2.0.1"
+    type-is: "npm:~1.6.18"
+    utils-merge: "npm:1.0.1"
+    vary: "npm:~1.1.2"
+  checksum: 10c0/e82e2662ea9971c1407aea9fc3c16d6b963e55e3830cd0ef5e00b533feda8b770af4e3be630488ef8a752d7c75c4fcefb15892868eeaafe7353cb9e3e269fdcb
   languageName: node
   linkType: hard
 
@@ -15564,6 +15603,17 @@ __metadata:
     picocolors: "npm:^1.0.0"
     source-map-js: "npm:^1.2.0"
   checksum: 10c0/0b5730ad0ccbceaf0faaa4a283a144adefd23254f17dbdd63be5e0b37193c7df58003f88742c04c3ae6fd60d1a5158b331a4ce926797fb21e94833ae83c6bf69
+  languageName: node
+  linkType: hard
+
+"postcss@npm:^8.4.38":
+  version: 8.4.38
+  resolution: "postcss@npm:8.4.38"
+  dependencies:
+    nanoid: "npm:^3.3.7"
+    picocolors: "npm:^1.0.0"
+    source-map-js: "npm:^1.2.0"
+  checksum: 10c0/955407b8f70cf0c14acf35dab3615899a2a60a26718a63c848cf3c29f2467b0533991b985a2b994430d890bd7ec2b1963e36352b0774a19143b5f591540f7c06
   languageName: node
   linkType: hard
 
