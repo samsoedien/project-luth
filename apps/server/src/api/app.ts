@@ -9,12 +9,14 @@ import cors from 'cors'
 import xss from 'xss-clean'
 import cookieparser from 'cookie-parser'
 
-import limiter from './middleware/limiter.middelware'
+import limiter from './middlewares/limiter.middelware'
 
 import authRoutes from './routes/auth.route'
+import userRoutes from './routes/users.route'
 import productRoutes from './routes/products.route'
+import postRoutes from './routes/posts.route'
 
-import errorMiddleware from './middleware/error.middleware'
+import errorMiddleware from './middlewares/error.middleware'
 
 const app: Application = express()
 
@@ -48,12 +50,14 @@ app.use((req, res, next) => {
 app.get('/', (req: Request, res: Response) => res.send('Rest API Running.'))
 
 app.use('/api/v1/auth', authRoutes)
+app.use('/api/v1/users', userRoutes)
 app.use('/api/v1/products', productRoutes)
+app.use('/api/v1/posts', postRoutes)
 // app.use('/api/v1', rootRouter)
 
 app.use(errorMiddleware)
 
-if (process.env.NODE_ENV === 'pr doduction') {
+if (process.env.NODE_ENV === 'production') {
   app.use(express.static('client/build'))
   app.get('*', (req, res) => {
     res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))

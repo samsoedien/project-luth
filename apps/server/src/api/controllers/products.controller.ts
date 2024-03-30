@@ -17,7 +17,7 @@ export const getProductById: RequestHandler = async (req, res, next) => {
   try {
     const product = await prisma.product.findFirst({ where: { id: req.params.id } })
 
-    if (!product) return res.status(400).json({ message: 'Resource not found.' })
+    if (!product) return res.status(404).json({ message: 'Resource not found.' })
 
     return res.status(200).json({ message: 'success', data: product })
   } catch (err) {
@@ -41,11 +41,12 @@ export const postProduct: RequestHandler = async (req, res, next) => {
     return next(err)
   }
 }
+
 export const updateProduct: RequestHandler = async (req, res, next) => {
   try {
     const product = await prisma.product.findFirst({ where: { id: req.params.id } })
 
-    if (!product) return res.status(400).json({ message: 'Resource not found.' })
+    if (!product) return res.status(404).json({ message: 'Resource not found.' })
 
     const result = await prisma.product.update({ where: { id: req.params.id }, data: req.body })
 
@@ -59,7 +60,7 @@ export const deleteProduct: RequestHandler = async (req, res, next) => {
   try {
     const product = await prisma.product.findFirst({ where: { id: req.params.id } })
 
-    if (!product) return res.status(400).json({ message: 'Resource not found.' })
+    if (!product) return res.status(404).json({ message: 'Resource not found.' })
 
     const deletedProduct = await prisma.product.delete({ where: { id: req.params.id } })
 

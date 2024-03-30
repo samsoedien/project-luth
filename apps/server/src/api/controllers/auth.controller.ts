@@ -35,9 +35,15 @@ export const signin: RequestHandler = async (req, res): Promise<void> => {
 
   if (!compareSync(password, user.password)) throw Error('Invalid password')
 
-  if (user.password !== hashSync(password, 10)) throw Error('Invalid password')
-
   const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET!)
 
-  res.json(user)
+  res.json({ user, token })
+}
+
+export const signedInUser: RequestHandler = async (req, res, next) => {
+  try {
+    return res.status(200).json(req.user)
+  } catch (err) {
+    return next(err)
+  }
 }
