@@ -10,7 +10,8 @@
   "scripts": {
     "dev": "nodemon",
     "start": "nodemon dist/index.js",
-    "build": "tsc",
+    "build": "yarn prebuild && tsc",
+    "prebuild": "yarn prisma generate",
     "test": "jest --detectOpenHandles",
     "db:push": "prisma db push",
     "db:studio": "prisma studio"
