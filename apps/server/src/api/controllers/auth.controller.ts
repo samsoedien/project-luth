@@ -13,8 +13,6 @@ export const signup: RequestHandler = async (req, res): Promise<void> => {
 
   if (user) throw Error('User already exists')
 
-  console.log('test', password)
-
   user = await prisma.user.create({
     data: {
       email,

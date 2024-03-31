@@ -1,7 +1,7 @@
 import { type RequestHandler } from 'express'
 
 const roleMiddleware: RequestHandler = (req, res, next) => {
-  const user = req.user
+  const { user } = req
 
   if (!user) return res.status(401).json({ message: 'Unauthorized' })
 

@@ -15,6 +15,7 @@ import authRoutes from './routes/auth.route'
 import userRoutes from './routes/users.route'
 import productRoutes from './routes/products.route'
 import postRoutes from './routes/posts.route'
+import cartRoutes from './routes/cart.route'
 
 import errorMiddleware from './middlewares/error.middleware'
 
@@ -53,6 +54,7 @@ app.use('/api/v1/auth', authRoutes)
 app.use('/api/v1/users', userRoutes)
 app.use('/api/v1/products', productRoutes)
 app.use('/api/v1/posts', postRoutes)
+app.use('/api/v1/cart', cartRoutes)
 // app.use('/api/v1', rootRouter)
 
 app.use(errorMiddleware)
