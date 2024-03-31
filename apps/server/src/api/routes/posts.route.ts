@@ -1,6 +1,7 @@
 import { Router } from 'express'
 
 import * as postController from '../controllers/posts.controller'
+import authMiddleware from '../middlewares/auth.middleware'
 
 const router = Router()
 
@@ -8,10 +9,10 @@ router.get('/', postController.getPosts)
 
 router.get('/:id', postController.getPostById)
 
-router.post('/', postController.postPost)
+router.post('/', [authMiddleware], postController.createPost)
 
-router.put('/:id', postController.updatePost)
+router.put('/:id', [authMiddleware], postController.updatePost)
 
-router.delete('/:id', postController.deletePost)
+router.delete('/:id', [authMiddleware], postController.deletePost)
 
 export default router

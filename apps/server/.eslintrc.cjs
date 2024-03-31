@@ -19,5 +19,6 @@ module.exports = {
       },
     ],
     '@typescript-eslint/no-confusing-void-expression': 'off',
+    '@typescript-eslint/strict-boolean-expressions': 'off',
   },
 }

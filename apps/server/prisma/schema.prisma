@@ -13,12 +13,21 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+// enum Role {
+//   USER
+//   ADMIN
+// }
+
 model User {
   id       String   @id @default(cuid())
   email    String   @unique
   name     String?
   password String
+  // profile    Profile
+  cart     CartItem[]
   posts    Post[]
+  products Product[]
+  role     String   @default("USER")
   createdAt DateTime @default(now())
   updateAt DateTime @default(now())
 
@@ -28,8 +37,12 @@ model User {
 model Product {
   id          String   @id @default(cuid())
   name        String
-  description String
+  description String   // @db.Text
   price       Float
+  // tags        String[]
+  userId      String  
+  user        User     @relation(fields: [userId], references: [id])
+  cart    CartItem[]
   createdAt   DateTime @default(now())
   updateAt    DateTime @default(now())
 
@@ -43,6 +56,35 @@ model Post {
   published Boolean  @default(false)
   author    User     @relation(fields: [authorId], references: [id])
   authorId  String
+  createdAt DateTime @default(now())
+  updateAt DateTime @default(now())
 
   @@map("posts")
 }
+
+// model Profile {
+//   id        String   @id @default(cuid())
+//   bio       String?
+//   address   String?
+//   user      User     @relation(fields: [userId], references: [id])
+//   userId    String
+//   createdAt DateTime @default(now())
+//   updateAt DateTime @default(now())
+
+//   @@map("profiles")
+// }
+
+model CartItem {
+  id        String   @id @default(cuid())
+  user      User     @relation(fields: [userId], references: [id])
+  userId    String
+  product   Product  @relation(fields: [productId], references: [id])
+  productId String
+  quantity  Int
+  createdAt DateTime @default(now())
+  updateAt DateTime @default(now())
+
+  @@map("cart-items")
+}
+
+// model Order {}

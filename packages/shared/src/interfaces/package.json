@@ -1,0 +1,7 @@
+{
+  "name": "@project-luth/shared",
+  "description": "",
+  "packageManager": "yarn@4.1.1",
+  "main": "src/index.ts",
+  "repository": "https://github.com/samsoedien/project-luth/tree/master/packages/shared"
+}

@@ -11,7 +11,9 @@
     "dev": "nodemon",
     "start": "nodemon dist/index.js",
     "build": "tsc",
-    "test": "jest --detectOpenHandles"
+    "test": "jest --detectOpenHandles",
+    "db:push": "prisma db push",
+    "db:studio": "prisma studio"
   },
   "devDependencies": {
     "@types/bcrypt": "^5.0.2",

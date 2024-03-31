@@ -35,7 +35,7 @@ export const signin: RequestHandler = async (req, res): Promise<void> => {
 
   if (!compareSync(password, user.password)) throw Error('Invalid password')
 
-  const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET!)
+  const token = jwt.sign({ userId: user.id }, process.env.JWT_SECRET!)
 
   res.json({ user, token })
 }

@@ -2,6 +2,7 @@ import { type RequestHandler } from 'express'
 import { validationResult } from 'express-validator'
 
 import { prisma } from '../../config/prisma'
+import { PostSchema } from '../schemas/post.schema'
 
 export const getPosts: RequestHandler = async (req, res, next) => {
   try {
@@ -25,14 +26,18 @@ export const getPostById: RequestHandler = async (req, res, next) => {
   }
 }
 
-export const postPost: RequestHandler = async (req, res, next) => {
+export const createPost: RequestHandler = async (req, res, next) => {
+  PostSchema.parse(req.body)
   try {
     const errors = validationResult(req)
+
     if (!errors.isEmpty()) {
       return res.status(422).json({ errors: errors.array() })
     }
 
-    const post = await prisma.post.create({ data: req.body })
+    if (!req.user) return res.status(401).json({ message: 'Unauthorized' })
+
+    const post = await prisma.post.create({ data: { ...req.body, authorId: req.user.id } })
 
     return res.status(201).json({ success: true, data: post })
   } catch (err) {

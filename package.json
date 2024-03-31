@@ -23,6 +23,7 @@
     "native:ios": "expo start --ios",
     "native:web": "expo web",
     "desktop": "echo 'No desktop app yet' && exit 1",
+    "sandbox": "cd sandbox && yarn start",
     "storybook": "turbo storybook",
     "format": "prettier --write .",
     "lint": "yarn lint:scripts && yarn lint:styles",
