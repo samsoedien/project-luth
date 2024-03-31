@@ -12,5 +12,13 @@ module.exports = {
     '@typescript-eslint/no-non-null-assertion': 'warn',
     '@typescript-eslint/triple-slash-reference': 'warn',
     'consistent-return': 'warn',
+    '@typescript-eslint/no-misused-promises': [
+      'error',
+      {
+        checksVoidReturn: false,
+      },
+    ],
+    '@typescript-eslint/no-confusing-void-expression': 'off',
+    '@typescript-eslint/strict-boolean-expressions': 'off',
   },
 }

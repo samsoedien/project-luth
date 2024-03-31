@@ -1,27 +1,25 @@
 import path from 'path'
 import express, { type Application, type Request, type Response } from 'express'
-import dotenv from 'dotenv'
 import morgan from 'morgan'
 import compression from 'compression'
 import helmet from 'helmet'
 import mongoSanitize from 'express-mongo-sanitize'
 import hpp from 'hpp'
 import cors from 'cors'
-import rateLimit from 'express-rate-limit'
 import xss from 'xss-clean'
 import cookieparser from 'cookie-parser'
 
-// import productRoutes from './routes/products.route'
-// import errorMiddleware from './middleware/error.middleware'
+import limiter from './middlewares/limiter.middelware'
 
-dotenv.config()
+import authRoutes from './routes/auth.route'
+import userRoutes from './routes/users.route'
+import productRoutes from './routes/products.route'
+import postRoutes from './routes/posts.route'
+import cartRoutes from './routes/cart.route'
+
+import errorMiddleware from './middlewares/error.middleware'
 
 const app: Application = express()
-
-const limiter = rateLimit({
-  windowMs: 10 * 60 * 1000, // 10 mins
-  max: 100,
-})
 
 if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'))
@@ -37,7 +35,6 @@ app.use(hpp())
 app.use(cors())
 app.use(limiter)
 
-// eslint-disable-next-line consistent-return
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', '*')
   res.setHeader(
@@ -53,8 +50,14 @@ app.use((req, res, next) => {
 
 app.get('/', (req: Request, res: Response) => res.send('Rest API Running.'))
 
-// app.use('/api/v1/products', productRoutes)
-// app.use(errorMiddleware)
+app.use('/api/v1/auth', authRoutes)
+app.use('/api/v1/users', userRoutes)
+app.use('/api/v1/products', productRoutes)
+app.use('/api/v1/posts', postRoutes)
+app.use('/api/v1/cart', cartRoutes)
+// app.use('/api/v1', rootRouter)
+
+app.use(errorMiddleware)
 
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static('client/build'))
