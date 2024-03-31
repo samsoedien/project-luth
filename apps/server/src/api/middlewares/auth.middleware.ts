@@ -13,7 +13,7 @@ const authMiddleware: RequestHandler = async (req, res, next) => {
 
     if (!user) return res.status(401).json({ message: 'Unauthorized' })
 
-    req.user = user
+    req.user = user as any
     next()
   } catch (err) {
     next(err)

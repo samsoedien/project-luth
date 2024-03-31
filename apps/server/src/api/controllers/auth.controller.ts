@@ -5,6 +5,7 @@ import { compareSync, hashSync } from 'bcrypt'
 import jwt from 'jsonwebtoken'
 
 import { prisma } from '../../config/prisma'
+import { createJwtToken } from '../services/auth.service'
 
 export const signup: RequestHandler = async (req, res): Promise<void> => {
   const { email, password, name } = req.body
@@ -33,7 +34,7 @@ export const signin: RequestHandler = async (req, res): Promise<void> => {
 
   if (!compareSync(password, user.password)) throw Error('Invalid password')
 
-  const token = jwt.sign({ userId: user.id }, process.env.JWT_SECRET!)
+  const token = createJwtToken(user)
 
   res.json({ user, token })
 }

@@ -5,7 +5,7 @@ const roleMiddleware: RequestHandler = (req, res, next) => {
 
   if (!user) return res.status(401).json({ message: 'Unauthorized' })
 
-  if (user.role === 'ADMIN') {
+  if ((user as any).role === 'ADMIN') {
     next()
   } else return res.status(403).json({ message: 'Forbidden, only admins can access this resource' })
 }
