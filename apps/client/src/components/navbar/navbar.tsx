@@ -12,8 +12,9 @@ import {
   Sheet,
   SheetContent,
   SheetTrigger,
-  ModeToggle,
 } from "@project-luth/core";
+
+import { ThemeModeToggle } from "../../theme/theme-mode-toggle";
 
 export function Navbar(): JSX.Element {
   return (
@@ -131,7 +132,7 @@ export function Navbar(): JSX.Element {
             <DropdownMenuItem>Logout</DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
-        <ModeToggle />
+        <ThemeModeToggle />
       </div>
     </header>
     // </div>

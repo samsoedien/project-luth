@@ -2,7 +2,7 @@ import "~/styles/main.css";
 
 import { Inter } from "next/font/google";
 
-import { ThemeProvider } from "@project-luth/core";
+import { ThemeProvider } from "../theme/provider/theme-provider";
 import { TRPCReactProvider } from "~/trpc/react";
 
 const inter = Inter({

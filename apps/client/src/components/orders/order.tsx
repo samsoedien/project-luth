@@ -69,9 +69,9 @@ import {
 
 export function Dashboard() {
   return (
-    <main className="dark:bg-gray-50">
+    <main className="luth-bg-background">
       <TooltipProvider>
-        <div className="bg-muted/40  flex min-h-screen w-full flex-col">
+        <div className="luth-bg-muted/40  flex min-h-screen w-full flex-col">
           <aside className="bg-background fixed inset-y-0 left-0 z-10 hidden w-14 flex-col border-r sm:flex">
             <nav className="flex flex-col items-center gap-4 px-2 sm:py-4">
               <Link
@@ -568,7 +568,7 @@ export function Dashboard() {
               </div>
               <div>
                 <Card className="overflow-hidden">
-                  <CardHeader className="bg-muted/50 flex flex-row items-start">
+                  <CardHeader className="luth-bg-muted/50 flex flex-row items-start">
                     <div className="grid gap-0.5">
                       <CardTitle className="group flex items-center gap-2 text-lg">
                         Order ID: Oe31b70H

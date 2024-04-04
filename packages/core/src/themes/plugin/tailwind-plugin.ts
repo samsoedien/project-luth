@@ -4,7 +4,7 @@ export const luthTailwindPlugin = plugin(function ({ addBase }) {
   addBase({
     ':root': {
       '--background': '0 0% 100%',
-      ' --foreground': '222.2 84% 4.9%',
+      '--foreground': '222.2 84% 4.9%',
 
       '--card': '0 0% 100%',
       '--card-foreground': '222.2 84% 4.9%',
