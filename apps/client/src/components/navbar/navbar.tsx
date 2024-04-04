@@ -1,5 +1,3 @@
-"use client";
-
 import Link from "next/link";
 import { CircleUser, Menu, Package2, Search } from "@project-luth/icons";
 import {
@@ -14,6 +12,7 @@ import {
   Sheet,
   SheetContent,
   SheetTrigger,
+  ModeToggle,
 } from "@project-luth/core";
 
 export function Navbar(): JSX.Element {
@@ -132,6 +131,7 @@ export function Navbar(): JSX.Element {
             <DropdownMenuItem>Logout</DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
+        <ModeToggle />
       </div>
     </header>
     // </div>

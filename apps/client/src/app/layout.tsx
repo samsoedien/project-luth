@@ -1,7 +1,8 @@
-import "~/styles/globals.css";
+import "~/styles/main.css";
 
 import { Inter } from "next/font/google";
 
+import { ThemeProvider } from "@project-luth/core";
 import { TRPCReactProvider } from "~/trpc/react";
 
 const inter = Inter({
@@ -23,7 +24,16 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`font-sans ${inter.variable}`}>
-        <TRPCReactProvider>{children}</TRPCReactProvider>
+        <TRPCReactProvider>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            {children}
+          </ThemeProvider>
+        </TRPCReactProvider>
       </body>
     </html>
   );

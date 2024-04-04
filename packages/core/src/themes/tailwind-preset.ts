@@ -1,13 +1,12 @@
-/** @type {import('tailwindcss').Config} */
-module.exports = {
+import type { Config } from 'tailwindcss'
+
+import animatePlugin from 'tailwindcss-animate'
+import { luthTailwindPlugin } from './plugin/tailwind-plugin'
+
+export const luthTailwindPreset = {
   darkMode: ['class'],
-  content: [
-    './pages/**/*.{ts,tsx}',
-    './components/**/*.{ts,tsx}',
-    './app/**/*.{ts,tsx}',
-    './src/**/*.{ts,tsx}',
-  ],
   prefix: 'luth-',
+  content: [],
   theme: {
     container: {
       center: true,
@@ -73,5 +72,5 @@ module.exports = {
       },
     },
   },
-  plugins: [require('tailwindcss-animate')],
-}
+  plugins: [animatePlugin, luthTailwindPlugin],
+} satisfies Config
