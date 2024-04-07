@@ -11,22 +11,29 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@project-luth/core";
+import { useState, useEffect } from "react";
 
-export function ThemeModeToggle(): JSX.Element {
+export default function ThemeModeToggle() {
+  const [mounted, setMounted] = useState(false);
   const { theme, setTheme } = useTheme();
+
+  // useEffect only runs on the client, so now we can safely show the UI
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return null;
+  }
 
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button variant="outline" size="icon">
-          {theme === "light" && (
-            <SunIcon className="h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:-rotate-0 dark:scale-100" />
-          )}
-          {theme === "dark" && (
-            <MoonIcon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
-          )}
+          {theme === "light" && <SunIcon className="h-[1.2rem] w-[1.2rem] " />}
+          {theme === "dark" && <MoonIcon className="h-[1.2rem] w-[1.2rem] " />}
           {theme === "system" && (
-            <SunMoonIcon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+            <SunMoonIcon className=" h-[1.2rem] w-[1.2rem] " />
           )}
           <span className="sr-only">Toggle theme</span>
         </Button>
