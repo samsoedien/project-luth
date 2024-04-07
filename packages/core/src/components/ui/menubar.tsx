@@ -1,10 +1,14 @@
-'use client'
+"use client"
 
-import * as React from 'react'
-import { CheckIcon, ChevronRightIcon, DotFilledIcon } from '@radix-ui/react-icons'
-import * as MenubarPrimitive from '@radix-ui/react-menubar'
+import * as React from "react"
+import {
+  CheckIcon,
+  ChevronRightIcon,
+  DotFilledIcon,
+} from "@radix-ui/react-icons"
+import * as MenubarPrimitive from "@radix-ui/react-menubar"
 
-import { cn } from '@/utils'
+import { cn } from "@/utils"
 
 const MenubarMenu = MenubarPrimitive.Menu
 
@@ -23,8 +27,8 @@ const Menubar = React.forwardRef<
   <MenubarPrimitive.Root
     ref={ref}
     className={cn(
-      'luth-flex luth-h-9 luth-items-center luth-space-x-1 luth-rounded-md luth-border luth-bg-background luth-p-1 luth-shadow-sm',
-      className,
+      "luth-flex luth-h-9 luth-items-center luth-space-x-1 luth-rounded-md luth-border luth-bg-background luth-p-1 luth-shadow-sm",
+      className
     )}
     {...props}
   />
@@ -38,8 +42,8 @@ const MenubarTrigger = React.forwardRef<
   <MenubarPrimitive.Trigger
     ref={ref}
     className={cn(
-      'luth-flex luth-cursor-default luth-select-none luth-items-center luth-rounded-sm luth-px-3 luth-py-1 luth-text-sm luth-font-medium luth-outline-none focus:luth-bg-accent focus:luth-text-accent-foreground data-[state=open]:luth-bg-accent data-[state=open]:luth-text-accent-foreground',
-      className,
+      "luth-flex luth-cursor-default luth-select-none luth-items-center luth-rounded-sm luth-px-3 luth-py-1 luth-text-sm luth-font-medium luth-outline-none focus:luth-bg-accent focus:luth-text-accent-foreground data-[state=open]:luth-bg-accent data-[state=open]:luth-text-accent-foreground",
+      className
     )}
     {...props}
   />
@@ -55,9 +59,9 @@ const MenubarSubTrigger = React.forwardRef<
   <MenubarPrimitive.SubTrigger
     ref={ref}
     className={cn(
-      'luth-flex luth-cursor-default luth-select-none luth-items-center luth-rounded-sm luth-px-2 luth-py-1.5 luth-text-sm luth-outline-none focus:luth-bg-accent focus:luth-text-accent-foreground data-[state=open]:luth-bg-accent data-[state=open]:luth-text-accent-foreground',
-      inset && 'luth-pl-8',
-      className,
+      "luth-flex luth-cursor-default luth-select-none luth-items-center luth-rounded-sm luth-px-2 luth-py-1.5 luth-text-sm luth-outline-none focus:luth-bg-accent focus:luth-text-accent-foreground data-[state=open]:luth-bg-accent data-[state=open]:luth-text-accent-foreground",
+      inset && "luth-pl-8",
+      className
     )}
     {...props}
   >
@@ -74,8 +78,8 @@ const MenubarSubContent = React.forwardRef<
   <MenubarPrimitive.SubContent
     ref={ref}
     className={cn(
-      'luth-z-50 luth-min-w-[8rem] luth-overflow-hidden luth-rounded-md luth-border luth-bg-popover luth-p-1 luth-text-popover-foreground luth-shadow-lg data-[state=open]:luth-animate-in data-[state=closed]:luth-animate-out data-[state=closed]:luth-fade-out-0 data-[state=open]:luth-fade-in-0 data-[state=closed]:luth-zoom-out-95 data-[state=open]:luth-zoom-in-95 data-[side=bottom]:luth-slide-in-from-top-2 data-[side=left]:luth-slide-in-from-right-2 data-[side=right]:luth-slide-in-from-left-2 data-[side=top]:luth-slide-in-from-bottom-2',
-      className,
+      "luth-z-50 luth-min-w-[8rem] luth-overflow-hidden luth-rounded-md luth-border luth-bg-popover luth-p-1 luth-text-popover-foreground luth-shadow-lg data-[state=open]:luth-animate-in data-[state=closed]:luth-animate-out data-[state=closed]:luth-fade-out-0 data-[state=open]:luth-fade-in-0 data-[state=closed]:luth-zoom-out-95 data-[state=open]:luth-zoom-in-95 data-[side=bottom]:luth-slide-in-from-top-2 data-[side=left]:luth-slide-in-from-right-2 data-[side=right]:luth-slide-in-from-left-2 data-[side=top]:luth-slide-in-from-bottom-2",
+      className
     )}
     {...props}
   />
@@ -85,21 +89,26 @@ MenubarSubContent.displayName = MenubarPrimitive.SubContent.displayName
 const MenubarContent = React.forwardRef<
   React.ElementRef<typeof MenubarPrimitive.Content>,
   React.ComponentPropsWithoutRef<typeof MenubarPrimitive.Content>
->(({ className, align = 'start', alignOffset = -4, sideOffset = 8, ...props }, ref) => (
-  <MenubarPrimitive.Portal>
-    <MenubarPrimitive.Content
-      ref={ref}
-      align={align}
-      alignOffset={alignOffset}
-      sideOffset={sideOffset}
-      className={cn(
-        'luth-z-50 luth-min-w-[12rem] luth-overflow-hidden luth-rounded-md luth-border luth-bg-popover luth-p-1 luth-text-popover-foreground luth-shadow-md data-[state=open]:luth-animate-in data-[state=closed]:luth-fade-out-0 data-[state=open]:luth-fade-in-0 data-[state=closed]:luth-zoom-out-95 data-[state=open]:luth-zoom-in-95 data-[side=bottom]:luth-slide-in-from-top-2 data-[side=left]:luth-slide-in-from-right-2 data-[side=right]:luth-slide-in-from-left-2 data-[side=top]:luth-slide-in-from-bottom-2',
-        className,
-      )}
-      {...props}
-    />
-  </MenubarPrimitive.Portal>
-))
+>(
+  (
+    { className, align = "start", alignOffset = -4, sideOffset = 8, ...props },
+    ref
+  ) => (
+    <MenubarPrimitive.Portal>
+      <MenubarPrimitive.Content
+        ref={ref}
+        align={align}
+        alignOffset={alignOffset}
+        sideOffset={sideOffset}
+        className={cn(
+          "luth-z-50 luth-min-w-[12rem] luth-overflow-hidden luth-rounded-md luth-border luth-bg-popover luth-p-1 luth-text-popover-foreground luth-shadow-md data-[state=open]:luth-animate-in data-[state=closed]:luth-fade-out-0 data-[state=open]:luth-fade-in-0 data-[state=closed]:luth-zoom-out-95 data-[state=open]:luth-zoom-in-95 data-[side=bottom]:luth-slide-in-from-top-2 data-[side=left]:luth-slide-in-from-right-2 data-[side=right]:luth-slide-in-from-left-2 data-[side=top]:luth-slide-in-from-bottom-2",
+          className
+        )}
+        {...props}
+      />
+    </MenubarPrimitive.Portal>
+  )
+)
 MenubarContent.displayName = MenubarPrimitive.Content.displayName
 
 const MenubarItem = React.forwardRef<
@@ -111,9 +120,9 @@ const MenubarItem = React.forwardRef<
   <MenubarPrimitive.Item
     ref={ref}
     className={cn(
-      'luth-relative luth-flex luth-cursor-default luth-select-none luth-items-center luth-rounded-sm luth-px-2 luth-py-1.5 luth-text-sm luth-outline-none focus:luth-bg-accent focus:luth-text-accent-foreground data-[disabled]:luth-pointer-events-none data-[disabled]:luth-opacity-50',
-      inset && 'luth-pl-8',
-      className,
+      "luth-relative luth-flex luth-cursor-default luth-select-none luth-items-center luth-rounded-sm luth-px-2 luth-py-1.5 luth-text-sm luth-outline-none focus:luth-bg-accent focus:luth-text-accent-foreground data-[disabled]:luth-pointer-events-none data-[disabled]:luth-opacity-50",
+      inset && "luth-pl-8",
+      className
     )}
     {...props}
   />
@@ -127,8 +136,8 @@ const MenubarCheckboxItem = React.forwardRef<
   <MenubarPrimitive.CheckboxItem
     ref={ref}
     className={cn(
-      'luth-relative luth-flex luth-cursor-default luth-select-none luth-items-center luth-rounded-sm luth-py-1.5 luth-pl-8 luth-pr-2 luth-text-sm luth-outline-none focus:luth-bg-accent focus:luth-text-accent-foreground data-[disabled]:luth-pointer-events-none data-[disabled]:luth-opacity-50',
-      className,
+      "luth-relative luth-flex luth-cursor-default luth-select-none luth-items-center luth-rounded-sm luth-py-1.5 luth-pl-8 luth-pr-2 luth-text-sm luth-outline-none focus:luth-bg-accent focus:luth-text-accent-foreground data-[disabled]:luth-pointer-events-none data-[disabled]:luth-opacity-50",
+      className
     )}
     checked={checked}
     {...props}
@@ -150,8 +159,8 @@ const MenubarRadioItem = React.forwardRef<
   <MenubarPrimitive.RadioItem
     ref={ref}
     className={cn(
-      'luth-relative luth-flex luth-cursor-default luth-select-none luth-items-center luth-rounded-sm luth-py-1.5 luth-pl-8 luth-pr-2 luth-text-sm luth-outline-none focus:luth-bg-accent focus:luth-text-accent-foreground data-[disabled]:luth-pointer-events-none data-[disabled]:luth-opacity-50',
-      className,
+      "luth-relative luth-flex luth-cursor-default luth-select-none luth-items-center luth-rounded-sm luth-py-1.5 luth-pl-8 luth-pr-2 luth-text-sm luth-outline-none focus:luth-bg-accent focus:luth-text-accent-foreground data-[disabled]:luth-pointer-events-none data-[disabled]:luth-opacity-50",
+      className
     )}
     {...props}
   >
@@ -174,9 +183,9 @@ const MenubarLabel = React.forwardRef<
   <MenubarPrimitive.Label
     ref={ref}
     className={cn(
-      'luth-px-2 luth-py-1.5 luth-text-sm luth-font-semibold',
-      inset && 'luth-pl-8',
-      className,
+      "luth-px-2 luth-py-1.5 luth-text-sm luth-font-semibold",
+      inset && "luth-pl-8",
+      className
     )}
     {...props}
   />
@@ -189,24 +198,27 @@ const MenubarSeparator = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <MenubarPrimitive.Separator
     ref={ref}
-    className={cn('luth--mx-1 luth-my-1 luth-h-px luth-bg-muted', className)}
+    className={cn("luth--mx-1 luth-my-1 luth-h-px luth-bg-muted", className)}
     {...props}
   />
 ))
 MenubarSeparator.displayName = MenubarPrimitive.Separator.displayName
 
-const MenubarShortcut = ({ className, ...props }: React.HTMLAttributes<HTMLSpanElement>) => {
+const MenubarShortcut = ({
+  className,
+  ...props
+}: React.HTMLAttributes<HTMLSpanElement>) => {
   return (
     <span
       className={cn(
-        'luth-ml-auto luth-text-xs luth-tracking-widest luth-text-muted-foreground',
-        className,
+        "luth-ml-auto luth-text-xs luth-tracking-widest luth-text-muted-foreground",
+        className
       )}
       {...props}
     />
   )
 }
-MenubarShortcut.displayname = 'MenubarShortcut'
+MenubarShortcut.displayname = "MenubarShortcut"
 
 export {
   Menubar,

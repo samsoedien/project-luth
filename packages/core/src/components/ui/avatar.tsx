@@ -1,9 +1,9 @@
-'use client'
+"use client"
 
-import * as React from 'react'
-import * as AvatarPrimitive from '@radix-ui/react-avatar'
+import * as React from "react"
+import * as AvatarPrimitive from "@radix-ui/react-avatar"
 
-import { cn } from '@/utils'
+import { cn } from "@/utils"
 
 const Avatar = React.forwardRef<
   React.ElementRef<typeof AvatarPrimitive.Root>,
@@ -12,8 +12,8 @@ const Avatar = React.forwardRef<
   <AvatarPrimitive.Root
     ref={ref}
     className={cn(
-      'luth-relative luth-flex luth-h-10 luth-w-10 luth-shrink-0 luth-overflow-hidden luth-rounded-full',
-      className,
+      "luth-relative luth-flex luth-h-10 luth-w-10 luth-shrink-0 luth-overflow-hidden luth-rounded-full",
+      className
     )}
     {...props}
   />
@@ -26,7 +26,7 @@ const AvatarImage = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <AvatarPrimitive.Image
     ref={ref}
-    className={cn('luth-aspect-square luth-h-full luth-w-full', className)}
+    className={cn("luth-aspect-square luth-h-full luth-w-full", className)}
     {...props}
   />
 ))
@@ -39,8 +39,8 @@ const AvatarFallback = React.forwardRef<
   <AvatarPrimitive.Fallback
     ref={ref}
     className={cn(
-      'luth-flex luth-h-full luth-w-full luth-items-center luth-justify-center luth-rounded-full luth-bg-muted',
-      className,
+      "luth-flex luth-h-full luth-w-full luth-items-center luth-justify-center luth-rounded-full luth-bg-muted",
+      className
     )}
     {...props}
   />

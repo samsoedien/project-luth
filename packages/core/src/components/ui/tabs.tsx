@@ -1,9 +1,9 @@
-'use client'
+"use client"
 
-import * as React from 'react'
-import * as TabsPrimitive from '@radix-ui/react-tabs'
+import * as React from "react"
+import * as TabsPrimitive from "@radix-ui/react-tabs"
 
-import { cn } from '@/utils'
+import { cn } from "@/utils"
 
 const Tabs = TabsPrimitive.Root
 
@@ -14,8 +14,8 @@ const TabsList = React.forwardRef<
   <TabsPrimitive.List
     ref={ref}
     className={cn(
-      'luth-inline-flex luth-h-9 luth-items-center luth-justify-center luth-rounded-lg luth-bg-muted luth-p-1 luth-text-muted-foreground',
-      className,
+      "luth-inline-flex luth-h-9 luth-items-center luth-justify-center luth-rounded-lg luth-bg-muted luth-p-1 luth-text-muted-foreground",
+      className
     )}
     {...props}
   />
@@ -29,8 +29,8 @@ const TabsTrigger = React.forwardRef<
   <TabsPrimitive.Trigger
     ref={ref}
     className={cn(
-      'luth-inline-flex luth-items-center luth-justify-center luth-whitespace-nowrap luth-rounded-md luth-px-3 luth-py-1 luth-text-sm luth-font-medium luth-ring-offset-background luth-transition-all focus-visible:luth-outline-none focus-visible:luth-ring-2 focus-visible:luth-ring-ring focus-visible:luth-ring-offset-2 disabled:luth-pointer-events-none disabled:luth-opacity-50 data-[state=active]:luth-bg-background data-[state=active]:luth-text-foreground data-[state=active]:luth-shadow',
-      className,
+      "luth-inline-flex luth-items-center luth-justify-center luth-whitespace-nowrap luth-rounded-md luth-px-3 luth-py-1 luth-text-sm luth-font-medium luth-ring-offset-background luth-transition-all focus-visible:luth-outline-none focus-visible:luth-ring-2 focus-visible:luth-ring-ring focus-visible:luth-ring-offset-2 disabled:luth-pointer-events-none disabled:luth-opacity-50 data-[state=active]:luth-bg-background data-[state=active]:luth-text-foreground data-[state=active]:luth-shadow",
+      className
     )}
     {...props}
   />
@@ -44,8 +44,8 @@ const TabsContent = React.forwardRef<
   <TabsPrimitive.Content
     ref={ref}
     className={cn(
-      'luth-mt-2 luth-ring-offset-background focus-visible:luth-outline-none focus-visible:luth-ring-2 focus-visible:luth-ring-ring focus-visible:luth-ring-offset-2',
-      className,
+      "luth-mt-2 luth-ring-offset-background focus-visible:luth-outline-none focus-visible:luth-ring-2 focus-visible:luth-ring-ring focus-visible:luth-ring-offset-2",
+      className
     )}
     {...props}
   />

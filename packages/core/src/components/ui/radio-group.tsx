@@ -1,10 +1,10 @@
-'use client'
+"use client"
 
-import * as React from 'react'
-import { CheckIcon } from '@radix-ui/react-icons'
-import * as RadioGroupPrimitive from '@radix-ui/react-radio-group'
+import * as React from "react"
+import { CheckIcon } from "@radix-ui/react-icons"
+import * as RadioGroupPrimitive from "@radix-ui/react-radio-group"
 
-import { cn } from '@/utils'
+import { cn } from "@/utils"
 
 const RadioGroup = React.forwardRef<
   React.ElementRef<typeof RadioGroupPrimitive.Root>,
@@ -12,7 +12,7 @@ const RadioGroup = React.forwardRef<
 >(({ className, ...props }, ref) => {
   return (
     <RadioGroupPrimitive.Root
-      className={cn('luth-grid luth-gap-2', className)}
+      className={cn("luth-grid luth-gap-2", className)}
       {...props}
       ref={ref}
     />
@@ -28,8 +28,8 @@ const RadioGroupItem = React.forwardRef<
     <RadioGroupPrimitive.Item
       ref={ref}
       className={cn(
-        'luth-aspect-square luth-h-4 luth-w-4 luth-rounded-full luth-border luth-border-primary luth-text-primary luth-shadow focus:luth-outline-none focus-visible:luth-ring-1 focus-visible:luth-ring-ring disabled:luth-cursor-not-allowed disabled:luth-opacity-50',
-        className,
+        "luth-aspect-square luth-h-4 luth-w-4 luth-rounded-full luth-border luth-border-primary luth-text-primary luth-shadow focus:luth-outline-none focus-visible:luth-ring-1 focus-visible:luth-ring-ring disabled:luth-cursor-not-allowed disabled:luth-opacity-50",
+        className
       )}
       {...props}
     >

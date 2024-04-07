@@ -1,10 +1,15 @@
-'use client'
+"use client"
 
-import * as React from 'react'
-import { CaretSortIcon, CheckIcon, ChevronDownIcon, ChevronUpIcon } from '@radix-ui/react-icons'
-import * as SelectPrimitive from '@radix-ui/react-select'
+import * as React from "react"
+import {
+  CaretSortIcon,
+  CheckIcon,
+  ChevronDownIcon,
+  ChevronUpIcon,
+} from "@radix-ui/react-icons"
+import * as SelectPrimitive from "@radix-ui/react-select"
 
-import { cn } from '@/utils'
+import { cn } from "@/utils"
 
 const Select = SelectPrimitive.Root
 
@@ -19,8 +24,8 @@ const SelectTrigger = React.forwardRef<
   <SelectPrimitive.Trigger
     ref={ref}
     className={cn(
-      'luth-flex luth-h-9 luth-w-full luth-items-center luth-justify-between luth-whitespace-nowrap luth-rounded-md luth-border luth-border-input luth-bg-transparent luth-px-3 luth-py-2 luth-text-sm luth-shadow-sm luth-ring-offset-background placeholder:luth-text-muted-foreground focus:luth-outline-none focus:luth-ring-1 focus:luth-ring-ring disabled:luth-cursor-not-allowed disabled:luth-opacity-50 [&>span]:luth-line-clamp-1',
-      className,
+      "luth-flex luth-h-9 luth-w-full luth-items-center luth-justify-between luth-whitespace-nowrap luth-rounded-md luth-border luth-border-input luth-bg-transparent luth-px-3 luth-py-2 luth-text-sm luth-shadow-sm luth-ring-offset-background placeholder:luth-text-muted-foreground focus:luth-outline-none focus:luth-ring-1 focus:luth-ring-ring disabled:luth-cursor-not-allowed disabled:luth-opacity-50 [&>span]:luth-line-clamp-1",
+      className
     )}
     {...props}
   >
@@ -39,8 +44,8 @@ const SelectScrollUpButton = React.forwardRef<
   <SelectPrimitive.ScrollUpButton
     ref={ref}
     className={cn(
-      'luth-flex luth-cursor-default luth-items-center luth-justify-center luth-py-1',
-      className,
+      "luth-flex luth-cursor-default luth-items-center luth-justify-center luth-py-1",
+      className
     )}
     {...props}
   >
@@ -56,28 +61,29 @@ const SelectScrollDownButton = React.forwardRef<
   <SelectPrimitive.ScrollDownButton
     ref={ref}
     className={cn(
-      'luth-flex luth-cursor-default luth-items-center luth-justify-center luth-py-1',
-      className,
+      "luth-flex luth-cursor-default luth-items-center luth-justify-center luth-py-1",
+      className
     )}
     {...props}
   >
     <ChevronDownIcon />
   </SelectPrimitive.ScrollDownButton>
 ))
-SelectScrollDownButton.displayName = SelectPrimitive.ScrollDownButton.displayName
+SelectScrollDownButton.displayName =
+  SelectPrimitive.ScrollDownButton.displayName
 
 const SelectContent = React.forwardRef<
   React.ElementRef<typeof SelectPrimitive.Content>,
   React.ComponentPropsWithoutRef<typeof SelectPrimitive.Content>
->(({ className, children, position = 'popper', ...props }, ref) => (
+>(({ className, children, position = "popper", ...props }, ref) => (
   <SelectPrimitive.Portal>
     <SelectPrimitive.Content
       ref={ref}
       className={cn(
-        'luth-relative luth-z-50 luth-max-h-96 luth-min-w-[8rem] luth-overflow-hidden luth-rounded-md luth-border luth-bg-popover luth-text-popover-foreground luth-shadow-md data-[state=open]:luth-animate-in data-[state=closed]:luth-animate-out data-[state=closed]:luth-fade-out-0 data-[state=open]:luth-fade-in-0 data-[state=closed]:luth-zoom-out-95 data-[state=open]:luth-zoom-in-95 data-[side=bottom]:luth-slide-in-from-top-2 data-[side=left]:luth-slide-in-from-right-2 data-[side=right]:luth-slide-in-from-left-2 data-[side=top]:luth-slide-in-from-bottom-2',
-        position === 'popper' &&
-          'data-[side=bottom]:luth-translate-y-1 data-[side=left]:luth--translate-x-1 data-[side=right]:luth-translate-x-1 data-[side=top]:luth--translate-y-1',
-        className,
+        "luth-relative luth-z-50 luth-max-h-96 luth-min-w-[8rem] luth-overflow-hidden luth-rounded-md luth-border luth-bg-popover luth-text-popover-foreground luth-shadow-md data-[state=open]:luth-animate-in data-[state=closed]:luth-animate-out data-[state=closed]:luth-fade-out-0 data-[state=open]:luth-fade-in-0 data-[state=closed]:luth-zoom-out-95 data-[state=open]:luth-zoom-in-95 data-[side=bottom]:luth-slide-in-from-top-2 data-[side=left]:luth-slide-in-from-right-2 data-[side=right]:luth-slide-in-from-left-2 data-[side=top]:luth-slide-in-from-bottom-2",
+        position === "popper" &&
+          "data-[side=bottom]:luth-translate-y-1 data-[side=left]:luth--translate-x-1 data-[side=right]:luth-translate-x-1 data-[side=top]:luth--translate-y-1",
+        className
       )}
       position={position}
       {...props}
@@ -85,9 +91,9 @@ const SelectContent = React.forwardRef<
       <SelectScrollUpButton />
       <SelectPrimitive.Viewport
         className={cn(
-          'luth-p-1',
-          position === 'popper' &&
-            'luth-h-[var(--radix-select-trigger-height)] luth-w-full luth-min-w-[var(--radix-select-trigger-width)]',
+          "luth-p-1",
+          position === "popper" &&
+            "luth-h-[var(--radix-select-trigger-height)] luth-w-full luth-min-w-[var(--radix-select-trigger-width)]"
         )}
       >
         {children}
@@ -104,7 +110,7 @@ const SelectLabel = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <SelectPrimitive.Label
     ref={ref}
-    className={cn('luth-px-2 luth-py-1.5 luth-text-sm luth-font-semibold', className)}
+    className={cn("luth-px-2 luth-py-1.5 luth-text-sm luth-font-semibold", className)}
     {...props}
   />
 ))
@@ -117,8 +123,8 @@ const SelectItem = React.forwardRef<
   <SelectPrimitive.Item
     ref={ref}
     className={cn(
-      'luth-relative luth-flex luth-w-full luth-cursor-default luth-select-none luth-items-center luth-rounded-sm luth-py-1.5 luth-pl-2 luth-pr-8 luth-text-sm luth-outline-none focus:luth-bg-accent focus:luth-text-accent-foreground data-[disabled]:luth-pointer-events-none data-[disabled]:luth-opacity-50',
-      className,
+      "luth-relative luth-flex luth-w-full luth-cursor-default luth-select-none luth-items-center luth-rounded-sm luth-py-1.5 luth-pl-2 luth-pr-8 luth-text-sm luth-outline-none focus:luth-bg-accent focus:luth-text-accent-foreground data-[disabled]:luth-pointer-events-none data-[disabled]:luth-opacity-50",
+      className
     )}
     {...props}
   >
@@ -138,7 +144,7 @@ const SelectSeparator = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <SelectPrimitive.Separator
     ref={ref}
-    className={cn('luth--mx-1 luth-my-1 luth-h-px luth-bg-muted', className)}
+    className={cn("luth--mx-1 luth-my-1 luth-h-px luth-bg-muted", className)}
     {...props}
   />
 ))

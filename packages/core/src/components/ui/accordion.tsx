@@ -1,10 +1,10 @@
-'use client'
+"use client"
 
-import * as React from 'react'
-import * as AccordionPrimitive from '@radix-ui/react-accordion'
-import { ChevronDownIcon } from '@radix-ui/react-icons'
+import * as React from "react"
+import * as AccordionPrimitive from "@radix-ui/react-accordion"
+import { ChevronDownIcon } from "@radix-ui/react-icons"
 
-import { cn } from '@/utils'
+import { cn } from "@/utils"
 
 const Accordion = AccordionPrimitive.Root
 
@@ -12,9 +12,13 @@ const AccordionItem = React.forwardRef<
   React.ElementRef<typeof AccordionPrimitive.Item>,
   React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Item>
 >(({ className, ...props }, ref) => (
-  <AccordionPrimitive.Item ref={ref} className={cn('luth-border-b', className)} {...props} />
+  <AccordionPrimitive.Item
+    ref={ref}
+    className={cn("luth-border-b", className)}
+    {...props}
+  />
 ))
-AccordionItem.displayName = 'AccordionItem'
+AccordionItem.displayName = "AccordionItem"
 
 const AccordionTrigger = React.forwardRef<
   React.ElementRef<typeof AccordionPrimitive.Trigger>,
@@ -24,8 +28,8 @@ const AccordionTrigger = React.forwardRef<
     <AccordionPrimitive.Trigger
       ref={ref}
       className={cn(
-        'luth-flex luth-flex-1 luth-items-center luth-justify-between luth-py-4 luth-text-sm luth-font-medium luth-transition-all hover:luth-underline [&[data-state=open]>svg]:luth-rotate-180',
-        className,
+        "luth-flex luth-flex-1 luth-items-center luth-justify-between luth-py-4 luth-text-sm luth-font-medium luth-transition-all hover:luth-underline [&[data-state=open]>svg]:luth-rotate-180",
+        className
       )}
       {...props}
     >
@@ -45,7 +49,7 @@ const AccordionContent = React.forwardRef<
     className="luth-overflow-hidden luth-text-sm data-[state=closed]:luth-animate-accordion-up data-[state=open]:luth-animate-accordion-down"
     {...props}
   >
-    <div className={cn('luth-pb-4 luth-pt-0', className)}>{children}</div>
+    <div className={cn("luth-pb-4 luth-pt-0", className)}>{children}</div>
   </AccordionPrimitive.Content>
 ))
 AccordionContent.displayName = AccordionPrimitive.Content.displayName
