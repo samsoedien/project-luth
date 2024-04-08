@@ -1,4 +1,4 @@
-import * as React from "react";
+import * as React from 'react'
 
 import {
   Card,
@@ -8,7 +8,7 @@ import {
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-} from "@project-luth/core";
+} from '@project-luth/core'
 
 export function CarouselSpacing(): JSX.Element {
   return (
@@ -29,5 +29,5 @@ export function CarouselSpacing(): JSX.Element {
       <CarouselPrevious />
       <CarouselNext />
     </Carousel>
-  );
+  )
 }

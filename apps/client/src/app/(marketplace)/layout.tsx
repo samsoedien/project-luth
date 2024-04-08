@@ -1,9 +1,9 @@
-import React from "react";
+import React from 'react'
 
 export default function MarketplaceLayout({
   children,
 }: {
-  children: React.ReactNode;
+  children: React.ReactNode
 }): JSX.Element {
   return (
     <>
@@ -13,5 +13,5 @@ export default function MarketplaceLayout({
         </div>
       </main>
     </>
-  );
+  )
 }

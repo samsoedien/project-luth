@@ -5,7 +5,7 @@ import {
   CreditCard,
   MoreVertical,
   Truck,
-} from "@project-luth/icons";
+} from '@project-luth/icons'
 
 import {
   Button,
@@ -24,12 +24,12 @@ import {
   PaginationContent,
   PaginationItem,
   Separator,
-} from "@project-luth/core";
+} from '@project-luth/core'
 
 export default function CartComponent(): JSX.Element {
   return (
     <Card className="overflow-hidden">
-      <CardHeader className="flex flex-row items-start bg-muted/50">
+      <CardHeader className="bg-muted/50 flex flex-row items-start">
         <div className="grid gap-0.5">
           <CardTitle className="group flex items-center gap-2 text-lg">
             Order Oe31b70H
@@ -47,9 +47,7 @@ export default function CartComponent(): JSX.Element {
         <div className="ml-auto flex items-center gap-1">
           <Button size="sm" variant="outline" className="h-8 gap-1">
             <Truck className="h-3.5 w-3.5" />
-            <span className="lg:sr-only xl:not-sr-only xl:whitespace-nowrap">
-              Track Order
-            </span>
+            <span className="lg:sr-only xl:not-sr-only xl:whitespace-nowrap">Track Order</span>
           </Button>
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
@@ -108,7 +106,7 @@ export default function CartComponent(): JSX.Element {
         <div className="grid grid-cols-2 gap-4">
           <div className="grid gap-3">
             <div className="font-semibold">Shipping Information</div>
-            <address className="grid gap-0.5 not-italic text-muted-foreground">
+            <address className="text-muted-foreground grid gap-0.5 not-italic">
               <span>Liam Johnson</span>
               <span>1234 Main St.</span>
               <span>Anytown, CA 12345</span>
@@ -116,9 +114,7 @@ export default function CartComponent(): JSX.Element {
           </div>
           <div className="grid auto-rows-max gap-3">
             <div className="font-semibold">Billing Information</div>
-            <div className="text-muted-foreground">
-              Same as shipping address
-            </div>
+            <div className="text-muted-foreground">Same as shipping address</div>
           </div>
         </div>
         <Separator className="my-4" />
@@ -148,7 +144,7 @@ export default function CartComponent(): JSX.Element {
           <div className="font-semibold">Payment Information</div>
           <dl className="grid gap-3">
             <div className="flex items-center justify-between">
-              <dt className="flex items-center gap-1 text-muted-foreground">
+              <dt className="text-muted-foreground flex items-center gap-1">
                 <CreditCard className="h-4 w-4" />
                 Visa
               </dt>
@@ -157,8 +153,8 @@ export default function CartComponent(): JSX.Element {
           </dl>
         </div>
       </CardContent>
-      <CardFooter className="flex flex-row items-center border-t bg-muted/50 px-6 py-3">
-        <div className="text-xs text-muted-foreground">
+      <CardFooter className="bg-muted/50 flex flex-row items-center border-t px-6 py-3">
+        <div className="text-muted-foreground text-xs">
           Updated <time dateTime="2023-11-23">November 23, 2023</time>
         </div>
         <Pagination className="ml-auto mr-0 w-auto">
@@ -179,5 +175,5 @@ export default function CartComponent(): JSX.Element {
         </Pagination>
       </CardFooter>
     </Card>
-  );
+  )
 }

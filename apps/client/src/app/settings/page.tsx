@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react'
 
 import {
   Button,
@@ -10,7 +10,7 @@ import {
   CardTitle,
   Checkbox,
   Input,
-} from "@project-luth/core";
+} from '@project-luth/core'
 
 export default function SettingsPage(): JSX.Element {
   return (
@@ -18,9 +18,7 @@ export default function SettingsPage(): JSX.Element {
       <Card x-chunk="dashboard-04-chunk-1">
         <CardHeader>
           <CardTitle>Store Name</CardTitle>
-          <CardDescription>
-            Used to identify your store in the marketplace.
-          </CardDescription>
+          <CardDescription>Used to identify your store in the marketplace.</CardDescription>
         </CardHeader>
         <CardContent>
           <form>
@@ -35,8 +33,7 @@ export default function SettingsPage(): JSX.Element {
         <CardHeader>
           <CardTitle>Plugins Directory</CardTitle>
           <CardDescription>
-            The directory within your project, in which your plugins are
-            located.
+            The directory within your project, in which your plugins are located.
           </CardDescription>
         </CardHeader>
         <CardContent>
@@ -58,5 +55,5 @@ export default function SettingsPage(): JSX.Element {
         </CardFooter>
       </Card>
     </>
-  );
+  )
 }

@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react'
 import {
   Drawer,
   DrawerTrigger,
@@ -20,9 +20,9 @@ import {
   SheetHeader,
   SheetTitle,
   SheetTrigger,
-} from "@project-luth/core";
-import { ShoppingCartIcon } from "@project-luth/icons";
-import Cart from "~/features/cart";
+} from '@project-luth/core'
+import { ShoppingCartIcon } from '@project-luth/icons'
+import Cart from '~/features/cart'
 
 // export default function SideDrawer(): JSX.Element {
 //   return (
@@ -62,7 +62,7 @@ export default function SheetSide(): JSX.Element {
           <span className="sr-only">Shopping cart</span>
         </Button>
       </SheetTrigger>
-      <SheetContent side={"right"} className="w-[420px] sm:w-[540px]">
+      <SheetContent side={'right'} className="w-[420px] sm:w-[540px]">
         {/* /FIXME: Widths not working? */}
         <SheetHeader>
           <SheetTitle>Edit profile</SheetTitle>
@@ -83,5 +83,5 @@ export default function SheetSide(): JSX.Element {
         </SheetFooter>
       </SheetContent>
     </Sheet>
-  );
+  )
 }

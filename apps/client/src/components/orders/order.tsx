@@ -1,5 +1,5 @@
-import Image from "next/image";
-import Link from "next/link";
+import Image from 'next/image'
+import Link from 'next/link'
 import {
   ChevronLeft,
   ChevronRight,
@@ -18,7 +18,7 @@ import {
   ShoppingCart,
   Truck,
   Users2,
-} from "@project-luth/icons";
+} from '@project-luth/icons'
 
 import {
   Badge,
@@ -65,18 +65,18 @@ import {
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-} from "@project-luth/core";
+} from '@project-luth/core'
 
 export function Dashboard() {
   return (
     <main className="luth-bg-background">
       <TooltipProvider>
         <div className="luth-bg-muted/40  flex min-h-screen w-full flex-col">
-          <aside className="fixed inset-y-0 left-0 z-10 hidden w-14 flex-col border-r bg-background sm:flex">
+          <aside className="bg-background fixed inset-y-0 left-0 z-10 hidden w-14 flex-col border-r sm:flex">
             <nav className="flex flex-col items-center gap-4 px-2 sm:py-4">
               <Link
                 href="#"
-                className="group flex h-9 w-9 shrink-0 items-center justify-center gap-2 rounded-full bg-primary text-lg font-semibold text-primary-foreground md:h-8 md:w-8 md:text-base"
+                className="bg-primary text-primary-foreground group flex h-9 w-9 shrink-0 items-center justify-center gap-2 rounded-full text-lg font-semibold md:h-8 md:w-8 md:text-base"
               >
                 <Package2 className="h-4 w-4 transition-all group-hover:scale-110" />
                 <span className="sr-only">Acme Inc</span>
@@ -85,7 +85,7 @@ export function Dashboard() {
                 <TooltipTrigger asChild>
                   <Link
                     href="#"
-                    className="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
+                    className="text-muted-foreground hover:text-foreground flex h-9 w-9 items-center justify-center rounded-lg transition-colors md:h-8 md:w-8"
                   >
                     <Home className="h-5 w-5" />
                     <span className="sr-only">Dashboard</span>
@@ -97,7 +97,7 @@ export function Dashboard() {
                 <TooltipTrigger asChild>
                   <Link
                     href="#"
-                    className="flex h-9 w-9 items-center justify-center rounded-lg bg-accent text-accent-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
+                    className="bg-accent text-accent-foreground hover:text-foreground flex h-9 w-9 items-center justify-center rounded-lg transition-colors md:h-8 md:w-8"
                   >
                     <ShoppingCart className="h-5 w-5" />
                     <span className="sr-only">Orders</span>
@@ -109,7 +109,7 @@ export function Dashboard() {
                 <TooltipTrigger asChild>
                   <Link
                     href="#"
-                    className="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
+                    className="text-muted-foreground hover:text-foreground flex h-9 w-9 items-center justify-center rounded-lg transition-colors md:h-8 md:w-8"
                   >
                     <Package className="h-5 w-5" />
                     <span className="sr-only">Products</span>
@@ -121,7 +121,7 @@ export function Dashboard() {
                 <TooltipTrigger asChild>
                   <Link
                     href="#"
-                    className="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
+                    className="text-muted-foreground hover:text-foreground flex h-9 w-9 items-center justify-center rounded-lg transition-colors md:h-8 md:w-8"
                   >
                     <Users2 className="h-5 w-5" />
                     <span className="sr-only">Customers</span>
@@ -133,7 +133,7 @@ export function Dashboard() {
                 <TooltipTrigger asChild>
                   <Link
                     href="#"
-                    className="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
+                    className="text-muted-foreground hover:text-foreground flex h-9 w-9 items-center justify-center rounded-lg transition-colors md:h-8 md:w-8"
                   >
                     <LineChart className="h-5 w-5" />
                     <span className="sr-only">Analytics</span>
@@ -147,7 +147,7 @@ export function Dashboard() {
                 <TooltipTrigger asChild>
                   <Link
                     href="#"
-                    className="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
+                    className="text-muted-foreground hover:text-foreground flex h-9 w-9 items-center justify-center rounded-lg transition-colors md:h-8 md:w-8"
                   >
                     <Settings className="h-5 w-5" />
                     <span className="sr-only">Settings</span>
@@ -158,7 +158,7 @@ export function Dashboard() {
             </nav>
           </aside>
           <div className="flex flex-col sm:gap-4 sm:py-4 sm:pl-14">
-            <header className="z-5 sticky top-0 flex h-14 items-center gap-4 border-b bg-background px-4 sm:static sm:h-auto sm:border-0 sm:bg-transparent sm:px-6">
+            <header className="z-5 bg-background sticky top-0 flex h-14 items-center gap-4 border-b px-4 sm:static sm:h-auto sm:border-0 sm:bg-transparent sm:px-6">
               <Sheet>
                 <SheetTrigger asChild>
                   <Button size="icon" variant="outline" className="sm:hidden">
@@ -170,42 +170,39 @@ export function Dashboard() {
                   <nav className="grid gap-6 text-lg font-medium">
                     <Link
                       href="#"
-                      className="group flex h-10 w-10 shrink-0 items-center justify-center gap-2 rounded-full bg-primary text-lg font-semibold text-primary-foreground md:text-base"
+                      className="bg-primary text-primary-foreground group flex h-10 w-10 shrink-0 items-center justify-center gap-2 rounded-full text-lg font-semibold md:text-base"
                     >
                       <Package2 className="h-5 w-5 transition-all group-hover:scale-110" />
                       <span className="sr-only">Acme Inc</span>
                     </Link>
                     <Link
                       href="#"
-                      className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground"
+                      className="text-muted-foreground hover:text-foreground flex items-center gap-4 px-2.5"
                     >
                       <Home className="h-5 w-5" />
                       Dashboard
                     </Link>
-                    <Link
-                      href="#"
-                      className="flex items-center gap-4 px-2.5 text-foreground"
-                    >
+                    <Link href="#" className="text-foreground flex items-center gap-4 px-2.5">
                       <ShoppingCart className="h-5 w-5" />
                       Orders
                     </Link>
                     <Link
                       href="#"
-                      className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground"
+                      className="text-muted-foreground hover:text-foreground flex items-center gap-4 px-2.5"
                     >
                       <Package className="h-5 w-5" />
                       Products
                     </Link>
                     <Link
                       href="#"
-                      className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground"
+                      className="text-muted-foreground hover:text-foreground flex items-center gap-4 px-2.5"
                     >
                       <Users2 className="h-5 w-5" />
                       Customers
                     </Link>
                     <Link
                       href="#"
-                      className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground"
+                      className="text-muted-foreground hover:text-foreground flex items-center gap-4 px-2.5"
                     >
                       <LineChart className="h-5 w-5" />
                       Settings
@@ -233,20 +230,16 @@ export function Dashboard() {
                 </BreadcrumbList>
               </Breadcrumb>
               <div className="relative ml-auto flex-1 md:grow-0">
-                <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
+                <Search className="text-muted-foreground absolute left-2.5 top-2.5 h-4 w-4" />
                 <Input
                   type="search"
                   placeholder="Search..."
-                  className="w-full rounded-lg bg-background pl-8 md:w-[200px] lg:w-[320px]"
+                  className="bg-background w-full rounded-lg pl-8 md:w-[200px] lg:w-[320px]"
                 />
               </div>
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
-                  <Button
-                    variant="outline"
-                    size="icon"
-                    className="overflow-hidden rounded-full"
-                  >
+                  <Button variant="outline" size="icon" className="overflow-hidden rounded-full">
                     <Image
                       src="/placeholder-user.jpg"
                       width={36}
@@ -273,8 +266,8 @@ export function Dashboard() {
                     <CardHeader className="pb-3">
                       <CardTitle>Your Orders</CardTitle>
                       <CardDescription className="max-w-lg text-balance leading-relaxed">
-                        Introducing Our Dynamic Orders Dashboard for Seamless
-                        Management and Insightful Analysis.
+                        Introducing Our Dynamic Orders Dashboard for Seamless Management and
+                        Insightful Analysis.
                       </CardDescription>
                     </CardHeader>
                     <CardFooter>
@@ -287,9 +280,7 @@ export function Dashboard() {
                       <CardTitle className="text-4xl">$1329</CardTitle>
                     </CardHeader>
                     <CardContent>
-                      <div className="text-xs text-muted-foreground">
-                        +25% from last week
-                      </div>
+                      <div className="text-muted-foreground text-xs">+25% from last week</div>
                     </CardContent>
                     <CardFooter>
                       <Progress value={25} aria-label="25% increase" />
@@ -301,9 +292,7 @@ export function Dashboard() {
                       <CardTitle className="text-3xl">$5,329</CardTitle>
                     </CardHeader>
                     <CardContent>
-                      <div className="text-xs text-muted-foreground">
-                        +10% from last month
-                      </div>
+                      <div className="text-muted-foreground text-xs">+10% from last month</div>
                     </CardContent>
                     <CardFooter>
                       <Progress value={12} aria-label="12% increase" />
@@ -320,36 +309,20 @@ export function Dashboard() {
                     <div className="ml-auto flex items-center gap-2">
                       <DropdownMenu>
                         <DropdownMenuTrigger asChild>
-                          <Button
-                            variant="outline"
-                            size="sm"
-                            className="h-7 gap-1 text-sm"
-                          >
+                          <Button variant="outline" size="sm" className="h-7 gap-1 text-sm">
                             <ListFilter className="h-3.5 w-3.5" />
-                            <span className="sr-only sm:not-sr-only">
-                              Filter
-                            </span>
+                            <span className="sr-only sm:not-sr-only">Filter</span>
                           </Button>
                         </DropdownMenuTrigger>
                         <DropdownMenuContent align="end">
                           <DropdownMenuLabel>Filter by</DropdownMenuLabel>
                           <DropdownMenuSeparator />
-                          <DropdownMenuCheckboxItem checked>
-                            Fulfilled
-                          </DropdownMenuCheckboxItem>
-                          <DropdownMenuCheckboxItem>
-                            Declined
-                          </DropdownMenuCheckboxItem>
-                          <DropdownMenuCheckboxItem>
-                            Refunded
-                          </DropdownMenuCheckboxItem>
+                          <DropdownMenuCheckboxItem checked>Fulfilled</DropdownMenuCheckboxItem>
+                          <DropdownMenuCheckboxItem>Declined</DropdownMenuCheckboxItem>
+                          <DropdownMenuCheckboxItem>Refunded</DropdownMenuCheckboxItem>
                         </DropdownMenuContent>
                       </DropdownMenu>
-                      <Button
-                        size="sm"
-                        variant="outline"
-                        className="h-7 gap-1 text-sm"
-                      >
+                      <Button size="sm" variant="outline" className="h-7 gap-1 text-sm">
                         <File className="h-3.5 w-3.5" />
                         <span className="sr-only sm:not-sr-only">Export</span>
                       </Button>
@@ -359,205 +332,147 @@ export function Dashboard() {
                     <Card>
                       <CardHeader className="px-7">
                         <CardTitle>Orders</CardTitle>
-                        <CardDescription>
-                          Recent orders from your store.
-                        </CardDescription>
+                        <CardDescription>Recent orders from your store.</CardDescription>
                       </CardHeader>
                       <CardContent>
                         <Table>
                           <TableHeader>
                             <TableRow>
                               <TableHead>Customer</TableHead>
-                              <TableHead className="hidden sm:table-cell">
-                                Type
-                              </TableHead>
-                              <TableHead className="hidden sm:table-cell">
-                                Status
-                              </TableHead>
-                              <TableHead className="hidden md:table-cell">
-                                Date
-                              </TableHead>
-                              <TableHead className="text-right">
-                                Amount
-                              </TableHead>
+                              <TableHead className="hidden sm:table-cell">Type</TableHead>
+                              <TableHead className="hidden sm:table-cell">Status</TableHead>
+                              <TableHead className="hidden md:table-cell">Date</TableHead>
+                              <TableHead className="text-right">Amount</TableHead>
                             </TableRow>
                           </TableHeader>
                           <TableBody>
                             <TableRow className="bg-accent">
                               <TableCell>
                                 <div className="font-medium">Liam Johnson</div>
-                                <div className="hidden text-sm text-muted-foreground md:inline">
+                                <div className="text-muted-foreground hidden text-sm md:inline">
                                   liam@example.com
                                 </div>
                               </TableCell>
-                              <TableCell className="hidden sm:table-cell">
-                                Sale
-                              </TableCell>
+                              <TableCell className="hidden sm:table-cell">Sale</TableCell>
                               <TableCell className="hidden sm:table-cell">
                                 <Badge className="text-xs" variant="secondary">
                                   Fulfilled
                                 </Badge>
                               </TableCell>
-                              <TableCell className="hidden md:table-cell">
-                                2023-06-23
-                              </TableCell>
-                              <TableCell className="text-right">
-                                $250.00
-                              </TableCell>
+                              <TableCell className="hidden md:table-cell">2023-06-23</TableCell>
+                              <TableCell className="text-right">$250.00</TableCell>
                             </TableRow>
                             <TableRow>
                               <TableCell>
                                 <div className="font-medium">Olivia Smith</div>
-                                <div className="hidden text-sm text-muted-foreground md:inline">
+                                <div className="text-muted-foreground hidden text-sm md:inline">
                                   olivia@example.com
                                 </div>
                               </TableCell>
-                              <TableCell className="hidden sm:table-cell">
-                                Refund
-                              </TableCell>
+                              <TableCell className="hidden sm:table-cell">Refund</TableCell>
                               <TableCell className="hidden sm:table-cell">
                                 <Badge className="text-xs" variant="outline">
                                   Declined
                                 </Badge>
                               </TableCell>
-                              <TableCell className="hidden md:table-cell">
-                                2023-06-24
-                              </TableCell>
-                              <TableCell className="text-right">
-                                $150.00
-                              </TableCell>
+                              <TableCell className="hidden md:table-cell">2023-06-24</TableCell>
+                              <TableCell className="text-right">$150.00</TableCell>
                             </TableRow>
                             <TableRow>
                               <TableCell>
                                 <div className="font-medium">Liam Johnson</div>
-                                <div className="hidden text-sm text-muted-foreground md:inline">
+                                <div className="text-muted-foreground hidden text-sm md:inline">
                                   liam@example.com
                                 </div>
                               </TableCell>
-                              <TableCell className="hidden sm:table-cell">
-                                Sale
-                              </TableCell>
+                              <TableCell className="hidden sm:table-cell">Sale</TableCell>
                               <TableCell className="hidden sm:table-cell">
                                 <Badge className="text-xs" variant="secondary">
                                   Fulfilled
                                 </Badge>
                               </TableCell>
-                              <TableCell className="hidden md:table-cell">
-                                2023-06-23
-                              </TableCell>
-                              <TableCell className="text-right">
-                                $250.00
-                              </TableCell>
+                              <TableCell className="hidden md:table-cell">2023-06-23</TableCell>
+                              <TableCell className="text-right">$250.00</TableCell>
                             </TableRow>
                             <TableRow>
                               <TableCell>
                                 <div className="font-medium">Noah Williams</div>
-                                <div className="hidden text-sm text-muted-foreground md:inline">
+                                <div className="text-muted-foreground hidden text-sm md:inline">
                                   noah@example.com
                                 </div>
                               </TableCell>
-                              <TableCell className="hidden sm:table-cell">
-                                Subscription
-                              </TableCell>
+                              <TableCell className="hidden sm:table-cell">Subscription</TableCell>
                               <TableCell className="hidden sm:table-cell">
                                 <Badge className="text-xs" variant="secondary">
                                   Fulfilled
                                 </Badge>
                               </TableCell>
-                              <TableCell className="hidden md:table-cell">
-                                2023-06-25
-                              </TableCell>
-                              <TableCell className="text-right">
-                                $350.00
-                              </TableCell>
+                              <TableCell className="hidden md:table-cell">2023-06-25</TableCell>
+                              <TableCell className="text-right">$350.00</TableCell>
                             </TableRow>
                             <TableRow>
                               <TableCell>
                                 <div className="font-medium">Emma Brown</div>
-                                <div className="hidden text-sm text-muted-foreground md:inline">
+                                <div className="text-muted-foreground hidden text-sm md:inline">
                                   emma@example.com
                                 </div>
                               </TableCell>
-                              <TableCell className="hidden sm:table-cell">
-                                Sale
-                              </TableCell>
+                              <TableCell className="hidden sm:table-cell">Sale</TableCell>
                               <TableCell className="hidden sm:table-cell">
                                 <Badge className="text-xs" variant="secondary">
                                   Fulfilled
                                 </Badge>
                               </TableCell>
-                              <TableCell className="hidden md:table-cell">
-                                2023-06-26
-                              </TableCell>
-                              <TableCell className="text-right">
-                                $450.00
-                              </TableCell>
+                              <TableCell className="hidden md:table-cell">2023-06-26</TableCell>
+                              <TableCell className="text-right">$450.00</TableCell>
                             </TableRow>
                             <TableRow>
                               <TableCell>
                                 <div className="font-medium">Liam Johnson</div>
-                                <div className="hidden text-sm text-muted-foreground md:inline">
+                                <div className="text-muted-foreground hidden text-sm md:inline">
                                   liam@example.com
                                 </div>
                               </TableCell>
-                              <TableCell className="hidden sm:table-cell">
-                                Sale
-                              </TableCell>
+                              <TableCell className="hidden sm:table-cell">Sale</TableCell>
                               <TableCell className="hidden sm:table-cell">
                                 <Badge className="text-xs" variant="secondary">
                                   Fulfilled
                                 </Badge>
                               </TableCell>
-                              <TableCell className="hidden md:table-cell">
-                                2023-06-23
-                              </TableCell>
-                              <TableCell className="text-right">
-                                $250.00
-                              </TableCell>
+                              <TableCell className="hidden md:table-cell">2023-06-23</TableCell>
+                              <TableCell className="text-right">$250.00</TableCell>
                             </TableRow>
                             <TableRow>
                               <TableCell>
                                 <div className="font-medium">Olivia Smith</div>
-                                <div className="hidden text-sm text-muted-foreground md:inline">
+                                <div className="text-muted-foreground hidden text-sm md:inline">
                                   olivia@example.com
                                 </div>
                               </TableCell>
-                              <TableCell className="hidden sm:table-cell">
-                                Refund
-                              </TableCell>
+                              <TableCell className="hidden sm:table-cell">Refund</TableCell>
                               <TableCell className="hidden sm:table-cell">
                                 <Badge className="text-xs" variant="outline">
                                   Declined
                                 </Badge>
                               </TableCell>
-                              <TableCell className="hidden md:table-cell">
-                                2023-06-24
-                              </TableCell>
-                              <TableCell className="text-right">
-                                $150.00
-                              </TableCell>
+                              <TableCell className="hidden md:table-cell">2023-06-24</TableCell>
+                              <TableCell className="text-right">$150.00</TableCell>
                             </TableRow>
                             <TableRow>
                               <TableCell>
                                 <div className="font-medium">Emma Brown</div>
-                                <div className="hidden text-sm text-muted-foreground md:inline">
+                                <div className="text-muted-foreground hidden text-sm md:inline">
                                   emma@example.com
                                 </div>
                               </TableCell>
-                              <TableCell className="hidden sm:table-cell">
-                                Sale
-                              </TableCell>
+                              <TableCell className="hidden sm:table-cell">Sale</TableCell>
                               <TableCell className="hidden sm:table-cell">
                                 <Badge className="text-xs" variant="secondary">
                                   Fulfilled
                                 </Badge>
                               </TableCell>
-                              <TableCell className="hidden md:table-cell">
-                                2023-06-26
-                              </TableCell>
-                              <TableCell className="text-right">
-                                $450.00
-                              </TableCell>
+                              <TableCell className="hidden md:table-cell">2023-06-26</TableCell>
+                              <TableCell className="text-right">$450.00</TableCell>
                             </TableRow>
                           </TableBody>
                         </Table>
@@ -592,11 +507,7 @@ export function Dashboard() {
                       </Button>
                       <DropdownMenu>
                         <DropdownMenuTrigger asChild>
-                          <Button
-                            size="icon"
-                            variant="outline"
-                            className="h-8 w-8"
-                          >
+                          <Button size="icon" variant="outline" className="h-8 w-8">
                             <MoreVertical className="h-3.5 w-3.5" />
                             <span className="sr-only">More</span>
                           </Button>
@@ -630,15 +541,11 @@ export function Dashboard() {
                       <Separator className="my-2" />
                       <ul className="grid gap-3">
                         <li className="flex items-center justify-between">
-                          <span className="text-muted-foreground">
-                            Subtotal
-                          </span>
+                          <span className="text-muted-foreground">Subtotal</span>
                           <span>$299.00</span>
                         </li>
                         <li className="flex items-center justify-between">
-                          <span className="text-muted-foreground">
-                            Shipping
-                          </span>
+                          <span className="text-muted-foreground">Shipping</span>
                           <span>$5.00</span>
                         </li>
                         <li className="flex items-center justify-between">
@@ -654,10 +561,8 @@ export function Dashboard() {
                     <Separator className="my-4" />
                     <div className="grid grid-cols-2 gap-4">
                       <div className="grid gap-3">
-                        <div className="font-semibold">
-                          Shipping Information
-                        </div>
-                        <address className="grid gap-0.5 not-italic text-muted-foreground">
+                        <div className="font-semibold">Shipping Information</div>
+                        <address className="text-muted-foreground grid gap-0.5 not-italic">
                           <span>Liam Johnson</span>
                           <span>1234 Main St.</span>
                           <span>Anytown, CA 12345</span>
@@ -665,9 +570,7 @@ export function Dashboard() {
                       </div>
                       <div className="grid auto-rows-max gap-3">
                         <div className="font-semibold">Billing Information</div>
-                        <div className="text-muted-foreground">
-                          Same as shipping address
-                        </div>
+                        <div className="text-muted-foreground">Same as shipping address</div>
                       </div>
                     </div>
                     <Separator className="my-4" />
@@ -697,7 +600,7 @@ export function Dashboard() {
                       <div className="font-semibold">Payment Information</div>
                       <dl className="grid gap-3">
                         <div className="flex items-center justify-between">
-                          <dt className="flex items-center gap-1 text-muted-foreground">
+                          <dt className="text-muted-foreground flex items-center gap-1">
                             <CreditCard className="h-4 w-4" />
                             Visa
                           </dt>
@@ -706,29 +609,20 @@ export function Dashboard() {
                       </dl>
                     </div>
                   </CardContent>
-                  <CardFooter className="flex flex-row items-center border-t bg-muted/50 px-6 py-3">
-                    <div className="text-xs text-muted-foreground">
-                      Updated{" "}
-                      <time dateTime="2023-11-23">November 23, 2023</time>
+                  <CardFooter className="bg-muted/50 flex flex-row items-center border-t px-6 py-3">
+                    <div className="text-muted-foreground text-xs">
+                      Updated <time dateTime="2023-11-23">November 23, 2023</time>
                     </div>
                     <Pagination className="ml-auto mr-0 w-auto">
                       <PaginationContent>
                         <PaginationItem>
-                          <Button
-                            size="icon"
-                            variant="outline"
-                            className="h-6 w-6"
-                          >
+                          <Button size="icon" variant="outline" className="h-6 w-6">
                             <ChevronLeft className="h-3.5 w-3.5" />
                             <span className="sr-only">Previous Order</span>
                           </Button>
                         </PaginationItem>
                         <PaginationItem>
-                          <Button
-                            size="icon"
-                            variant="outline"
-                            className="h-6 w-6"
-                          >
+                          <Button size="icon" variant="outline" className="h-6 w-6">
                             <ChevronRight className="h-3.5 w-3.5" />
                             <span className="sr-only">Next Order</span>
                           </Button>
@@ -743,5 +637,5 @@ export function Dashboard() {
         </div>
       </TooltipProvider>
     </main>
-  );
+  )
 }
