@@ -1,9 +1,9 @@
 'use client'
 
-import { Container, Row, Col } from 'react-bootstrap'
+import { Container, Row, Col, type ColProps } from 'react-bootstrap'
 
-interface IGridProps {
-  container: boolean
+interface IGridProps extends ColProps {
+  container?: boolean
   children: React.ReactNode
 }
 

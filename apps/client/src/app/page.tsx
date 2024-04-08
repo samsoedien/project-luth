@@ -1,8 +1,6 @@
 import { Grid } from '@project-luth/core'
 import { unstable_noStore as noStore } from 'next/cache'
 
-import { CreatePost } from '~/components/create-post'
-
 import { getServerAuthSession } from '~/server/auth'
 import { api } from '~/trpc/server'
 
