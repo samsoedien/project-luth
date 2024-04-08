@@ -30,7 +30,7 @@
     "lint:scripts": "eslint \"./packages/**/*.{js,jsx,ts,tsx}\"",
     "lint:styles": "stylelint ./packages/**/*.{css,scss}",
     "test": "turbo run test",
-    "build": "turbo build --filter=!tokens",
+    "build": "turbo build",
     "build:common": "turbo build --scope common",
     "build:tokens": "turbo build --scope tokens",
     "clean": "turbo clean && rimraf out",
