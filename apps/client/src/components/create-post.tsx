@@ -39,8 +39,6 @@ export function CreatePost() {
       >
         {createPost.isLoading ? "Submitting..." : "Submit"}
       </button>
-
-      <Button variant="destructive">Core Button</Button>
     </form>
   );
 }

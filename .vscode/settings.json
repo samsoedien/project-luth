@@ -7,5 +7,30 @@
   "editor.fontLigatures": true,
   "editor.fontSize": 11,
   "workbench.iconTheme": "material-icon-theme",
-  "material-icon-theme.activeIconPack": "react_redux"
+  "material-icon-theme.activeIconPack": "react_redux",
+  "material-icon-theme.folders.associations": {
+    "(auth)": "secure",
+    "(marketplace)": "content",
+    "(workshop)": "tools",
+    "consulations": "video",
+    "cad": "container",
+    "dashboard": "benchmark",
+    "orders": "stack",
+    "notifications": "event",
+    "support": "error",
+    "showcase": "mappings",
+    "community": "global",
+    "checkout": "batch",
+    "features": "meta",
+    "inventory": "context",
+    "transactions": "pipe",
+    "products": "other",
+    "playground": "husky",
+    "customers": "home",
+    "general": "base",
+    "advanced": "cluster",
+    "account": "robot",
+    "issues": "debug",
+    "plans": "queue"
+  }
 }

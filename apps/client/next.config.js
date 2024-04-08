@@ -4,7 +4,7 @@
  */
 // import { NextFederationPlugin } from "@module-federation/nextjs-mf";
 
-await import("./src/env.js");
+await import("./src/environments/env.js");
 
 /** @type {import("next").NextConfig} */
 const nextConfig = {
