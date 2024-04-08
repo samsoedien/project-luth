@@ -1,35 +1,40 @@
-import * as React from 'react'
+import * as React from "react"
 
-import { cn } from '@/utils'
+import { cn } from "@/utils"
 
-const Table = React.forwardRef<HTMLTableElement, React.HTMLAttributes<HTMLTableElement>>(
-  ({ className, ...props }, ref) => (
-    <div className="luth-relative luth-w-full luth-overflow-auto">
-      <table
-        ref={ref}
-        className={cn('luth-w-full luth-caption-bottom luth-text-sm', className)}
-        {...props}
-      />
-    </div>
-  ),
-)
-Table.displayName = 'Table'
+const Table = React.forwardRef<
+  HTMLTableElement,
+  React.HTMLAttributes<HTMLTableElement>
+>(({ className, ...props }, ref) => (
+  <div className="luth-relative luth-w-full luth-overflow-auto">
+    <table
+      ref={ref}
+      className={cn("luth-w-full luth-caption-bottom luth-text-sm", className)}
+      {...props}
+    />
+  </div>
+))
+Table.displayName = "Table"
 
 const TableHeader = React.forwardRef<
   HTMLTableSectionElement,
   React.HTMLAttributes<HTMLTableSectionElement>
 >(({ className, ...props }, ref) => (
-  <thead ref={ref} className={cn('[&_tr]:luth-border-b', className)} {...props} />
+  <thead ref={ref} className={cn("[&_tr]:luth-border-b", className)} {...props} />
 ))
-TableHeader.displayName = 'TableHeader'
+TableHeader.displayName = "TableHeader"
 
 const TableBody = React.forwardRef<
   HTMLTableSectionElement,
   React.HTMLAttributes<HTMLTableSectionElement>
 >(({ className, ...props }, ref) => (
-  <tbody ref={ref} className={cn('[&_tr:last-child]:luth-border-0', className)} {...props} />
+  <tbody
+    ref={ref}
+    className={cn("[&_tr:last-child]:luth-border-0", className)}
+    {...props}
+  />
 ))
-TableBody.displayName = 'TableBody'
+TableBody.displayName = "TableBody"
 
 const TableFooter = React.forwardRef<
   HTMLTableSectionElement,
@@ -38,27 +43,28 @@ const TableFooter = React.forwardRef<
   <tfoot
     ref={ref}
     className={cn(
-      'luth-border-t luth-bg-muted/50 luth-font-medium [&>tr]:last:luth-border-b-0',
-      className,
+      "luth-border-t luth-bg-muted/50 luth-font-medium [&>tr]:last:luth-border-b-0",
+      className
     )}
     {...props}
   />
 ))
-TableFooter.displayName = 'TableFooter'
+TableFooter.displayName = "TableFooter"
 
-const TableRow = React.forwardRef<HTMLTableRowElement, React.HTMLAttributes<HTMLTableRowElement>>(
-  ({ className, ...props }, ref) => (
-    <tr
-      ref={ref}
-      className={cn(
-        'luth-border-b luth-transition-colors hover:luth-bg-muted/50 data-[state=selected]:luth-bg-muted',
-        className,
-      )}
-      {...props}
-    />
-  ),
-)
-TableRow.displayName = 'TableRow'
+const TableRow = React.forwardRef<
+  HTMLTableRowElement,
+  React.HTMLAttributes<HTMLTableRowElement>
+>(({ className, ...props }, ref) => (
+  <tr
+    ref={ref}
+    className={cn(
+      "luth-border-b luth-transition-colors hover:luth-bg-muted/50 data-[state=selected]:luth-bg-muted",
+      className
+    )}
+    {...props}
+  />
+))
+TableRow.displayName = "TableRow"
 
 const TableHead = React.forwardRef<
   HTMLTableCellElement,
@@ -67,13 +73,13 @@ const TableHead = React.forwardRef<
   <th
     ref={ref}
     className={cn(
-      'luth-h-10 luth-px-2 luth-text-left luth-align-middle luth-font-medium luth-text-muted-foreground [&:has([role=checkbox])]:luth-pr-0 [&>[role=checkbox]]:luth-translate-y-[2px]',
-      className,
+      "luth-h-10 luth-px-2 luth-text-left luth-align-middle luth-font-medium luth-text-muted-foreground [&:has([role=checkbox])]:luth-pr-0 [&>[role=checkbox]]:luth-translate-y-[2px]",
+      className
     )}
     {...props}
   />
 ))
-TableHead.displayName = 'TableHead'
+TableHead.displayName = "TableHead"
 
 const TableCell = React.forwardRef<
   HTMLTableCellElement,
@@ -82,13 +88,13 @@ const TableCell = React.forwardRef<
   <td
     ref={ref}
     className={cn(
-      'luth-p-2 luth-align-middle [&:has([role=checkbox])]:luth-pr-0 [&>[role=checkbox]]:luth-translate-y-[2px]',
-      className,
+      "luth-p-2 luth-align-middle [&:has([role=checkbox])]:luth-pr-0 [&>[role=checkbox]]:luth-translate-y-[2px]",
+      className
     )}
     {...props}
   />
 ))
-TableCell.displayName = 'TableCell'
+TableCell.displayName = "TableCell"
 
 const TableCaption = React.forwardRef<
   HTMLTableCaptionElement,
@@ -96,10 +102,19 @@ const TableCaption = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <caption
     ref={ref}
-    className={cn('luth-mt-4 luth-text-sm luth-text-muted-foreground', className)}
+    className={cn("luth-mt-4 luth-text-sm luth-text-muted-foreground", className)}
     {...props}
   />
 ))
-TableCaption.displayName = 'TableCaption'
+TableCaption.displayName = "TableCaption"
 
-export { Table, TableHeader, TableBody, TableFooter, TableHead, TableRow, TableCell, TableCaption }
+export {
+  Table,
+  TableHeader,
+  TableBody,
+  TableFooter,
+  TableHead,
+  TableRow,
+  TableCell,
+  TableCaption,
+}

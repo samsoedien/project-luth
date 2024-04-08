@@ -34,6 +34,7 @@ export default defineConfig({
           preserveModules: true,
           preserveModulesRoot: 'src',
           entryFileNames: ({ name: fileName }) => `${fileName}.js`,
+          banner: `'use client';`, //FIXME: Workaround to allow use client directive in build output
         },
         {
           format: 'cjs',
@@ -44,6 +45,7 @@ export default defineConfig({
           preserveModules: true,
           preserveModulesRoot: 'src',
           entryFileNames: ({ name: fileName }) => `${fileName}.js`,
+          banner: `'use client';`, //FIXME: Workaround to allow use client directive in build output
         },
       ],
       // FIXME: Temp workaround for sourcemap warnings https://github.com/vitejs/vite/issues/15012

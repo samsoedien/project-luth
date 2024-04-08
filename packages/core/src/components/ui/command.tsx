@@ -1,12 +1,12 @@
-'use client'
+"use client"
 
-import * as React from 'react'
-import { type DialogProps } from '@radix-ui/react-dialog'
-import { MagnifyingGlassIcon } from '@radix-ui/react-icons'
-import { Command as CommandPrimitive } from 'cmdk'
+import * as React from "react"
+import { type DialogProps } from "@radix-ui/react-dialog"
+import { MagnifyingGlassIcon } from "@radix-ui/react-icons"
+import { Command as CommandPrimitive } from "cmdk"
 
-import { cn } from '@/utils'
-import { Dialog, DialogContent } from '@/components/ui/dialog'
+import { cn } from "@/utils"
+import { Dialog, DialogContent } from "@/components/ui/dialog"
 
 const Command = React.forwardRef<
   React.ElementRef<typeof CommandPrimitive>,
@@ -15,8 +15,8 @@ const Command = React.forwardRef<
   <CommandPrimitive
     ref={ref}
     className={cn(
-      'luth-flex luth-h-full luth-w-full luth-flex-col luth-overflow-hidden luth-rounded-md luth-bg-popover luth-text-popover-foreground',
-      className,
+      "luth-flex luth-h-full luth-w-full luth-flex-col luth-overflow-hidden luth-rounded-md luth-bg-popover luth-text-popover-foreground",
+      className
     )}
     {...props}
   />
@@ -46,8 +46,8 @@ const CommandInput = React.forwardRef<
     <CommandPrimitive.Input
       ref={ref}
       className={cn(
-        'luth-flex luth-h-10 luth-w-full luth-rounded-md luth-bg-transparent luth-py-3 luth-text-sm luth-outline-none placeholder:luth-text-muted-foreground disabled:luth-cursor-not-allowed disabled:luth-opacity-50',
-        className,
+        "luth-flex luth-h-10 luth-w-full luth-rounded-md luth-bg-transparent luth-py-3 luth-text-sm luth-outline-none placeholder:luth-text-muted-foreground disabled:luth-cursor-not-allowed disabled:luth-opacity-50",
+        className
       )}
       {...props}
     />
@@ -62,7 +62,7 @@ const CommandList = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <CommandPrimitive.List
     ref={ref}
-    className={cn('luth-max-h-[300px] luth-overflow-y-auto luth-overflow-x-hidden', className)}
+    className={cn("luth-max-h-[300px] luth-overflow-y-auto luth-overflow-x-hidden", className)}
     {...props}
   />
 ))
@@ -89,8 +89,8 @@ const CommandGroup = React.forwardRef<
   <CommandPrimitive.Group
     ref={ref}
     className={cn(
-      'luth-overflow-hidden luth-p-1 luth-text-foreground [&_[cmdk-group-heading]]:luth-px-2 [&_[cmdk-group-heading]]:luth-py-1.5 [&_[cmdk-group-heading]]:luth-text-xs [&_[cmdk-group-heading]]:luth-font-medium [&_[cmdk-group-heading]]:luth-text-muted-foreground',
-      className,
+      "luth-overflow-hidden luth-p-1 luth-text-foreground [&_[cmdk-group-heading]]:luth-px-2 [&_[cmdk-group-heading]]:luth-py-1.5 [&_[cmdk-group-heading]]:luth-text-xs [&_[cmdk-group-heading]]:luth-font-medium [&_[cmdk-group-heading]]:luth-text-muted-foreground",
+      className
     )}
     {...props}
   />
@@ -104,7 +104,7 @@ const CommandSeparator = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <CommandPrimitive.Separator
     ref={ref}
-    className={cn('luth--mx-1 luth-h-px luth-bg-border', className)}
+    className={cn("luth--mx-1 luth-h-px luth-bg-border", className)}
     {...props}
   />
 ))
@@ -117,8 +117,8 @@ const CommandItem = React.forwardRef<
   <CommandPrimitive.Item
     ref={ref}
     className={cn(
-      'luth-relative luth-flex luth-cursor-default luth-select-none luth-items-center luth-rounded-sm luth-px-2 luth-py-1.5 luth-text-sm luth-outline-none aria-selected:luth-bg-accent aria-selected:luth-text-accent-foreground data-[disabled]:luth-pointer-events-none data-[disabled]:luth-opacity-50',
-      className,
+      "luth-relative luth-flex luth-cursor-default luth-select-none luth-items-center luth-rounded-sm luth-px-2 luth-py-1.5 luth-text-sm luth-outline-none aria-selected:luth-bg-accent aria-selected:luth-text-accent-foreground data-[disabled]:luth-pointer-events-none data-[disabled]:luth-opacity-50",
+      className
     )}
     {...props}
   />
@@ -126,18 +126,21 @@ const CommandItem = React.forwardRef<
 
 CommandItem.displayName = CommandPrimitive.Item.displayName
 
-const CommandShortcut = ({ className, ...props }: React.HTMLAttributes<HTMLSpanElement>) => {
+const CommandShortcut = ({
+  className,
+  ...props
+}: React.HTMLAttributes<HTMLSpanElement>) => {
   return (
     <span
       className={cn(
-        'luth-ml-auto luth-text-xs luth-tracking-widest luth-text-muted-foreground',
-        className,
+        "luth-ml-auto luth-text-xs luth-tracking-widest luth-text-muted-foreground",
+        className
       )}
       {...props}
     />
   )
 }
-CommandShortcut.displayName = 'CommandShortcut'
+CommandShortcut.displayName = "CommandShortcut"
 
 export {
   Command,

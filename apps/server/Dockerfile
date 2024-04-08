@@ -43,6 +43,9 @@ COPY turbo.json turbo.json
 # ARG TURBO_TOKEN
 # ENV TURBO_TOKEN=$TURBO_TOKEN
 
+# RUN cd apps/server && npx prisma db push
+RUN cd apps/server && npx prisma generate
+
 RUN yarn turbo build --filter=server...
 
 FROM base AS runner
