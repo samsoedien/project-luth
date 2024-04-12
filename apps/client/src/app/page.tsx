@@ -16,10 +16,10 @@ export default async function Home(): Promise<JSX.Element> {
       {/* </div> */}
       <Grid container>
         <Grid xs={12} md={8}>
-          <div className="h-[360px] w-full bg-blue-100">Column 8</div>
+          <div className="h-[360px] w-full bg-gray-50">Column 8</div>
         </Grid>
         <Grid xs={12} md={4}>
-          <div className="h-[360px] w-full bg-blue-100">Column 4</div>
+          <div className="h-[360px] w-full bg-gray-50">Column 4</div>
         </Grid>
       </Grid>
     </>

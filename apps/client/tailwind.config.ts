@@ -1,5 +1,5 @@
 import { type Config } from 'tailwindcss'
-import { fontFamily } from 'tailwindcss/defaultTheme'
+// import { fontFamily } from 'tailwindcss/defaultTheme'
 
 // import { luthTailwindPreset } from "@project-luth/core";
 
@@ -9,8 +9,12 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['var(--font-sans)', ...fontFamily.sans],
+        sans: ['var(--font-geist-sans)'],
+        mono: ['var(--font-geist-mono)'],
       },
+      // fontFamily: {
+      //   sans: ['var(--font-sans)', ...fontFamily.sans],
+      // },
       colors: {
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
