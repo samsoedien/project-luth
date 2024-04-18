@@ -45,7 +45,7 @@ export default async function CheckoutPage() {
   const paymentIntent = await stripe.paymentIntents.create({
     amount: 89900,
     currency: 'EUR',
-    metadata: { productId: products[0].id },
+    metadata: { productId: products[0]?.id as number },
   })
 
   if (paymentIntent.client_secret == null) throw new Error('Stripe failed to create payment intent')
