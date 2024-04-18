@@ -33,8 +33,11 @@ export const metadata = {
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   const session = await getServerAuthSession()
+  let profile
 
-  const profile = await api.user.getProfile.query()
+  if (session?.user) {
+    profile = await api.user.getProfile.query()
+  }
 
   return (
     <html lang="en">
