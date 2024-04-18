@@ -1,3 +1,4 @@
+'use client'
 import Link from 'next/link'
 
 import {
@@ -8,21 +9,50 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-  Checkbox,
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
+  Form,
   Input,
   Label,
-  Sheet,
-  SheetContent,
-  SheetTrigger,
 } from '@project-luth/core'
+import { type PutBlobResult } from '@vercel/blob'
+import { useRef, useState } from 'react'
+import { api } from '~/trpc/react'
+import { useRouter } from 'next/navigation'
 
 export default function AccountPage() {
+  const inputFileRef = useRef<HTMLInputElement>(null)
+  const [blob, setBlob] = useState<PutBlobResult | null>(null)
+  const router = useRouter()
+
+  const createProfilePicture = api.user.updateProfilePicture.useMutation({
+    onSuccess: () => {
+      console.log('Profile photo created')
+      router.refresh()
+    },
+  })
+
+  const handleSubmit = async () => {
+    console.log('submitting')
+
+    if (!inputFileRef.current?.files) {
+      throw new Error('No file selected')
+    }
+
+    const file = inputFileRef.current.files[0]
+
+    if (file) {
+      const response = await fetch(`/api/avatar/upload?filename=${file.name}`, {
+        method: 'POST',
+        body: file,
+      })
+
+      const newBlob = (await response.json()) as PutBlobResult
+
+      setBlob(newBlob)
+
+      createProfilePicture.mutate({ filePath: newBlob.url })
+    }
+  }
+
   return (
     <div className="flex min-h-screen w-full flex-col">
       <main className="bg-muted/40 flex min-h-[calc(100vh_-_theme(spacing.16))] flex-1 flex-col gap-4 p-4 md:gap-8 md:p-10">
@@ -41,20 +71,6 @@ export default function AccountPage() {
             <Link href="#">Advanced</Link>
           </nav>
           <div className="grid gap-6">
-            <Card x-chunk="dashboard-04-chunk-1">
-              <CardHeader>
-                <CardTitle>Store Name</CardTitle>
-                <CardDescription>Used to identify your store in the marketplace.</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <form>
-                  <Input placeholder="Store Name" />
-                </form>
-              </CardContent>
-              <CardFooter className="border-t px-6 py-4">
-                <Button>Save</Button>
-              </CardFooter>
-            </Card>
             <Card x-chunk="dashboard-04-chunk-2">
               <CardHeader>
                 <CardTitle>Profile photo</CardTitle>
@@ -62,15 +78,15 @@ export default function AccountPage() {
                   Change and upload a profile photo to be displayed in the marketplace.
                 </CardDescription>
               </CardHeader>
-              <CardContent>
-                <form className="flex flex-col gap-4">
+              <div className="flex flex-col gap-4">
+                <CardContent>
                   <Label htmlFor="picture">Picture</Label>
-                  <Input id="picture" type="file" />
-                </form>
-              </CardContent>
-              <CardFooter className="border-t px-6 py-4">
-                <Button>Save</Button>
-              </CardFooter>
+                  <Input name="file" ref={inputFileRef} required id="picture" type="file" />
+                </CardContent>
+                <CardFooter className="border-t px-6 py-4">
+                  <Button onClick={() => handleSubmit()}>Save</Button>
+                </CardFooter>
+              </div>
             </Card>
           </div>
         </div>

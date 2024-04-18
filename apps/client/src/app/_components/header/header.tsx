@@ -9,9 +9,10 @@ import { usePathname } from 'next/navigation'
 
 interface IHeaderProps {
   session: Session | null
+  profilePhoto?: string
 }
 
-export default function Header({ session }: IHeaderProps) {
+export default function Header({ session, profilePhoto }: IHeaderProps) {
   const route = usePathname()
 
   const isRoot = route === '/' ? true : false
@@ -23,7 +24,7 @@ export default function Header({ session }: IHeaderProps) {
           text={'Early bird promo available. Early signups get 50% off for the first 3 months!'}
         />
       )}
-      <Navbar session={session} />
+      <Navbar session={session} profilePhoto={profilePhoto} />
       {isRoot && <HeroBanner />}
     </header>
   )

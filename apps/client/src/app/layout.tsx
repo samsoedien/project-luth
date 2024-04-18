@@ -10,6 +10,7 @@ import { TRPCReactProvider } from '~/trpc/react'
 import { getServerAuthSession } from '~/server/auth'
 import Footer from '~/app/_components/footer/footer'
 import Header from '~/app/_components/header/header'
+import { api } from '~/trpc/server'
 
 // import { GridProvider } from '@project-luth/core'
 
@@ -33,6 +34,8 @@ export const metadata = {
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   const session = await getServerAuthSession()
 
+  const profile = await api.user.getProfile.query()
+
   return (
     <html lang="en">
       {/* <body className={`font-sans ${poppins.variable}`}> */}
@@ -46,7 +49,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
           >
             {/* <GridProvider> */}
             <div className="relative mx-auto min-h-screen max-w-[1440px]">
-              <Header session={session} />
+              <Header session={session} profilePhoto={profile?.image ?? ''} />
               <main className="min-h-screen">{children}</main>
               <Footer />
             </div>

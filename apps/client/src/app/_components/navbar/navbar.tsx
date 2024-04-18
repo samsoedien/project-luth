@@ -1,6 +1,9 @@
 import Link from 'next/link'
 import { CircleUser, Guitar, Menu, Package2, Search, ShoppingCartIcon } from '@project-luth/icons'
 import {
+  Avatar,
+  AvatarFallback,
+  AvatarImage,
   Button,
   DropdownMenu,
   DropdownMenuContent,
@@ -21,9 +24,11 @@ import SheetSide from '../../../components/side-drawer/side-drawer'
 
 type NavbarProps = {
   session: Session | null
+  profilePhoto?: string
 }
 
-export function Navbar({ session }: NavbarProps): JSX.Element {
+export function Navbar({ session, profilePhoto }: NavbarProps): JSX.Element {
+  console.log(profilePhoto)
   return (
     // <div className="flex min-h-screen w-full flex-col">
     <header className="bg-background sticky top-0 flex h-16 items-center gap-4 border-b px-4 md:px-6">
@@ -114,7 +119,16 @@ export function Navbar({ session }: NavbarProps): JSX.Element {
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button variant="secondary" size="icon" className="rounded-full">
-              <CircleUser className="h-5 w-5" />
+              {profilePhoto ? (
+                <Avatar>
+                  <AvatarImage src={profilePhoto} />
+                  <AvatarFallback>
+                    <CircleUser className="h-5 w-5" />
+                  </AvatarFallback>
+                </Avatar>
+              ) : (
+                <CircleUser className="h-5 w-5" />
+              )}
               <span className="sr-only">Toggle user menu</span>
             </Button>
           </DropdownMenuTrigger>
