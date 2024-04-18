@@ -5,7 +5,7 @@ module.exports = {
     node: true,
   },
   extends: [
-    'standard-with-typescript',
+    // 'standard-with-typescript',
     'airbnb-base',
     'airbnb-typescript/base',
     'eslint-config-turbo',
