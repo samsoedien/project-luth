@@ -1,7 +1,13 @@
-export default function PromoBanner() {
+'use client'
+
+type PromoBannerProps = {
+  text: string
+}
+
+export default function PromoBanner({ text }: PromoBannerProps) {
   return (
-    <div className="flex h-[36px] items-center justify-center bg-yellow-100 text-center text-xs font-bold">
-      Early bird promo available. Early signups get 50% off for the first 3 months!
+    <div className="flex h-[36px] items-center justify-center bg-yellow-100 text-center text-xs ">
+      {text}
     </div>
   )
 }

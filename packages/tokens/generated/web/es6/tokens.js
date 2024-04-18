@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Sat, 06 Apr 2024 15:58:35 GMT
+ * Generated on Thu, 18 Apr 2024 10:53:02 GMT
  */
 
 export const TokenColorBaseWhite = "#ffffff";

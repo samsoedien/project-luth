@@ -1,19 +1,29 @@
 import '~/styles/main.css'
 
-import { Inter } from 'next/font/google'
+// import { Inter, Poppins } from 'next/font/google'
+
+import { GeistSans } from 'geist/font/sans'
+// import { GeistMono } from 'geist/font/mono'
 
 import { ThemeProvider } from '../theme/provider/theme-provider'
 import { TRPCReactProvider } from '~/trpc/react'
 import { getServerAuthSession } from '~/server/auth'
-import Footer from '~/components/footer/footer'
-import Header from '~/components/header/header'
+import Footer from '~/app/_components/footer/footer'
+import Header from '~/app/_components/header/header'
+import { api } from '~/trpc/server'
 
 // import { GridProvider } from '@project-luth/core'
 
-const inter = Inter({
-  subsets: ['latin'],
-  variable: '--font-sans',
-})
+// const inter = Inter({
+//   subsets: ['latin'],
+//   variable: '--font-sans',
+// })
+
+// const poppins = Poppins({
+//   subsets: ['latin'],
+//   weight: ['400', '500', '600', '700', '800', '900'],
+//   variable: '--font-sans',
+// })
 
 export const metadata = {
   title: 'Project Luth',
@@ -24,9 +34,12 @@ export const metadata = {
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   const session = await getServerAuthSession()
 
+  const profile = await api.user.getProfile.query()
+
   return (
     <html lang="en">
-      <body className={`font-sans ${inter.variable}`}>
+      {/* <body className={`font-sans ${poppins.variable}`}> */}
+      <body className={GeistSans.className}>
         <TRPCReactProvider>
           <ThemeProvider
             attribute="class"
@@ -36,7 +49,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
           >
             {/* <GridProvider> */}
             <div className="relative mx-auto min-h-screen max-w-[1440px]">
-              <Header session={session} />
+              <Header session={session} profilePhoto={profile?.image ?? ''} />
               <main className="min-h-screen">{children}</main>
               <Footer />
             </div>

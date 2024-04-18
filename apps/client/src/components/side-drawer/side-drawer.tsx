@@ -20,9 +20,11 @@ import {
   SheetHeader,
   SheetTitle,
   SheetTrigger,
+  Spacer,
 } from '@project-luth/core'
 import { ShoppingCartIcon } from '@project-luth/icons'
 import Cart from '~/features/cart'
+import Link from 'next/link'
 
 // export default function SideDrawer(): JSX.Element {
 //   return (
@@ -53,7 +55,7 @@ import Cart from '~/features/cart'
 //   );
 // }
 
-export default function SheetSide(): JSX.Element {
+export default function SheetSide() {
   return (
     <Sheet modal={false}>
       <SheetTrigger asChild>
@@ -66,18 +68,19 @@ export default function SheetSide(): JSX.Element {
         {/* /FIXME: Widths not working? */}
         <SheetHeader>
           <SheetTitle>Edit profile</SheetTitle>
-          <SheetDescription>
+          {/* <SheetDescription>
             Make changes to your profile here. Click save when you're done.
-          </SheetDescription>
+          </SheetDescription> */}
         </SheetHeader>
         <div>
           <Cart />
+          <Spacer />
         </div>
-        a
+
         <SheetFooter>
           <SheetClose asChild>
             <Button type="submit" variant="default" className="w-full">
-              Go to checkout
+              <Link href="/checkout">Go to checkout</Link>
             </Button>
           </SheetClose>
         </SheetFooter>

@@ -40,7 +40,7 @@
     "kill": "kill-port 3000 5000 8000 8001",
     "prepare": "husky",
     "postinstall": "manypkg check",
-    "deps": "manypkg fix",
+    "deps": "manypkg fix && depcheck",
     "pre-commit": "yarn lint-staged"
   },
   "lint-staged": {
@@ -58,12 +58,12 @@
     "@typescript-eslint/parser": "~7.2.0",
     "@vercel/style-guide": "^6.0.0",
     "concurrently": "^8.2.2",
+    "depcheck": "^1.4.7",
     "eslint": "^8.57.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-airbnb-typescript": "^18.0.0",
     "eslint-config-prettier": "^9.1.0",
-    "eslint-config-standard-with-typescript": "^43.0.1",
     "eslint-config-turbo": "^1.12.5",
     "eslint-plugin-import": "^2.29.1",
     "eslint-plugin-jsx-a11y": "^6.8.0",

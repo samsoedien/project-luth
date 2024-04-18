@@ -14,6 +14,17 @@ const nextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'avatars.githubusercontent.com',
+        port: '',
+        pathname: '/**',
+      },
+    ],
+  },
+
   // webpack(config, options) {
   //   const { isServer } = options;
   //   config.plugins.push(

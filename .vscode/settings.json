@@ -12,6 +12,7 @@
     "(auth)": "secure",
     "(marketplace)": "content",
     "(workshop)": "tools",
+    "_components": "components",
     "consulations": "video",
     "cad": "container",
     "dashboard": "benchmark",

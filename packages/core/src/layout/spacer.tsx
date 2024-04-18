@@ -3,10 +3,10 @@
 import { clsx } from 'clsx'
 
 interface ISpacerProps {
-  size: 'xx-small' | 'x-small' | 'small' | 'medium' | 'large' | 'x-large' | 'xx-large'
+  size?: 'xx-small' | 'x-small' | 'small' | 'medium' | 'large' | 'x-large' | 'xx-large'
 }
 
-export default function Spacer({ size }: ISpacerProps) {
+export default function Spacer({ size = 'small' }: ISpacerProps) {
   return (
     <div
       className={clsx({
