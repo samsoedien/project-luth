@@ -7,10 +7,11 @@ import { GeistSans } from 'geist/font/sans'
 
 import { ThemeProvider } from '../theme/provider/theme-provider'
 import { TRPCReactProvider } from '~/trpc/react'
-import { getServerAuthSession } from '~/server/auth'
 import Footer from '~/app/_components/footer/footer'
 import Header from '~/app/_components/header/header'
 import { api } from '~/trpc/server'
+
+import { auth } from '~/auth'
 
 // import { GridProvider } from '@project-luth/core'
 
@@ -32,7 +33,7 @@ export const metadata = {
 }
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
-  const session = await getServerAuthSession()
+  const session = await auth()
   let profile
 
   if (session?.user) {

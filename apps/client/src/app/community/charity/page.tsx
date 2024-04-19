@@ -1,7 +1,7 @@
-import { getServerAuthSession } from '~/server/auth'
+import { auth } from '~/auth'
 
 export default async function CharityPage() {
-  const session = await getServerAuthSession()
+  const session = await auth()
   if (!session?.user) return null
 
   return <div>Charity Content</div>

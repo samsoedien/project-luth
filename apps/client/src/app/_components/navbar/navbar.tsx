@@ -135,7 +135,7 @@ export function Navbar({ session, profilePhoto }: NavbarProps): JSX.Element {
           {session ? (
             <DropdownMenuContent align="end">
               <DropdownMenuLabel>
-                <Link href="/account"> My Account</Link>
+                <Link href="/account">My Account</Link>
               </DropdownMenuLabel>
               <DropdownMenuSeparator />
               <DropdownMenuItem>
@@ -155,6 +155,9 @@ export function Navbar({ session, profilePhoto }: NavbarProps): JSX.Element {
             <DropdownMenuContent align="end">
               <DropdownMenuItem>
                 <Link href="/api/auth/signin">Signin</Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem>
+                <Link href="/signup">Signup</Link>
               </DropdownMenuItem>
             </DropdownMenuContent>
           )}

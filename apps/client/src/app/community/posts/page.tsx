@@ -1,15 +1,16 @@
 import { CreatePost } from '~/components/create-post'
-import { getServerAuthSession } from '~/server/auth'
+import { auth } from '~/auth'
+
 import { api } from '~/trpc/server'
 
 export default async function PostsPage() {
-  const session = await getServerAuthSession()
+  const session = await auth()
   if (!session?.user) return null
 
   return <CrudShowcase />
 }
 async function CrudShowcase() {
-  const session = await getServerAuthSession()
+  const session = await auth()
   if (!session?.user) return null
 
   const latestPost = await api.post.getLatest.query()

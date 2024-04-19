@@ -17,7 +17,8 @@ import {
 } from '@project-luth/core'
 // import { CarouselSpacing } from '~/components/carousel/carousel'
 import CreateProductForm from '~/components/create-product/create-product-form'
-import { getServerAuthSession } from '~/server/auth'
+import { auth } from '~/auth'
+
 import { api } from '~/trpc/server'
 
 interface IProductCardProps {
@@ -58,7 +59,7 @@ async function getProducts() {
 }
 
 export default async function ProductsPage() {
-  const session = await getServerAuthSession()
+  const session = await auth()
   if (!session?.user) return null
 
   // const products = await getProducts()

@@ -1,14 +1,15 @@
 import { Grid } from '@project-luth/core'
 import { unstable_noStore as noStore } from 'next/cache'
 
-import { getServerAuthSession } from '~/server/auth'
+import { auth } from '~/auth'
+
 import { api } from '~/trpc/server'
 
 export default async function Home(): Promise<JSX.Element> {
   noStore()
   const hello = await api.post.hello.query({ text: 'from tRPC' })
   console.log(hello)
-  const session = await getServerAuthSession()
+  const session = await auth()
 
   return (
     <>
