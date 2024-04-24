@@ -27,10 +27,11 @@ import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 
 import * as z from 'zod'
+import { api } from '~/trpc/react'
 
 const SigninSchema = z.object({
   email: z.string().email(),
-  password: z.string().min(8),
+  password: z.string(),
 })
 
 export default function SigninFeature() {
@@ -49,13 +50,21 @@ function SigninForm() {
     },
   })
 
+  const signIn = api.user.signin.useMutation({
+    onSuccess: () => {
+      setError('Success.')
+    },
+  })
+
   const onSubmit = () => {
     setError('')
 
-    console.log('submitted..')
-    startTransition(() => console.log(form.getValues()))
+    const { email, password } = form.getValues()
 
-    setError('Invalid credentials.')
+    console.log('submitted..')
+    startTransition(() => {
+      signIn.mutate({ email, password })
+    })
   }
 
   return (
@@ -95,8 +104,12 @@ function SigninForm() {
               />
             </div>
             <Button type="submit" className="w-full" disabled={isPending}>
-              Sign up
+              Sign in
             </Button>
+
+            {/* <Button variant="secondary" onClick={sendMail} className="w-full" disabled={isPending}>
+              Sign in via Resend
+            </Button> */}
 
             {error && <AlertDestructive message={error} />}
           </form>

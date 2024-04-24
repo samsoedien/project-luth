@@ -55,6 +55,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
             <div className="relative mx-auto min-h-screen max-w-[1440px]">
               <Header session={session} profilePhoto={profile?.image ?? ''} />
               <main className="min-h-screen">{children}</main>
+              {JSON.stringify(session)}
               <Footer />
             </div>
             {/* </GridProvider> */}

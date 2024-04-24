@@ -27,10 +27,12 @@ import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 
 import * as z from 'zod'
+import { api } from '~/trpc/react'
 
 const SignupSchema = z.object({
   email: z.string().email(),
   password: z.string().min(8),
+  confirmPassword: z.string().min(8),
 })
 
 export default function SignupFeature() {
@@ -46,17 +48,29 @@ function SignupForm() {
     defaultValues: {
       email: '',
       password: '',
-      confirmPpassword: '',
+      confirmPassword: '',
+    },
+  })
+
+  const createUser = api.user.create.useMutation({
+    onSuccess: () => {
+      setError('Success.')
     },
   })
 
   const onSubmit = () => {
     setError('')
 
-    console.log('submitted..')
-    startTransition(() => console.log(form.getValues()))
+    const { email, password, confirmPassword } = form.getValues()
 
-    setError('Invalid credentials.')
+    if (password !== confirmPassword) {
+      setError('Passwords do not match.')
+      throw new Error('Passwords do not match')
+    }
+
+    startTransition(() => {
+      createUser.mutate({ email, password, confirmPassword })
+    })
   }
 
   return (

@@ -17,7 +17,6 @@ import {
 } from '@project-luth/core'
 import { api } from '~/trpc/react'
 import { useRouter } from 'next/navigation'
-// import { useRouter } from 'next/router'
 
 const formSchema = z.object({
   name: z.string().min(2, {
