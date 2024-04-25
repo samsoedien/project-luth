@@ -25,6 +25,7 @@
     "desktop": "echo 'No desktop app yet' && exit 1",
     "sandbox": "cd sandbox && yarn start",
     "storybook": "turbo storybook",
+    "prisma": "cd apps/client && yarn prisma studio",
     "format": "prettier --write .",
     "lint": "yarn lint:scripts && yarn lint:styles",
     "lint:scripts": "eslint \"./packages/**/*.{js,jsx,ts,tsx}\"",

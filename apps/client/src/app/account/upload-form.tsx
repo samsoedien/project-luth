@@ -3,6 +3,8 @@ import Link from 'next/link'
 
 import Image from 'next/image'
 
+// import { signOut } from '~/auth'
+
 import {
   Button,
   Card,
@@ -53,12 +55,19 @@ export default function UploadForm({ profile }: { profile: { image?: string } })
       createProfilePicture.mutate({ filePath: newBlob.url })
     }
   }
+
+  // const handleSignOut = () => signOut()
+
   return (
     <div className="flex min-h-screen w-full flex-col">
       <main className="bg-muted/40 flex min-h-[calc(100vh_-_theme(spacing.16))] flex-1 flex-col gap-4 p-4 md:gap-8 md:p-10">
         <div className="mx-auto grid w-full max-w-6xl gap-2">
           <h1 className="text-3xl font-semibold">Settings</h1>
         </div>
+        {/* <Button className="w-20" onClick={handleSignOut}>
+          Sign out
+        </Button> */}
+
         <div className="mx-auto grid w-full max-w-6xl items-start gap-6 md:grid-cols-[180px_1fr] lg:grid-cols-[250px_1fr]">
           <nav className="text-muted-foreground grid gap-4 text-sm" x-chunk="dashboard-04-chunk-0">
             <Link href="#" className="text-primary font-semibold">

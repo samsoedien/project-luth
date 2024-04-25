@@ -61,7 +61,7 @@ export const { auth, handlers, signIn, signOut } = NextAuth({
       },
     }),
     Resend({
-      from: 'auth@app.company.com',
+      from: 'contact@samsoedien.com',
     }),
     GitHub,
     Google,
@@ -71,22 +71,38 @@ export const { auth, handlers, signIn, signOut } = NextAuth({
     strategy: 'jwt',
   },
   secret: process.env.AUTH_SECRET,
-  callbacks: {
-    async session({ session, token }) {
-      if (session.user && token.sub) session.user.id = token.sub
-      console.log('session', session)
+  // callacks: {
 
-      return session
-    },
-    async jwt({ token, session }) {
-      if (session.user) {
-        token.role = session.user.role
-      }
 
-      console.log('token: ', token)
-      return token
+    
+    // async session({ session, token }) {
+    //   if (session.user && token.sub) session.user.id = token.sub
+    //   console.log('session', session)
+
+    //   return session
+    // },
+    // async jwt({ token, session }) {
+    //   // if (session.user) {
+    //   //   token.role = session.user.role
+    //   // }
+
+    //   console.log('token: ', token)
+    //   return token
+    // },
+    callbacks: {
+      jwt({ token, user }) {
+        if (user) { // User is available during sign-in
+          token.id = user.id
+        }
+        return token
+      },
+      session({ session, token }) {
+        session.user.id = token.id
+        return session
+      },
     },
   },
+
   // pages: {
   //   signIn: '/signin',
   // },

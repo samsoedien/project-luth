@@ -84,14 +84,13 @@ export const userRouter = createTRPCRouter({
         throw new Error('Invalid credentials')
       }
 
-      console.log('signing in..')
+      console.log('SIGNING IN CREDENTIALS PROVIDER...')
 
       try {
         await signIn('credentials', {
           email,
           password,
           // redirectTo: '/account',
-          redirect: false,
         })
       } catch (err) {
         console.log('has error', err)

@@ -14,7 +14,8 @@
     "prebuild": "yarn prisma generate",
     "test": "jest --detectOpenHandles",
     "db:push": "prisma db push",
-    "db:studio": "prisma studio"
+    "db:studio": "prisma studio",
+    "db:format": "prisma format"
   },
   "devDependencies": {
     "@types/bcrypt": "^5.0.2",
