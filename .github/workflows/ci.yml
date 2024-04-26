@@ -36,16 +36,18 @@ jobs:
   docker:
     runs-on: ubuntu-latest
     env:
-      DATABASE_URL: ${{ secrets.DATABASE_URL }}
-      NEXTAUTH_SECRET: ${{ secrets.NEXTAUTH_SECRET }}
-      NEXTAUTH_URL: ${{ secrets.NEXTAUTH_URL }}
-      NEXTAUTH_TEST: ${{ vars.NEXTAUTH_TEST }}
+      # DATABASE_URL: ${{ secrets.DATABASE_URL }}
+      # NEXTAUTH_SECRET: ${{ secrets.NEXTAUTH_SECRET }}
+      # NEXTAUTH_URL: ${{ secrets.NEXTAUTH_URL }}
+      # NEXTAUTH_TEST: ${{ vars.NEXTAUTH_TEST }}
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      - name: Echo
-        run: echo $NEXTAUTH_TEST
-
       - name: Run Docker Compose
-        run: $DATABASE_URL $NEXTAUTH_SECRET $NEXTAUTH_URL docker compose up
+        run: docker compose up
+        with:
+          env:
+            DATABASE_URL: ${{ secrets.DATABASE_URL }}
+            NEXTAUTH_SECRET: ${{ secrets.NEXTAUTH_SECRET }}
+            NEXTAUTH_URL: ${{ secrets.NEXTAUTH_URL }}
