@@ -25,11 +25,8 @@ services:
           target: /app
           action: sync
     environment:
-      # - NEXT_TELEMETRY_DISABLED=1
-      # - TURBO_TELEMETRY_DISABLED=1
-      DATABASE_URL: ${DATABASE_URL}
-      NEXTAUTH_SECRET: ${NEXTAUTH_SECRET}
-      NEXTAUTH_URL: ${NEXTAUTH_URL}
+      - NEXT_TELEMETRY_DISABLED=1
+      - TURBO_TELEMETRY_DISABLED=1
       # - GITHUB_CLIENT_ID="test"
       # - GITHUB_CLIENT_SECRET="test"
   api:
