@@ -23,7 +23,7 @@ export default defineConfig({
     sourcemap: true,
     cssCodeSplit: true,
     rollupOptions: {
-      external: ['react', ...Object.keys((pkg as any).dependencies)],
+      external: ['react', ...Object.keys(pkg.dependencies)],
       output: [
         {
           format: 'es',
