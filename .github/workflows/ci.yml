@@ -45,7 +45,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Echo
-        uses: echo $NEXTAUTH_TEST
+        run: echo $NEXTAUTH_TEST
 
       - name: Run Docker Compose
         run: $DATABASE_URL $NEXTAUTH_SECRET $NEXTAUTH_URL docker compose up
