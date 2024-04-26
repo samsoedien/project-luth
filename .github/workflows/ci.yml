@@ -43,11 +43,5 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: echo
-        run: echo ${{ secrets.DATABASE_URL }}
-
-      - name: echo
-        run: echo $NEXTAUTH_SECRET
-
       - name: Run Docker compose
-        run: $DATABASE_URL  $NEXTAUTH_URL docker compose up
+        run: $DATABASE_URL $NEXTAUTH_SECRET $NEXTAUTH_URL docker compose up
