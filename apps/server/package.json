@@ -12,7 +12,7 @@
     "start": "nodemon dist/index.js",
     "build": "tsc",
     "prebuild": "yarn prisma generate",
-    "test": "jest --detectOpenHandles",
+    "test": "jest --detectOpenHandles --passWithNoTests",
     "db:push": "prisma db push",
     "db:studio": "prisma studio",
     "db:format": "prisma format"

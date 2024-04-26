@@ -1,5 +1,5 @@
-import { PrismaClient } from '@prisma/client'
-// import { PrismaClient } from '../../prisma/generated/client'
+// import { PrismaClient } from '@prisma/client'
+import { PrismaClient } from '../../prisma/generated/client'
 import { SignUpSchema } from '../api/schemas/auth.schema'
 
 export const prisma = new PrismaClient({
