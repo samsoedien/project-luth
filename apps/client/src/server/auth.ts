@@ -19,9 +19,11 @@ declare module 'next-auth' {
     user: {
       id: string
       // ...other properties
-      // role: UserRole;
+      role: UserRole
     } & DefaultSession['user']
   }
+
+  type UserRole = 'USER' | 'ADMIN'
 
   // interface User {
   //   // ...other properties

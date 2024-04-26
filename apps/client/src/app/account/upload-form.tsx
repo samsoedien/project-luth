@@ -21,7 +21,7 @@ import { useRef, useState } from 'react'
 import { api } from '~/trpc/react'
 import { useRouter } from 'next/navigation'
 
-export default function UploadForm({ profile }: { profile: { image?: string } }) {
+export default function UploadForm({ image }: { image?: string | null }) {
   const inputFileRef = useRef<HTMLInputElement>(null)
   const [blob, setBlob] = useState<PutBlobResult | null>(null)
   const router = useRouter()
@@ -90,7 +90,7 @@ export default function UploadForm({ profile }: { profile: { image?: string } })
               <div className="flex flex-col gap-4">
                 <CardContent>
                   <Image
-                    src={blob?.url ?? profile?.image ?? ''}
+                    src={blob?.url ?? image ?? ''}
                     alt="Profile picture"
                     width={120}
                     height={120}

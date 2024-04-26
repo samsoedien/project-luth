@@ -1,7 +1,6 @@
 {
   "name": "@project-luth/server",
   "version": "0.0.0",
-  "type": "module",
   "description": "Rest API Express backend application",
   "keywords": [],
   "author": "Nathan Samsoedien <contact@samsoedien.com> (https://samsoedien.com)",

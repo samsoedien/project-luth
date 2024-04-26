@@ -25,25 +25,7 @@ export const { auth, handlers, signIn, signOut } = NextAuth({
         password: { label: 'Password', type: 'password' },
       },
       authorize: async (credentials) => {
-        try {
-          let user = null
-
-          const { email, password } = await LoginSchema.parseAsync(credentials)
-
-          user = await prisma.user.findUnique({ where: { email } })
-          if (!user || !user.password) throw new Error('User not found.')
-
-          const passwordsMatch = await compare(password, user.password)
-          if (!passwordsMatch) throw new Error('Invalid credentials')
-
-          return user
-        } catch (error) {
-          if (error instanceof ZodError) {
-            return null
-          }
-        }
-
-        let user
+        let user = null
 
         const validatedFields = LoginSchema.safeParse(credentials)
 
@@ -95,16 +77,16 @@ export const { auth, handlers, signIn, signOut } = NextAuth({
       }
       return token
     },
-    session({ session, token }) {
-      session.user.id = token.id
-      return session
-    },
+    // session({ session, token }) {
+    //   session.user.id = token.id
+    //   return session
+    // },
   },
 
   // pages: {
   //   signIn: '/signin',
   // },
-  // debug: process.env.NODE_ENV === 'development',
+  debug: process.env.NODE_ENV === 'development',
 })
 
 /**

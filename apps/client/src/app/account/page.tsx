@@ -7,5 +7,5 @@ export default async function AccountPage() {
   if (!session?.user) return null
   const profile = await api.user.getProfile.query()
 
-  return <UploadForm profile={profile} />
+  return <UploadForm image={profile?.image} />
 }
