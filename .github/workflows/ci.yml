@@ -1,0 +1,23 @@
+name: ci
+on: [push, pull_request]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # - name: Install dependencies
+      #   run: yarn Install
+
+      # - name: Run Linting
+      #   run: yarn lint
+
+      # - name: Run Tests
+      #   run: yarn test
+
+      # - name: Run Build
+      #   run: yarn build
+
+      - name: Run Docker compose
+        run: docker compose up

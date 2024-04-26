@@ -12,7 +12,7 @@ services:
     networks:
       - app_network
     env_file:
-      - ./apps/client/.env
+      - ./apps/client/.env.local
     develop:
       watch:
         - path: ./package.json
