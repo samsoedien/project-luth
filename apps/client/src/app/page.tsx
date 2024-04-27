@@ -15,14 +15,15 @@ export default async function Home(): Promise<JSX.Element> {
     <>
       {/* <div className="container flex flex-col items-center justify-center gap-12 px-4 py-16 "> */}
       {/* </div> */}
-      <Grid container>
+      {/* <Grid container>
         <Grid xs={12} md={8}>
           <div className="h-[360px] w-full bg-gray-50">Column 8</div>
         </Grid>
         <Grid xs={12} md={4}>
           <div className="h-[360px] w-full bg-gray-50">Column 4</div>
         </Grid>
-      </Grid>
+      </Grid> */}
+      <h2>Page Content</h2>
     </>
   )
 }

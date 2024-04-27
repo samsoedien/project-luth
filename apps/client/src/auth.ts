@@ -4,7 +4,7 @@ import GitHub from 'next-auth/providers/github'
 import Google from 'next-auth/providers/google'
 import Resend from 'next-auth/providers/resend'
 
-import { ZodError, z } from 'zod'
+import { z } from 'zod'
 
 import { PrismaAdapter } from '@auth/prisma-adapter'
 import { PrismaClient } from '@prisma/client'
@@ -53,22 +53,6 @@ export const { auth, handlers, signIn, signOut } = NextAuth({
     strategy: 'jwt',
   },
   secret: process.env.AUTH_SECRET,
-  // callacks: {
-
-  // async session({ session, token }) {
-  //   if (session.user && token.sub) session.user.id = token.sub
-  //   console.log('session', session)
-
-  //   return session
-  // },
-  // async jwt({ token, session }) {
-  //   // if (session.user) {
-  //   //   token.role = session.user.role
-  //   // }
-
-  //   console.log('token: ', token)
-  //   return token
-  // },
   callbacks: {
     jwt({ token, user }) {
       if (user) {
@@ -77,16 +61,15 @@ export const { auth, handlers, signIn, signOut } = NextAuth({
       }
       return token
     },
-    // session({ session, token }) {
-    //   session.user.id = token.id
-    //   return session
-    // },
+    session({ session, token }) {
+      session.user.id = token.id
+      return session
+    },
   },
-
   // pages: {
   //   signIn: '/signin',
   // },
-  debug: process.env.NODE_ENV === 'development',
+  // debug: process.env.NODE_ENV === 'development',
 })
 
 /**

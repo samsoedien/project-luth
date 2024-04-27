@@ -28,6 +28,7 @@ import { zodResolver } from '@hookform/resolvers/zod'
 
 import * as z from 'zod'
 import { api } from '~/trpc/react'
+import { resendEmail } from './sendMail'
 
 const SigninSchema = z.object({
   email: z.string().email(),
@@ -118,6 +119,9 @@ function SigninForm() {
       <CardFooter>
         <Button variant="link" size="sm" className="text-black" asChild>
           <Link href="/signup">Don't have an account yet?</Link>
+        </Button>
+        <Button variant="link" size="sm" className="text-black" onClick={resendEmail}>
+          Send mail
         </Button>
       </CardFooter>
     </Card>

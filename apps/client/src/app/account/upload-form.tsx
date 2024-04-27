@@ -21,7 +21,13 @@ import { useRef, useState } from 'react'
 import { api } from '~/trpc/react'
 import { useRouter } from 'next/navigation'
 
-export default function UploadForm({ image }: { image?: string | null }) {
+export default function UploadForm({
+  image,
+  sendMail,
+}: {
+  image?: string | null
+  sendMail: () => void
+}) {
   const inputFileRef = useRef<HTMLInputElement>(null)
   const [blob, setBlob] = useState<PutBlobResult | null>(null)
   const router = useRouter()
@@ -67,6 +73,7 @@ export default function UploadForm({ image }: { image?: string | null }) {
         {/* <Button className="w-20" onClick={handleSignOut}>
           Sign out
         </Button> */}
+        <Button onClick={sendMail}>Send Email</Button>
 
         <div className="mx-auto grid w-full max-w-6xl items-start gap-6 md:grid-cols-[180px_1fr] lg:grid-cols-[250px_1fr]">
           <nav className="text-muted-foreground grid gap-4 text-sm" x-chunk="dashboard-04-chunk-0">

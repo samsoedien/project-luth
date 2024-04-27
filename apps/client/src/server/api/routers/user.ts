@@ -5,7 +5,7 @@ import { compare, hashSync } from 'bcrypt'
 import { createTRPCRouter, protectedProcedure, publicProcedure } from '~/server/api/trpc'
 import { signIn } from '~/auth'
 import { AuthError } from 'next-auth'
-import { Console } from 'console'
+import { Resend } from 'resend'
 
 const LoginSchema = z.object({
   email: z.string().email(),
@@ -51,6 +51,32 @@ export const userRouter = createTRPCRouter({
 
       const hashedPassword = hashSync(input.password, 10)
 
+      const resend = new Resend(process.env.RESEND_API_KEY)
+
+      console.log('sending email...')
+
+      await resend.emails.send({
+        from: 'Acme <onboarding@resend.dev>',
+        to: ['nathan.samsoedien@gmail.com'],
+        subject: 'hello world',
+        text: 'it works!',
+        // attachments: [
+        //   {
+        //     filename: 'invoice.pdf',
+        //     content: invoiceBuffer,
+        //   },
+        // ],
+        headers: {
+          'X-Entity-Ref-ID': '123456789',
+        },
+        tags: [
+          {
+            name: 'category',
+            value: 'confirm_email',
+          },
+        ],
+      })
+
       return ctx.db.user.create({
         data: {
           email: input.email,
@@ -90,7 +116,7 @@ export const userRouter = createTRPCRouter({
         await signIn('credentials', {
           email,
           password,
-          // redirectTo: '/account',
+          redirect: false,
         })
       } catch (err) {
         console.log('has error', err)
