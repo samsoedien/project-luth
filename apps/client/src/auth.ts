@@ -10,6 +10,8 @@ import { PrismaAdapter } from '@auth/prisma-adapter'
 import { PrismaClient } from '@prisma/client'
 import { compare, hashSync } from 'bcrypt'
 
+import { JWT } from 'next-auth/jwt'
+
 const prisma = new PrismaClient()
 
 const LoginSchema = z.object({
@@ -43,9 +45,20 @@ export const { auth, handlers, signIn, signOut } = NextAuth({
       },
     }),
     Resend({
-      from: 'contact@samsoedien.com',
+      from: 'auth@luth.samsoedien.com',
     }),
-    GitHub,
+    GitHub({
+      profile(profile) {
+        return {
+          id: profile.id.toString(),
+          name: profile.name || profile.login,
+          gh_username: profile.login,
+          email: profile.email,
+          image: profile.avatar_url,
+          role: profile.email === 'info@samsoedien.com' ? 'ADMIN' : 'USER',
+        }
+      },
+    }),
     Google,
   ],
   adapter: PrismaAdapter(prisma),
@@ -56,14 +69,21 @@ export const { auth, handlers, signIn, signOut } = NextAuth({
   callbacks: {
     jwt({ token, user }) {
       if (user) {
-        // User is available during sign-in
         token.id = user.id
+        token.role = user.role
       }
       return token
     },
     session({ session, token }) {
       session.user.id = token.id
+      session.user.role = token.role
+
       return session
+    },
+    authorized: async ({ request, token }) => {
+      if (request.nextUrl.pathname.startsWith('/settings/admin') && token.role !== 'ADMIN')
+        return false
+      return true
     },
   },
   // pages: {
@@ -87,8 +107,16 @@ declare module 'next-auth' {
     } & DefaultSession['user']
   }
 
-  // interface User {
-  //   // ...other properties
-  //   // role: UserRole;
-  // }
+  interface User {
+    // ...other properties
+    role: 'USER' | 'ADMIN'
+    // role: UserRole;
+  }
+}
+
+declare module 'next-auth/jwt' {
+  interface JWT {
+    id: string
+    role: 'USER' | 'ADMIN'
+  }
 }

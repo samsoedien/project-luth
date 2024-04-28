@@ -10,7 +10,7 @@ export function HeroBanner() {
       <Button variant="secondary" size="sm">
         Introducing workbenches <ArrowRightIcon className="ml-2 h-4 w-4" />
       </Button>
-      <h2 className="text-center text-3xl font-bold leading-tight tracking-tighter md:text-5xl lg:leading-[1.1]">
+      <h2 className="mt-2 text-center text-3xl font-bold leading-tight tracking-tighter md:text-5xl lg:leading-[1.1]">
         Build & create your dream guitar
       </h2>
       <p className="text-foreground text-md max-w-[750px] pt-1 text-center font-light">
@@ -18,7 +18,7 @@ export function HeroBanner() {
         designs to create a guitar that is truly unique to you.
       </p>
       <div className="mt-3 flex">
-        <Button size="sm">Connect with builder</Button>
+        <Button size="sm">Connect with a builder</Button>
         <Button size="sm" variant="link">
           Browse creations
         </Button>

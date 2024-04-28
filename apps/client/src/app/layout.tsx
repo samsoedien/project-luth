@@ -55,7 +55,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
             <div className="bg-muted/40 relative min-h-screen w-full">
               <div className="bg-background mx-auto max-w-[1440px] ">
                 <Header session={session} profilePhoto={profile?.image ?? ''} />
-                <main>{children}</main>
+                <main className="min-h-screen ">{children}</main>
 
                 <Footer />
               </div>

@@ -70,24 +70,8 @@ export default async function ProductsPage() {
   // const posts = await api.post.findMany()
 
   return (
-    <div>
-      <Dialog>
-        <DialogTrigger asChild>
-          <Button variant="outline">Add product</Button>
-        </DialogTrigger>
-        <DialogContent className="sm:max-w-[425px]">
-          <DialogHeader>
-            <DialogTitle>Add product</DialogTitle>
-            <DialogDescription>
-              Add a guitar to your store. You can add as many products as you want.
-            </DialogDescription>
-          </DialogHeader>
-          <CreateProductForm />
-          {/* <DialogFooter>
-            <Button type="submit">Save changes</Button>
-          </DialogFooter> */}
-        </DialogContent>
-      </Dialog>
+    <>
+      <AddProductDialog>Add guitar</AddProductDialog>
       <Spacer />
       <Grid container>
         {products.map((product) => (
@@ -96,8 +80,7 @@ export default async function ProductsPage() {
           </Grid>
         ))}
       </Grid>
-      {/* <CarouselSpacing /> */}
-    </div>
+    </>
   )
 }
 
@@ -113,5 +96,29 @@ function ProductCard({ name, description, priceInCents }: IProductCardProps) {
         <p>{priceInCents}</p>
       </CardContent>
     </Card>
+  )
+}
+
+function AddProductDialog({ children }: { children: React.ReactNode }) {
+  return (
+    <div>
+      <Dialog>
+        <DialogTrigger asChild>
+          <Button variant="outline">{children}</Button>
+        </DialogTrigger>
+        <DialogContent className="sm:max-w-[425px]">
+          <DialogHeader>
+            <DialogTitle>Add product</DialogTitle>
+            <DialogDescription>
+              Add a guitar to your store. You can add as many products as you want.
+            </DialogDescription>
+          </DialogHeader>
+          <CreateProductForm />
+          {/* <DialogFooter>
+            <Button type="submit">Save changes</Button>
+          </DialogFooter> */}
+        </DialogContent>
+      </Dialog>
+    </div>
   )
 }
