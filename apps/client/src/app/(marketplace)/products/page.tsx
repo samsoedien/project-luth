@@ -19,7 +19,7 @@ import {
 import CreateProductForm from '~/components/create-product/create-product-form'
 import { auth } from '~/auth'
 
-import { api } from '~/trpc/server'
+import { api } from '~/config/trpc/server'
 
 interface IProductCardProps {
   name: string

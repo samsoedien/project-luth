@@ -15,7 +15,7 @@ import {
   FormMessage,
   Input,
 } from '@project-luth/core'
-import { api } from '~/trpc/react'
+import { api } from '~/config/trpc/react'
 import { useRouter } from 'next/navigation'
 
 const formSchema = z.object({

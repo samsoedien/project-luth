@@ -1,7 +1,7 @@
 'use client'
 
 import { Navbar } from '../navbar/navbar'
-import PromoBanner from '../../../components/promo-banner/promo-banner'
+import PromoBanner from '../../components/promo-banner/promo-banner'
 import { HeroBanner } from '../hero-banner/hero-banner'
 import { type Session } from 'next-auth'
 

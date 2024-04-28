@@ -6,10 +6,10 @@ import { GeistSans } from 'geist/font/sans'
 // import { GeistMono } from 'geist/font/mono'
 
 import { ThemeProvider } from '../theme/provider/theme-provider'
-import { TRPCReactProvider } from '~/trpc/react'
-import Footer from '~/app/_components/footer/footer'
-import Header from '~/app/_components/header/header'
-import { api } from '~/trpc/server'
+import { TRPCReactProvider } from '~/config/trpc/react'
+import Footer from '~/layouts/footer/footer'
+import Header from '~/layouts/header/header'
+import { api } from '~/config/trpc/server'
 
 import { auth } from '~/auth'
 

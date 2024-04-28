@@ -1,6 +1,6 @@
 import { auth } from '~/auth'
 import UploadForm from './upload-form'
-import { api } from '~/trpc/server'
+import { api } from '~/config/trpc/server'
 
 export default async function AccountPage() {
   const session = await auth()

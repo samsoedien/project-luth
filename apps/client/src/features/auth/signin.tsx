@@ -27,7 +27,7 @@ import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 
 import * as z from 'zod'
-import { api } from '~/trpc/react'
+import { api } from '~/config/trpc/react'
 
 const SigninSchema = z.object({
   email: z.string().email(),

@@ -1,7 +1,7 @@
 import { CreatePost } from '~/components/create-post'
 import { auth } from '~/auth'
 
-import { api } from '~/trpc/server'
+import { api } from '~/config/trpc/server'
 
 export default async function PostsPage() {
   const session = await auth()

@@ -3,7 +3,7 @@ import { unstable_noStore as noStore } from 'next/cache'
 
 import { auth } from '~/auth'
 
-import { api } from '~/trpc/server'
+import { api } from '~/config/trpc/server'
 
 export default async function Home(): Promise<JSX.Element> {
   noStore()

@@ -16,11 +16,11 @@ import {
   SheetTrigger,
 } from '@project-luth/core'
 
-import ThemeModeToggle from '../../../theme/theme-mode-toggle'
-import { Navigation } from '../../../components/navigation-menu/navigation-menu'
+import ThemeModeToggle from '../../theme/theme-mode-toggle'
+import { Navigation } from '../../components/navigation-menu/navigation-menu'
 import { type Session } from 'next-auth'
 
-import SheetSide from '../../../components/side-drawer/side-drawer'
+import SheetSide from '../../components/side-drawer/side-drawer'
 
 type NavbarProps = {
   session: Session | null

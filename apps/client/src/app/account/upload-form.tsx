@@ -18,7 +18,7 @@ import {
 } from '@project-luth/core'
 import { type PutBlobResult } from '@vercel/blob'
 import { useRef, useState } from 'react'
-import { api } from '~/trpc/react'
+import { api } from '~/config/trpc/react'
 import { useRouter } from 'next/navigation'
 
 export default function UploadForm({
