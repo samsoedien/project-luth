@@ -6,11 +6,12 @@ import { GeistSans } from 'geist/font/sans'
 // import { GeistMono } from 'geist/font/mono'
 
 import { ThemeProvider } from '../theme/provider/theme-provider'
-import { TRPCReactProvider } from '~/trpc/react'
-import { getServerAuthSession } from '~/server/auth'
-import Footer from '~/app/_components/footer/footer'
-import Header from '~/app/_components/header/header'
-import { api } from '~/trpc/server'
+import { TRPCReactProvider } from '~/config/trpc/react'
+import Footer from '~/layouts/footer/footer'
+import Header from '~/layouts/header/header'
+import { api } from '~/config/trpc/server'
+
+import { auth } from '~/auth'
 
 // import { GridProvider } from '@project-luth/core'
 
@@ -32,7 +33,7 @@ export const metadata = {
 }
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
-  const session = await getServerAuthSession()
+  const session = await auth()
   let profile
 
   if (session?.user) {
@@ -40,7 +41,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   }
 
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning={true}>
       {/* <body className={`font-sans ${poppins.variable}`}> */}
       <body className={GeistSans.className}>
         <TRPCReactProvider>
@@ -51,11 +52,15 @@ export default async function RootLayout({ children }: { children: React.ReactNo
             disableTransitionOnChange
           >
             {/* <GridProvider> */}
-            <div className="relative mx-auto min-h-screen max-w-[1440px]">
-              <Header session={session} profilePhoto={profile?.image ?? ''} />
-              <main className="min-h-screen">{children}</main>
-              <Footer />
+            <div className="bg-muted/40 relative min-h-screen w-full">
+              <div className="bg-background mx-auto max-w-[1440px] ">
+                <Header session={session} profilePhoto={profile?.image ?? ''} />
+                <main className="min-h-screen ">{children}</main>
+
+                <Footer />
+              </div>
             </div>
+            {JSON.stringify(session)}
             {/* </GridProvider> */}
           </ThemeProvider>
         </TRPCReactProvider>

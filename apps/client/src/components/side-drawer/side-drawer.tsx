@@ -23,7 +23,7 @@ import {
   Spacer,
 } from '@project-luth/core'
 import { ShoppingCartIcon } from '@project-luth/icons'
-import Cart from '~/features/cart'
+import Cart from '~/features/cart/cart'
 import Link from 'next/link'
 
 // export default function SideDrawer(): JSX.Element {

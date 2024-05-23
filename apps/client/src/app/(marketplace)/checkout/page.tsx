@@ -1,4 +1,4 @@
-import { getServerAuthSession } from '~/server/auth'
+import { auth } from '~/auth'
 
 import Stripe from 'stripe'
 import CheckoutForm from './_components/checkout'
@@ -37,7 +37,7 @@ async function getProducts() {
 }
 
 export default async function CheckoutPage() {
-  const session = await getServerAuthSession()
+  const session = await auth()
   if (!session?.user) return null
 
   const products = await getProducts()

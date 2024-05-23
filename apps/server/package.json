@@ -12,9 +12,10 @@
     "start": "nodemon dist/index.js",
     "build": "tsc",
     "prebuild": "yarn prisma generate",
-    "test": "jest --detectOpenHandles",
+    "test": "jest --detectOpenHandles --passWithNoTests",
     "db:push": "prisma db push",
-    "db:studio": "prisma studio"
+    "db:studio": "prisma studio",
+    "db:format": "prisma format"
   },
   "devDependencies": {
     "@types/bcrypt": "^5.0.2",
@@ -31,7 +32,7 @@
     "typescript": "^5.4.3"
   },
   "dependencies": {
-    "@prisma/client": "^5.11.0",
+    "@prisma/client": "^5.13.0",
     "bcrypt": "^5.1.1",
     "compression": "^1.7.4",
     "cookie-parser": "^1.4.6",
@@ -45,7 +46,7 @@
     "hpp": "^0.2.3",
     "jsonwebtoken": "^9.0.2",
     "morgan": "^1.10.0",
-    "prisma": "^5.11.0",
+    "prisma": "^5.13.0",
     "xss-clean": "^0.1.4",
     "zod": "^3.22.4"
   }

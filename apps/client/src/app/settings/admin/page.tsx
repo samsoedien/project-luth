@@ -1,8 +1,11 @@
-import { getServerAuthSession } from '~/server/auth'
+import { auth } from '~/auth'
 
 export default async function AdminPage() {
-  const session = await getServerAuthSession()
-  if (!session?.user) return null
+  const session = await auth()
 
-  return <div>Admin Content</div>
+  if (session?.user.role === 'ADMIN') {
+    return <p>You are an admin, welcome!</p>
+  }
+
+  return <p>You are not authorized to view this page!</p>
 }

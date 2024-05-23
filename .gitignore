@@ -133,4 +133,3 @@ dist
 lib
 
 vite.config.ts.timestamp-*.mjs
-generated
