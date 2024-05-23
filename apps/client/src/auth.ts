@@ -26,23 +26,18 @@ export const { auth, handlers, signIn, signOut } = NextAuth({
         email: { label: 'Email' },
         password: { label: 'Password', type: 'password' },
       },
-      authorize: async (credentials) => {
-        let user = null
-
-        const validatedFields = LoginSchema.safeParse(credentials)
-
-        if (validatedFields.success) {
-          const { email, password } = validatedFields.data
-
-          user = await prisma.user.findUnique({ where: { email } })
-          if (!user || !user.password) throw new Error('No user found')
-
-          const passwordsMatch = await compare(password, user.password)
-
-          if (!passwordsMatch) throw new Error('Invalid credentials')
-        }
-        return user
-      },
+      // authorize: async (credentials) => {
+      // let user = null
+      // const validatedFields = LoginSchema.safeParse(credentials)
+      // if (validatedFields.success) {
+      //   const { email, password } = validatedFields.data
+      //   user = await prisma.user.findUnique({ where: { email } })
+      //   if (!user || !user.password) throw new Error('No user found')
+      //   const passwordsMatch = await compare(password, user.password)
+      //   if (!passwordsMatch) throw new Error('Invalid credentials')
+      // }
+      // return user
+      // },
     }),
     Resend({
       from: 'auth@luth.samsoedien.com',
@@ -69,7 +64,7 @@ export const { auth, handlers, signIn, signOut } = NextAuth({
   callbacks: {
     jwt({ token, user }) {
       if (user) {
-        token.id = user.id
+        if (user.id) token.id = user.id
         token.role = user.role
       }
       return token
@@ -80,11 +75,11 @@ export const { auth, handlers, signIn, signOut } = NextAuth({
 
       return session
     },
-    authorized: async ({ request, token }) => {
-      if (request.nextUrl.pathname.startsWith('/settings/admin') && token.role !== 'ADMIN')
-        return false
-      return true
-    },
+    // authorized: async ({ request, token }) => {
+    //   if (request.nextUrl.pathname.startsWith('/settings/admin') && token.role !== 'ADMIN')
+    //     return false
+    //   return true
+    // },
   },
   // pages: {
   //   signIn: '/signin',
