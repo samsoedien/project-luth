@@ -21,13 +21,7 @@ import { useRef, useState } from 'react'
 import { api } from '~/config/trpc/react'
 import { useRouter } from 'next/navigation'
 
-export default function UploadForm({
-  image,
-  sendMail,
-}: {
-  image?: string | null
-  sendMail: () => void
-}) {
+export default function UploadForm({ image }: { image?: string | null }) {
   const inputFileRef = useRef<HTMLInputElement>(null)
   const [blob, setBlob] = useState<PutBlobResult | null>(null)
   const router = useRouter()
