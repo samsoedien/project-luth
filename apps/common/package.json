@@ -9,7 +9,7 @@
     "build:watch": "tsc && vite build --watch",
     "lint": "eslint .",
     "preview": "vite preview --port 8000 --strictPort --host",
-    "convert": "yarn gltfjsx ./public/luth-guitar.glb --types --output ./src/_generated/LuthGuitar.tsx"
+    "model": "npx gltfjsx@6.5.0 ./public/luth-guitar.glb --types --keepnames --meta --shadows --exportdefault --output ./src/_generated/LuthGuitar.tsx"
   },
   "dependencies": {
     "@react-three/drei": "^9.112.0",
