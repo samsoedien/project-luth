@@ -1,58 +1,75 @@
-import { meshVisibilityConfig } from '../features/meshVisibilityConfig'
-import { MeshVisibilityConfig } from '../features/withMeshModifier'
 import { create } from 'zustand'
-import {
-  getSoundBoardMesh,
-  getSidesMesh,
-  SidesVisibility,
-  getMeshByCutaway,
-} from '../features/3d-configurator/configurationOptions'
+import { EBodyShape } from '../features/3d-configurator/configurationOptions'
+import { Material, MeshStandardMaterial } from 'three'
+import { GLTFResult } from '..//_generated/LuthGuitar'
 
-export enum EBodyShape {
-  Dreadnought = 'Dreadnought',
-  GrandConcert = 'Grand Concert',
-  Auditorium = 'Auditorium',
-  Jumbo = 'Jumbo',
-  OM = 'OM',
-  Parlor = 'Parlor',
+export enum LuthComponent {
+  Soundboard = 'Soundboard',
+  Back = 'Back',
+  Sides = 'Sides',
+  Binding = 'Binding',
+  Neck = 'Neck',
+  Headstock = 'Headstock',
+  Fretboard = 'Fretboard',
+  Bridge = 'Bridge',
+  Pickguard = 'Pickguard',
+  Strings = 'Strings',
+  Perfling = 'Perfling',
 }
 
-export enum ECutawayOption {
-  None = 'None',
-  Venetian = 'Venetian',
-  Florentine = 'Florentine',
-  Scalloped = 'Scalloped',
+// Define the IComponentData and IConfiguration types
+export interface IComponentData {
+  name: LuthComponent
+  meshes: Array<keyof GLTFResult['nodes']>
+  material?: Material
+  components?: IComponentData[]
 }
 
 export interface IConfiguration {
+  name: string
   bodyShape: EBodyShape
-  cutaway: ECutawayOption
-  armBevel: boolean
-  setCutaway: (cutaway: ECutawayOption) => void
-  meshVisibilityConfig: MeshVisibilityConfig
-  setMeshVisibilityConfig: () => void
+  components: IComponentData[]
 }
 
-export const useConfigurationStore = create<IConfiguration>()((set) => ({
-  bodyShape: EBodyShape.Dreadnought,
-  cutaway: ECutawayOption.None,
-  armBevel: false,
-  setCutaway: (cutaway) => set(() => ({ cutaway })),
-  meshVisibilityConfig,
-  setMeshVisibilityConfig: () => {
-    set((state) => {
-      // const soundboardCutawayMesh = getSoundBoardMesh(state.cutaway)
-      const sidesCutawayMesh = getMeshByCutaway(state.cutaway)
-      return {
-        meshVisibilityConfig: {
-          ...meshVisibilityConfig,
-          // ...state.meshVisibilityConfig,
-          ...sidesCutawayMesh,
+// Define the Zustand store
+interface ConfigurationStoreState {
+  configuration: IConfiguration
+  setConfiguration: (config: IConfiguration) => void
+}
 
-          // [sidesCutawayMesh]: { visible: true },
-          // Optionally hide other meshes
-        },
-      }
-    })
+export const useConfigurationStore = create<ConfigurationStoreState>()((set) => ({
+  configuration: {
+    name: 'Luth_Model',
+    bodyShape: EBodyShape.Dreadnought,
+    components: [
+      {
+        name: LuthComponent.Soundboard,
+        meshes: ['Body_Soundboard_Venetian_Cutaway_1'],
+        material: new MeshStandardMaterial({ color: 'red' }),
+      },
+
+      {
+        name: LuthComponent.Binding,
+        meshes: ['Body_Binding_Top_Venetian_Cutaway_1', 'Body_Binding_Bottom_Venetian_Cutaway_1'],
+        components: [
+          {
+            name: LuthComponent.Perfling,
+            meshes: [
+              'Body_Binding_Top_Venetian_Cutaway_1',
+              'Body_Binding_Bottom_Venetian_Cutaway_1',
+            ],
+          },
+        ],
+      },
+      {
+        name: LuthComponent.Neck,
+        meshes: ['Body_Neck_1', 'Body_Heel_1'],
+      },
+      {
+        name: LuthComponent.Sides,
+        meshes: ['Body_Sides_1'],
+      },
+    ],
   },
+  setConfiguration: (config) => set({ configuration: config }),
 }))

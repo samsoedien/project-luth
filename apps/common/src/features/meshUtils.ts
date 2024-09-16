@@ -1,44 +1,42 @@
-import { Group, Mesh, Material, MeshStandardMaterial } from 'three'
+import { Group, Mesh, MeshStandardMaterial, Material } from 'three'
+import { IComponentData, IConfiguration } from '../store/store'
+import { GLTFResult } from '../_generated/LuthGuitar'
 
-// Applies group visibility based on the groupVisibilityConfig
-export const applyGroupVisibility = (
-  group: Group,
-  groupVisibilityConfig?: Record<string, boolean>,
-) => {
-  if (!groupVisibilityConfig) return
-
-  group.children.forEach((child) => {
-    if (child instanceof Group && groupVisibilityConfig[child.name] !== undefined) {
-      child.visible = groupVisibilityConfig[child.name]
-    }
-  })
-}
-
-// Applies mesh visibility and material changes based on the meshVisibilityConfig
-export const applyMeshConfig = (
-  group: Group,
-  meshVisibilityConfig: Record<string, { visible: boolean; material?: Material }>,
-) => {
+// Function to apply visibility to meshes based on configuration
+export const applyMeshVisibility = (group: Group, configuration: IConfiguration) => {
   group.traverse((child) => {
-    if (child instanceof Mesh && meshVisibilityConfig[child.name]) {
-      const config = meshVisibilityConfig[child.name]
-      child.visible = config.visible
+    if ((child as Mesh).isMesh) {
+      const mesh = child as Mesh
+      const meshName = mesh.name as keyof GLTFResult['nodes'] // Assert type here
 
-      // Apply material if defined
-      if (config.material) {
-        child.material = config.material
-      }
+      // Determine if the mesh should be visible based on the configuration
+      const component = configuration.components.find((comp) => comp.meshes.includes(meshName))
+
+      mesh.visible = !!component
     }
   })
 }
 
-// Sets all meshes in the group to a standard white material
-export const setMeshesToStandardWhiteMaterial = (group: Group) => {
+// Function to apply a specified material or fallback to white material to all meshes
+export const applyMeshMaterial = (group: Group, configuration: IConfiguration) => {
   const whiteMaterial = new MeshStandardMaterial({ color: 'white' })
 
   group.traverse((child) => {
-    if (child instanceof Mesh) {
-      child.material = whiteMaterial
+    if ((child as Mesh).isMesh) {
+      const mesh = child as Mesh
+      const meshName = mesh.name as keyof GLTFResult['nodes'] // Assert type here
+
+      // Find the component to get the material
+      const component = configuration.components.find((comp) => comp.meshes.includes(meshName))
+
+      // Apply the specified material if available, else fallback to white material
+      const material = component?.material ?? whiteMaterial
+      mesh.material = material
     }
   })
+}
+
+export function hasUniqueComponentNames(components: IComponentData[]): boolean {
+  const names = components.map((c) => c.name)
+  return new Set(names).size === names.length
 }

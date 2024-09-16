@@ -6,10 +6,12 @@ import Scene from './features/Scene'
 export function App() {
   return (
     // <div className="app">
-    <ConfiguratorProvider>
+    // <ConfiguratorProvider>
+    <>
       <Scene />
       <Configurator />
-    </ConfiguratorProvider>
+    </>
+    // </ConfiguratorProvider>
     // </div>
   )
 }

@@ -6,15 +6,15 @@ const ConfiguratorContext = createContext({})
 export const ConfiguratorProvider = (props) => {
   console.log(props)
   const [material, setMaterial] = useState('Mahogany')
-  const [cutaway, setCutaway] = useState<ECutawayOption>(ECutawayOption.Venetian)
+  // const [cutaway, setCutaway] = useState<ECutawayOption>(ECutawayOption.Venetian)
 
   return (
     <ConfiguratorContext.Provider
       value={{
         material,
         setMaterial,
-        cutaway,
-        setCutaway,
+        // cutaway,
+        // setCutaway,
       }}
     >
       {props.children}

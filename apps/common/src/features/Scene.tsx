@@ -13,33 +13,22 @@ import { Suspense, useState } from 'react'
 import * as THREE from 'three'
 import LuthGuitar, { GLTFResult } from '../_generated/LuthGuitar'
 
-import withMeshModifier, { CombinedConfig, GroupVisibilityConfig } from './withMeshModifier'
+import withMeshConfiguration from './withMeshConfiguration'
 import { useConfigurationStore } from '../store/store'
 
 export default function Scene() {
   const isDebug = true
 
-  const meshVisibilityConfig = useConfigurationStore((state) => state.meshVisibilityConfig)
+  const configuration = useConfigurationStore((state) => state.configuration)
 
-  console.log(meshVisibilityConfig)
-
-  // const [configuration, setConfiguration] = useState<IConfiguration>({
-  //   cutaway: ECutawayOption.NONE,
-  //   armBevel: false,
-  // })
-
-  const groupVisibilityConfig: GroupVisibilityConfig = {
-    Soundboard: true, // Show this group
-    Sides: true, // Hide this group
-  }
-
-  const combinedConfig: CombinedConfig = {
-    meshVisibilityConfig,
-    groupVisibilityConfig,
-  }
+  // const groupVisibilityConfig: GroupVisibilityConfig = {
+  //   Soundboard: true, // Show this group
+  //   Sides: true, // Hide this group
+  // }
 
   // const ModelWithVisibility = withMeshVisibilyarn commity(LuthGuitar, visibilityConfig)
-  const LuthModel = withMeshModifier(LuthGuitar, combinedConfig)
+  // const LuthModel = withMeshModifier(LuthGuitar, combinedConfig)
+  const LuthModel = withMeshConfiguration(LuthGuitar, configuration)
 
   // const [{ bodyShape, cutaway, armBevel }, set] = useControls('Configuration', () => ({
   //   bodyShape: EBodyShape.DREADNOUGHT,
@@ -75,7 +64,7 @@ export default function Scene() {
               </mesh>
             }
           >
-            <LuthModel scale={1} />
+            <LuthModel position={[0, 0.2, 0]} />
           </Suspense>
           <OrbitControls />
         </Stage>

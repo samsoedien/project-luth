@@ -1,5 +1,4 @@
 import { Group, Material, MeshStandardMaterial } from 'three'
-import { MeshVisibilityConfig } from '../withMeshModifier'
 import { GLTFResult } from '~/_generated/LuthGuitar'
 
 export interface ILuthComponents {
@@ -70,53 +69,53 @@ export const getSidesMesh = (cutaway: ECutawayOption): string => {
   }
 }
 
-export const SidesVisibility: Partial<MeshVisibilityConfig> = {
-  Body_Sides_1: { visible: false },
-  Body_Sides_Venetian_Cutaway_1: { visible: false },
-  Body_Sides_Florentine_Cutaway_1: { visible: false },
-  'Body_Sides_Scalloped_Cutaway_(1)_1': { visible: false },
-}
+// export const SidesVisibility: Partial<MeshVisibilityConfig> = {
+//   Body_Sides_1: { visible: false },
+//   Body_Sides_Venetian_Cutaway_1: { visible: false },
+//   Body_Sides_Florentine_Cutaway_1: { visible: false },
+//   'Body_Sides_Scalloped_Cutaway_(1)_1': { visible: false },
+// }
 
-export const getMeshByCutaway = (
-  cutaway: ECutawayOption,
-  armbevel?: boolean,
-): Partial<MeshVisibilityConfig> => {
-  switch (cutaway) {
-    case ECutawayOption.None:
-      return {
-        Body_Soundboard_1: { visible: true },
-        Body_Back_1: { visible: true },
-        Body_Sides_1: { visible: true },
-        Body_Binding_Top_1: { visible: true },
-        Body_Binding_Bottom_1: { visible: true },
-      }
-    case ECutawayOption.Venetian:
-      return {
-        Body_Soundboard_Venetian_Cutaway_1: { visible: true },
-        Body_Back_Venetian_Cutaway_1: { visible: true },
-        Body_Sides_Venetian_Cutaway_1: { visible: true },
-        Body_Binding_Top_Venetian_Cutaway_1: { visible: true },
-        Body_Binding_Bottom_Venetian_Cutaway_1: { visible: true },
-      }
-    case ECutawayOption.Florentine:
-      return {
-        Body_Soundboard_Florentine_Cutaway_1: { visible: true },
-        Body_Back_Florentine_Cutaway_1: { visible: true },
-        Body_Sides_Florentine_Cutaway_1: { visible: true },
-        Body_Binding_Top_Florentine_Cutaway_1: { visible: true },
-        Body_Binding_Bottom_Florentine_Cutaway_1: { visible: true },
-      }
+// export const getMeshByCutaway = (
+//   cutaway: ECutawayOption,
+//   armbevel?: boolean,
+// ): Partial<MeshVisibilityConfig> => {
+//   switch (cutaway) {
+//     case ECutawayOption.None:
+//       return {
+//         Body_Soundboard_1: { visible: true },
+//         Body_Back_1: { visible: true },
+//         Body_Sides_1: { visible: true },
+//         Body_Binding_Top_1: { visible: true },
+//         Body_Binding_Bottom_1: { visible: true },
+//       }
+//     case ECutawayOption.Venetian:
+//       return {
+//         Body_Soundboard_Venetian_Cutaway_1: { visible: true },
+//         Body_Back_Venetian_Cutaway_1: { visible: true },
+//         Body_Sides_Venetian_Cutaway_1: { visible: true },
+//         Body_Binding_Top_Venetian_Cutaway_1: { visible: true },
+//         Body_Binding_Bottom_Venetian_Cutaway_1: { visible: true },
+//       }
+//     case ECutawayOption.Florentine:
+//       return {
+//         Body_Soundboard_Florentine_Cutaway_1: { visible: true },
+//         Body_Back_Florentine_Cutaway_1: { visible: true },
+//         Body_Sides_Florentine_Cutaway_1: { visible: true },
+//         Body_Binding_Top_Florentine_Cutaway_1: { visible: true },
+//         Body_Binding_Bottom_Florentine_Cutaway_1: { visible: true },
+//       }
 
-    case ECutawayOption.Scalloped:
-      return {
-        'Body_Sides_Scalloped_Cutaway_(1)_1': { visible: true },
-      }
-    default:
-      return {
-        Body_Sides_1: { visible: true },
-      }
-  }
-}
+//     case ECutawayOption.Scalloped:
+//       return {
+//         'Body_Sides_Scalloped_Cutaway_(1)_1': { visible: true },
+//       }
+//     default:
+//       return {
+//         Body_Sides_1: { visible: true },
+//       }
+//   }
+// }
 
 export const getMeshbyScaleLength = (): Partial<MeshVisibilityConfig> => {
   return {
@@ -133,16 +132,6 @@ export const meshes = {
   Perfling: ['Perfling_Top_Venetian_Cutaway_1', 'Perfling_Bottom_Venetian_Cutaway_1'],
 }
 
-const components = {
-  Soundboard: 'Soundboard_Venetian_Cutaway_1',
-  Back: {
-    meshes: ['Back_Venetian_Cutaway_Left_1', 'Back_Venetian_Cutaway_Right_1'],
-    components: {
-      Back_Strip: {},
-    },
-  },
-}
-
 interface IComponentData {
   name: string
   meshes: Array<keyof GLTFResult['nodes']>
@@ -153,27 +142,5 @@ interface IComponentData {
 interface IConfiguration {
   name: string
   bodyShape: EBodyShape
-  components: IComponentData[]
-}
-
-export const configuration: IConfiguration = {
-  name: 'Luth_Model',
-  bodyShape: EBodyShape.Dreadnought,
-  components: [
-    {
-      name: 'Soundboard',
-      meshes: ['Body_Soundboard_Venetian_Cutaway_1'],
-      material: new MeshStandardMaterial({ color: 'red' }),
-    },
-    {
-      name: 'Binding',
-      meshes: ['Body_Binding_Top_Venetian_Cutaway_1', 'Body_Binding_Bottom_Venetian_Cutaway_1'],
-      components: [
-        {
-          name: 'Perfling',
-          meshes: ['Body_Binding_Top_Venetian_Cutaway_1', 'Body_Binding_Bottom_Venetian_Cutaway_1'],
-        },
-      ],
-    },
-  ],
+  components?: IComponentData[]
 }
