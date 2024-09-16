@@ -2,39 +2,48 @@ import React, { useRef, useEffect, ComponentType } from 'react'
 import { Group, Material, Mesh } from 'three'
 
 import { GLTFResult } from '../_generated/LuthGuitar'
+import {
+  applyGroupVisibility,
+  applyMeshConfig,
+  setMeshesToStandardWhiteMaterial,
+} from './meshUtils'
 
 // Define MeshConfig to map the nodes of the GLTFResult
-export type MeshConfig = Record<
+export type MeshVisibilityConfig = Record<
   keyof GLTFResult['nodes'],
   { visible: boolean; material?: Material }
 >
+
+export type GroupVisibilityConfig = Record<string, boolean>
+
+// Define a type for the combined configuration
+export interface CombinedConfig {
+  meshVisibilityConfig: MeshVisibilityConfig
+  groupVisibilityConfig?: GroupVisibilityConfig
+}
 
 // Define the props type expected by the GLTFJSXComponent
 export interface IWithMeshModifierProps {
   scale?: number
 }
 // HOC that wraps a component with mesh modification capabilities
+
 export default function withMeshModifier<T extends IWithMeshModifierProps>(
   GLTFJSXComponent: ComponentType<T>,
-  meshConfig: MeshConfig,
+  combinedConfig: CombinedConfig,
 ) {
-  // Directly return the modified component
   return (props: T) => {
-    console.log(props.scale)
     const groupRef = useRef<Group>(null)
 
     useEffect(() => {
       if (!groupRef.current) return
 
-      // Traverse the group to find and modify meshes
-      groupRef.current.traverse((child) => {
-        if ((child as Mesh).isMesh && meshConfig[child.name as keyof MeshConfig]) {
-          const config = meshConfig[child.name as keyof MeshConfig]
-          if (config.visible !== undefined) child.visible = config.visible
-          if (config.material !== undefined) (child as Mesh).material = config.material
-        }
-      })
-    }, [meshConfig])
+      // Apply group visibility and mesh configurations
+      applyGroupVisibility(groupRef.current, combinedConfig.groupVisibilityConfig)
+      applyMeshConfig(groupRef.current, combinedConfig.meshVisibilityConfig)
+
+      setMeshesToStandardWhiteMaterial(groupRef.current)
+    }, [combinedConfig])
 
     return (
       <group ref={groupRef}>

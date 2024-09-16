@@ -1,17 +1,19 @@
 // visibilityConfig.js
 
 import { MeshStandardMaterial } from 'three'
-import { MeshConfig } from './withMeshModifier'
+import { MeshVisibilityConfig } from './withMeshModifier'
 
-export const meshVisibilityConfig: MeshConfig = {
+export const meshVisibilityConfig: MeshVisibilityConfig = {
   Body_Heel_Block_1: { visible: false },
   Body4_1: { visible: false },
   Body_End_Graft_Wedge_1: { visible: false },
-  Body_Sides_1: { visible: true },
+  Body_Sides_1: { visible: false },
   Body_Sides_Venetian_Cutaway_1: { visible: false },
   Body_Sides_Florentine_Cutaway_1: { visible: false },
   ['Body_Sides_Scalloped_Cutaway_(1)_1']: { visible: false },
-  Body_Sides_Arm_Bevel_1: { visible: false },
+  Body_Sides_Arm_Bevel_1: {
+    visible: false,
+  },
   Body_Sides_Arm_Bevel_Florentine_Cutaway_1: { visible: false },
   Body_Sides_Arm_Bevel_Venetian_Cutaway_1: { visible: false },
   Body_Rosette_1: { visible: false },
@@ -19,7 +21,7 @@ export const meshVisibilityConfig: MeshConfig = {
   ['Body_Rosette_(2)_1']: { visible: false },
   ['Body_Rosette_(3)_1']: { visible: false },
   ['Body_Rosette_(4)_1']: { visible: false },
-  Body_Soundboard_1: { visible: true, material: new MeshStandardMaterial({ color: 'blue' }) },
+  Body_Soundboard_1: { visible: false },
   Body_Soundboard_Venetian_Cutaway_1: { visible: false },
   Body_Soundboard_Florentine_Cutaway_1: { visible: false },
   Body_Soundboard_Arm_Bevel_1: { visible: false },
