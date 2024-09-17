@@ -1,7 +1,12 @@
 import React, { useRef, useEffect, ComponentType } from 'react'
 import { Group, Mesh } from 'three'
 import { IComponentData, IConfiguration } from '../store/store'
-import { applyMeshVisibility, applyMeshMaterial, hasUniqueComponentNames } from './meshUtils'
+import {
+  applyMeshVisibility,
+  applyMeshMaterial,
+  hasUniqueComponentNames,
+  applyGroupVisibility,
+} from './meshUtils'
 import { GLTFResult } from '~/_generated/LuthAcousticDreadnaught'
 
 interface IWithMeshModifierProps {
@@ -26,6 +31,7 @@ const withMeshConfiguration = <P extends IWithMeshModifierProps>(
 
       applyMeshVisibility(groupRef.current, configuration)
       applyMeshMaterial(groupRef.current, configuration)
+      applyGroupVisibility(groupRef.current, configuration)
     }, [configuration])
 
     return (

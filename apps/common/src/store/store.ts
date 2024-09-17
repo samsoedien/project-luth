@@ -16,6 +16,7 @@ export enum ELuthComponent {
   Strings = 'Strings',
   Perfling = 'Perfling',
   Braces = 'Braces',
+  HeelTailBlocks = 'HeelTailBlocks',
 }
 
 export enum EBodyDepth {
@@ -29,6 +30,7 @@ export interface IComponentData {
   meshes: Array<keyof GLTFResult['nodes']>
   material?: Material
   components?: IComponentData[]
+  groupVisibility?: boolean
 }
 
 export interface IConfiguration {
@@ -56,11 +58,15 @@ export const useConfigurationStore = create<ConfigurationStoreState>()((set) => 
     components: [
       {
         name: ELuthComponent.Soundboard,
+        groupVisibility: false,
         meshes: ['Body_Soundboard_Venetian_Cutaway_1'],
         material: new MeshStandardMaterial({ color: 'red' }),
         components: [
           {
             name: ELuthComponent.Braces,
+            groupVisibility: true,
+
+            material: new MeshStandardMaterial({ color: 'blue' }),
             meshes: [
               'Body_X_BraceB_1',
               'Body_X_BraceC_1',
@@ -78,25 +84,28 @@ export const useConfigurationStore = create<ConfigurationStoreState>()((set) => 
         ],
       },
       {
+        name: ELuthComponent.Sides,
+        meshes: ['Body_Sides_1'],
+        components: [
+          {
+            name: ELuthComponent.HeelTailBlocks,
+            meshes: ['Body_Heel_Block_1', 'Body4_1'],
+          },
+        ],
+      },
+      {
         name: ELuthComponent.Binding,
         meshes: ['Body_Binding_Top_Venetian_Cutaway_1', 'Body_Binding_Bottom_Venetian_Cutaway_1'],
         components: [
-          {
-            name: ELuthComponent.Perfling,
-            meshes: [
-              'Body_Binding_Top_Venetian_Cutaway_1',
-              'Body_Binding_Bottom_Venetian_Cutaway_1',
-            ],
-          },
+          // {
+          //   name: ELuthComponent.Perfling,
+          //   meshes: ['Body_Purfling_Top_1', 'Body_Purfling_Bottom_1'],
+          // },
         ],
       },
       {
         name: ELuthComponent.Neck,
         meshes: ['Body_Neck_1', 'Body_Heel_1'],
-      },
-      {
-        name: ELuthComponent.Sides,
-        meshes: ['Body_Sides_1'],
       },
     ],
   },
