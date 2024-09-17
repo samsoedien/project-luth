@@ -11,7 +11,8 @@ import { button, Leva, useControls } from 'leva'
 import { Suspense, useState } from 'react'
 
 import * as THREE from 'three'
-import LuthGuitar, { GLTFResult } from '../_generated/LuthGuitar'
+import LuthDreadnaughtAcoustic from '../_generated/LuthAcousticDreadnaught'
+import LuthParlorAcoustic from '../_generated/LuthAcousticParlor'
 
 import withMeshConfiguration from './withMeshConfiguration'
 import { useConfigurationStore } from '../store/store'
@@ -28,7 +29,7 @@ export default function Scene() {
 
   // const ModelWithVisibility = withMeshVisibilyarn commity(LuthGuitar, visibilityConfig)
   // const LuthModel = withMeshModifier(LuthGuitar, combinedConfig)
-  const LuthModel = withMeshConfiguration(LuthGuitar, configuration)
+  const LuthModel = withMeshConfiguration(LuthDreadnaughtAcoustic, configuration)
 
   // const [{ bodyShape, cutaway, armBevel }, set] = useControls('Configuration', () => ({
   //   bodyShape: EBodyShape.DREADNOUGHT,

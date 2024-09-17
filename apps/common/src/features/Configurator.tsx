@@ -1,23 +1,26 @@
 import React from 'react'
-import { useConfiguration } from '../contexts/Configurator'
 import { Leva, useControls } from 'leva'
 import { ECutawayOption } from './3d-configurator/configurationOptions'
-import { IConfiguration, useConfigurationStore } from '../store/store'
+import { IConfiguration, ELuthComponent, useConfigurationStore } from '../store/store'
 
 export default function Configurator() {
-  // const cutaway = useConfigurationStore((state) => state.cutaway)
+  const setComponentConfiguration = useConfigurationStore(
+    (state) => state.setComponentConfiguration,
+  )
   // const setCutaway = useConfigurationStore((state) => state.setCutaway)
   // const setMeshVisibilityConfig = useConfigurationStore((state) => state.setMeshVisibilityConfig)
 
-  // useControls<IConfiguration, {}, 'Configuration'>(
+  // useControls<{}>(
   //   'Configuration', // Store name
   //   {
   //     cutaway: {
   //       options: Object.values(ECutawayOption) as ECutawayOption[], // Use enum values
   //       value: ECutawayOption.None, // Default value
   //       onChange: (value: ECutawayOption) => {
-  //         setCutaway(ECutawayOption[value])
-  //         setMeshVisibilityConfig()
+  //         if (value === ECutawayOption.Florentine)
+  //           setComponentConfiguration(ELuthComponent.Soundboard, [
+  //             'Body_Soundboard_Florentine_Cutaway_1',
+  //           ])
   //       }, // Optional handler
   //     },
   //     armBevel: false,

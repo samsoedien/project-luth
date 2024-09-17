@@ -1,7 +1,8 @@
 import React, { useRef, useEffect, ComponentType } from 'react'
-import { Group } from 'three'
-import { IConfiguration } from '../store/store'
+import { Group, Mesh } from 'three'
+import { IComponentData, IConfiguration } from '../store/store'
 import { applyMeshVisibility, applyMeshMaterial, hasUniqueComponentNames } from './meshUtils'
+import { GLTFResult } from '~/_generated/LuthAcousticDreadnaught'
 
 interface IWithMeshModifierProps {
   // No configuration prop needed here
@@ -22,6 +23,7 @@ const withMeshConfiguration = <P extends IWithMeshModifierProps>(
       if (!groupRef.current) return
 
       // Use the utility function to apply mesh visibility
+
       applyMeshVisibility(groupRef.current, configuration)
       applyMeshMaterial(groupRef.current, configuration)
     }, [configuration])

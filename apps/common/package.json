@@ -9,7 +9,9 @@
     "build:watch": "tsc && vite build --watch",
     "lint": "eslint .",
     "preview": "vite preview --port 8000 --strictPort --host",
-    "model": "npx gltfjsx@6.5.0 ./public/luth-guitar.glb --types --keepnames --meta --shadows --exportdefault --output ./src/_generated/LuthGuitar.tsx"
+    "model": "yarn model:dreadnaught && yarn model:parlor",
+    "model:dreadnaught": "npx gltfjsx@6.5.0 ./public/luth-acoustic-dreadnaught.glb --types --keepnames --meta --shadows --exportdefault --output ./src/_generated/LuthAcousticDreadnaught.tsx",
+    "model:parlor": "npx gltfjsx@6.5.0 ./public/luth-acoustic-parlor.glb --types --keepnames --meta --shadows --exportdefault --output ./src/_generated/LuthAcousticParlor.tsx"
   },
   "dependencies": {
     "@react-three/drei": "^9.112.0",
