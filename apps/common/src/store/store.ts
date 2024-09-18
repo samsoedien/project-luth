@@ -1,30 +1,23 @@
+import { Material } from 'three'
 import { create } from 'zustand'
-import { EBodyShape } from '../features/3d-configurator/configurationOptions'
-import { Material, MeshStandardMaterial } from 'three'
-import { GLTFResult } from '..//_generated/LuthAcousticDreadnaught'
+import { GLTFResult } from '../_generated/LuthAcousticDreadnaught'
+import {
+  EArmBevelOption,
+  EBackMultiPiece,
+  EBodyShapeOption,
+  ECutawayOption,
+} from '../models/options.model'
+import { ELuthComponent } from '../models/configuration.model'
+import { initialConfigurationState } from './initialConfigurationState'
+import { backMeshMap, bindingMeshMap, sidesMeshMap, soundboardMeshMap } from '~/features/meshMap'
 
-export enum ELuthComponent {
-  Soundboard = 'Soundboard',
-  Back = 'Back',
-  Sides = 'Sides',
-  Binding = 'Binding',
-  Neck = 'Neck',
-  Headstock = 'Headstock',
-  Fretboard = 'Fretboard',
-  Bridge = 'Bridge',
-  Pickguard = 'Pickguard',
-  Strings = 'Strings',
-  Perfling = 'Perfling',
-  Braces = 'Braces',
-  HeelTailBlocks = 'HeelTailBlocks',
+export interface IConfiguration {
+  name: string
+  file?: string
+  version: string
+  components: IComponentData[]
 }
 
-export enum EBodyDepth {
-  Standard = 'Standard',
-  Thinline = 'Thinline',
-}
-
-// Define the IComponentData and IConfiguration types
 export interface IComponentData {
   name: ELuthComponent
   meshes: Array<keyof GLTFResult['nodes']>
@@ -33,90 +26,76 @@ export interface IComponentData {
   groupVisibility?: boolean
 }
 
-export interface IConfiguration {
-  name: string
-  bodyShape: EBodyShape
-  bodyDepth: EBodyDepth
-  components: IComponentData[]
+export interface IOptions {
+  bodyShape: EBodyShapeOption
+  cutaway: ECutawayOption
+  armBevel: EArmBevelOption
+  backMultiPiece: EBackMultiPiece
 }
 
-// Define the Zustand store
-interface ConfigurationStoreState {
+export interface IConfigurationStoreState {
+  options: IOptions
+  setOptions: (options: Partial<IOptions>) => void
   configuration: IConfiguration
-  setConfiguration: (config: IConfiguration) => void
-  setComponentConfiguration: (
-    componentName: ELuthComponent,
-    meshes: Array<keyof GLTFResult['nodes']>,
-  ) => void
+  applyOptionsToConfig: () => void
 }
 
-export const useConfigurationStore = create<ConfigurationStoreState>()((set) => ({
-  configuration: {
-    name: 'Luth_Model',
-    bodyShape: EBodyShape.Dreadnought,
-    bodyDepth: EBodyDepth.Thinline,
-    components: [
-      {
-        name: ELuthComponent.Soundboard,
-        groupVisibility: false,
-        meshes: ['Body_Soundboard_Venetian_Cutaway_1'],
-        material: new MeshStandardMaterial({ color: 'red' }),
-        components: [
-          {
-            name: ELuthComponent.Braces,
-            groupVisibility: true,
-
-            material: new MeshStandardMaterial({ color: 'blue' }),
-            meshes: [
-              'Body_X_BraceB_1',
-              'Body_X_BraceC_1',
-              'Body_BraceD_1',
-              'Body_BraceE_1',
-              'Body_BraceF_Right_1',
-              'Body_BraceG_Right_1',
-              'Body_BraceG_Left_1',
-              'Body_BraceF_Left_1',
-              'Body_BraceH_Left_1',
-              'Body_BraceH_Right_1',
-              'Body_Bridge_Plate_1',
-            ],
-          },
-        ],
-      },
-      {
-        name: ELuthComponent.Sides,
-        meshes: ['Body_Sides_1'],
-        components: [
-          {
-            name: ELuthComponent.HeelTailBlocks,
-            meshes: ['Body_Heel_Block_1', 'Body4_1'],
-          },
-        ],
-      },
-      {
-        name: ELuthComponent.Binding,
-        meshes: ['Body_Binding_Top_Venetian_Cutaway_1', 'Body_Binding_Bottom_Venetian_Cutaway_1'],
-        components: [
-          // {
-          //   name: ELuthComponent.Perfling,
-          //   meshes: ['Body_Purfling_Top_1', 'Body_Purfling_Bottom_1'],
-          // },
-        ],
-      },
-      {
-        name: ELuthComponent.Neck,
-        meshes: ['Body_Neck_1', 'Body_Heel_1'],
-      },
-    ],
+export const useConfigurationStore = create<IConfigurationStoreState>()((set, get) => ({
+  options: {
+    bodyShape: EBodyShapeOption.Dreadnought,
+    cutaway: ECutawayOption.None,
+    armBevel: EArmBevelOption.None,
+    backMultiPiece: EBackMultiPiece.OnePiece,
   },
-  setConfiguration: (config) => set({ configuration: config }),
-  setComponentConfiguration: (componentName, meshes) =>
+  setOptions: (options) => {
+    console.log('setOptions', options)
     set((state) => ({
-      configuration: {
-        ...state.configuration,
-        components: state.configuration.components.map((component) =>
-          component.name === componentName ? { ...component, meshes } : component,
-        ),
-      },
-    })),
+      options: { ...state.options, ...options },
+    }))
+    get().applyOptionsToConfig() // Trigger configuration update
+  },
+  configuration: initialConfigurationState,
+  applyOptionsToConfig: () => {
+    const { options, configuration } = get()
+
+    const { bodyShape, cutaway, armBevel, backMultiPiece } = options
+
+    const soundboardComponent = configuration.components.find(
+      (component) => component.name === ELuthComponent.Soundboard,
+    )
+    if (soundboardComponent) {
+      const selectedSoundboardMeshes = soundboardMeshMap[bodyShape]?.[cutaway]?.[armBevel] ?? []
+      soundboardComponent.meshes = selectedSoundboardMeshes
+      console.log('selectedSoundboardMeshes', selectedSoundboardMeshes)
+    }
+
+    const backComponent = configuration.components.find(
+      (component) => component.name === ELuthComponent.Back,
+    )
+    if (backComponent) {
+      const selectedBackMeshes = backMeshMap[bodyShape]?.[cutaway]?.[backMultiPiece] ?? []
+      backComponent.meshes = selectedBackMeshes
+      console.log('selectedBackMeshes', selectedBackMeshes)
+    }
+
+    const sidesComponent = configuration.components.find(
+      (component) => component.name === ELuthComponent.Sides,
+    )
+    if (sidesComponent) {
+      const selectedSidesMeshes = sidesMeshMap[bodyShape]?.[cutaway]?.[armBevel] ?? []
+      sidesComponent.meshes = selectedSidesMeshes
+      console.log('selectedSidesMeshes', selectedSidesMeshes)
+    }
+
+    const bindingComponent = configuration.components.find(
+      (component) => component.name === ELuthComponent.Binding,
+    )
+    if (bindingComponent) {
+      const selectedBindingMeshes = bindingMeshMap[bodyShape]?.[cutaway]?.[armBevel] ?? []
+      bindingComponent.meshes = selectedBindingMeshes
+      console.log('selectedBindingMeshes', selectedBindingMeshes)
+    }
+
+    set({ configuration: { ...configuration } })
+  },
 }))

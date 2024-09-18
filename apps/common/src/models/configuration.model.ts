@@ -1,0 +1,16 @@
+export enum ELuthComponent {
+  Soundboard = 'Soundboard',
+  Back = 'Back',
+  Sides = 'Sides',
+  Binding = 'Binding',
+  Neck = 'Neck',
+  Headstock = 'Headstock',
+  Fretboard = 'Fretboard',
+  Bridge = 'Bridge',
+  Pickguard = 'Pickguard',
+  Strings = 'Strings',
+  Braces = 'Braces',
+  BackStrip = 'BackStrip',
+  HeelTailBlocks = 'HeelTailBlocks',
+  Perfling = 'Perfling',
+}
