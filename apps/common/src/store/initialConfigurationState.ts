@@ -11,6 +11,7 @@ export const initialConfigurationState: IConfiguration = {
       groupVisibility: true,
       meshes: ['Body_Soundboard_Venetian_Cutaway_1'],
       material: new MeshStandardMaterial({ color: 'red' }),
+      texture: 'sitka-spruce.jpg',
       components: [
         {
           name: ELuthComponent.Braces,

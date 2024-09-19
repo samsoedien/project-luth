@@ -1,4 +1,4 @@
-import { Material } from 'three'
+import { Material, Texture } from 'three'
 import { create } from 'zustand'
 import { GLTFResult } from '../_generated/LuthAcousticDreadnaught'
 import {
@@ -22,6 +22,7 @@ export interface IComponentData {
   name: ELuthComponent
   meshes: Array<keyof GLTFResult['nodes']>
   material?: Material
+  texture?: string
   components?: IComponentData[]
   groupVisibility?: boolean
 }
@@ -48,11 +49,10 @@ export const useConfigurationStore = create<IConfigurationStoreState>()((set, ge
     backMultiPiece: EBackMultiPiece.OnePiece,
   },
   setOptions: (options) => {
-    console.log('setOptions', options)
     set((state) => ({
       options: { ...state.options, ...options },
     }))
-    get().applyOptionsToConfig() // Trigger configuration update
+    // get().applyOptionsToConfig() // Trigger configuration update
   },
   configuration: initialConfigurationState,
   applyOptionsToConfig: () => {

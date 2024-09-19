@@ -7,7 +7,6 @@ import {
   hasUniqueComponentNames,
   applyGroupVisibility,
 } from './meshUtils'
-import { GLTFResult } from '~/_generated/LuthAcousticDreadnaught'
 
 interface IWithMeshModifierProps {
   // No configuration prop needed here

@@ -1,6 +1,7 @@
-import { Group, Mesh, MeshStandardMaterial, Material } from 'three'
+import { Group, Mesh, MeshStandardMaterial, Material, TextureLoader } from 'three'
 import { IComponentData, IConfiguration } from '../store/store'
 import { GLTFResult } from '../_generated/LuthAcousticDreadnaught'
+import { useLoader } from '@react-three/fiber'
 
 // Function to apply visibility to meshes based on configuration
 // export const applyMeshVisibility = (group: Group, configuration: IConfiguration) => {
@@ -71,6 +72,50 @@ export function applyMeshMaterial(group: Group, configuration: IConfiguration): 
     }
   })
 }
+
+// // Function to apply a specified material or texture to all meshes
+// export function applyMeshMaterial(group: Group, configuration: IConfiguration): void {
+//   const whiteMaterial = new MeshStandardMaterial({ color: 'white' })
+
+//   const findMaterial = (
+//     components: IComponentData[],
+//     meshName: keyof GLTFResult['nodes'],
+//   ): MeshStandardMaterial => {
+//     for (const component of components) {
+//       if (component.meshes.includes(meshName)) {
+//         const material = component.material ?? whiteMaterial
+
+//         // If a texture is defined, use the loader to apply it
+//         if (component.texture) {
+//           const texture = useLoader(TextureLoader, component.texture)
+
+//           // Check if the material is of type MeshStandardMaterial before applying texture
+//           if (material instanceof MeshStandardMaterial) {
+//             material.map = texture
+//             material.needsUpdate = true // Update the material with the new texture
+//           }
+//         }
+
+//         return material
+//       }
+//       if (component.components) {
+//         const material = findMaterial(component.components, meshName)
+//         if (material) return material
+//       }
+//     }
+//     return whiteMaterial // Default to whiteMaterial if no matching material is found
+//   }
+
+//   group.traverse((child) => {
+//     if ((child as Mesh).isMesh) {
+//       const mesh = child as Mesh
+//       const meshName = mesh.name as keyof GLTFResult['nodes'] // Assert type here
+
+//       const material = findMaterial(configuration.components, meshName)
+//       mesh.material = material
+//     }
+//   })
+// }
 
 // Function to apply visibility to specified meshes based on groupVisibility
 export function applyGroupVisibility(group: Group, configuration: IConfiguration): void {
