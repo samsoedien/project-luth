@@ -28,7 +28,7 @@ export enum EArmBevelOption {
   Standard = 'Standard',
 }
 
-export enum EBackMultiPiece {
+export enum EBackMultiPieceOption {
   OnePiece = 'OnePiece',
   TwoPiece = 'TwoPiece',
   ThreePiece = 'ThreePiece',

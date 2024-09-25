@@ -1,9 +1,9 @@
 import React from 'react'
 import { Leva, useControls } from 'leva'
-import { IConfiguration, ELuthComponent, useConfigurationStore, IOptions } from '../store/store'
+import { IConfiguration, ELuthComponent, useConfigurationStore } from '../store/store'
 import {
   EArmBevelOption,
-  EBackMultiPiece,
+  EBackMultiPieceOption,
   EBodyShapeOption,
   ECutawayOption,
 } from '~/models/options.model'
@@ -12,10 +12,8 @@ export default function Configurator() {
   const options = useConfigurationStore((state) => state.options)
   const setOptions = useConfigurationStore((state) => state.setOptions)
 
-  console.log(options)
-
   useControls(
-    'Configuration', // Store name
+    'Configuration', // Store names
     {
       cutaway: {
         options: Object.values(ECutawayOption) as ECutawayOption[], // Use enum values
@@ -35,7 +33,7 @@ export default function Configurator() {
         onChange: (value) => setOptions({ armBevel: value }),
       },
       back: {
-        options: Object.values(EBackMultiPiece) as EBackMultiPiece[],
+        options: Object.values(EBackMultiPieceOption) as EBackMultiPieceOption[],
         value: options.backMultiPiece,
         onChange: (value) => setOptions({ backMultiPiece: value }),
       },

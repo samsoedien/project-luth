@@ -13,4 +13,5 @@ export enum ELuthComponent {
   BackStrip = 'BackStrip',
   HeelTailBlocks = 'HeelTailBlocks',
   Perfling = 'Perfling',
+  Rosette = 'Rosette',
 }

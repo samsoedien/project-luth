@@ -1,29 +1,35 @@
-import { Material, Texture } from 'three'
+import { Material } from 'three'
 import { create } from 'zustand'
 import { GLTFResult } from '../_generated/LuthAcousticDreadnaught'
 import {
   EArmBevelOption,
-  EBackMultiPiece,
+  EBackMultiPieceOption,
   EBodyShapeOption,
   ECutawayOption,
 } from '../models/options.model'
 import { ELuthComponent } from '../models/configuration.model'
 import { initialConfigurationState } from './initialConfigurationState'
-import { backMeshMap, bindingMeshMap, sidesMeshMap, soundboardMeshMap } from '~/features/meshMap'
+import {
+  backMeshMap,
+  backStripMeshMap,
+  bindingMeshMap,
+  sidesMeshMap,
+  soundboardMeshMap,
+} from '~/helpers/meshMap'
 
-export interface IConfiguration {
+export interface IBaseConfiguration {
   name: string
   file?: string
   version: string
-  components: IComponentData[]
+  components: IConfiguration[]
 }
 
-export interface IComponentData {
+export interface IConfiguration {
   name: ELuthComponent
   meshes: Array<keyof GLTFResult['nodes']>
   material?: Material
   texture?: string
-  components?: IComponentData[]
+  components?: IConfiguration[]
   groupVisibility?: boolean
 }
 
@@ -31,13 +37,13 @@ export interface IOptions {
   bodyShape: EBodyShapeOption
   cutaway: ECutawayOption
   armBevel: EArmBevelOption
-  backMultiPiece: EBackMultiPiece
+  backMultiPiece: EBackMultiPieceOption
 }
 
 export interface IConfigurationStoreState {
   options: IOptions
   setOptions: (options: Partial<IOptions>) => void
-  configuration: IConfiguration
+  configuration: IBaseConfiguration
   applyOptionsToConfig: () => void
 }
 
@@ -46,13 +52,13 @@ export const useConfigurationStore = create<IConfigurationStoreState>()((set, ge
     bodyShape: EBodyShapeOption.Dreadnought,
     cutaway: ECutawayOption.None,
     armBevel: EArmBevelOption.None,
-    backMultiPiece: EBackMultiPiece.OnePiece,
+    backMultiPiece: EBackMultiPieceOption.OnePiece,
   },
   setOptions: (options) => {
     set((state) => ({
       options: { ...state.options, ...options },
     }))
-    // get().applyOptionsToConfig() // Trigger configuration update
+    get().applyOptionsToConfig() // Trigger configuration update
   },
   configuration: initialConfigurationState,
   applyOptionsToConfig: () => {
@@ -66,7 +72,6 @@ export const useConfigurationStore = create<IConfigurationStoreState>()((set, ge
     if (soundboardComponent) {
       const selectedSoundboardMeshes = soundboardMeshMap[bodyShape]?.[cutaway]?.[armBevel] ?? []
       soundboardComponent.meshes = selectedSoundboardMeshes
-      console.log('selectedSoundboardMeshes', selectedSoundboardMeshes)
     }
 
     const backComponent = configuration.components.find(
@@ -75,7 +80,6 @@ export const useConfigurationStore = create<IConfigurationStoreState>()((set, ge
     if (backComponent) {
       const selectedBackMeshes = backMeshMap[bodyShape]?.[cutaway]?.[backMultiPiece] ?? []
       backComponent.meshes = selectedBackMeshes
-      console.log('selectedBackMeshes', selectedBackMeshes)
     }
 
     const sidesComponent = configuration.components.find(
@@ -84,7 +88,14 @@ export const useConfigurationStore = create<IConfigurationStoreState>()((set, ge
     if (sidesComponent) {
       const selectedSidesMeshes = sidesMeshMap[bodyShape]?.[cutaway]?.[armBevel] ?? []
       sidesComponent.meshes = selectedSidesMeshes
-      console.log('selectedSidesMeshes', selectedSidesMeshes)
+    }
+
+    const backStripComponent = configuration.components.find(
+      (component) => component.name === ELuthComponent.BackStrip,
+    )
+    if (backStripComponent) {
+      const selectedBackMeshes = backStripMeshMap[bodyShape]?.[cutaway]?.[backMultiPiece] ?? []
+      backStripComponent.meshes = selectedBackMeshes
     }
 
     const bindingComponent = configuration.components.find(
@@ -93,7 +104,6 @@ export const useConfigurationStore = create<IConfigurationStoreState>()((set, ge
     if (bindingComponent) {
       const selectedBindingMeshes = bindingMeshMap[bodyShape]?.[cutaway]?.[armBevel] ?? []
       bindingComponent.meshes = selectedBindingMeshes
-      console.log('selectedBindingMeshes', selectedBindingMeshes)
     }
 
     set({ configuration: { ...configuration } })

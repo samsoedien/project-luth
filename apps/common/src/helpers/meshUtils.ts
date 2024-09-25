@@ -1,7 +1,7 @@
 import { Group, Mesh, MeshStandardMaterial, Material, TextureLoader } from 'three'
-import { IComponentData, IConfiguration } from '../store/store'
-import { GLTFResult } from '../_generated/LuthAcousticDreadnaught'
-import { useLoader } from '@react-three/fiber'
+import { IBaseConfiguration, IComponentData, IConfiguration } from '../store/store'
+import { GLTFResult } from '../_generated/LuthAcousticParlor'
+import { ELuthComponent } from '~/models/configuration.model'
 
 // Function to apply visibility to meshes based on configuration
 // export const applyMeshVisibility = (group: Group, configuration: IConfiguration) => {
@@ -174,4 +174,28 @@ export function applyGroupVisibility(group: Group, configuration: IConfiguration
 export function hasUniqueComponentNames(components: IComponentData[]): boolean {
   const names = components.map((c) => c.name)
   return new Set(names).size === names.length
+}
+
+export const getConfiguredComponent = (
+  baseConfiguration: IBaseConfiguration,
+  name: ELuthComponent,
+): IConfiguration | undefined => {
+  // Define a recursive search function
+  const findComponent = (
+    components: IConfiguration[],
+    name: ELuthComponent,
+  ): IConfiguration | undefined => {
+    for (const component of components) {
+      if (component.name === name) {
+        return component
+      }
+      if (component.components && component.components.length > 0) {
+        const found = findComponent(component.components, name)
+        if (found) return found
+      }
+    }
+    return undefined
+  }
+
+  return findComponent(baseConfiguration.components, name)
 }
