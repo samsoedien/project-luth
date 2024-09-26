@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { Instances } from '~/_generated/LuthAcousticDreadnaught'
+import { Instances } from '~/_generated/LuthAcoustic'
 
 import { IBaseConfiguration } from '~/store/store'
 import SoundboardMeshes from '~/components/soundboard/SoundboardMeshes'
@@ -11,6 +11,8 @@ import SidesMeshes from '~/components/sides/SidesMeshes'
 import BindingMeshes from '~/components/binding/BindingMeshes'
 import { ELuthComponent } from '~/models/configuration.model'
 import { getConfiguredComponent } from '~/helpers/meshUtils'
+import HeelTailBlockMeshes from './sides/heelTailBlocks/HeelTailBlocksMeshes'
+import PurflingMeshes from './binding/purfling/PurflingMeshes'
 
 interface IWithMeshModifierProps {
   position: [number, number, number]
@@ -21,19 +23,43 @@ const withMeshConfiguration = <P extends IWithMeshModifierProps>(
   baseConfiguration: IBaseConfiguration,
 ) => {
   return (props: P) => {
-    const soundboardConfiguration = getConfiguredComponent(
-      baseConfiguration,
-      ELuthComponent.Soundboard,
+    const {
+      soundboardConfiguration,
+      rosetteConfiguration,
+      bracesConfiguration,
+      backConfiguration,
+      backStripConfiguration,
+      sidesConfiguration,
+      heelTailBlockConfiguration,
+      bindingConfiguration,
+      purflingConfiguration,
+    } = {
+      soundboardConfiguration: getConfiguredComponent(baseConfiguration, ELuthComponent.Soundboard),
+      backStripConfiguration: getConfiguredComponent(baseConfiguration, ELuthComponent.BackStrip),
+      rosetteConfiguration: getConfiguredComponent(baseConfiguration, ELuthComponent.Rosette),
+      bracesConfiguration: getConfiguredComponent(baseConfiguration, ELuthComponent.Braces),
+      backConfiguration: getConfiguredComponent(baseConfiguration, ELuthComponent.Back),
+      sidesConfiguration: getConfiguredComponent(baseConfiguration, ELuthComponent.Sides),
+      heelTailBlockConfiguration: getConfiguredComponent(
+        baseConfiguration,
+        ELuthComponent.HeelTailBlocks,
+      ),
+      bindingConfiguration: getConfiguredComponent(baseConfiguration, ELuthComponent.Binding),
+      purflingConfiguration: getConfiguredComponent(baseConfiguration, ELuthComponent.Purfling),
+    }
+
+    if (
+      !soundboardConfiguration ||
+      !rosetteConfiguration ||
+      !bracesConfiguration ||
+      !backConfiguration ||
+      !backStripConfiguration ||
+      !sidesConfiguration ||
+      !heelTailBlockConfiguration ||
+      !bindingConfiguration ||
+      !purflingConfiguration
     )
-    const rosetteConfiguration = getConfiguredComponent(baseConfiguration, ELuthComponent.Rosette)
-    const bracesConfiguration = getConfiguredComponent(baseConfiguration, ELuthComponent.Braces)
-    const backConfiguration = getConfiguredComponent(baseConfiguration, ELuthComponent.Back)
-    const backStripConfiguratino = getConfiguredComponent(
-      baseConfiguration,
-      ELuthComponent.BackStrip,
-    )
-    const sidesConfiguration = getConfiguredComponent(baseConfiguration, ELuthComponent.Sides)
-    const bindingConfiguration = getConfiguredComponent(baseConfiguration, ELuthComponent.Binding)
+      return
 
     useEffect(() => {}, [baseConfiguration])
 
@@ -48,19 +74,13 @@ const withMeshConfiguration = <P extends IWithMeshModifierProps>(
           </SoundboardMeshes>
 
           <BackMeshes configuration={backConfiguration}>
-            <BackStripMeshes configuration={backStripConfiguratino} />
+            <BackStripMeshes configuration={backStripConfiguration} />
           </BackMeshes>
           <SidesMeshes configuration={sidesConfiguration}>
-            <mesh>
-              <boxGeometry args={[0.1, 0.1, 0.1]} />
-              <meshBasicMaterial color="red" />
-            </mesh>
+            <HeelTailBlockMeshes configuration={heelTailBlockConfiguration} />
           </SidesMeshes>
           <BindingMeshes configuration={bindingConfiguration}>
-            <mesh>
-              <boxGeometry args={[0.1, 0.1, 0.1]} />
-              <meshBasicMaterial color="red" />
-            </mesh>
+            <PurflingMeshes configuration={purflingConfiguration} />
           </BindingMeshes>
         </Instances>
       </group>

@@ -16,7 +16,13 @@ export const initialConfigurationState: IBaseConfiguration = {
         {
           name: ELuthComponent.Rosette,
           material: new MeshStandardMaterial({ color: 'green' }),
-          meshes: ['Body_Rosette'],
+          meshes: [
+            'Body_Rosette',
+            'Body_Rosette_(1)',
+            'Body_Rosette_(2)',
+            'Body_Rosette_(3)',
+            'Body_Rosette_(4)',
+          ],
         },
         {
           name: ELuthComponent.Braces,
@@ -41,7 +47,11 @@ export const initialConfigurationState: IBaseConfiguration = {
     },
     {
       name: ELuthComponent.Back,
-      meshes: ['Body_Back_3Piece_Left', 'Body_Back_3Piece_Right', 'Body_Back_3Piece_Middle'],
+      meshes: [
+        'Body_Back_Three_Piece_Left',
+        'Body_Back_Three_Piece_Right',
+        'Body_Back_Three_Piece_Middle',
+      ],
       components: [
         {
           name: ELuthComponent.BackStrip,
@@ -55,7 +65,7 @@ export const initialConfigurationState: IBaseConfiguration = {
       components: [
         {
           name: ELuthComponent.HeelTailBlocks,
-          meshes: ['Body_Heel_Block', 'Body4'],
+          meshes: ['Body_Heel_Block', 'Body_Tail_Block'],
         },
       ],
     },
@@ -63,10 +73,10 @@ export const initialConfigurationState: IBaseConfiguration = {
       name: ELuthComponent.Binding,
       meshes: ['Body_Binding_Top_Venetian_Cutaway', 'Body_Binding_Bottom_Venetian_Cutaway'],
       components: [
-        // {
-        //   name: ELuthComponent.Perfling,
-        //   meshes: ['Body_Purfling_Top', 'Body_Purfling_Bottom'],
-        // },
+        {
+          name: ELuthComponent.Purfling,
+          meshes: ['Body_Purfling_Top', 'Body_Purfling_Bottom'],
+        },
       ],
     },
     {

@@ -1,9 +1,11 @@
-import { PositionMesh } from '@react-three/drei'
+import { Helper, PositionMesh, useTexture } from '@react-three/drei'
 import { useContext, useRef, useState, useEffect } from 'react'
-import { Group, BufferGeometry } from 'three'
-import { context as GLTFJSXContext } from '../../../_generated/LuthAcousticDreadnaught'
+import { TextureLoader, RepeatWrapping, BoxHelper } from 'three'
+import { context as GLTFJSXContext } from '../../../_generated/LuthAcoustic'
 import { IConfiguration } from '~/store/store'
 import { GLTFJSXInstances } from '~/models/gltfjsx.model'
+import { useInstanceGeometry } from '~/hooks/useInstanceGeometry'
+import { useScaledTexture, useSharedTexture } from '~/hooks/useScaledTexture'
 
 export interface IRosetteMeshesProps {
   configuration?: IConfiguration
@@ -11,37 +13,38 @@ export interface IRosetteMeshesProps {
 
 export default function RosetteMeshes({ configuration }: IRosetteMeshesProps) {
   const instances = useContext(GLTFJSXContext) as GLTFJSXInstances
-  const instanceGroupRef = useRef<Group>(null) // Ref to hold the Group
-  const [instanceGeometry, setInstanceGeometry] = useState<PositionMesh[]>([]) // State to store geometries
+  const { instanceGeometry, instanceGroupRef } = useInstanceGeometry(configuration)
 
-  useEffect(() => {
-    if (!instanceGroupRef.current) return
-    const geometries: PositionMesh[] = []
-
-    instanceGroupRef.current.traverse((child) => {
-      if ('geometry' in child && child.geometry instanceof BufferGeometry) {
-        geometries.push(child as PositionMesh)
-      }
-    })
-
-    const geometriesFiltered = geometries.filter((child) =>
-      configuration?.meshes.includes(child.name),
-    )
-
-    setInstanceGeometry(geometriesFiltered)
-  }, [instances])
+  const soundboardTexture = useTexture('sitka-spruce.jpg')
 
   return (
     <group dispose={null}>
       {instanceGeometry.length > 0 ? (
         instanceGeometry.map((child) => (
-          <mesh key={child.uuid} name={child.name} geometry={child.geometry}>
-            <meshNormalMaterial />
+          <mesh
+            key={child.uuid}
+            name={child.name}
+            geometry={child.geometry}
+            // castShadow
+            // receiveShadow
+          >
+            {child.name === 'Body_Rosette' ||
+            child.name === 'Body_Rosette_(1)' ||
+            child.name === 'Body_Rosette_(3)' ? (
+              <meshStandardMaterial color="black" />
+            ) : (
+              <meshStandardMaterial map={soundboardTexture} />
+            )}
+            <Helper type={BoxHelper} args={['royalblue']} />
           </mesh>
         ))
       ) : (
         <group ref={instanceGroupRef}>
           <instances.BodyRosette name="Body_Rosette" />
+          <instances.BodyRosette1 name="Body_Rosette_(1)" />
+          <instances.BodyRosette2 name="Body_Rosette_(2)" />
+          <instances.BodyRosette3 name="Body_Rosette_(3)" />
+          <instances.BodyRosette4 name="Body_Rosette_(4)" />
         </group>
       )}
     </group>

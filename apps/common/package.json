@@ -10,7 +10,7 @@
     "lint": "eslint .",
     "preview": "vite preview --port 8000 --strictPort --host",
     "model": "yarn model:dreadnaught && yarn model:parlor",
-    "model:dreadnaught": "npx gltfjsx ./public/luth-acoustic-dreadnaught.glb --types --transform --keepnames --keepmeshes --meta --shadows --exportdefault --instanceall --output ./src/_generated/LuthAcousticDreadnaught.tsx",
+    "model:dreadnaught": "npx gltfjsx ./public/luth-acoustic.glb --types --transform --keepnames --keepmeshes --meta --shadows --exportdefault --instanceall --output ./src/_generated/LuthAcoustic.tsx",
     "model:parlor": "npx gltfjsx@6.5.0 ./public/luth-acoustic-parlor.glb --types --keepnames --draco --meta --transform --keepmaterials --exportdefault --debug --instanceall --output ./src/_generated/LuthAcousticParlor.tsx"
   },
   "dependencies": {

@@ -1,43 +1,44 @@
-import { useContext, useRef, useState, useEffect } from 'react'
-import { BufferGeometry, Group } from 'three'
-import { context as GLTFJSXContext } from '../../_generated/LuthAcousticDreadnaught'
-import { PositionMesh } from '@react-three/drei'
+import { useContext, useEffect } from 'react'
+import { context as GLTFJSXContext } from '../../_generated/LuthAcoustic'
 import { IConfiguration } from '~/store/store'
 import { GLTFJSXInstances } from '~/models/gltfjsx.model'
+import { useInstanceGeometry } from '~/hooks/useInstanceGeometry'
+import { useLoader } from '@react-three/fiber'
+import { BoxHelper, MirroredRepeatWrapping, RepeatWrapping, TextureLoader } from 'three'
+import { RenderTexture, useTexture, useHelper, Helper } from '@react-three/drei'
+import { useMeshSizes, useScaledTexture, useSharedTexture } from '~/hooks/useScaledTexture'
 
 export interface ISoundboardMeshesProps {
-  configuration?: IConfiguration
+  configuration: IConfiguration
   children: React.ReactNode
 }
 
 export default function SoundboardMeshes({ configuration, children }: ISoundboardMeshesProps) {
   const instances = useContext(GLTFJSXContext) as GLTFJSXInstances
-  const instanceGroupRef = useRef<Group>(null) // Ref to hold the Group
-  const [instanceGeometry, setInstanceGeometry] = useState<PositionMesh[]>([]) // State to store geometries
+  const { instanceGeometry, instanceGroupRef } = useInstanceGeometry(configuration)
 
-  useEffect(() => {
-    if (!instanceGroupRef.current) return
-    const geometries: PositionMesh[] = []
+  const soundboardTexture = useTexture('sitka-spruce.jpg')
 
-    instanceGroupRef.current.traverse((child) => {
-      if ('geometry' in child && child.geometry instanceof BufferGeometry) {
-        geometries.push(child as PositionMesh)
-      }
-    })
+  soundboardTexture.repeat.x = 2
+  soundboardTexture.wrapS = MirroredRepeatWrapping
+  soundboardTexture.wrapT = MirroredRepeatWrapping
+  soundboardTexture.offset.x = 0.5
 
-    const geometriesFiltered = geometries.filter((child) =>
-      configuration.meshes.includes(child.name),
-    )
-
-    setInstanceGeometry(geometriesFiltered)
-  }, [instances])
+  console.log('soundboardTexture', soundboardTexture)
 
   return (
     <group name={configuration.name} dispose={null}>
       {instanceGeometry.length > 0 ? (
         instanceGeometry.map((child) => (
-          <mesh key={child.uuid} name={child.name} geometry={child.geometry}>
-            <meshNormalMaterial />
+          <mesh
+            key={child.uuid}
+            name={child.name}
+            geometry={child.geometry}
+            // castShadow
+            // receiveShadow
+          >
+            <meshStandardMaterial map={soundboardTexture} />
+            <Helper type={BoxHelper} args={['red']} />
           </mesh>
         ))
       ) : (

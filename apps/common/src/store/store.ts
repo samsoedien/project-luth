@@ -1,6 +1,6 @@
 import { Material } from 'three'
 import { create } from 'zustand'
-import { GLTFResult } from '../_generated/LuthAcousticDreadnaught'
+import { GLTFResult } from '../_generated/LuthAcoustic'
 import {
   EArmBevelOption,
   EBackMultiPieceOption,

@@ -1,4 +1,4 @@
-import { GLTFResult } from '~/_generated/LuthAcousticDreadnaught'
+import { GLTFResult } from '~/_generated/LuthAcoustic'
 
 export type GLTFJSXInstances = Record<
   string,

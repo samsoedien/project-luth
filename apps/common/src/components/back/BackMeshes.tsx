@@ -1,7 +1,7 @@
 import { PositionMesh } from '@react-three/drei'
 import { useContext, useRef, useState, useEffect } from 'react'
 import { Group, BufferGeometry } from 'three'
-import { context as GLTFJSXContext } from '../../_generated/LuthAcousticDreadnaught'
+import { context as GLTFJSXContext } from '../../_generated/LuthAcoustic'
 import { IConfiguration } from '~/store/store'
 import { GLTFJSXInstances } from '~/models/gltfjsx.model'
 
@@ -29,7 +29,6 @@ export default function BackMeshes({ configuration, children }: IBackMeshesProps
       configuration?.meshes.includes(child.name),
     )
     setInstanceGeometry(geometriesFiltered)
-    console.log(geometriesFiltered)
   }, [instances])
 
   return (
@@ -45,11 +44,11 @@ export default function BackMeshes({ configuration, children }: IBackMeshesProps
           <instances.BodyBack name="Body_Back" />
           <instances.BodyBackVenetianCutaway name="Body_Back_Venetian_Cutaway" />
           <instances.BodyBackFlorentineCutaway name="Body_Back" />
-          <instances.BodyBackPieceLeft name="Body_Back_2Piece_Left" />
-          <instances.BodyBackPieceRight name="Body_Back_2Piece_Right" />
-          <instances.BodyBackPieceLeft1 name="Body_Back_3Piece_Left" />
-          <instances.BodyBackPieceRight1 name="Body_Back_3Piece_Right" />
-          <instances.BodyBackPieceMiddle name="Body_Back_3Piece_Middle" />
+          <instances.BodyBackTwoPieceLeft name="Body_Back_Two_Piece_Left" />
+          <instances.BodyBackTwoPieceRight name="Body_Back_Two_Piece_Right" />
+          <instances.BodyBackThreePieceLeft name="Body_Back_Three_Piece_Left" />
+          <instances.BodyBackThreePieceRight name="Body_Back_Three_Piece_Right" />
+          <instances.BodyBackThreePieceMiddle name="Body_Back_Three_Piece_Middle" />
         </group>
       )}
       {children}

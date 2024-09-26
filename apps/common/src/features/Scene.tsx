@@ -4,18 +4,20 @@ import {
   PresentationControls,
   MeshReflectorMaterial,
   Preload,
+  Helper,
 } from '@react-three/drei'
-import { Canvas } from '@react-three/fiber'
+import { Canvas, useLoader } from '@react-three/fiber'
 import { Perf } from 'r3f-perf'
 
 import { Suspense, useState } from 'react'
 
-import LuthDreadnaughtAcoustic from '../_generated/LuthAcousticDreadnaught'
+import LuthDreadnaughtAcoustic from '../_generated/LuthAcoustic'
 import LuthParlorAcoustic from '../_generated/LuthAcousticParlor'
 
 import withMeshConfiguration from '../components/withMeshConfiguration'
 import { useConfigurationStore } from '../store/store'
 import Lights from './Lights'
+import { GridHelper } from 'three'
 
 export default function Scene() {
   const isDebug = true
@@ -33,13 +35,7 @@ export default function Scene() {
           <Lights />
           <Suspense fallback={null}>
             <LuthModel position={[0, 0, 0]} />
-            {/* <Instances>
-              <LuthDreadnaughtAcoustic position={[0, 0, 0]} />
-            </Instances> */}
-            {/* <Instances visible={false}>
-              <LuthDreadnaughtAcoustic />
-            </Instances> */}
-            {/* <Preload all /> */}
+            <Preload all />
           </Suspense>
           <OrbitControls />
         </Stage>

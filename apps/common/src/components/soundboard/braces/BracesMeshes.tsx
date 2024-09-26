@@ -1,7 +1,7 @@
 import { PositionMesh } from '@react-three/drei'
 import { useContext, useRef, useState, useEffect } from 'react'
 import { Group, BufferGeometry } from 'three'
-import { context as GLTFJSXContext } from '../../../_generated/LuthAcousticDreadnaught'
+import { context as GLTFJSXContext } from '../../../_generated/LuthAcoustic'
 import { IConfiguration } from '~/store/store'
 import { GLTFJSXInstances } from '~/models/gltfjsx.model'
 

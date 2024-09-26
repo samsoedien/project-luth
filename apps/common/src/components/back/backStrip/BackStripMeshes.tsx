@@ -1,9 +1,11 @@
 import { PositionMesh } from '@react-three/drei'
 import { useContext, useRef, useState, useEffect } from 'react'
 import { Group, BufferGeometry } from 'three'
-import { context as GLTFJSXContext } from '../../../_generated/LuthAcousticDreadnaught'
+import { context as GLTFJSXContext } from '../../../_generated/LuthAcoustic'
 import { IConfiguration, useConfigurationStore } from '~/store/store'
 import { ELuthComponent } from '~/models/configuration.model'
+import { useInstanceGeometry } from '~/hooks/useInstanceGeometry'
+import { GLTFJSXInstances } from '~/models/gltfjsx.model'
 
 export interface IBackStripMeshesProps {
   configuration?: IConfiguration
@@ -11,26 +13,8 @@ export interface IBackStripMeshesProps {
 }
 
 export default function BackStripMeshes({ configuration, children }: IBackStripMeshesProps) {
-  const instances = useContext(GLTFJSXContext)
-  const instancesGroupRef = useRef<Group>(null)
-  const [instanceGeometry, setInstanceGeometry] = useState<PositionMesh[]>([]) // State to store geometries
-
-  useEffect(() => {
-    if (!instancesGroupRef.current) return
-    const geometries: PositionMesh[] = []
-
-    instancesGroupRef.current.traverse((child) => {
-      if ('geometry' in child && child.geometry instanceof BufferGeometry) {
-        geometries.push(child as PositionMesh)
-      }
-    })
-
-    const geometriesFiltered = geometries.filter((child) =>
-      configuration?.meshes.includes(child.name),
-    )
-    setInstanceGeometry(geometriesFiltered)
-    console.log(geometriesFiltered)
-  }, [instances])
+  const instances = useContext(GLTFJSXContext) as GLTFJSXInstances
+  const { instanceGeometry, instanceGroupRef } = useInstanceGeometry(configuration)
 
   return (
     <group dispose={null}>
@@ -41,10 +25,10 @@ export default function BackStripMeshes({ configuration, children }: IBackStripM
           </mesh>
         ))
       ) : (
-        <group ref={instancesGroupRef}>
+        <group ref={instanceGroupRef}>
           <instances.BodyBackCenterStrip name="Body_Back_Center_Strip" />
           <instances.BodyBackDoubleStripLeft name="Body_Back_Double_Strip_Left" />
-          <instances.BodyBackDoubleStripRight name="Body_Back_Double_Strip_Right" />
+          <instances.BodyBackDoubleStripRight name="Body_Back_Double_Strip_Right_(1)" />
         </group>
       )}
       {children}
