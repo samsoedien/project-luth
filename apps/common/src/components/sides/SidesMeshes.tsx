@@ -1,7 +1,7 @@
 import { useContext, useRef, useState, useEffect } from 'react'
 import { BufferGeometry, Group } from 'three'
 import { context as GLTFJSXContext } from '../../_generated/LuthAcoustic'
-import { PositionMesh } from '@react-three/drei'
+import { PositionMesh, Wireframe } from '@react-three/drei'
 import { IConfiguration } from '~/store/store'
 import { GLTFJSXInstances } from '~/models/gltfjsx.model'
 
@@ -38,6 +38,7 @@ export default function SidesMeshes({ configuration, children }: ISidesMeshesPro
         instanceGeometry.map((child) => (
           <mesh key={child.uuid} name={child.name} geometry={child.geometry}>
             <meshNormalMaterial />
+            {/* <Wireframe /> */}
           </mesh>
         ))
       ) : (

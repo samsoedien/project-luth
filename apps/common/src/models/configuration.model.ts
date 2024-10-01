@@ -1,4 +1,8 @@
+import { Material } from 'three'
+import { GLTFResult } from '~/_generated/LuthAcoustic'
+
 export enum ELuthComponent {
+  Base = 'Base',
   Soundboard = 'Soundboard',
   Back = 'Back',
   Sides = 'Sides',
@@ -14,4 +18,13 @@ export enum ELuthComponent {
   HeelTailBlocks = 'HeelTailBlocks',
   Purfling = 'Purfling',
   Rosette = 'Rosette',
+}
+
+export interface IConfiguration {
+  name: ELuthComponent
+  meshes: Array<keyof GLTFResult['nodes']>
+  material?: Material
+  texture?: string
+  components?: IConfiguration[]
+  groupVisibility?: boolean
 }

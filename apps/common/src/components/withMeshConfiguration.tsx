@@ -16,6 +16,7 @@ import PurflingMeshes from './binding/purfling/PurflingMeshes'
 
 interface IWithMeshModifierProps {
   position: [number, number, number]
+  scale?: number
 }
 
 const withMeshConfiguration = <P extends IWithMeshModifierProps>(
@@ -64,24 +65,27 @@ const withMeshConfiguration = <P extends IWithMeshModifierProps>(
     useEffect(() => {}, [baseConfiguration])
 
     return (
-      <group>
+      <group scale={0.001}>
         <Instances>
-          {/* <GLTFJSXComponent {...props} position={[0.6, 0, 0]} visible={false} /> */}
-
-          <SoundboardMeshes configuration={soundboardConfiguration}>
-            <RosetteMeshes configuration={rosetteConfiguration} />
-            <BracesMeshes configuration={bracesConfiguration} />
-          </SoundboardMeshes>
-
-          <BackMeshes configuration={backConfiguration}>
-            <BackStripMeshes configuration={backStripConfiguration} />
-          </BackMeshes>
-          <SidesMeshes configuration={sidesConfiguration}>
-            <HeelTailBlockMeshes configuration={heelTailBlockConfiguration} />
-          </SidesMeshes>
-          <BindingMeshes configuration={bindingConfiguration}>
-            <PurflingMeshes configuration={purflingConfiguration} />
-          </BindingMeshes>
+          {baseConfiguration ? (
+            <>
+              <SoundboardMeshes configuration={soundboardConfiguration}>
+                <RosetteMeshes configuration={rosetteConfiguration} />
+                <BracesMeshes configuration={bracesConfiguration} />
+              </SoundboardMeshes>
+              <BackMeshes configuration={backConfiguration}>
+                <BackStripMeshes configuration={backStripConfiguration} />
+              </BackMeshes>
+              <SidesMeshes configuration={sidesConfiguration}>
+                <HeelTailBlockMeshes configuration={heelTailBlockConfiguration} />
+              </SidesMeshes>
+              <BindingMeshes configuration={bindingConfiguration}>
+                <PurflingMeshes configuration={purflingConfiguration} />
+              </BindingMeshes>
+            </>
+          ) : (
+            <GLTFJSXComponent {...props} position={[0.6, 0, 0]} visible={false} />
+          )}
         </Instances>
       </group>
     )

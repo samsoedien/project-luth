@@ -1,9 +1,6 @@
-import { PositionMesh } from '@react-three/drei'
-import { useContext, useRef, useState, useEffect } from 'react'
-import { Group, BufferGeometry } from 'three'
+import { useContext } from 'react'
 import { context as GLTFJSXContext } from '../../../_generated/LuthAcoustic'
-import { IConfiguration, useConfigurationStore } from '~/store/store'
-import { ELuthComponent } from '~/models/configuration.model'
+import { IConfiguration } from '~/store/store'
 import { useInstanceGeometry } from '~/hooks/useInstanceGeometry'
 import { GLTFJSXInstances } from '~/models/gltfjsx.model'
 

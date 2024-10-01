@@ -32,7 +32,7 @@ export default function BackMeshes({ configuration, children }: IBackMeshesProps
   }, [instances])
 
   return (
-    <group dispose={null}>
+    <group name={configuration?.name} dispose={null} visible={configuration?.groupVisibility}>
       {instanceGeometry.length > 0 ? (
         instanceGeometry.map((child) => (
           <mesh key={child.uuid} name={child.name} geometry={child.geometry}>
@@ -46,9 +46,19 @@ export default function BackMeshes({ configuration, children }: IBackMeshesProps
           <instances.BodyBackFlorentineCutaway name="Body_Back" />
           <instances.BodyBackTwoPieceLeft name="Body_Back_Two_Piece_Left" />
           <instances.BodyBackTwoPieceRight name="Body_Back_Two_Piece_Right" />
+          {/* <instances.BodyBackTwoPieceVenetianCutawayLeft name="Body_Back_Two_Piece_Venetian_Cutaway_Left" /> */}
+          <instances.BodyBackTwoPieceVenetianCutawayRight name="Body_Back_Two_Piece_Venetian_Cutaway_Right" />
+          {/* <instances.BodyBackTwoPieceFlorentineCutawayLeft name="Body_Back_Two_Piece_Florentine_Cutaway_Left" /> */}
+          <instances.BodyBackTwoPieceFlorentineCutawayRight name="Body_Back_Two_Piece_Florentine_Cutaway_Right" />
           <instances.BodyBackThreePieceLeft name="Body_Back_Three_Piece_Left" />
           <instances.BodyBackThreePieceRight name="Body_Back_Three_Piece_Right" />
           <instances.BodyBackThreePieceMiddle name="Body_Back_Three_Piece_Middle" />
+          {/* <instances.BodyBackThreePieceVenetianCutawayLeft name="Body_Back_Three_Piece_Venetian_Cutaway_Left" /> */}
+          <instances.BodyBackThreePieceVenetianCutawayRight name="Body_Back_Three_Piece_Venetian_Cutaway_Right" />
+          <instances.BodyBackThreePieceVenetianCutawayMiddle name="Body_Back_Three_Piece_Venetian_Cutaway_Middle" />
+          <instances.BodyBackThreePieceFlorentineCutawayLeft name="Body_Back_Three_Piece_Florentine_Cutaway_Left" />
+          <instances.BodyBackThreePieceFlorentineCutawayRight name="Body_Back_Three_Piece_Florentine_Cutaway_Right" />
+          <instances.BodyBackThreePieceFlorentineCutawayMiddle name="Body_Back_Three_Piece_Florentine_Cutaway_Middle" />
         </group>
       )}
       {children}

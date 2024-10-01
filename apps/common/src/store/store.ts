@@ -1,111 +1,163 @@
-import { Material } from 'three'
-import { create } from 'zustand'
-import { GLTFResult } from '../_generated/LuthAcoustic'
+import { create, StateCreator } from 'zustand'
+
+import { ELuthComponent, IConfiguration } from '~/models/configuration.model'
+import { initialConfigurationState } from './initialConfigurationState'
 import {
   EArmBevelOption,
   EBackMultiPieceOption,
   EBodyShapeOption,
   ECutawayOption,
-} from '../models/options.model'
-import { ELuthComponent } from '../models/configuration.model'
-import { initialConfigurationState } from './initialConfigurationState'
-import {
-  backMeshMap,
-  backStripMeshMap,
-  bindingMeshMap,
-  sidesMeshMap,
-  soundboardMeshMap,
-} from '~/helpers/meshMap'
+  ESoundHoleOption,
+} from '~/models/options.model'
+import { getConfiguredComponent } from '~/helpers/meshUtils'
+import { backMeshMap, soundboardMeshMap } from '~/helpers/meshMap'
+import { PresentationControlProps } from '@react-three/drei'
 
-export interface IBaseConfiguration {
-  name: string
-  file?: string
-  version: string
-  components: IConfiguration[]
+/** CONFIGURATION STATE SLICE */
+export interface IConfigurationStoreState {
+  configuration: IConfiguration
+  setConfiguration: () => void
 }
 
-export interface IConfiguration {
-  name: ELuthComponent
-  meshes: Array<keyof GLTFResult['nodes']>
-  material?: Material
-  texture?: string
-  components?: IConfiguration[]
-  groupVisibility?: boolean
-}
+export const createConfigurationSlice: StateCreator<
+  StoreState,
+  [],
+  [],
+  IConfigurationStoreState
+> = (set) => ({
+  configuration: initialConfigurationState,
+  setConfiguration: () => {
+    set((state) => ({ configuration: state.configuration }))
+  },
+})
 
-export interface IOptions {
+/** OPTIONS STATE SLICE */
+interface IBodyOptions {
   bodyShape: EBodyShapeOption
   cutaway: ECutawayOption
   armBevel: EArmBevelOption
+}
+
+interface ISoundboardOptions {
+  soundHole: ESoundHoleOption
+}
+
+interface IBackOptions {
   backMultiPiece: EBackMultiPieceOption
 }
 
-export interface IConfigurationStoreState {
-  options: IOptions
-  setOptions: (options: Partial<IOptions>) => void
-  configuration: IBaseConfiguration
-  applyOptionsToConfig: () => void
+export interface IOptionsStoreState {
+  bodyOptions: IBodyOptions
+  setBodyOptions: (bodyOptions: Partial<IBodyOptions>) => void
+  soundboardOptions: ISoundboardOptions
+  setSoundboardOptions: (soundboardOptions: Partial<ISoundboardOptions>) => void
+  backOptions: IBackOptions
+  setBackOptions: (backOptions: Partial<IBackOptions>) => void
 }
 
-export const useConfigurationStore = create<IConfigurationStoreState>()((set, get) => ({
-  options: {
+export const createOptionsSlice: StateCreator<StoreState, [], [], IOptionsStoreState> = (
+  set,
+  get,
+) => ({
+  bodyOptions: {
     bodyShape: EBodyShapeOption.Dreadnought,
     cutaway: ECutawayOption.None,
     armBevel: EArmBevelOption.None,
-    backMultiPiece: EBackMultiPieceOption.OnePiece,
   },
-  setOptions: (options) => {
+  setBodyOptions: (bodyOptions) => {
     set((state) => ({
-      options: { ...state.options, ...options },
+      bodyOptions: { ...state.bodyOptions, ...bodyOptions },
     }))
-    get().applyOptionsToConfig() // Trigger configuration update
+
+    const { soundboardOptions, backOptions } = get()
+
+    get().setSoundboardOptions(soundboardOptions)
+    get().setBackOptions(backOptions)
   },
-  configuration: initialConfigurationState,
-  applyOptionsToConfig: () => {
-    const { options, configuration } = get()
+  soundboardOptions: {
+    soundHole: ESoundHoleOption.Round,
+  },
+  setSoundboardOptions: (options) => {
+    set((state) => ({
+      soundboardOptions: { ...state.soundboardOptions, ...options },
+    }))
 
-    const { bodyShape, cutaway, armBevel, backMultiPiece } = options
+    const { bodyOptions, soundboardOptions, configuration } = get()
 
-    const soundboardComponent = configuration.components.find(
-      (component) => component.name === ELuthComponent.Soundboard,
-    )
+    const soundboardComponent = getConfiguredComponent(configuration, ELuthComponent.Soundboard)
+
     if (soundboardComponent) {
-      const selectedSoundboardMeshes = soundboardMeshMap[bodyShape]?.[cutaway]?.[armBevel] ?? []
+      const selectedSoundboardMeshes =
+        soundboardMeshMap?.[bodyOptions.bodyShape]?.[bodyOptions.cutaway]?.[bodyOptions.armBevel]?.[
+          soundboardOptions.soundHole
+        ] ?? []
       soundboardComponent.meshes = selectedSoundboardMeshes
-    }
-
-    const backComponent = configuration.components.find(
-      (component) => component.name === ELuthComponent.Back,
-    )
-    if (backComponent) {
-      const selectedBackMeshes = backMeshMap[bodyShape]?.[cutaway]?.[backMultiPiece] ?? []
-      backComponent.meshes = selectedBackMeshes
-    }
-
-    const sidesComponent = configuration.components.find(
-      (component) => component.name === ELuthComponent.Sides,
-    )
-    if (sidesComponent) {
-      const selectedSidesMeshes = sidesMeshMap[bodyShape]?.[cutaway]?.[armBevel] ?? []
-      sidesComponent.meshes = selectedSidesMeshes
-    }
-
-    const backStripComponent = configuration.components.find(
-      (component) => component.name === ELuthComponent.BackStrip,
-    )
-    if (backStripComponent) {
-      const selectedBackMeshes = backStripMeshMap[bodyShape]?.[cutaway]?.[backMultiPiece] ?? []
-      backStripComponent.meshes = selectedBackMeshes
-    }
-
-    const bindingComponent = configuration.components.find(
-      (component) => component.name === ELuthComponent.Binding,
-    )
-    if (bindingComponent) {
-      const selectedBindingMeshes = bindingMeshMap[bodyShape]?.[cutaway]?.[armBevel] ?? []
-      bindingComponent.meshes = selectedBindingMeshes
     }
 
     set({ configuration: { ...configuration } })
   },
+  backOptions: {
+    backMultiPiece: EBackMultiPieceOption.OnePiece,
+  },
+  setBackOptions: (options) => {
+    set((state) => ({
+      backOptions: { ...state.backOptions, ...options },
+    }))
+
+    const { bodyOptions, backOptions, configuration } = get()
+
+    const backComponent = getConfiguredComponent(configuration, ELuthComponent.Back)
+
+    if (backComponent) {
+      const selectedSoundboardMeshes =
+        backMeshMap?.[bodyOptions.bodyShape]?.[bodyOptions.cutaway]?.[backOptions.backMultiPiece] ??
+        []
+      backComponent.meshes = selectedSoundboardMeshes
+    }
+    set({ configuration: { ...configuration } })
+  },
+})
+
+/** UI CONTROLS STATE SLICE */
+
+interface IControls extends PresentationControlProps {
+  rotation: [number, number, number]
+}
+
+export interface IUIControlsStoreState {
+  workflow: 'Design' | 'Crafting'
+  scope: ELuthComponent
+  setScope: (scope: ELuthComponent) => void
+  controls: IControls
+  setControls: (controls: Partial<IControls>) => void
+}
+
+export const createUIControlsSlice: StateCreator<StoreState, [], [], IUIControlsStoreState> = (
+  set,
+) => ({
+  workflow: 'Design',
+  scope: ELuthComponent.Base,
+  setScope: (scope) => {
+    set(() => ({ scope }))
+  },
+  controls: {
+    rotation: [0, 0, 0],
+    zoom: 2,
+    polar: [-Math.PI / 3, Math.PI / 3],
+    azimuth: [-Math.PI / 4, Math.PI / 4],
+    snap: { mass: 5, tension: 140 },
+    config: { mass: 1, tension: 80 },
+  },
+  setControls: (controls) => {
+    set((state) => ({ controls: { ...state.controls, ...controls } }))
+  },
+})
+/** COMBINED STORE SLICES */
+
+export type StoreState = IConfigurationStoreState & IOptionsStoreState & IUIControlsStoreState
+
+export const useConfigurationStore = create<StoreState>()((set, get, store) => ({
+  ...createConfigurationSlice(set, get, store),
+  ...createOptionsSlice(set, get, store),
+  ...createUIControlsSlice(set, get, store),
 }))

@@ -33,3 +33,13 @@ export enum EBackMultiPieceOption {
   TwoPiece = 'TwoPiece',
   ThreePiece = 'ThreePiece',
 }
+
+export enum ESoundHoleOption {
+  None = 'None',
+  Round = 'Round',
+  FHole = 'F-Hole',
+}
+
+export enum ETonewoodOption {
+  Mahogany = 'Mahogany',
+}

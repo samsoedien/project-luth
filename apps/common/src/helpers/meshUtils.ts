@@ -1,7 +1,7 @@
 import { Group, Mesh, MeshStandardMaterial, Material, TextureLoader } from 'three'
-import { IBaseConfiguration, IComponentData, IConfiguration } from '../store/store'
+import { IBaseConfiguration, IComponentData } from '../store/storeold'
 import { GLTFResult } from '../_generated/LuthAcousticParlor'
-import { ELuthComponent } from '~/models/configuration.model'
+import { ELuthComponent, IConfiguration } from '~/models/configuration.model'
 
 // Function to apply visibility to meshes based on configuration
 // export const applyMeshVisibility = (group: Group, configuration: IConfiguration) => {
@@ -177,7 +177,7 @@ export function hasUniqueComponentNames(components: IComponentData[]): boolean {
 }
 
 export const getConfiguredComponent = (
-  baseConfiguration: IBaseConfiguration,
+  configuration: IConfiguration,
   name: ELuthComponent,
 ): IConfiguration | undefined => {
   // Define a recursive search function
@@ -196,6 +196,6 @@ export const getConfiguredComponent = (
     }
     return undefined
   }
-
-  return findComponent(baseConfiguration.components, name)
+  if (!configuration.components) return undefined
+  return findComponent(configuration.components, name)
 }

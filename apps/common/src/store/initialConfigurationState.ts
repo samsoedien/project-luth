@@ -1,10 +1,9 @@
 import { MeshStandardMaterial } from 'three'
-import { ELuthComponent } from '../models/configuration.model'
-import { IBaseConfiguration, IConfiguration } from '~/store/store'
+import { ELuthComponent, IConfiguration } from '../models/configuration.model'
 
-export const initialConfigurationState: IBaseConfiguration = {
-  name: 'Luth_Model',
-  version: '1.0.0',
+export const initialConfigurationState: IConfiguration = {
+  name: ELuthComponent.Base,
+  meshes: [],
   components: [
     {
       name: ELuthComponent.Soundboard,
@@ -47,6 +46,7 @@ export const initialConfigurationState: IBaseConfiguration = {
     },
     {
       name: ELuthComponent.Back,
+      groupVisibility: true,
       meshes: [
         'Body_Back_Three_Piece_Left',
         'Body_Back_Three_Piece_Right',
