@@ -3,38 +3,17 @@ import { context as GLTFJSXContext } from '../../_generated/LuthAcoustic'
 import { IConfiguration } from '~/store/store'
 import { GLTFJSXInstances } from '~/models/gltfjsx.model'
 import { useInstanceGeometry } from '~/hooks/useInstanceGeometry'
-import { useLoader } from '@react-three/fiber'
-import {
-  Box3,
-  BoxHelper,
-  MirroredRepeatWrapping,
-  NearestFilter,
-  RepeatWrapping,
-  TextureLoader,
-  Vector3,
-} from 'three'
-import {
-  RenderTexture,
-  useTexture,
-  useHelper,
-  Helper,
-  GradientTexture,
-  GradientType,
-  Html,
-  useCursor,
-} from '@react-three/drei'
+import { BoxHelper, MirroredRepeatWrapping } from 'three'
+import { useTexture, Helper } from '@react-three/drei'
 
 export interface ISoundboardMeshesProps {
   configuration: IConfiguration
   children: React.ReactNode
 }
 
-export default memo(function SoundboardMeshes({ configuration, children }: ISoundboardMeshesProps) {
+export default function SoundboardMeshes({ configuration, children }: ISoundboardMeshesProps) {
   const instances = useContext(GLTFJSXContext) as GLTFJSXInstances
   const { instanceGeometry, instanceGroupRef } = useInstanceGeometry(configuration)
-
-  const [hovered, set] = useState<boolean>(false)
-  useCursor(hovered /*'pointer', 'auto', document.body*/)
 
   useEffect(() => {
     console.log('configuration, changed', configuration)
@@ -45,17 +24,6 @@ export default memo(function SoundboardMeshes({ configuration, children }: ISoun
   soundboardTexture.repeat.x = 2
   soundboardTexture.wrapS = MirroredRepeatWrapping
 
-  if (instanceGroupRef.current) {
-    const boundingBox = new Box3().setFromObject(instanceGroupRef.current)
-    console.log('boundingBox', boundingBox)
-    const size = new Vector3()
-    console.log('size', size)
-    boundingBox.getSize(size)
-    console.log(boundingBox.getSize(size))
-
-    console.log('soundboardTexture', soundboardTexture)
-  }
-
   return (
     <group name={configuration.name} dispose={null}>
       {instanceGeometry.length > 0 ? (
@@ -64,10 +32,8 @@ export default memo(function SoundboardMeshes({ configuration, children }: ISoun
             key={child.uuid}
             name={child.name}
             geometry={child.geometry}
-            onPointerOver={() => set(true)}
-            onPointerOut={() => set(false)}
-            // castShadow
-            // receiveShadow
+            castShadow
+            receiveShadow
           >
             <meshStandardMaterial map={soundboardTexture} />
             {/* <meshBasicMaterial map={soundboardTexture}>
@@ -102,4 +68,4 @@ export default memo(function SoundboardMeshes({ configuration, children }: ISoun
       {children}
     </group>
   )
-})
+}

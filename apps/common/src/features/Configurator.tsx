@@ -8,6 +8,7 @@ import {
   ECutawayOption,
 } from '~/models/options.model'
 import { ELuthComponent } from '~/models/configuration.model'
+import BackOptions from './BackOptions'
 
 export default function Configurator() {
   const bodyOptions = useConfigurationStore((state) => state.bodyOptions)
@@ -56,7 +57,7 @@ export default function Configurator() {
         break
       case ELuthComponent.Back:
         setControls({
-          rotation: [0, Math.PI, 0],
+          rotation: [Math.PI / 6, Math.PI - Math.PI / 8, 0],
           zoom: 2,
           polar: [-Math.PI / 3, Math.PI / 3],
           azimuth: [-Math.PI / 4, Math.PI / 4],
@@ -67,6 +68,26 @@ export default function Configurator() {
       case ELuthComponent.Sides:
         setControls({
           rotation: [-Math.PI / 2.5, 0, -Math.PI / 3],
+          zoom: 2,
+          polar: [-Math.PI / 3, Math.PI / 3],
+          azimuth: [-Math.PI / 4, Math.PI / 4],
+          snap: { mass: 5, tension: 140 },
+          config: { mass: 1, tension: 80 },
+        })
+        break
+      case ELuthComponent.Binding:
+        setControls({
+          rotation: [0, -Math.PI / 3, -Math.PI / 5],
+          zoom: 2,
+          polar: [-Math.PI / 3, Math.PI / 3],
+          azimuth: [-Math.PI / 4, Math.PI / 4],
+          snap: { mass: 5, tension: 140 },
+          config: { mass: 1, tension: 80 },
+        })
+        break
+      case ELuthComponent.EndGraft:
+        setControls({
+          rotation: [-Math.PI / 2, 0, 0],
           zoom: 2,
           polar: [-Math.PI / 3, Math.PI / 3],
           azimuth: [-Math.PI / 4, Math.PI / 4],
@@ -97,20 +118,14 @@ export default function Configurator() {
         value: bodyOptions.armBevel,
         onChange: (value) => setBodyOptions({ armBevel: value }),
       },
-      back: {
-        options: Object.values(EBackMultiPieceOption) as EBackMultiPieceOption[],
-        value: backOptions.backMultiPiece,
-        onChange: (value) => setBackOptions({ backMultiPiece: value }),
-      },
     },
   )
-
-  // console.log(cutaway)
 
   // const { material, setMaterial, cutaway, setCutaway } = useConfiguration()
   return (
     <div className="absolute h-[160px] w-[320px]">
       <Leva />
+      {/* <BackOptions /> */}
     </div>
   )
 }

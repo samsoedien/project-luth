@@ -2,8 +2,9 @@ import { PositionMesh } from '@react-three/drei'
 import { useContext, useRef, useState, useEffect } from 'react'
 import { Group, BufferGeometry } from 'three'
 import { context as GLTFJSXContext } from '../../_generated/LuthAcoustic'
-import { IConfiguration } from '~/store/store'
 import { GLTFJSXInstances } from '~/models/gltfjsx.model'
+import { IConfiguration } from '~/models/configuration.model'
+import { useInstanceGeometry } from '~/hooks/useInstanceGeometry'
 
 export interface IBackMeshesProps {
   configuration?: IConfiguration
@@ -12,24 +13,7 @@ export interface IBackMeshesProps {
 
 export default function BackMeshes({ configuration, children }: IBackMeshesProps) {
   const instances = useContext(GLTFJSXContext) as GLTFJSXInstances
-  const instanceGroupRef = useRef<Group>(null)
-  const [instanceGeometry, setInstanceGeometry] = useState<PositionMesh[]>([])
-
-  useEffect(() => {
-    if (!instanceGroupRef.current) return
-    const geometries: PositionMesh[] = []
-
-    instanceGroupRef.current.traverse((child) => {
-      if ('geometry' in child && child.geometry instanceof BufferGeometry) {
-        geometries.push(child as PositionMesh)
-      }
-    })
-
-    const geometriesFiltered = geometries.filter((child) =>
-      configuration?.meshes.includes(child.name),
-    )
-    setInstanceGeometry(geometriesFiltered)
-  }, [instances])
+  const { instanceGeometry, instanceGroupRef } = useInstanceGeometry(configuration)
 
   return (
     <group name={configuration?.name} dispose={null} visible={configuration?.groupVisibility}>

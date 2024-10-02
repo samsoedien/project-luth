@@ -4,6 +4,7 @@ import { context as GLTFJSXContext } from '../../_generated/LuthAcoustic'
 import { PositionMesh, Wireframe } from '@react-three/drei'
 import { IConfiguration } from '~/store/store'
 import { GLTFJSXInstances } from '~/models/gltfjsx.model'
+import { useInstanceGeometry } from '~/hooks/useInstanceGeometry'
 
 export interface ISidesMeshesProps {
   configuration?: IConfiguration
@@ -12,25 +13,7 @@ export interface ISidesMeshesProps {
 
 export default function SidesMeshes({ configuration, children }: ISidesMeshesProps) {
   const instances = useContext(GLTFJSXContext) as GLTFJSXInstances
-  const instancesGroupRef = useRef<Group>(null)
-  const [instanceGeometry, setInstanceGeometry] = useState<PositionMesh[]>([])
-
-  useEffect(() => {
-    if (!instancesGroupRef.current) return
-    const geometries: PositionMesh[] = []
-
-    instancesGroupRef.current.traverse((child) => {
-      if ('geometry' in child && child.geometry instanceof BufferGeometry) {
-        geometries.push(child as PositionMesh)
-      }
-    })
-
-    const geometriesFiltered = geometries.filter((child) =>
-      configuration?.meshes.includes(child.name),
-    )
-
-    setInstanceGeometry(geometriesFiltered)
-  }, [instances])
+  const { instanceGeometry, instanceGroupRef } = useInstanceGeometry(configuration)
 
   return (
     <group dispose={null}>
@@ -42,7 +25,7 @@ export default function SidesMeshes({ configuration, children }: ISidesMeshesPro
           </mesh>
         ))
       ) : (
-        <group ref={instancesGroupRef}>
+        <group ref={instanceGroupRef}>
           <instances.BodySides name="Body_Sides" />
           <instances.BodySidesVenetianCutaway name="Body_Sides_Venetian_Cutaway" />
           <instances.BodySidesFlorentineCutaway name="Body_Sides_Florentine_Cutaway" />

@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react'
 import { Instances } from '~/_generated/LuthAcoustic'
 
-import { IBaseConfiguration } from '~/store/store'
 import SoundboardMeshes from '~/components/soundboard/SoundboardMeshes'
 import BracesMeshes from '~/components/soundboard/braces/BracesMeshes'
 import RosetteMeshes from '~/components/soundboard/rosette/RosetteMeshes'
@@ -9,10 +8,16 @@ import BackMeshes from '~/components/back/BackMeshes'
 import BackStripMeshes from '~/components/back/backStrip/BackStripMeshes'
 import SidesMeshes from '~/components/sides/SidesMeshes'
 import BindingMeshes from '~/components/binding/BindingMeshes'
-import { ELuthComponent } from '~/models/configuration.model'
+import { ELuthComponent, IConfiguration } from '~/models/configuration.model'
 import { getConfiguredComponent } from '~/helpers/meshUtils'
 import HeelTailBlockMeshes from './sides/heelTailBlocks/HeelTailBlocksMeshes'
 import PurflingMeshes from './binding/purfling/PurflingMeshes'
+import NeckMeshes from './neck/NeckMeshes'
+import FretboardMeshes from './fretboard/FretboardMeshes'
+import FretsMeshes from './fretboard/frets/FretsMeshes'
+import HeadstockMeshes from './headstock/HeadstockMeshes'
+import EndGraftMeshes from './sides/endGraft/EndGraftMeshes'
+import { useConfigurationStore } from '~/store/store'
 
 interface IWithMeshModifierProps {
   position: [number, number, number]
@@ -21,9 +26,10 @@ interface IWithMeshModifierProps {
 
 const withMeshConfiguration = <P extends IWithMeshModifierProps>(
   GLTFJSXComponent: React.ComponentType<P>,
-  baseConfiguration: IBaseConfiguration,
+  // configuration: IConfiguration,
 ) => {
   return (props: P) => {
+    const configuration = useConfigurationStore((state) => state.configuration)
     const {
       soundboardConfiguration,
       rosetteConfiguration,
@@ -34,19 +40,29 @@ const withMeshConfiguration = <P extends IWithMeshModifierProps>(
       heelTailBlockConfiguration,
       bindingConfiguration,
       purflingConfiguration,
+      neckConfiguration,
+      fretboardConfiguration,
+      fretsConfiguration,
+      headstockConfiguration,
+      endGraftConfiguration,
     } = {
-      soundboardConfiguration: getConfiguredComponent(baseConfiguration, ELuthComponent.Soundboard),
-      backStripConfiguration: getConfiguredComponent(baseConfiguration, ELuthComponent.BackStrip),
-      rosetteConfiguration: getConfiguredComponent(baseConfiguration, ELuthComponent.Rosette),
-      bracesConfiguration: getConfiguredComponent(baseConfiguration, ELuthComponent.Braces),
-      backConfiguration: getConfiguredComponent(baseConfiguration, ELuthComponent.Back),
-      sidesConfiguration: getConfiguredComponent(baseConfiguration, ELuthComponent.Sides),
+      soundboardConfiguration: getConfiguredComponent(configuration, ELuthComponent.Soundboard),
+      backStripConfiguration: getConfiguredComponent(configuration, ELuthComponent.BackStrip),
+      rosetteConfiguration: getConfiguredComponent(configuration, ELuthComponent.Rosette),
+      bracesConfiguration: getConfiguredComponent(configuration, ELuthComponent.Braces),
+      backConfiguration: getConfiguredComponent(configuration, ELuthComponent.Back),
+      sidesConfiguration: getConfiguredComponent(configuration, ELuthComponent.Sides),
       heelTailBlockConfiguration: getConfiguredComponent(
-        baseConfiguration,
+        configuration,
         ELuthComponent.HeelTailBlocks,
       ),
-      bindingConfiguration: getConfiguredComponent(baseConfiguration, ELuthComponent.Binding),
-      purflingConfiguration: getConfiguredComponent(baseConfiguration, ELuthComponent.Purfling),
+      bindingConfiguration: getConfiguredComponent(configuration, ELuthComponent.Binding),
+      purflingConfiguration: getConfiguredComponent(configuration, ELuthComponent.Purfling),
+      neckConfiguration: getConfiguredComponent(configuration, ELuthComponent.Neck),
+      fretboardConfiguration: getConfiguredComponent(configuration, ELuthComponent.Fretboard),
+      fretsConfiguration: getConfiguredComponent(configuration, ELuthComponent.Frets),
+      headstockConfiguration: getConfiguredComponent(configuration, ELuthComponent.Headstock),
+      endGraftConfiguration: getConfiguredComponent(configuration, ELuthComponent.EndGraft),
     }
 
     if (
@@ -58,16 +74,25 @@ const withMeshConfiguration = <P extends IWithMeshModifierProps>(
       !sidesConfiguration ||
       !heelTailBlockConfiguration ||
       !bindingConfiguration ||
-      !purflingConfiguration
+      !purflingConfiguration ||
+      !neckConfiguration ||
+      !fretboardConfiguration ||
+      !fretsConfiguration ||
+      !headstockConfiguration ||
+      !endGraftConfiguration
     )
       return
 
-    useEffect(() => {}, [baseConfiguration])
+    // useEffect(() => {}, [configuration])
+
+    useEffect(() => {
+      console.log('soundboardConfiguration', soundboardConfiguration)
+    }, [configuration])
 
     return (
       <group scale={0.001}>
         <Instances>
-          {baseConfiguration ? (
+          {configuration ? (
             <>
               <SoundboardMeshes configuration={soundboardConfiguration}>
                 <RosetteMeshes configuration={rosetteConfiguration} />
@@ -78,10 +103,24 @@ const withMeshConfiguration = <P extends IWithMeshModifierProps>(
               </BackMeshes>
               <SidesMeshes configuration={sidesConfiguration}>
                 <HeelTailBlockMeshes configuration={heelTailBlockConfiguration} />
+                <EndGraftMeshes configuration={endGraftConfiguration} />
               </SidesMeshes>
               <BindingMeshes configuration={bindingConfiguration}>
                 <PurflingMeshes configuration={purflingConfiguration} />
               </BindingMeshes>
+              <NeckMeshes configuration={neckConfiguration}>
+                <mesh>
+                  <boxGeometry />
+                </mesh>
+              </NeckMeshes>
+              <HeadstockMeshes configuration={headstockConfiguration}>
+                <mesh>
+                  <boxGeometry />
+                </mesh>
+              </HeadstockMeshes>
+              <FretboardMeshes configuration={fretboardConfiguration}>
+                <FretsMeshes configuration={fretsConfiguration} />
+              </FretboardMeshes>
             </>
           ) : (
             <GLTFJSXComponent {...props} position={[0.6, 0, 0]} visible={false} />

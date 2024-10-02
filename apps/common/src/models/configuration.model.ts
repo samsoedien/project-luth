@@ -18,6 +18,8 @@ export enum ELuthComponent {
   HeelTailBlocks = 'HeelTailBlocks',
   Purfling = 'Purfling',
   Rosette = 'Rosette',
+  Frets = 'Frets',
+  EndGraft = 'EndGraft',
 }
 
 export interface IConfiguration {

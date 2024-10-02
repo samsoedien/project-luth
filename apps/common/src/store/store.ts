@@ -10,7 +10,7 @@ import {
   ESoundHoleOption,
 } from '~/models/options.model'
 import { getConfiguredComponent } from '~/helpers/meshUtils'
-import { backMeshMap, soundboardMeshMap } from '~/helpers/meshMap'
+import { backMeshMap, bindingMeshMap, sidesMeshMap, soundboardMeshMap } from '~/helpers/meshMap'
 import { PresentationControlProps } from '@react-three/drei'
 
 /** CONFIGURATION STATE SLICE */
@@ -32,19 +32,23 @@ export const createConfigurationSlice: StateCreator<
 })
 
 /** OPTIONS STATE SLICE */
-interface IBodyOptions {
+export interface IBodyOptions {
   bodyShape: EBodyShapeOption
   cutaway: ECutawayOption
   armBevel: EArmBevelOption
 }
 
-interface ISoundboardOptions {
+export interface ISoundboardOptions {
   soundHole: ESoundHoleOption
 }
 
-interface IBackOptions {
+export interface IBackOptions {
   backMultiPiece: EBackMultiPieceOption
 }
+
+export interface ISidesOptions {}
+
+export interface IBindingOptions {}
 
 export interface IOptionsStoreState {
   bodyOptions: IBodyOptions
@@ -53,6 +57,10 @@ export interface IOptionsStoreState {
   setSoundboardOptions: (soundboardOptions: Partial<ISoundboardOptions>) => void
   backOptions: IBackOptions
   setBackOptions: (backOptions: Partial<IBackOptions>) => void
+  sidesOptions: ISidesOptions
+  setSidesOptions: (sidesOptions: Partial<ISidesOptions>) => void
+  bindingOptions: IBindingOptions
+  setBindingOptions: (bindingOptions: Partial<IBindingOptions>) => void
 }
 
 export const createOptionsSlice: StateCreator<StoreState, [], [], IOptionsStoreState> = (
@@ -69,10 +77,12 @@ export const createOptionsSlice: StateCreator<StoreState, [], [], IOptionsStoreS
       bodyOptions: { ...state.bodyOptions, ...bodyOptions },
     }))
 
-    const { soundboardOptions, backOptions } = get()
+    const { soundboardOptions, backOptions, sidesOptions, bindingOptions } = get()
 
     get().setSoundboardOptions(soundboardOptions)
     get().setBackOptions(backOptions)
+    get().setSidesOptions(sidesOptions)
+    get().setBindingOptions(bindingOptions)
   },
   soundboardOptions: {
     soundHole: ESoundHoleOption.Round,
@@ -109,10 +119,44 @@ export const createOptionsSlice: StateCreator<StoreState, [], [], IOptionsStoreS
     const backComponent = getConfiguredComponent(configuration, ELuthComponent.Back)
 
     if (backComponent) {
-      const selectedSoundboardMeshes =
+      const selectedBackMeshes =
         backMeshMap?.[bodyOptions.bodyShape]?.[bodyOptions.cutaway]?.[backOptions.backMultiPiece] ??
         []
-      backComponent.meshes = selectedSoundboardMeshes
+      backComponent.meshes = selectedBackMeshes
+    }
+    set({ configuration: { ...configuration } })
+  },
+  sidesOptions: {},
+  setSidesOptions: (options) => {
+    set((state) => ({
+      sidesOptions: { ...state.sidesOptions, ...options },
+    }))
+
+    const { bodyOptions, sidesOptions, configuration } = get()
+
+    const sidesComponent = getConfiguredComponent(configuration, ELuthComponent.Sides)
+
+    if (sidesComponent) {
+      const selectedSidesMeshes =
+        sidesMeshMap?.[bodyOptions.bodyShape]?.[bodyOptions.cutaway]?.[bodyOptions.armBevel] ?? []
+      sidesComponent.meshes = selectedSidesMeshes
+    }
+    set({ configuration: { ...configuration } })
+  },
+  bindingOptions: {},
+  setBindingOptions: (options) => {
+    set((state) => ({
+      sidesOptions: { ...state.sidesOptions, ...options },
+    }))
+
+    const { bodyOptions, bindingOptions, configuration } = get()
+
+    const bindingComponent = getConfiguredComponent(configuration, ELuthComponent.Binding)
+
+    if (bindingComponent) {
+      const selectedBindingMeshes =
+        bindingMeshMap?.[bodyOptions.bodyShape]?.[bodyOptions.cutaway]?.[bodyOptions.armBevel] ?? []
+      bindingComponent.meshes = selectedBindingMeshes
     }
     set({ configuration: { ...configuration } })
   },

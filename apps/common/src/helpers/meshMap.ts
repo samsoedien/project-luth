@@ -170,7 +170,7 @@ export const sidesMeshMap: SidesboardMeshMap = {
       [EArmBevelOption.Standard]: ['Body_Sides_Arm_Bevel_Florentine_Cutaway'],
     },
     [ECutawayOption.Scalloped]: {
-      [EArmBevelOption.None]: ['Body_Sides_Scalloped_Cutaway'],
+      [EArmBevelOption.None]: ['Body_Sides_Scalloped_Cutaway_(1)'],
       [EArmBevelOption.Standard]: ['Body_Sides_Arm_Bevel_Scalloped_Cutaway'],
     },
   },
