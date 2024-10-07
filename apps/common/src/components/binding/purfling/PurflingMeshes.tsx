@@ -1,11 +1,11 @@
 import { useContext } from 'react'
 import { context as GLTFJSXContext } from '../../../_generated/LuthAcoustic'
-import { IConfiguration } from '~/store/store'
 import { GLTFJSXInstances } from '~/models/gltfjsx.model'
 import { useInstanceGeometry } from '~/hooks/useInstanceGeometry'
+import { IConfiguration } from '~/models/configuration.model'
 
 export interface IPurflingMeshesProps {
-  configuration?: IConfiguration
+  configuration: IConfiguration
 }
 
 export default function PurflingMeshes({ configuration }: IPurflingMeshesProps) {
@@ -13,19 +13,17 @@ export default function PurflingMeshes({ configuration }: IPurflingMeshesProps) 
   const { instanceGeometry, instanceGroupRef } = useInstanceGeometry(configuration)
 
   return (
-    <group dispose={null}>
-      {instanceGeometry.length > 0 ? (
+    <group name={configuration.name} dispose={null}>
+      {instanceGeometry.length > 0 &&
         instanceGeometry.map((child) => (
           <mesh key={child.uuid} name={child.name} geometry={child.geometry}>
             <meshStandardMaterial color="black" />
           </mesh>
-        ))
-      ) : (
-        <group ref={instanceGroupRef}>
-          <instances.BodyPurflingTop name="Body_Purfling_Top" />
-          <instances.BodyPurflingBottom name="Body_Purfling_Bottom" />
-        </group>
-      )}
+        ))}
+      <group ref={instanceGroupRef} scale={0}>
+        <instances.BodyPurflingTop name="Body_Purfling_Top" />
+        <instances.BodyPurflingBottom name="Body_Purfling_Bottom" />
+      </group>
     </group>
   )
 }

@@ -69,7 +69,7 @@ export const createOptionsSlice: StateCreator<StoreState, [], [], IOptionsStoreS
 ) => ({
   bodyOptions: {
     bodyShape: EBodyShapeOption.Dreadnought,
-    cutaway: ECutawayOption.None,
+    cutaway: ECutawayOption.Venetian,
     armBevel: EArmBevelOption.None,
   },
   setBodyOptions: (bodyOptions) => {
@@ -94,17 +94,22 @@ export const createOptionsSlice: StateCreator<StoreState, [], [], IOptionsStoreS
 
     const { bodyOptions, soundboardOptions, configuration } = get()
 
-    const soundboardComponent = getConfiguredComponent(configuration, ELuthComponent.Soundboard)
+    const selectedSoundboardMeshes =
+      soundboardMeshMap?.[bodyOptions.bodyShape]?.[bodyOptions.cutaway]?.[bodyOptions.armBevel]?.[
+        soundboardOptions.soundHole
+      ] ?? []
 
-    if (soundboardComponent) {
-      const selectedSoundboardMeshes =
-        soundboardMeshMap?.[bodyOptions.bodyShape]?.[bodyOptions.cutaway]?.[bodyOptions.armBevel]?.[
-          soundboardOptions.soundHole
-        ] ?? []
-      soundboardComponent.meshes = selectedSoundboardMeshes
-    }
-
-    set({ configuration: { ...configuration } })
+    // Create the new configuration with updated meshes
+    set({
+      configuration: {
+        ...configuration, // ensure new reference
+        components: configuration.components?.map((component) =>
+          component.name === ELuthComponent.Soundboard
+            ? { ...component, meshes: [...selectedSoundboardMeshes] } // ensure new reference for `meshes`
+            : component,
+        ),
+      },
+    })
   },
   backOptions: {
     backMultiPiece: EBackMultiPieceOption.OnePiece,

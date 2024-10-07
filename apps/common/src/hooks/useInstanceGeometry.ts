@@ -1,33 +1,34 @@
 import { useEffect, useRef, useState } from 'react'
 import { BufferGeometry, Group } from 'three'
 import { PositionMesh } from '@react-three/drei'
-import { IConfiguration } from '~/store/store'
+import { GLTFResult } from '~/_generated/LuthAcoustic'
+import { IConfiguration } from '~/models/configuration.model'
 
 export const useInstanceGeometry = (
-  configuration?: IConfiguration,
-): { instanceGeometry: PositionMesh[]; instanceGroupRef: React.RefObject<Group> } => {
+  configuration: IConfiguration,
+): {
+  instanceGeometry: PositionMesh[]
+  instanceGroupRef: React.RefObject<Group>
+} => {
   const instanceGroupRef = useRef<Group>(null)
   const [instanceGeometry, setInstanceGeometry] = useState<PositionMesh[]>([])
 
   useEffect(() => {
-    if (!instanceGroupRef.current || !configuration?.meshes) return
+    if (!instanceGroupRef.current) return
 
     const geometries: PositionMesh[] = []
-
-    // Traverse the children of the group and collect geometries
     instanceGroupRef.current.traverse((child) => {
       if ('geometry' in child && child.geometry instanceof BufferGeometry) {
         geometries.push(child as PositionMesh)
       }
     })
 
-    // Filter geometries based on the configuration
-    const geometriesFiltered = geometries.filter((child) =>
-      configuration.meshes.includes(child.name),
+    setInstanceGeometry(
+      geometries.filter((child) =>
+        configuration.meshes.includes(child.name as keyof GLTFResult['nodes']),
+      ),
     )
-
-    setInstanceGeometry(geometriesFiltered)
-  }, [configuration])
+  }, [configuration.meshes])
 
   return { instanceGeometry, instanceGroupRef }
 }

@@ -33,10 +33,6 @@ export default function Scene() {
 
   const controls = useConfigurationStore((state) => state.controls)
 
-  useEffect(() => {
-    console.log('scene rerender')
-  }, [])
-
   return (
     <Canvas>
       {isDebug && <Perf position="top-left" />}

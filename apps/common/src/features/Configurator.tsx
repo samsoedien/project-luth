@@ -125,7 +125,7 @@ export default function Configurator() {
   return (
     <div className="absolute h-[160px] w-[320px]">
       <Leva />
-      {/* <BackOptions /> */}
+      <BackOptions />
     </div>
   )
 }

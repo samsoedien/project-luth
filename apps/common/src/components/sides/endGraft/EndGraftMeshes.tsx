@@ -7,7 +7,7 @@ import { GLTFJSXInstances } from '~/models/gltfjsx.model'
 import { useInstanceGeometry } from '~/hooks/useInstanceGeometry'
 
 export interface IEndGraftMeshesProps {
-  configuration?: IConfiguration
+  configuration: IConfiguration
 }
 
 export default function EndGraftMeshes({ configuration }: IEndGraftMeshesProps) {
@@ -19,7 +19,7 @@ export default function EndGraftMeshes({ configuration }: IEndGraftMeshesProps) 
       {instanceGeometry.length > 0 ? (
         instanceGeometry.map((child) => (
           <mesh key={child.uuid} name={child.name} geometry={child.geometry}>
-            <meshNormalMaterial />
+            <meshBasicMaterial color="white" />
             {/* <Wireframe /> */}
           </mesh>
         ))

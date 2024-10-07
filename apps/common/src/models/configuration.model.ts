@@ -1,6 +1,12 @@
 import { Material } from 'three'
 import { GLTFResult } from '~/_generated/LuthAcoustic'
 
+export enum ELuthModel {
+  Acoustic = 'Acoustic',
+  Electric = 'Electric',
+  Ukelele = 'Ukelele',
+}
+
 export enum ELuthComponent {
   Base = 'Base',
   Soundboard = 'Soundboard',
@@ -20,6 +26,8 @@ export enum ELuthComponent {
   Rosette = 'Rosette',
   Frets = 'Frets',
   EndGraft = 'EndGraft',
+  Nut = 'Nut',
+  Saddle = 'Saddle',
 }
 
 export interface IConfiguration {

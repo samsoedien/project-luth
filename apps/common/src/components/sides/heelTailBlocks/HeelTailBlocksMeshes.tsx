@@ -5,7 +5,7 @@ import { GLTFJSXInstances } from '~/models/gltfjsx.model'
 import { useInstanceGeometry } from '~/hooks/useInstanceGeometry'
 
 export interface IHeelTailBlockMeshesProps {
-  configuration?: IConfiguration
+  configuration: IConfiguration
 }
 
 export default function HeelTailBlockMeshes({ configuration }: IHeelTailBlockMeshesProps) {

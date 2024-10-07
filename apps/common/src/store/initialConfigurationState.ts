@@ -120,6 +120,31 @@ export const initialConfigurationState: IConfiguration = {
             'Body_Fret20',
           ],
         },
+        {
+          name: ELuthComponent.Nut,
+          meshes: ['Body_Nut'],
+        },
+      ],
+    },
+    {
+      name: ELuthComponent.Bridge,
+      meshes: ['Body_Bridge'],
+      components: [
+        {
+          name: ELuthComponent.Saddle,
+          meshes: ['Body_Saddle'],
+        },
+      ],
+    },
+    {
+      name: ELuthComponent.Strings,
+      meshes: [
+        'Body_String_LowE',
+        'Body_String_A',
+        'Body_String_D',
+        'Body_String_G',
+        'Body_String_B',
+        'Body_String_HighE',
       ],
     },
   ],

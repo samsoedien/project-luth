@@ -6,7 +6,7 @@ import { IConfiguration } from '~/store/store'
 import { GLTFJSXInstances } from '~/models/gltfjsx.model'
 
 export interface IBracesMeshesProps {
-  configuration?: IConfiguration
+  configuration: IConfiguration
 }
 
 export default function BracesMeshes({ configuration }: IBracesMeshesProps) {

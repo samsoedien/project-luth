@@ -8,7 +8,7 @@ import { useInstanceGeometry } from '~/hooks/useInstanceGeometry'
 import { useScaledTexture, useSharedTexture } from '~/hooks/useScaledTexture'
 
 export interface IRosetteMeshesProps {
-  configuration?: IConfiguration
+  configuration: IConfiguration
 }
 
 export default function RosetteMeshes({ configuration }: IRosetteMeshesProps) {

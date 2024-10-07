@@ -18,6 +18,10 @@ import FretsMeshes from './fretboard/frets/FretsMeshes'
 import HeadstockMeshes from './headstock/HeadstockMeshes'
 import EndGraftMeshes from './sides/endGraft/EndGraftMeshes'
 import { useConfigurationStore } from '~/store/store'
+import BridgeMeshes from './bridge/BridgeMeshes'
+import StringsMeshes from './strings/StringsMeshes'
+import NutMeshes from './fretboard/nut/NutMeshes'
+import SaddleMeshes from './bridge/saddle/SaddleMeshes'
 
 interface IWithMeshModifierProps {
   position: [number, number, number]
@@ -45,6 +49,10 @@ const withMeshConfiguration = <P extends IWithMeshModifierProps>(
       fretsConfiguration,
       headstockConfiguration,
       endGraftConfiguration,
+      bridgeConfiguration,
+      stringsConfiguration,
+      nutConfiguration,
+      saddleConfiguration,
     } = {
       soundboardConfiguration: getConfiguredComponent(configuration, ELuthComponent.Soundboard),
       backStripConfiguration: getConfiguredComponent(configuration, ELuthComponent.BackStrip),
@@ -63,6 +71,10 @@ const withMeshConfiguration = <P extends IWithMeshModifierProps>(
       fretsConfiguration: getConfiguredComponent(configuration, ELuthComponent.Frets),
       headstockConfiguration: getConfiguredComponent(configuration, ELuthComponent.Headstock),
       endGraftConfiguration: getConfiguredComponent(configuration, ELuthComponent.EndGraft),
+      bridgeConfiguration: getConfiguredComponent(configuration, ELuthComponent.Bridge),
+      stringsConfiguration: getConfiguredComponent(configuration, ELuthComponent.Strings),
+      nutConfiguration: getConfiguredComponent(configuration, ELuthComponent.Nut),
+      saddleConfiguration: getConfiguredComponent(configuration, ELuthComponent.Saddle),
     }
 
     if (
@@ -79,15 +91,13 @@ const withMeshConfiguration = <P extends IWithMeshModifierProps>(
       !fretboardConfiguration ||
       !fretsConfiguration ||
       !headstockConfiguration ||
-      !endGraftConfiguration
+      !endGraftConfiguration ||
+      !bridgeConfiguration ||
+      !stringsConfiguration ||
+      !nutConfiguration ||
+      !saddleConfiguration // add missing nutConfiguration
     )
       return
-
-    // useEffect(() => {}, [configuration])
-
-    useEffect(() => {
-      console.log('soundboardConfiguration', soundboardConfiguration)
-    }, [configuration])
 
     return (
       <group scale={0.001}>
@@ -120,7 +130,12 @@ const withMeshConfiguration = <P extends IWithMeshModifierProps>(
               </HeadstockMeshes>
               <FretboardMeshes configuration={fretboardConfiguration}>
                 <FretsMeshes configuration={fretsConfiguration} />
+                <NutMeshes configuration={nutConfiguration} />
               </FretboardMeshes>
+              <BridgeMeshes configuration={bridgeConfiguration}>
+                <SaddleMeshes configuration={saddleConfiguration} />
+              </BridgeMeshes>
+              <StringsMeshes configuration={stringsConfiguration} />
             </>
           ) : (
             <GLTFJSXComponent {...props} position={[0.6, 0, 0]} visible={false} />
