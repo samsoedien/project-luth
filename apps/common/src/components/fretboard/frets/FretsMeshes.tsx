@@ -13,7 +13,7 @@ export default function FretsMeshes({ configuration }: IFretsMeshesProps) {
   const { instanceGeometry, instanceGroupRef } = useInstanceGeometry(configuration)
 
   return (
-    <group name={configuration.name} dispose={null} visible={configuration?.groupVisibility}>
+    <group name={configuration.name} dispose={null} visible={configuration.groupVisibility}>
       {instanceGeometry.length > 0 &&
         instanceGeometry.map((child) => (
           <mesh key={child.uuid} name={child.name} geometry={child.geometry}>

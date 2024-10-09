@@ -37,8 +37,8 @@ export default function RosetteMeshes({ configuration }: IRosetteMeshesProps) {
   // soundboardTexture.needsUpdate = true // Ensure the texture is updated
 
   return (
-    <group dispose={null}>
-      {instanceGeometry.length > 0 ? (
+    <group name={configuration.name} dispose={null}>
+      {instanceGeometry.length > 0 &&
         instanceGeometry.map((child) => (
           <mesh
             key={child.uuid}
@@ -68,16 +68,14 @@ export default function RosetteMeshes({ configuration }: IRosetteMeshesProps) {
             {/* )} */}
             {/* <Helper type={BoxHelper} args={['royalblue']} /> */}
           </mesh>
-        ))
-      ) : (
-        <group ref={instanceGroupRef}>
-          <instances.BodyRosette name="Body_Rosette" />
-          <instances.BodyRosette1 name="Body_Rosette_(1)" />
-          <instances.BodyRosette2 name="Body_Rosette_(2)" />
-          <instances.BodyRosette3 name="Body_Rosette_(3)" />
-          <instances.BodyRosette4 name="Body_Rosette_(4)" />
-        </group>
-      )}
+        ))}
+      <group ref={instanceGroupRef} scale={0}>
+        <instances.BodyRosette name="Body_Rosette" />
+        <instances.BodyRosette1 name="Body_Rosette_(1)" />
+        <instances.BodyRosette2 name="Body_Rosette_(2)" />
+        <instances.BodyRosette3 name="Body_Rosette_(3)" />
+        <instances.BodyRosette4 name="Body_Rosette_(4)" />
+      </group>
     </group>
   )
 }

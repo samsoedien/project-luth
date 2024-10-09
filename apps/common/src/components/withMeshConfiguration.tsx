@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { Instances } from '~/_generated/LuthAcoustic'
 
 import SoundboardMeshes from '~/components/soundboard/SoundboardMeshes'
@@ -23,12 +23,12 @@ import StringsMeshes from './strings/StringsMeshes'
 import NutMeshes from './fretboard/nut/NutMeshes'
 import SaddleMeshes from './bridge/saddle/SaddleMeshes'
 
-interface IWithMeshModifierProps {
+interface IWithMeshConfigurationProps {
   position: [number, number, number]
   scale?: number
 }
 
-const withMeshConfiguration = <P extends IWithMeshModifierProps>(
+const withMeshConfiguration = <P extends IWithMeshConfigurationProps>(
   GLTFJSXComponent: React.ComponentType<P>,
   // configuration: IConfiguration,
 ) => {
@@ -95,7 +95,7 @@ const withMeshConfiguration = <P extends IWithMeshModifierProps>(
       !bridgeConfiguration ||
       !stringsConfiguration ||
       !nutConfiguration ||
-      !saddleConfiguration // add missing nutConfiguration
+      !saddleConfiguration
     )
       return
 
@@ -138,7 +138,7 @@ const withMeshConfiguration = <P extends IWithMeshModifierProps>(
               <StringsMeshes configuration={stringsConfiguration} />
             </>
           ) : (
-            <GLTFJSXComponent {...props} position={[0.6, 0, 0]} visible={false} />
+            <GLTFJSXComponent {...props} position={[0, 0, 0]} visible={false} />
           )}
         </Instances>
       </group>

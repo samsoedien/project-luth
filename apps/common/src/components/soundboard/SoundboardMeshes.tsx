@@ -1,8 +1,8 @@
-import { forwardRef, memo, useContext, useEffect, useMemo, useRef, useState } from 'react'
+import { useContext, useEffect, useRef } from 'react'
 import { context as GLTFJSXContext } from '../../_generated/LuthAcoustic'
 import { useInstanceGeometry } from '~/hooks/useInstanceGeometry'
-import { BoxHelper, Mesh, MirroredRepeatWrapping } from 'three'
-import { useTexture, Helper, PositionMesh } from '@react-three/drei'
+import { Mesh, MirroredRepeatWrapping } from 'three'
+import { useTexture } from '@react-three/drei'
 import { IConfiguration } from '~/models/configuration.model'
 
 import { GLTFJSXInstances } from '~/models/gltfjsx.model'
@@ -19,12 +19,7 @@ export default function SoundboardMeshes({ configuration, children }: ISoundboar
   const meshRef = useRef<Mesh>(null)
 
   useEffect(() => {
-    console.log('instanceGroupRef', instanceGroupRef)
-    console.log('instanceGeometry', instanceGeometry)
-    console.log('soundboardConfiguration', configuration)
     console.log('meshRef', meshRef.current)
-
-    console.log('instance', instances.BodySoundboard)
   }, [configuration])
 
   const soundboardTexture = useTexture('sitka-spruce.jpg')
@@ -46,8 +41,7 @@ export default function SoundboardMeshes({ configuration, children }: ISoundboar
               receiveShadow
               onClick={(e) => console.log('click', configuration)}
             >
-              <meshStandardMaterial map={soundboardTexture} />
-              <Helper type={BoxHelper} args={['red']} />
+              <meshStandardMaterial map={soundboardTexture} />;
             </mesh>
           )
         })}
