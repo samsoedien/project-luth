@@ -28,6 +28,7 @@ export enum ELuthComponent {
   EndGraft = 'EndGraft',
   Nut = 'Nut',
   Saddle = 'Saddle',
+  FretboardMarkers = 'FretboardMarkers',
 }
 
 export interface IConfiguration {

@@ -17,7 +17,6 @@ import { Canvas, useFrame, useLoader } from '@react-three/fiber'
 import { Perf } from 'r3f-perf'
 
 import { Suspense, useEffect, useState } from 'react'
-import { Bloom, DepthOfField, EffectComposer, Noise, Vignette } from '@react-three/postprocessing'
 
 import LuthDreadnaughtAcoustic from '../_generated/LuthAcoustic'
 import LuthParlorAcoustic from '../_generated/LuthAcousticParlor'
@@ -25,9 +24,14 @@ import LuthParlorAcoustic from '../_generated/LuthAcousticParlor'
 import withMeshConfiguration from '../components/withMeshConfiguration'
 import Lights from './Lights'
 
+import Sides from '../_generated/Sides'
+import Soundboard from '../_generated/LuthSoundboard'
+
 import { useConfigurationStore } from '~/store/store'
+import UVHelper from '~/helpers/uvHelper'
 
 const LuthModel = withMeshConfiguration(LuthDreadnaughtAcoustic)
+// const LuthModel = withMeshConfiguration(LuthAcousticBlender)
 
 export default function Scene() {
   const isDebug = true
@@ -57,7 +61,9 @@ export default function Scene() {
 
           <Suspense fallback={null}>
             {/* <Scroll> */}
-            <LuthModel position={[0, 0, 0]} />
+            {/* <Sides /> */}
+            <Soundboard />
+            {/* <LuthModel position={[0, 0, 0]} /> */}
             <Preload all />
             {/* </Scroll> */}
           </Suspense>

@@ -28,6 +28,9 @@ export default function BindingMeshes({ configuration, children }: IBindingMeshe
         <instances.BodyBindingBottomVenetianCutaway name="Body_Binding_Bottom_Venetian_Cutaway" />
         <instances.BodyBindingTopFlorentineCutaway name="Body_Binding_Top_Florentine_Cutaway" />
         <instances.BodyBindingBottomFlorentineCutaway name="Body_Binding_Bottom_Florentine_Cutaway" />
+        <instances.BodyBindingTopArmBevel name="Body_Binding_Top_Arm_Bevel" />
+        <instances.BodyBindingTopArmBevelVenetianCutaway name="Body_Binding_Top_Arm_Bevel_Venetian_Cutaway" />
+        <instances.BodyBindingTopArmBevelFlorentineCutaway name="Body_Binding_Top_Arm_Bevel_Florentine_Cutaway" />
       </group>
       {children}
     </group>

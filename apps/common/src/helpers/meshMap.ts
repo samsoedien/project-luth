@@ -170,7 +170,7 @@ export const sidesMeshMap: SidesboardMeshMap = {
       [EArmBevelOption.Standard]: ['Body_Sides_Arm_Bevel_Florentine_Cutaway'],
     },
     [ECutawayOption.Scalloped]: {
-      [EArmBevelOption.None]: ['Body_Sides_Scalloped_Cutaway_(1)'],
+      [EArmBevelOption.None]: ['Body_Sides_Scalloped_Cutaway'],
       [EArmBevelOption.Standard]: ['Body_Sides_Arm_Bevel_Scalloped_Cutaway'],
     },
   },
@@ -215,6 +215,50 @@ export const bindingMeshMap: BindingdMeshMap = {
       [EArmBevelOption.Standard]: [
         'Body_Binding_Top_Arm_Bevel_Florentine_Cutaway',
         'Body_Binding_Bottom',
+      ],
+    },
+  },
+}
+
+type PurflingMeshMap = Partial<{
+  [key in EBodyShapeOption]: {
+    [key in ECutawayOption]: {
+      [key in EArmBevelOption]: Array<keyof GLTFResult['nodes']>
+    }
+  }
+}>
+
+export const purflingMeshMap: PurflingMeshMap = {
+  [EBodyShapeOption.Dreadnought]: {
+    [ECutawayOption.None]: {
+      [EArmBevelOption.None]: ['Body_Purfling_Top', 'Body_Purfling_Bottom'],
+      [EArmBevelOption.Standard]: ['Body_Purfling_Top_Arm_Bevel', 'Body_Purfling_Bottom'],
+    },
+    [ECutawayOption.Venetian]: {
+      [EArmBevelOption.None]: [
+        'Body_Purfling_Top_Venetian_Cutaway',
+        // 'Body_Purfling_Bottom_Venetian_Cutaway',
+      ],
+      [EArmBevelOption.Standard]: [
+        'Body_Purfling_Top_Arm_Bevel_Venetian_Cutaway',
+        // 'Body_Purfling_Bottom_Venetian_Cutaway',
+      ],
+    },
+    [ECutawayOption.Florentine]: {
+      [EArmBevelOption.None]: [
+        'Body_Purfling_Top_Florentine_Cutaway',
+        'Body_Purfling_Bottom_Florentine_Cutaway',
+      ],
+      [EArmBevelOption.Standard]: [
+        'Body_Purfling_Top_Arm_Bevel_Florentine_Cutaway',
+        'Body_Purfling_Bottom_Florentine_Cutaway',
+      ],
+    },
+    [ECutawayOption.Scalloped]: {
+      [EArmBevelOption.None]: ['Body_Purfling_Top_Florentine_Cutaway', 'Body_Purfling_Bottom'],
+      [EArmBevelOption.Standard]: [
+        'Body_Purfling_Top_Arm_Bevel_Florentine_Cutaway',
+        'Body_Purfling_Bottom',
       ],
     },
   },

@@ -22,6 +22,7 @@ import BridgeMeshes from './bridge/BridgeMeshes'
 import StringsMeshes from './strings/StringsMeshes'
 import NutMeshes from './fretboard/nut/NutMeshes'
 import SaddleMeshes from './bridge/saddle/SaddleMeshes'
+import FretboardMarkersMeshes from './fretboard/fretboardMarkers/FretboardMarkersMeshes'
 
 interface IWithMeshConfigurationProps {
   position: [number, number, number]
@@ -53,6 +54,7 @@ const withMeshConfiguration = <P extends IWithMeshConfigurationProps>(
       stringsConfiguration,
       nutConfiguration,
       saddleConfiguration,
+      fretboardMarkersConfiguration,
     } = {
       soundboardConfiguration: getConfiguredComponent(configuration, ELuthComponent.Soundboard),
       backStripConfiguration: getConfiguredComponent(configuration, ELuthComponent.BackStrip),
@@ -75,6 +77,10 @@ const withMeshConfiguration = <P extends IWithMeshConfigurationProps>(
       stringsConfiguration: getConfiguredComponent(configuration, ELuthComponent.Strings),
       nutConfiguration: getConfiguredComponent(configuration, ELuthComponent.Nut),
       saddleConfiguration: getConfiguredComponent(configuration, ELuthComponent.Saddle),
+      fretboardMarkersConfiguration: getConfiguredComponent(
+        configuration,
+        ELuthComponent.FretboardMarkers,
+      ),
     }
 
     if (
@@ -95,7 +101,8 @@ const withMeshConfiguration = <P extends IWithMeshConfigurationProps>(
       !bridgeConfiguration ||
       !stringsConfiguration ||
       !nutConfiguration ||
-      !saddleConfiguration
+      !saddleConfiguration ||
+      !fretboardMarkersConfiguration
     )
       return
 
@@ -131,6 +138,7 @@ const withMeshConfiguration = <P extends IWithMeshConfigurationProps>(
               <FretboardMeshes configuration={fretboardConfiguration}>
                 <FretsMeshes configuration={fretsConfiguration} />
                 <NutMeshes configuration={nutConfiguration} />
+                <FretboardMarkersMeshes configuration={fretboardMarkersConfiguration} />
               </FretboardMeshes>
               <BridgeMeshes configuration={bridgeConfiguration}>
                 <SaddleMeshes configuration={saddleConfiguration} />
@@ -138,7 +146,7 @@ const withMeshConfiguration = <P extends IWithMeshConfigurationProps>(
               <StringsMeshes configuration={stringsConfiguration} />
             </>
           ) : (
-            <GLTFJSXComponent {...props} position={[0, 0, 0]} visible={false} />
+            <GLTFJSXComponent {...props} position={[0, 0, 0]} />
           )}
         </Instances>
       </group>

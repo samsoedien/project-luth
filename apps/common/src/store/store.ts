@@ -10,7 +10,13 @@ import {
   ESoundHoleOption,
 } from '~/models/options.model'
 import { getConfiguredComponent } from '~/helpers/meshUtils'
-import { backMeshMap, bindingMeshMap, sidesMeshMap, soundboardMeshMap } from '~/helpers/meshMap'
+import {
+  backMeshMap,
+  bindingMeshMap,
+  purflingMeshMap,
+  sidesMeshMap,
+  soundboardMeshMap,
+} from '~/helpers/meshMap'
 import { PresentationControlProps } from '@react-three/drei'
 
 /** CONFIGURATION STATE SLICE */
@@ -163,6 +169,15 @@ export const createOptionsSlice: StateCreator<StoreState, [], [], IOptionsStoreS
         bindingMeshMap?.[bodyOptions.bodyShape]?.[bodyOptions.cutaway]?.[bodyOptions.armBevel] ?? []
       bindingComponent.meshes = selectedBindingMeshes
     }
+
+    const purflingComponent = getConfiguredComponent(configuration, ELuthComponent.Purfling)
+    if (purflingComponent) {
+      const selectedBindingMeshes =
+        purflingMeshMap?.[bodyOptions.bodyShape]?.[bodyOptions.cutaway]?.[bodyOptions.armBevel] ??
+        []
+      purflingComponent.meshes = selectedBindingMeshes
+    }
+
     set({ configuration: { ...configuration } })
   },
 })

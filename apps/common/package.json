@@ -9,9 +9,13 @@
     "build:watch": "tsc && vite build --watch",
     "lint": "eslint .",
     "preview": "vite preview --port 8000 --strictPort --host",
+    "gltf": "node ./scripts/gltf-pipeline.cjs",
+    "gltf:normalize": "node ./scripts/gltf-normalize-uvs.cjs",
     "model": "yarn model:dreadnaught && yarn model:parlor",
-    "model:dreadnaught": "npx gltfjsx ./public/luth-acoustic.glb --types --transform --keepnames --keepmeshes --draco --meta --shadows --exportdefault --instanceall --output ./src/_generated/LuthAcoustic.tsx",
-    "model:parlor": "npx gltfjsx@6.5.0 ./public/luth-acoustic-parlor.glb --types --keepnames --draco --meta --transform --keepmaterials --exportdefault --debug --instanceall --output ./src/_generated/LuthAcousticParlor.tsx"
+    "model:gltfjsx": "npx gltfjsx ./public/luth-acoustic.glb --types --transform --keepnames --keepmeshes --draco --meta --shadows --exportdefault --instanceall --output ./src/_generated/LuthAcoustic.tsx",
+    "model:soundboard": "npx gltfjsx ./public/Luth_Soundboard.glb --types --transform --keepnames --keepmeshes --draco --meta --shadows --exportdefault --output ./src/_generated/LuthSoundboard.tsx",
+    "model:dreadnaught": "npx gltfjsx ./public/luth-acoustic-1.glb --types --transform --keepnames --keepmeshes --draco --meta --shadows --exportdefault --instanceall --output ./src/_generated/LuthAcoustic.tsx",
+    "model:parlor": "npx gltfjsx ./public/luth-acoustic-parlor.glb --types --keepnames --draco --meta --transform --exportdefault --debug --output ./src/_generated/LuthAcousticParlor.tsx"
   },
   "dependencies": {
     "@react-three/drei": "^9.114.0",
@@ -30,6 +34,9 @@
   "devDependencies": {
     "@babel/core": "^7.25.7",
     "@eslint/js": "^9.11.1",
+    "@gltf-transform/core": "^4.0.10",
+    "@gltf-transform/extensions": "^4.0.10",
+    "@gltf-transform/functions": "^4.0.10",
     "@originjs/vite-plugin-federation": "^1.3.6",
     "@preact/preset-vite": "^2.9.1",
     "@types/preact-custom-element": "^4.0.4",
@@ -40,7 +47,9 @@
     "eslint": "^8.57.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.5",
+    "gl-matrix": "^3.4.3",
     "globals": "^15.10.0",
+    "gltf-pipeline": "^4.1.0",
     "gltfjsx": "^6.5.2",
     "r3f-perf": "^7.2.1",
     "typescript": "^5.4.3",
