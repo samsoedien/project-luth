@@ -30,9 +30,9 @@ export default function ThemeModeToggle() {
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button variant="outline" size="icon">
-          {theme === 'light' && <SunIcon className="h-[1.2rem] w-[1.2rem] " />}
-          {theme === 'dark' && <MoonIcon className="h-[1.2rem] w-[1.2rem] " />}
-          {theme === 'system' && <SunMoonIcon className=" h-[1.2rem] w-[1.2rem] " />}
+          {theme === 'light' && <SunIcon className="h-[1.2rem] w-[1.2rem]" />}
+          {theme === 'dark' && <MoonIcon className="h-[1.2rem] w-[1.2rem]" />}
+          {theme === 'system' && <SunMoonIcon className="h-[1.2rem] w-[1.2rem]" />}
           <span className="sr-only">Toggle theme</span>
         </Button>
       </DropdownMenuTrigger>

@@ -28,11 +28,11 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
 
-      /* Path Aliases */
-      "baseUrl": ".",
-      "paths": {
-        "~/*": ["./src/*"]
-      }
+    /* Path Aliases */
+    "baseUrl": ".",
+    "paths": {
+      "~/*": ["./src/*"]
+    }
   },
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]
