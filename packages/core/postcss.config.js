@@ -1,7 +1,6 @@
 export default {
   plugins: {
-    tailwindcss: {},
-    autoprefixer: {},
+    '@tailwindcss/postcss': {},
     'postcss-replace': {
       pattern: /(--tw|\*, ::before, ::after)/g,
       data: {
