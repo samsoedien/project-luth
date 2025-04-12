@@ -1,20 +1,22 @@
 import * as React from "react"
+import { Slot } from "@radix-ui/react-slot"
 import { cva, type VariantProps } from "class-variance-authority"
 
 import { cn } from "@/utils"
 
 const badgeVariants = cva(
-  "luth-inline-flex luth-items-center luth-rounded-md luth-border luth-px-2.5 luth-py-0.5 luth-text-xs luth-font-semibold luth-transition-colors focus:luth-outline-none focus:luth-ring-2 focus:luth-ring-ring focus:luth-ring-offset-2",
+  "luth-inline-flex luth-items-center luth-justify-center luth-rounded-md luth-border luth-px-2 luth-py-0.5 luth-text-xs luth-font-medium luth-w-fit luth-whitespace-nowrap luth-shrink-0 [&>svg]:luth-size-3 luth-gap-1 [&>svg]:luth-pointer-events-none focus-visible:luth-border-ring focus-visible:luth-ring-ring/50 focus-visible:luth-ring-[3px] aria-invalid:luth-ring-destructive/20 dark:aria-invalid:luth-ring-destructive/40 aria-invalid:luth-border-destructive luth-transition-[color,box-shadow] luth-overflow-hidden",
   {
     variants: {
       variant: {
         default:
-          "luth-border-transparent luth-bg-primary luth-text-primary-foreground luth-shadow hover:luth-bg-primary/80",
+          "luth-border-transparent luth-bg-primary luth-text-primary-foreground [a&]:hover:luth-bg-primary/90",
         secondary:
-          "luth-border-transparent luth-bg-secondary luth-text-secondary-foreground hover:luth-bg-secondary/80",
+          "luth-border-transparent luth-bg-secondary luth-text-secondary-foreground [a&]:hover:luth-bg-secondary/90",
         destructive:
-          "luth-border-transparent luth-bg-destructive luth-text-destructive-foreground luth-shadow hover:luth-bg-destructive/80",
-        outline: "luth-text-foreground",
+          "luth-border-transparent luth-bg-destructive luth-text-white [a&]:hover:luth-bg-destructive/90 focus-visible:luth-ring-destructive/20 dark:focus-visible:luth-ring-destructive/40 dark:luth-bg-destructive/60",
+        outline:
+          "luth-text-foreground [a&]:hover:luth-bg-accent [a&]:hover:luth-text-accent-foreground",
       },
     },
     defaultVariants: {
@@ -23,13 +25,21 @@ const badgeVariants = cva(
   }
 )
 
-export interface BadgeProps
-  extends React.HTMLAttributes<HTMLDivElement>,
-    VariantProps<typeof badgeVariants> {}
+function Badge({
+  className,
+  variant,
+  asChild = false,
+  ...props
+}: React.ComponentProps<"span"> &
+  VariantProps<typeof badgeVariants> & { asChild?: boolean }) {
+  const Comp = asChild ? Slot : "span"
 
-function Badge({ className, variant, ...props }: BadgeProps) {
   return (
-    <div className={cn(badgeVariants({ variant }), className)} {...props} />
+    <Comp
+      data-slot="badge"
+      className={cn(badgeVariants({ variant }), className)}
+      {...props}
+    />
   )
 }
 
