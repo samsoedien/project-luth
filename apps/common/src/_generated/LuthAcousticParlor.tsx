@@ -91,42 +91,262 @@ export default function Model(props: JSX.IntrinsicElements['group']) {
   const { nodes, materials } = useGLTF('/luth-acoustic-parlor-transformed.glb') as GLTFResult
   return (
     <group {...props} dispose={null}>
-      <PerspectiveCamera name="active" makeDefault={false} far={1794.933} near={1247.788} fov={39.598} position={[-0.945, 0.568, 1.078]} rotation={[-0.336, -0.67, -0.214]} scale={0.001} userData={{ name: 'active' }} />
-      <mesh name="Body_Heel_Block" geometry={nodes.Body_Heel_Block.geometry} material={materials['Oak - Glossy']} scale={0.001} userData={{ name: 'Body_Heel_Block' }} />
-      <mesh name="Body4" geometry={nodes.Body4.geometry} material={materials['3D Ash - Unfinished']} scale={0.001} userData={{ name: 'Body4' }} />
-      <mesh name="Body_Sides" geometry={nodes.Body_Sides.geometry} material={materials['Walnut - Semigloss']} scale={0.001} userData={{ name: 'Body_Sides' }} />
-      <mesh name="Body_Sides_Venetian_Cutaway" geometry={nodes.Body_Sides_Venetian_Cutaway.geometry} material={materials['Walnut - Semigloss']} scale={0.001} userData={{ name: 'Body_Sides_Venetian_Cutaway' }} />
-      <mesh name="Body_Sides_Florentine_Cutaway" geometry={nodes.Body_Sides_Florentine_Cutaway.geometry} material={materials['Walnut - Semigloss']} scale={0.001} userData={{ name: 'Body_Sides_Florentine_Cutaway' }} />
-      <mesh name="Body_Sides_Scalloped_Cutaway" geometry={nodes.Body_Sides_Scalloped_Cutaway.geometry} material={materials['Walnut - Semigloss']} scale={0.001} userData={{ name: 'Body_Sides_Scalloped_Cutaway' }} />
-      <mesh name="Body_Sides_Arm_Bevel" geometry={nodes.Body_Sides_Arm_Bevel.geometry} material={materials['Walnut - Semigloss']} scale={0.001} userData={{ name: 'Body_Sides_Arm_Bevel' }} />
-      <mesh name="Body_Sides_Arm_Bevel_Florentine_Cutaway" geometry={nodes.Body_Sides_Arm_Bevel_Florentine_Cutaway.geometry} material={materials['Steel - Satin']} scale={0.001} userData={{ name: 'Body_Sides_Arm_Bevel_Florentine_Cutaway' }} />
-      <mesh name="Body_Sides_Arm_Bevel_Venetian_Cutaway" geometry={nodes.Body_Sides_Arm_Bevel_Venetian_Cutaway.geometry} material={materials['Walnut - Semigloss']} scale={0.001} userData={{ name: 'Body_Sides_Arm_Bevel_Venetian_Cutaway' }} />
-      <mesh name="Body_Sides_Arm_Bevel_Scalloped_Cutaway" geometry={nodes.Body_Sides_Arm_Bevel_Scalloped_Cutaway.geometry} material={materials['Walnut - Semigloss']} scale={0.001} userData={{ name: 'Body_Sides_Arm_Bevel_Scalloped_Cutaway' }} />
-      <mesh name="Body_Rosette" geometry={nodes.Body_Rosette.geometry} material={materials['ABS (White)']} scale={0.001} userData={{ name: 'Body_Rosette' }} />
-      <mesh name="Body_Bridge_Plate" geometry={nodes.Body_Bridge_Plate.geometry} material={materials['Walnut - Semigloss']} scale={0.001} userData={{ name: 'Body_Bridge_Plate' }} />
-      <mesh name="Body_Bridge" geometry={nodes.Body_Bridge.geometry} material={materials['Walnut - Semigloss']} scale={0.001} userData={{ name: 'Body_Bridge' }} />
-      <mesh name="Body_Back_Center_Strip" geometry={nodes.Body_Back_Center_Strip.geometry} material={materials['Walnut - Semigloss']} scale={0.001} userData={{ name: 'Body_Back_Center_Strip' }} />
-      <mesh name="Body_Back" geometry={nodes.Body_Back.geometry} material={materials['Walnut - Semigloss']} scale={0.001} userData={{ name: 'Body_Back' }} />
-      <mesh name="Body_Back_Venetian_Cutaway" geometry={nodes.Body_Back_Venetian_Cutaway.geometry} material={materials['Walnut - Semigloss']} scale={0.001} userData={{ name: 'Body_Back_Venetian_Cutaway' }} />
-      <mesh name="Body_Back_Florentine_Cutaway" geometry={nodes.Body_Back_Florentine_Cutaway.geometry} material={materials['Walnut - Semigloss']} scale={0.001} userData={{ name: 'Body_Back_Florentine_Cutaway' }} />
-      <mesh name="Body_Back_2Piece_Left" geometry={nodes.Body_Back_2Piece_Left.geometry} material={materials['Walnut - Semigloss']} scale={0.001} userData={{ name: 'Body_Back_2Piece_Left' }} />
-      <mesh name="Body_Back_2Piece_Right" geometry={nodes.Body_Back_2Piece_Right.geometry} material={materials['Walnut - Semigloss']} scale={0.001} userData={{ name: 'Body_Back_2Piece_Right' }} />
-      <mesh name="Body_Back_2Piece_Venetian_Cutaway_Right" geometry={nodes.Body_Back_2Piece_Venetian_Cutaway_Right.geometry} material={materials['Walnut - Semigloss']} scale={0.001} userData={{ name: 'Body_Back_2Piece_Venetian_Cutaway_Right' }} />
-      <mesh name="Body_Back_2Piece_Florentine_Cutaway_Right" geometry={nodes.Body_Back_2Piece_Florentine_Cutaway_Right.geometry} material={materials['Walnut - Semigloss']} scale={0.001} userData={{ name: 'Body_Back_2Piece_Florentine_Cutaway_Right' }} />
-      <mesh name="Body_Back_3Piece_Middle" geometry={nodes.Body_Back_3Piece_Middle.geometry} material={materials['Walnut - Semigloss']} scale={0.001} userData={{ name: 'Body_Back_3Piece_Middle' }} />
-      <mesh name="Body_Back_3Piece_Venetian_Cutaway_Middle" geometry={nodes.Body_Back_3Piece_Venetian_Cutaway_Middle.geometry} material={materials['Walnut - Semigloss']} scale={0.001} userData={{ name: 'Body_Back_3Piece_Venetian_Cutaway_Middle' }} />
-      <mesh name="Body_Back_3Piece_Florentine_Cutaway_Middle" geometry={nodes.Body_Back_3Piece_Florentine_Cutaway_Middle.geometry} material={materials['Walnut - Semigloss']} scale={0.001} userData={{ name: 'Body_Back_3Piece_Florentine_Cutaway_Middle' }} />
-      <mesh name="Body_Back_3Piece_Left" geometry={nodes.Body_Back_3Piece_Left.geometry} material={materials['Walnut - Semigloss']} scale={0.001} userData={{ name: 'Body_Back_3Piece_Left' }} />
-      <mesh name="Body_Back_3Piece_Right" geometry={nodes.Body_Back_3Piece_Right.geometry} material={materials['Walnut - Semigloss']} scale={0.001} userData={{ name: 'Body_Back_3Piece_Right' }} />
-      <mesh name="Body_Back_3Piece_Venetian_Cutaway_Right" geometry={nodes.Body_Back_3Piece_Venetian_Cutaway_Right.geometry} material={materials['Walnut - Semigloss']} scale={0.001} userData={{ name: 'Body_Back_3Piece_Venetian_Cutaway_Right' }} />
-      <mesh name="Body_Back_3Piece_Florentine_Cutaway_Right" geometry={nodes.Body_Back_3Piece_Florentine_Cutaway_Right.geometry} material={materials['Walnut - Semigloss']} scale={0.001} userData={{ name: 'Body_Back_3Piece_Florentine_Cutaway_Right' }} />
-      <mesh name="Body_Back_3Piece_Florentine_Cutaway_Left" geometry={nodes.Body_Back_3Piece_Florentine_Cutaway_Left.geometry} material={materials['Walnut - Semigloss']} scale={0.001} userData={{ name: 'Body_Back_3Piece_Florentine_Cutaway_Left' }} />
-      <mesh name="Body_Fretboard_(1)" geometry={nodes['Body_Fretboard_(1)'].geometry} material={materials['Walnut - Semigloss']} scale={0.001} userData={{ name: 'Body_Fretboard (1)' }} />
-      <mesh name="Body_Fretboard_(1)_(1)" geometry={nodes['Body_Fretboard_(1)_(1)'].geometry} material={materials['Walnut - Semigloss']} scale={0.001} userData={{ name: 'Body_Fretboard (1) (1)' }} />
-      <mesh name="Body_Fretboard_(1)_(2)" geometry={nodes['Body_Fretboard_(1)_(2)'].geometry} material={materials['Walnut - Semigloss']} scale={0.001} userData={{ name: 'Body_Fretboard (1) (2)' }} />
-      <mesh name="Body_Fretboard_(1)_(3)" geometry={nodes['Body_Fretboard_(1)_(3)'].geometry} material={materials['Walnut - Semigloss']} scale={0.001} userData={{ name: 'Body_Fretboard (1) (3)' }} />
-      <mesh name="Body_Fretboard" geometry={nodes.Body_Fretboard.geometry} material={materials['Walnut - Semigloss']} scale={0.001} userData={{ name: 'Body_Fretboard' }} />
-      <mesh name="Body_Pickguard" geometry={nodes.Body_Pickguard.geometry} material={materials['Plastic - Glossy (Black)']} scale={0.001} userData={{ name: 'Body_Pickguard' }} />
+      <PerspectiveCamera
+        name="active"
+        makeDefault={false}
+        far={1794.933}
+        near={1247.788}
+        fov={39.598}
+        position={[-0.945, 0.568, 1.078]}
+        rotation={[-0.336, -0.67, -0.214]}
+        scale={0.001}
+        userData={{ name: 'active' }}
+      />
+      <mesh
+        name="Body_Heel_Block"
+        geometry={nodes.Body_Heel_Block.geometry}
+        material={materials['Oak - Glossy']}
+        scale={0.001}
+        userData={{ name: 'Body_Heel_Block' }}
+      />
+      <mesh
+        name="Body4"
+        geometry={nodes.Body4.geometry}
+        material={materials['3D Ash - Unfinished']}
+        scale={0.001}
+        userData={{ name: 'Body4' }}
+      />
+      <mesh
+        name="Body_Sides"
+        geometry={nodes.Body_Sides.geometry}
+        material={materials['Walnut - Semigloss']}
+        scale={0.001}
+        userData={{ name: 'Body_Sides' }}
+      />
+      <mesh
+        name="Body_Sides_Venetian_Cutaway"
+        geometry={nodes.Body_Sides_Venetian_Cutaway.geometry}
+        material={materials['Walnut - Semigloss']}
+        scale={0.001}
+        userData={{ name: 'Body_Sides_Venetian_Cutaway' }}
+      />
+      <mesh
+        name="Body_Sides_Florentine_Cutaway"
+        geometry={nodes.Body_Sides_Florentine_Cutaway.geometry}
+        material={materials['Walnut - Semigloss']}
+        scale={0.001}
+        userData={{ name: 'Body_Sides_Florentine_Cutaway' }}
+      />
+      <mesh
+        name="Body_Sides_Scalloped_Cutaway"
+        geometry={nodes.Body_Sides_Scalloped_Cutaway.geometry}
+        material={materials['Walnut - Semigloss']}
+        scale={0.001}
+        userData={{ name: 'Body_Sides_Scalloped_Cutaway' }}
+      />
+      <mesh
+        name="Body_Sides_Arm_Bevel"
+        geometry={nodes.Body_Sides_Arm_Bevel.geometry}
+        material={materials['Walnut - Semigloss']}
+        scale={0.001}
+        userData={{ name: 'Body_Sides_Arm_Bevel' }}
+      />
+      <mesh
+        name="Body_Sides_Arm_Bevel_Florentine_Cutaway"
+        geometry={nodes.Body_Sides_Arm_Bevel_Florentine_Cutaway.geometry}
+        material={materials['Steel - Satin']}
+        scale={0.001}
+        userData={{ name: 'Body_Sides_Arm_Bevel_Florentine_Cutaway' }}
+      />
+      <mesh
+        name="Body_Sides_Arm_Bevel_Venetian_Cutaway"
+        geometry={nodes.Body_Sides_Arm_Bevel_Venetian_Cutaway.geometry}
+        material={materials['Walnut - Semigloss']}
+        scale={0.001}
+        userData={{ name: 'Body_Sides_Arm_Bevel_Venetian_Cutaway' }}
+      />
+      <mesh
+        name="Body_Sides_Arm_Bevel_Scalloped_Cutaway"
+        geometry={nodes.Body_Sides_Arm_Bevel_Scalloped_Cutaway.geometry}
+        material={materials['Walnut - Semigloss']}
+        scale={0.001}
+        userData={{ name: 'Body_Sides_Arm_Bevel_Scalloped_Cutaway' }}
+      />
+      <mesh
+        name="Body_Rosette"
+        geometry={nodes.Body_Rosette.geometry}
+        material={materials['ABS (White)']}
+        scale={0.001}
+        userData={{ name: 'Body_Rosette' }}
+      />
+      <mesh
+        name="Body_Bridge_Plate"
+        geometry={nodes.Body_Bridge_Plate.geometry}
+        material={materials['Walnut - Semigloss']}
+        scale={0.001}
+        userData={{ name: 'Body_Bridge_Plate' }}
+      />
+      <mesh
+        name="Body_Bridge"
+        geometry={nodes.Body_Bridge.geometry}
+        material={materials['Walnut - Semigloss']}
+        scale={0.001}
+        userData={{ name: 'Body_Bridge' }}
+      />
+      <mesh
+        name="Body_Back_Center_Strip"
+        geometry={nodes.Body_Back_Center_Strip.geometry}
+        material={materials['Walnut - Semigloss']}
+        scale={0.001}
+        userData={{ name: 'Body_Back_Center_Strip' }}
+      />
+      <mesh
+        name="Body_Back"
+        geometry={nodes.Body_Back.geometry}
+        material={materials['Walnut - Semigloss']}
+        scale={0.001}
+        userData={{ name: 'Body_Back' }}
+      />
+      <mesh
+        name="Body_Back_Venetian_Cutaway"
+        geometry={nodes.Body_Back_Venetian_Cutaway.geometry}
+        material={materials['Walnut - Semigloss']}
+        scale={0.001}
+        userData={{ name: 'Body_Back_Venetian_Cutaway' }}
+      />
+      <mesh
+        name="Body_Back_Florentine_Cutaway"
+        geometry={nodes.Body_Back_Florentine_Cutaway.geometry}
+        material={materials['Walnut - Semigloss']}
+        scale={0.001}
+        userData={{ name: 'Body_Back_Florentine_Cutaway' }}
+      />
+      <mesh
+        name="Body_Back_2Piece_Left"
+        geometry={nodes.Body_Back_2Piece_Left.geometry}
+        material={materials['Walnut - Semigloss']}
+        scale={0.001}
+        userData={{ name: 'Body_Back_2Piece_Left' }}
+      />
+      <mesh
+        name="Body_Back_2Piece_Right"
+        geometry={nodes.Body_Back_2Piece_Right.geometry}
+        material={materials['Walnut - Semigloss']}
+        scale={0.001}
+        userData={{ name: 'Body_Back_2Piece_Right' }}
+      />
+      <mesh
+        name="Body_Back_2Piece_Venetian_Cutaway_Right"
+        geometry={nodes.Body_Back_2Piece_Venetian_Cutaway_Right.geometry}
+        material={materials['Walnut - Semigloss']}
+        scale={0.001}
+        userData={{ name: 'Body_Back_2Piece_Venetian_Cutaway_Right' }}
+      />
+      <mesh
+        name="Body_Back_2Piece_Florentine_Cutaway_Right"
+        geometry={nodes.Body_Back_2Piece_Florentine_Cutaway_Right.geometry}
+        material={materials['Walnut - Semigloss']}
+        scale={0.001}
+        userData={{ name: 'Body_Back_2Piece_Florentine_Cutaway_Right' }}
+      />
+      <mesh
+        name="Body_Back_3Piece_Middle"
+        geometry={nodes.Body_Back_3Piece_Middle.geometry}
+        material={materials['Walnut - Semigloss']}
+        scale={0.001}
+        userData={{ name: 'Body_Back_3Piece_Middle' }}
+      />
+      <mesh
+        name="Body_Back_3Piece_Venetian_Cutaway_Middle"
+        geometry={nodes.Body_Back_3Piece_Venetian_Cutaway_Middle.geometry}
+        material={materials['Walnut - Semigloss']}
+        scale={0.001}
+        userData={{ name: 'Body_Back_3Piece_Venetian_Cutaway_Middle' }}
+      />
+      <mesh
+        name="Body_Back_3Piece_Florentine_Cutaway_Middle"
+        geometry={nodes.Body_Back_3Piece_Florentine_Cutaway_Middle.geometry}
+        material={materials['Walnut - Semigloss']}
+        scale={0.001}
+        userData={{ name: 'Body_Back_3Piece_Florentine_Cutaway_Middle' }}
+      />
+      <mesh
+        name="Body_Back_3Piece_Left"
+        geometry={nodes.Body_Back_3Piece_Left.geometry}
+        material={materials['Walnut - Semigloss']}
+        scale={0.001}
+        userData={{ name: 'Body_Back_3Piece_Left' }}
+      />
+      <mesh
+        name="Body_Back_3Piece_Right"
+        geometry={nodes.Body_Back_3Piece_Right.geometry}
+        material={materials['Walnut - Semigloss']}
+        scale={0.001}
+        userData={{ name: 'Body_Back_3Piece_Right' }}
+      />
+      <mesh
+        name="Body_Back_3Piece_Venetian_Cutaway_Right"
+        geometry={nodes.Body_Back_3Piece_Venetian_Cutaway_Right.geometry}
+        material={materials['Walnut - Semigloss']}
+        scale={0.001}
+        userData={{ name: 'Body_Back_3Piece_Venetian_Cutaway_Right' }}
+      />
+      <mesh
+        name="Body_Back_3Piece_Florentine_Cutaway_Right"
+        geometry={nodes.Body_Back_3Piece_Florentine_Cutaway_Right.geometry}
+        material={materials['Walnut - Semigloss']}
+        scale={0.001}
+        userData={{ name: 'Body_Back_3Piece_Florentine_Cutaway_Right' }}
+      />
+      <mesh
+        name="Body_Back_3Piece_Florentine_Cutaway_Left"
+        geometry={nodes.Body_Back_3Piece_Florentine_Cutaway_Left.geometry}
+        material={materials['Walnut - Semigloss']}
+        scale={0.001}
+        userData={{ name: 'Body_Back_3Piece_Florentine_Cutaway_Left' }}
+      />
+      <mesh
+        name="Body_Fretboard_(1)"
+        geometry={nodes['Body_Fretboard_(1)'].geometry}
+        material={materials['Walnut - Semigloss']}
+        scale={0.001}
+        userData={{ name: 'Body_Fretboard (1)' }}
+      />
+      <mesh
+        name="Body_Fretboard_(1)_(1)"
+        geometry={nodes['Body_Fretboard_(1)_(1)'].geometry}
+        material={materials['Walnut - Semigloss']}
+        scale={0.001}
+        userData={{ name: 'Body_Fretboard (1) (1)' }}
+      />
+      <mesh
+        name="Body_Fretboard_(1)_(2)"
+        geometry={nodes['Body_Fretboard_(1)_(2)'].geometry}
+        material={materials['Walnut - Semigloss']}
+        scale={0.001}
+        userData={{ name: 'Body_Fretboard (1) (2)' }}
+      />
+      <mesh
+        name="Body_Fretboard_(1)_(3)"
+        geometry={nodes['Body_Fretboard_(1)_(3)'].geometry}
+        material={materials['Walnut - Semigloss']}
+        scale={0.001}
+        userData={{ name: 'Body_Fretboard (1) (3)' }}
+      />
+      <mesh
+        name="Body_Fretboard"
+        geometry={nodes.Body_Fretboard.geometry}
+        material={materials['Walnut - Semigloss']}
+        scale={0.001}
+        userData={{ name: 'Body_Fretboard' }}
+      />
+      <mesh
+        name="Body_Pickguard"
+        geometry={nodes.Body_Pickguard.geometry}
+        material={materials['Plastic - Glossy (Black)']}
+        scale={0.001}
+        userData={{ name: 'Body_Pickguard' }}
+      />
     </group>
   )
 }

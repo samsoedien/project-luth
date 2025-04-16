@@ -194,8 +194,10 @@ export function Instances({ children, ...props }: JSX.IntrinsicElements['group']
       BodyBack: nodes.Body_Back,
       BodyBackFlorentineCutaway: nodes.Body_Back_Florentine_Cutaway,
       BodyBackThreePieceFlorentineCutawayLeft: nodes.Body_Back_Three_Piece_Florentine_Cutaway_Left,
-      BodyBackThreePieceFlorentineCutawayMiddle: nodes.Body_Back_Three_Piece_Florentine_Cutaway_Middle,
-      BodyBackThreePieceFlorentineCutawayRight: nodes.Body_Back_Three_Piece_Florentine_Cutaway_Right,
+      BodyBackThreePieceFlorentineCutawayMiddle:
+        nodes.Body_Back_Three_Piece_Florentine_Cutaway_Middle,
+      BodyBackThreePieceFlorentineCutawayRight:
+        nodes.Body_Back_Three_Piece_Florentine_Cutaway_Right,
       BodyBackThreePieceLeft: nodes.Body_Back_Three_Piece_Left,
       BodyBackThreePieceMiddle: nodes.Body_Back_Three_Piece_Middle,
       BodyBackThreePieceRight: nodes.Body_Back_Three_Piece_Right,
@@ -219,7 +221,8 @@ export function Instances({ children, ...props }: JSX.IntrinsicElements['group']
       BodyPurflingBottomFlorentineCutaway: nodes.Body_Purfling_Bottom_Florentine_Cutaway,
       BodyPurflingTop: nodes.Body_Purfling_Top,
       BodyPurflingTopArmBevel: nodes.Body_Purfling_Top_Arm_Bevel,
-      BodyPurflingTopArmBevelFlorentineCutaway: nodes.Body_Purfling_Top_Arm_Bevel_Florentine_Cutaway,
+      BodyPurflingTopArmBevelFlorentineCutaway:
+        nodes.Body_Purfling_Top_Arm_Bevel_Florentine_Cutaway,
       BodyPurflingTopArmBevelVenetianCutaway: nodes.Body_Purfling_Top_Arm_Bevel_Venetian_Cutaway,
       BodyPurflingTopFlorentineCutaway: nodes.Body_Purfling_Top_Florentine_Cutaway,
       BodyPurflingTopVenetianCutaway: nodes.Body_Purfling_Top_Venetian_Cutaway,
@@ -335,165 +338,984 @@ export default function Model(props: JSX.IntrinsicElements['group']) {
   const instances = React.useContext(context)
   return (
     <group {...props} dispose={null}>
-      <instances.BodyBackCenterStrip name="Body_Back_Center_Strip" rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_Back_Center_Strip' }} />
-      <instances.BodyBackDoubleStripLeft name="Body_Back_Double_Strip_Left" rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_Back_Double_Strip_Left' }} />
-      <instances.BodyBackDoubleStripRight name="Body_Back_Double_Strip_Right_(1)" rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_Back_Double_Strip_Right (1)' }} />
-      <instances.BodyCenterBackStrip name="Body_Center_Back_Strip" rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_Center_Back_Strip' }} />
-      <instances.BodyDoubleBackStripLeft name="Body_Double_Back_Strip_Left" rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_Double_Back_Strip_Left' }} />
-      <instances.BodyDoubleBackStripRight name="Body_Double_Back_Strip_Right" rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_Double_Back_Strip_Right' }} />
-      <instances.BodyBack name="Body_Back" rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_Back' }} />
-      <instances.BodyBackFlorentineCutaway name="Body_Back_Florentine_Cutaway" rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_Back_Florentine_Cutaway' }} />
-      <instances.BodyBackThreePieceFlorentineCutawayLeft name="Body_Back_Three_Piece_Florentine_Cutaway_Left" rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_Back_Three_Piece_Florentine_Cutaway_Left' }} />
-      <instances.BodyBackThreePieceFlorentineCutawayMiddle name="Body_Back_Three_Piece_Florentine_Cutaway_Middle" rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_Back_Three_Piece_Florentine_Cutaway_Middle' }} />
-      <instances.BodyBackThreePieceFlorentineCutawayRight name="Body_Back_Three_Piece_Florentine_Cutaway_Right" rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_Back_Three_Piece_Florentine_Cutaway_Right' }} />
-      <instances.BodyBackThreePieceLeft name="Body_Back_Three_Piece_Left" rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_Back_Three_Piece_Left' }} />
-      <instances.BodyBackThreePieceLeft name="Body_Back_Three_Piece_Venetian_Cutaway_Left" rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_Back_Three_Piece_Venetian_Cutaway_Left' }} />
-      <instances.BodyBackThreePieceMiddle name="Body_Back_Three_Piece_Middle" rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_Back_Three_Piece_Middle' }} />
-      <instances.BodyBackThreePieceRight name="Body_Back_Three_Piece_Right" rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_Back_Three_Piece_Right' }} />
-      <instances.BodyBackThreePieceVenetianCutawayMiddle name="Body_Back_Three_Piece_Venetian_Cutaway_Middle" rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_Back_Three_Piece_Venetian_Cutaway_Middle' }} />
-      <instances.BodyBackThreePieceVenetianCutawayRight name="Body_Back_Three_Piece_Venetian_Cutaway_Right" rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_Back_Three_Piece_Venetian_Cutaway_Right' }} />
-      <instances.BodyBackTwoPieceFlorentineCutawayLeft name="Body_Back_Two_Piece_Florentine_Cutaway_Left" rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_Back_Two_Piece_Florentine_Cutaway_Left' }} />
-      <instances.BodyBackTwoPieceFlorentineCutawayLeft name="Body_Back_Two_Piece_Left" rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_Back_Two_Piece_Left' }} />
-      <instances.BodyBackTwoPieceFlorentineCutawayLeft name="Body_Back_Two_Piece_Venetian_Cutaway_Left" rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_Back_Two_Piece_Venetian_Cutaway_Left' }} />
-      <instances.BodyBackTwoPieceFlorentineCutawayRight name="Body_Back_Two_Piece_Florentine_Cutaway_Right" rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_Back_Two_Piece_Florentine_Cutaway_Right' }} />
-      <instances.BodyBackTwoPieceRight name="Body_Back_Two_Piece_Right" rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_Back_Two_Piece_Right' }} />
-      <instances.BodyBackTwoPieceVenetianCutawayRight name="Body_Back_Two_Piece_Venetian_Cutaway_Right" rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_Back_Two_Piece_Venetian_Cutaway_Right' }} />
-      <instances.BodyBackVenetianCutaway name="Body_Back_Venetian_Cutaway" rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_Back_Venetian_Cutaway' }} />
-      <instances.BodyBindingBottom name="Body_Binding_Bottom" rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_Binding_Bottom' }} />
-      <instances.BodyBindingBottomFlorentineCutaway name="Body_Binding_Bottom_Florentine_Cutaway" rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_Binding_Bottom_Florentine_Cutaway' }} />
-      <instances.BodyBindingBottomVenetianCutaway name="Body_Binding_Bottom_Venetian_Cutaway" rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_Binding_Bottom_Venetian_Cutaway' }} />
-      <instances.BodyBindingTop name="Body_Binding_Top" rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_Binding_Top' }} />
-      <instances.BodyBindingTopArmBevel name="Body_Binding_Top_Arm_Bevel" rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_Binding_Top_Arm_Bevel' }} />
-      <instances.BodyBindingTopArmBevelFlorentineCutaway name="Body_Binding_Top_Arm_Bevel_Florentine_Cutaway" rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_Binding_Top_Arm_Bevel_Florentine_Cutaway' }} />
-      <instances.BodyBindingTopArmBevelVenetianCutaway name="Body_Binding_Top_Arm_Bevel_Venetian_Cutaway" rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_Binding_Top_Arm_Bevel_Venetian_Cutaway' }} />
-      <instances.BodyBindingTopFlorentineCutaway name="Body_Binding_Top_Florentine_Cutaway" rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_Binding_Top_Florentine_Cutaway' }} />
-      <instances.BodyBindingTopVenetianCutaway name="Body_Binding_Top_Venetian_Cutaway" rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_Binding_Top_Venetian_Cutaway' }} />
-      <instances.BodyPurflingBottom name="Body_Purfling_Bottom" rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_Purfling_Bottom' }} />
-      <instances.BodyPurflingBottomFlorentineCutaway name="Body_Purfling_Bottom_Florentine_Cutaway" rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_Purfling_Bottom_Florentine_Cutaway' }} />
-      <instances.BodyPurflingTop name="Body_Purfling_Top" rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_Purfling_Top' }} />
-      <instances.BodyPurflingTopArmBevel name="Body_Purfling_Top_Arm_Bevel" rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_Purfling_Top_Arm_Bevel' }} />
-      <instances.BodyPurflingTopArmBevelFlorentineCutaway name="Body_Purfling_Top_Arm_Bevel_Florentine_Cutaway" rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_Purfling_Top_Arm_Bevel_Florentine_Cutaway' }} />
-      <instances.BodyPurflingTopArmBevelVenetianCutaway name="Body_Purfling_Top_Arm_Bevel_Venetian_Cutaway" rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_Purfling_Top_Arm_Bevel_Venetian_Cutaway' }} />
-      <instances.BodyPurflingTopFlorentineCutaway name="Body_Purfling_Top_Florentine_Cutaway" rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_Purfling_Top_Florentine_Cutaway' }} />
-      <instances.BodyPurflingTopVenetianCutaway name="Body_Purfling_Top_Venetian_Cutaway" rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_Purfling_Top_Venetian_Cutaway' }} />
-      <instances.BodyPurlfingBottomVenetianCutaway name="Body_Purlfing_Bottom_Venetian_Cutaway" rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_Purlfing_Bottom_Venetian_Cutaway' }} />
-      <instances.BodyBridge name="Body_Bridge" rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_Bridge' }} />
-      <instances.BodyBridgePin name="Body_Bridge_Pin" position={[-0.028, -0.156, 0.007]} rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_Bridge_Pin' }} />
-      <instances.BodyBridgePin name="Body_Bridge_Pin001" position={[-0.017, -0.156, 0.007]} rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_Bridge_Pin.001' }} />
-      <instances.BodyBridgePin name="Body_Bridge_Pin002" position={[-0.006, -0.156, 0.007]} rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_Bridge_Pin.002' }} />
-      <instances.BodyBridgePin name="Body_Bridge_Pin003" position={[0.005, -0.156, 0.007]} rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_Bridge_Pin.003' }} />
-      <instances.BodyBridgePin name="Body_Bridge_Pin004" position={[0.016, -0.156, 0.007]} rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_Bridge_Pin.004' }} />
-      <instances.BodyBridgePin name="Body_Bridge_Pin005" position={[0.027, -0.156, 0.007]} rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_Bridge_Pin.005' }} />
-      <instances.BodyBridgePinInlay name="Body_Bridge_Pin_Inlay" position={[-0.028, -0.156, 0.007]} rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_Bridge_Pin_Inlay' }} />
-      <instances.BodyBridgePinInlay name="Body_Bridge_Pin_Inlay001" position={[-0.017, -0.156, 0.007]} rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_Bridge_Pin_Inlay.001' }} />
-      <instances.BodyBridgePinInlay name="Body_Bridge_Pin_Inlay002" position={[-0.006, -0.156, 0.007]} rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_Bridge_Pin_Inlay.002' }} />
-      <instances.BodyBridgePinInlay name="Body_Bridge_Pin_Inlay003" position={[0.005, -0.156, 0.007]} rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_Bridge_Pin_Inlay.003' }} />
-      <instances.BodyBridgePinInlay name="Body_Bridge_Pin_Inlay004" position={[0.016, -0.156, 0.007]} rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_Bridge_Pin_Inlay.004' }} />
-      <instances.BodyBridgePinInlay name="Body_Bridge_Pin_Inlay005" position={[0.027, -0.156, 0.007]} rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_Bridge_Pin_Inlay.005' }} />
-      <instances.BodySaddle name="Body_Saddle" rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_Saddle' }} />
-      <instances.BodyFretboard name="Body_Fretboard001" rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_Fretboard.001' }} />
-      <instances.BodyFretboardSoundholeTangent name="Body_Fretboard_Soundhole_Tangent" rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_Fretboard_Soundhole_Tangent' }} />
-      <instances.BodyFretMarkerFret name="Body_Fret_Marker_Fret12-1" rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_Fret_Marker_Fret12-1' }} />
-      <instances.BodyFretMarkerFret1 name="Body_Fret_Marker_Fret12-2" rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_Fret_Marker_Fret12-2' }} />
-      <instances.BodyFretMarkerFret2 name="Body_Fret_Marker_Fret15" rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_Fret_Marker_Fret15' }} />
-      <instances.BodyFretMarkerFret3 name="Body_Fret_Marker_Fret17" rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_Fret_Marker_Fret17' }} />
-      <instances.BodyFretMarkerFret4 name="Body_Fret_Marker_Fret21" rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_Fret_Marker_Fret21' }} />
-      <instances.BodyFretMarkerFret5 name="Body_Fret_Marker_Fret3" rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_Fret_Marker_Fret3' }} />
-      <instances.BodyFretMarkerFret6 name="Body_Fret_Marker_Fret5" rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_Fret_Marker_Fret5' }} />
-      <instances.BodyFretMarkerFret7 name="Body_Fret_Marker_Fret7" rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_Fret_Marker_Fret7' }} />
-      <instances.BodyFretMarkerFret8 name="Body_Fret_Marker_Fret9" rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_Fret_Marker_Fret9' }} />
-      <instances.BodyFretboard1 name="Body_Fretboard" rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_Fretboard' }} />
-      <instances.BodyFretboard2 name="Body_Fretboard_(1)" rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_Fretboard (1)' }} />
-      <instances.BodyFretboard3 name="Body_Fretboard_(1)_(1)" rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_Fretboard (1) (1)' }} />
-      <instances.BodyFretboard4 name="Body_Fretboard_(1)_(2)" rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_Fretboard (1) (2)' }} />
-      <instances.BodyFretboard5 name="Body_Fretboard_(1)_(3)" rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_Fretboard (1) (3)' }} />
-      <instances.BodySideFretMarkerFret name="Body_Side_Fret_Marker_Fret17" rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_Side_Fret_Marker_Fret17' }} />
-      <instances.BodySideFretMarkerFret1 name="Body_Side_Fret_Marker_Fret21" rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_Side_Fret_Marker_Fret21' }} />
-      <instances.BodySideFretMarkerFret2 name="Body_Side_Fret_Marker_Fret3" rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_Side_Fret_Marker_Fret3' }} />
-      <instances.BodySideFretMarkerFret3 name="Body_Side_Fret_Marker_Fret5" rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_Side_Fret_Marker_Fret5' }} />
-      <instances.BodySideFretMarkerFret4 name="Body_Side_Fret_Marker_Fret7" rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_Side_Fret_Marker_Fret7' }} />
-      <instances.BodySideFretMarkerFret5 name="Body_Side_Fret_Marker_Fret9" rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_Side_Fret_Marker_Fret9' }} />
-      <instances.BodyFret name="Body_Fret1" rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_Fret1' }} />
-      <instances.BodyFret1 name="Body_Fret10" rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_Fret10' }} />
-      <instances.BodyFret2 name="Body_Fret11" rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_Fret11' }} />
-      <instances.BodyFret3 name="Body_Fret12" rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_Fret12' }} />
-      <instances.BodyFret4 name="Body_Fret13" rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_Fret13' }} />
-      <instances.BodyFret5 name="Body_Fret14" rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_Fret14' }} />
-      <instances.BodyFret6 name="Body_Fret15" rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_Fret15' }} />
-      <instances.BodyFret7 name="Body_Fret16" rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_Fret16' }} />
-      <instances.BodyFret8 name="Body_Fret17" rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_Fret17' }} />
-      <instances.BodyFret9 name="Body_Fret18" rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_Fret18' }} />
-      <instances.BodyFret10 name="Body_Fret19" rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_Fret19' }} />
-      <instances.BodyFret11 name="Body_Fret2" rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_Fret2' }} />
-      <instances.BodyFret12 name="Body_Fret20" rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_Fret20' }} />
-      <instances.BodyFret13 name="Body_Fret3" rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_Fret3' }} />
-      <instances.BodyFret14 name="Body_Fret4" rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_Fret4' }} />
-      <instances.BodyFret15 name="Body_Fret5" rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_Fret5' }} />
-      <instances.BodyFret16 name="Body_Fret6" rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_Fret6' }} />
-      <instances.BodyFret17 name="Body_Fret7" rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_Fret7' }} />
-      <instances.BodyFret18 name="Body_Fret8" rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_Fret8' }} />
-      <instances.BodyFret19 name="Body_Fret9" rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_Fret9' }} />
-      <instances.BodyNut name="Body_Nut" rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_Nut' }} />
-      <instances.BodyHeadstock name="Body_Headstock" rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_Headstock' }} />
-      <instances.PegHead name="Peg_Head" position={[-0.02, 0.544, -0.02]} rotation={[1.359, 0, 0]} scale={0.01} userData={{ name: 'Peg_Head' }} />
-      <instances.PegHead name="Peg_Head001" position={[-0.022, 0.583, -0.031]} rotation={[1.359, 0, 0]} scale={0.01} userData={{ name: 'Peg_Head.001' }} />
-      <instances.PegHead name="Peg_Head002" position={[-0.024, 0.624, -0.04]} rotation={[1.359, 0, 0]} scale={0.01} userData={{ name: 'Peg_Head.002' }} />
-      <instances.PegHead name="Peg_Head003" position={[0.02, 0.543, -0.02]} rotation={[1.359, 0, 0]} scale={0.01} userData={{ name: 'Peg_Head.003' }} />
-      <instances.PegHead name="Peg_Head004" position={[0.022, 0.584, -0.028]} rotation={[1.359, 0, 0]} scale={0.01} userData={{ name: 'Peg_Head.004' }} />
-      <instances.PegHead name="Peg_Head005" position={[0.024, 0.624, -0.037]} rotation={[1.359, 0, 0]} scale={0.01} userData={{ name: 'Peg_Head.005' }} />
-      <instances.PegHeadTunerRight name="Peg_Head_Tuner_Right" position={[-0.02, 0.544, -0.02]} rotation={[1.359, 0, 0]} scale={0.01} userData={{ name: 'Peg_Head_Tuner_Right' }} />
-      <instances.PegHeadTunerRight name="Peg_Head_Tuner_Right001" position={[-0.022, 0.583, -0.031]} rotation={[1.359, 0, 0]} scale={0.01} userData={{ name: 'Peg_Head_Tuner_Right.001' }} />
-      <instances.PegHeadTunerRight name="Peg_Head_Tuner_Right002" position={[-0.024, 0.624, -0.04]} rotation={[1.359, 0, 0]} scale={0.01} userData={{ name: 'Peg_Head_Tuner_Right.002' }} />
-      <instances.PegHeadTunerRight name="Peg_Head_Tuner_Right003" position={[0.02, 0.543, -0.02]} rotation={[1.359, 0, 0]} scale={0.01} userData={{ name: 'Peg_Head_Tuner_Right.003' }} />
-      <instances.PegHeadTunerRight name="Peg_Head_Tuner_Right004" position={[0.022, 0.584, -0.028]} rotation={[1.359, 0, 0]} scale={0.01} userData={{ name: 'Peg_Head_Tuner_Right.004' }} />
-      <instances.PegHeadTunerRight name="Peg_Head_Tuner_Right005" position={[0.024, 0.624, -0.037]} rotation={[1.359, 0, 0]} scale={0.01} userData={{ name: 'Peg_Head_Tuner_Right.005' }} />
-      <instances.BodyHeel name="Body_Heel" rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_Heel' }} />
-      <instances.BodyNeck name="Body_Neck" rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_Neck' }} />
-      <instances.SurfaceNeckProfile name="Surface_Neck_Profile" rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Surface_Neck_Profile' }} />
-      <instances.BodyPickguard name="Body_Pickguard" rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_Pickguard' }} />
-      <instances.BodySides name="Body_Sides" rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_Sides' }} />
-      <instances.BodySidesArmBevel name="Body_Sides_Arm_Bevel" rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_Sides_Arm_Bevel' }} />
-      <instances.BodySidesArmBevelFlorentineCutaway name="Body_Sides_Arm_Bevel_Florentine_Cutaway" rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_Sides_Arm_Bevel_Florentine_Cutaway' }} />
-      <instances.BodySidesArmBevelScallopedCutaway name="Body_Sides_Arm_Bevel_Scalloped_Cutaway" rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_Sides_Arm_Bevel_Scalloped_Cutaway' }} />
-      <instances.BodySidesArmBevelVenetianCutaway name="Body_Sides_Arm_Bevel_Venetian_Cutaway" rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_Sides_Arm_Bevel_Venetian_Cutaway' }} />
-      <instances.BodySidesFlorentineCutaway name="Body_Sides_Florentine_Cutaway" rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_Sides_Florentine_Cutaway' }} />
-      <instances.BodySidesScallopedCutaway name="Body_Sides_Scalloped_Cutaway_(1)" rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_Sides_Scalloped_Cutaway (1)' }} />
-      <instances.BodySidesVenetianCutaway name="Body_Sides_Venetian_Cutaway" rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_Sides_Venetian_Cutaway' }} />
-      <instances.BodyEndGraftWedge name="Body_End_Graft_Wedge" rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_End_Graft_Wedge' }} />
-      <instances.BodyHeelBlock name="Body_Heel_Block" rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_Heel_Block' }} />
-      <instances.BodyTailBlock name="Body_Tail_Block" rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_Tail_Block' }} />
-      <instances.BodyLiningBottom name="Body_Lining_Bottom" rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_Lining_Bottom' }} />
-      <instances.BodyLiningTop name="Body_Lining_Top" rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_Lining_Top' }} />
-      <instances.BodySoundboard name="Body_Soundboard" rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_Soundboard' }} />
-      <instances.BodySoundboardArmBevel name="Body_Soundboard_Arm_Bevel" rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_Soundboard_Arm_Bevel' }} />
-      <instances.BodySoundboardArmBevelCutawayFlorentine name="Body_Soundboard_Arm_Bevel_Cutaway_Florentine" rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_Soundboard_Arm_Bevel_Cutaway_Florentine' }} />
-      <instances.BodySoundboardArmBevelCutawayVenetian name="Body_Soundboard_Arm_Bevel_Cutaway_Venetian" rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_Soundboard_Arm_Bevel_Cutaway_Venetian' }} />
-      <instances.BodySoundboardFlorentineCutaway name="Body_Soundboard_Florentine_Cutaway" rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_Soundboard_Florentine_Cutaway' }} />
-      <instances.BodySoundboardVenetianCutaway name="Body_Soundboard_Venetian_Cutaway" rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_Soundboard_Venetian_Cutaway' }} />
-      <instances.BodyBraceFretboardReinforcementRight name="Body_Brace_Fretboard_Reinforcement_Right" rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_Brace_Fretboard_Reinforcement_Right' }} />
-      <instances.BodyBraceD name="Body_BraceD" rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_BraceD' }} />
-      <instances.BodyBraceE name="Body_BraceE" rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_BraceE' }} />
-      <instances.BodyBraceFLeft name="Body_BraceF_Left" rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_BraceF_Left' }} />
-      <instances.BodyBraceFRight name="Body_BraceF_Right" rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_BraceF_Right' }} />
-      <instances.BodyBraceGLeft name="Body_BraceG_Left" rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_BraceG_Left' }} />
-      <instances.BodyBraceGRight name="Body_BraceG_Right" rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_BraceG_Right' }} />
-      <instances.BodyBraceHLeft name="Body_BraceH_Left" rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_BraceH_Left' }} />
-      <instances.BodyBraceHRight name="Body_BraceH_Right" rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_BraceH_Right' }} />
-      <instances.BodyBridgePlate name="Body_Bridge_Plate" rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_Bridge_Plate' }} />
-      <instances.BodyLateralBraceA name="Body_Lateral_BraceA" rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_Lateral_BraceA' }} />
-      <instances.BodyXBraceB name="Body_X_BraceB" rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_X_BraceB' }} />
-      <instances.BodyXBraceC name="Body_X_BraceC" rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_X_BraceC' }} />
-      <instances.BodyRosette name="Body_Rosette" rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_Rosette' }} />
-      <instances.BodyRosette1 name="Body_Rosette_(1)" rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_Rosette (1)' }} />
-      <instances.BodyRosette2 name="Body_Rosette_(2)" rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_Rosette (2)' }} />
-      <instances.BodyRosette3 name="Body_Rosette_(3)" rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_Rosette (3)' }} />
-      <instances.BodyRosette4 name="Body_Rosette_(4)" rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_Rosette (4)' }} />
-      <instances.BodyStringA name="Body_String_A" rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_String_A' }} />
-      <instances.BodyStringB name="Body_String_B" rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_String_B' }} />
-      <instances.BodyStringD name="Body_String_D" rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_String_D' }} />
-      <instances.BodyStringG name="Body_String_G" rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_String_G' }} />
-      <instances.BodyStringHighE name="Body_String_HighE" rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_String_HighE' }} />
-      <instances.BodyStringLowE name="Body_String_LowE" rotation={[Math.PI / 2, 0, 0]} scale={0.01} userData={{ name: 'Body_String_LowE' }} />
+      <instances.BodyBackCenterStrip
+        name="Body_Back_Center_Strip"
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_Back_Center_Strip' }}
+      />
+      <instances.BodyBackDoubleStripLeft
+        name="Body_Back_Double_Strip_Left"
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_Back_Double_Strip_Left' }}
+      />
+      <instances.BodyBackDoubleStripRight
+        name="Body_Back_Double_Strip_Right_(1)"
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_Back_Double_Strip_Right (1)' }}
+      />
+      <instances.BodyCenterBackStrip
+        name="Body_Center_Back_Strip"
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_Center_Back_Strip' }}
+      />
+      <instances.BodyDoubleBackStripLeft
+        name="Body_Double_Back_Strip_Left"
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_Double_Back_Strip_Left' }}
+      />
+      <instances.BodyDoubleBackStripRight
+        name="Body_Double_Back_Strip_Right"
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_Double_Back_Strip_Right' }}
+      />
+      <instances.BodyBack
+        name="Body_Back"
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_Back' }}
+      />
+      <instances.BodyBackFlorentineCutaway
+        name="Body_Back_Florentine_Cutaway"
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_Back_Florentine_Cutaway' }}
+      />
+      <instances.BodyBackThreePieceFlorentineCutawayLeft
+        name="Body_Back_Three_Piece_Florentine_Cutaway_Left"
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_Back_Three_Piece_Florentine_Cutaway_Left' }}
+      />
+      <instances.BodyBackThreePieceFlorentineCutawayMiddle
+        name="Body_Back_Three_Piece_Florentine_Cutaway_Middle"
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_Back_Three_Piece_Florentine_Cutaway_Middle' }}
+      />
+      <instances.BodyBackThreePieceFlorentineCutawayRight
+        name="Body_Back_Three_Piece_Florentine_Cutaway_Right"
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_Back_Three_Piece_Florentine_Cutaway_Right' }}
+      />
+      <instances.BodyBackThreePieceLeft
+        name="Body_Back_Three_Piece_Left"
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_Back_Three_Piece_Left' }}
+      />
+      <instances.BodyBackThreePieceLeft
+        name="Body_Back_Three_Piece_Venetian_Cutaway_Left"
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_Back_Three_Piece_Venetian_Cutaway_Left' }}
+      />
+      <instances.BodyBackThreePieceMiddle
+        name="Body_Back_Three_Piece_Middle"
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_Back_Three_Piece_Middle' }}
+      />
+      <instances.BodyBackThreePieceRight
+        name="Body_Back_Three_Piece_Right"
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_Back_Three_Piece_Right' }}
+      />
+      <instances.BodyBackThreePieceVenetianCutawayMiddle
+        name="Body_Back_Three_Piece_Venetian_Cutaway_Middle"
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_Back_Three_Piece_Venetian_Cutaway_Middle' }}
+      />
+      <instances.BodyBackThreePieceVenetianCutawayRight
+        name="Body_Back_Three_Piece_Venetian_Cutaway_Right"
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_Back_Three_Piece_Venetian_Cutaway_Right' }}
+      />
+      <instances.BodyBackTwoPieceFlorentineCutawayLeft
+        name="Body_Back_Two_Piece_Florentine_Cutaway_Left"
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_Back_Two_Piece_Florentine_Cutaway_Left' }}
+      />
+      <instances.BodyBackTwoPieceFlorentineCutawayLeft
+        name="Body_Back_Two_Piece_Left"
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_Back_Two_Piece_Left' }}
+      />
+      <instances.BodyBackTwoPieceFlorentineCutawayLeft
+        name="Body_Back_Two_Piece_Venetian_Cutaway_Left"
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_Back_Two_Piece_Venetian_Cutaway_Left' }}
+      />
+      <instances.BodyBackTwoPieceFlorentineCutawayRight
+        name="Body_Back_Two_Piece_Florentine_Cutaway_Right"
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_Back_Two_Piece_Florentine_Cutaway_Right' }}
+      />
+      <instances.BodyBackTwoPieceRight
+        name="Body_Back_Two_Piece_Right"
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_Back_Two_Piece_Right' }}
+      />
+      <instances.BodyBackTwoPieceVenetianCutawayRight
+        name="Body_Back_Two_Piece_Venetian_Cutaway_Right"
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_Back_Two_Piece_Venetian_Cutaway_Right' }}
+      />
+      <instances.BodyBackVenetianCutaway
+        name="Body_Back_Venetian_Cutaway"
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_Back_Venetian_Cutaway' }}
+      />
+      <instances.BodyBindingBottom
+        name="Body_Binding_Bottom"
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_Binding_Bottom' }}
+      />
+      <instances.BodyBindingBottomFlorentineCutaway
+        name="Body_Binding_Bottom_Florentine_Cutaway"
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_Binding_Bottom_Florentine_Cutaway' }}
+      />
+      <instances.BodyBindingBottomVenetianCutaway
+        name="Body_Binding_Bottom_Venetian_Cutaway"
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_Binding_Bottom_Venetian_Cutaway' }}
+      />
+      <instances.BodyBindingTop
+        name="Body_Binding_Top"
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_Binding_Top' }}
+      />
+      <instances.BodyBindingTopArmBevel
+        name="Body_Binding_Top_Arm_Bevel"
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_Binding_Top_Arm_Bevel' }}
+      />
+      <instances.BodyBindingTopArmBevelFlorentineCutaway
+        name="Body_Binding_Top_Arm_Bevel_Florentine_Cutaway"
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_Binding_Top_Arm_Bevel_Florentine_Cutaway' }}
+      />
+      <instances.BodyBindingTopArmBevelVenetianCutaway
+        name="Body_Binding_Top_Arm_Bevel_Venetian_Cutaway"
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_Binding_Top_Arm_Bevel_Venetian_Cutaway' }}
+      />
+      <instances.BodyBindingTopFlorentineCutaway
+        name="Body_Binding_Top_Florentine_Cutaway"
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_Binding_Top_Florentine_Cutaway' }}
+      />
+      <instances.BodyBindingTopVenetianCutaway
+        name="Body_Binding_Top_Venetian_Cutaway"
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_Binding_Top_Venetian_Cutaway' }}
+      />
+      <instances.BodyPurflingBottom
+        name="Body_Purfling_Bottom"
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_Purfling_Bottom' }}
+      />
+      <instances.BodyPurflingBottomFlorentineCutaway
+        name="Body_Purfling_Bottom_Florentine_Cutaway"
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_Purfling_Bottom_Florentine_Cutaway' }}
+      />
+      <instances.BodyPurflingTop
+        name="Body_Purfling_Top"
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_Purfling_Top' }}
+      />
+      <instances.BodyPurflingTopArmBevel
+        name="Body_Purfling_Top_Arm_Bevel"
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_Purfling_Top_Arm_Bevel' }}
+      />
+      <instances.BodyPurflingTopArmBevelFlorentineCutaway
+        name="Body_Purfling_Top_Arm_Bevel_Florentine_Cutaway"
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_Purfling_Top_Arm_Bevel_Florentine_Cutaway' }}
+      />
+      <instances.BodyPurflingTopArmBevelVenetianCutaway
+        name="Body_Purfling_Top_Arm_Bevel_Venetian_Cutaway"
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_Purfling_Top_Arm_Bevel_Venetian_Cutaway' }}
+      />
+      <instances.BodyPurflingTopFlorentineCutaway
+        name="Body_Purfling_Top_Florentine_Cutaway"
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_Purfling_Top_Florentine_Cutaway' }}
+      />
+      <instances.BodyPurflingTopVenetianCutaway
+        name="Body_Purfling_Top_Venetian_Cutaway"
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_Purfling_Top_Venetian_Cutaway' }}
+      />
+      <instances.BodyPurlfingBottomVenetianCutaway
+        name="Body_Purlfing_Bottom_Venetian_Cutaway"
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_Purlfing_Bottom_Venetian_Cutaway' }}
+      />
+      <instances.BodyBridge
+        name="Body_Bridge"
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_Bridge' }}
+      />
+      <instances.BodyBridgePin
+        name="Body_Bridge_Pin"
+        position={[-0.028, -0.156, 0.007]}
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_Bridge_Pin' }}
+      />
+      <instances.BodyBridgePin
+        name="Body_Bridge_Pin001"
+        position={[-0.017, -0.156, 0.007]}
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_Bridge_Pin.001' }}
+      />
+      <instances.BodyBridgePin
+        name="Body_Bridge_Pin002"
+        position={[-0.006, -0.156, 0.007]}
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_Bridge_Pin.002' }}
+      />
+      <instances.BodyBridgePin
+        name="Body_Bridge_Pin003"
+        position={[0.005, -0.156, 0.007]}
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_Bridge_Pin.003' }}
+      />
+      <instances.BodyBridgePin
+        name="Body_Bridge_Pin004"
+        position={[0.016, -0.156, 0.007]}
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_Bridge_Pin.004' }}
+      />
+      <instances.BodyBridgePin
+        name="Body_Bridge_Pin005"
+        position={[0.027, -0.156, 0.007]}
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_Bridge_Pin.005' }}
+      />
+      <instances.BodyBridgePinInlay
+        name="Body_Bridge_Pin_Inlay"
+        position={[-0.028, -0.156, 0.007]}
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_Bridge_Pin_Inlay' }}
+      />
+      <instances.BodyBridgePinInlay
+        name="Body_Bridge_Pin_Inlay001"
+        position={[-0.017, -0.156, 0.007]}
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_Bridge_Pin_Inlay.001' }}
+      />
+      <instances.BodyBridgePinInlay
+        name="Body_Bridge_Pin_Inlay002"
+        position={[-0.006, -0.156, 0.007]}
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_Bridge_Pin_Inlay.002' }}
+      />
+      <instances.BodyBridgePinInlay
+        name="Body_Bridge_Pin_Inlay003"
+        position={[0.005, -0.156, 0.007]}
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_Bridge_Pin_Inlay.003' }}
+      />
+      <instances.BodyBridgePinInlay
+        name="Body_Bridge_Pin_Inlay004"
+        position={[0.016, -0.156, 0.007]}
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_Bridge_Pin_Inlay.004' }}
+      />
+      <instances.BodyBridgePinInlay
+        name="Body_Bridge_Pin_Inlay005"
+        position={[0.027, -0.156, 0.007]}
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_Bridge_Pin_Inlay.005' }}
+      />
+      <instances.BodySaddle
+        name="Body_Saddle"
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_Saddle' }}
+      />
+      <instances.BodyFretboard
+        name="Body_Fretboard001"
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_Fretboard.001' }}
+      />
+      <instances.BodyFretboardSoundholeTangent
+        name="Body_Fretboard_Soundhole_Tangent"
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_Fretboard_Soundhole_Tangent' }}
+      />
+      <instances.BodyFretMarkerFret
+        name="Body_Fret_Marker_Fret12-1"
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_Fret_Marker_Fret12-1' }}
+      />
+      <instances.BodyFretMarkerFret1
+        name="Body_Fret_Marker_Fret12-2"
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_Fret_Marker_Fret12-2' }}
+      />
+      <instances.BodyFretMarkerFret2
+        name="Body_Fret_Marker_Fret15"
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_Fret_Marker_Fret15' }}
+      />
+      <instances.BodyFretMarkerFret3
+        name="Body_Fret_Marker_Fret17"
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_Fret_Marker_Fret17' }}
+      />
+      <instances.BodyFretMarkerFret4
+        name="Body_Fret_Marker_Fret21"
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_Fret_Marker_Fret21' }}
+      />
+      <instances.BodyFretMarkerFret5
+        name="Body_Fret_Marker_Fret3"
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_Fret_Marker_Fret3' }}
+      />
+      <instances.BodyFretMarkerFret6
+        name="Body_Fret_Marker_Fret5"
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_Fret_Marker_Fret5' }}
+      />
+      <instances.BodyFretMarkerFret7
+        name="Body_Fret_Marker_Fret7"
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_Fret_Marker_Fret7' }}
+      />
+      <instances.BodyFretMarkerFret8
+        name="Body_Fret_Marker_Fret9"
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_Fret_Marker_Fret9' }}
+      />
+      <instances.BodyFretboard1
+        name="Body_Fretboard"
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_Fretboard' }}
+      />
+      <instances.BodyFretboard2
+        name="Body_Fretboard_(1)"
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_Fretboard (1)' }}
+      />
+      <instances.BodyFretboard3
+        name="Body_Fretboard_(1)_(1)"
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_Fretboard (1) (1)' }}
+      />
+      <instances.BodyFretboard4
+        name="Body_Fretboard_(1)_(2)"
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_Fretboard (1) (2)' }}
+      />
+      <instances.BodyFretboard5
+        name="Body_Fretboard_(1)_(3)"
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_Fretboard (1) (3)' }}
+      />
+      <instances.BodySideFretMarkerFret
+        name="Body_Side_Fret_Marker_Fret17"
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_Side_Fret_Marker_Fret17' }}
+      />
+      <instances.BodySideFretMarkerFret1
+        name="Body_Side_Fret_Marker_Fret21"
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_Side_Fret_Marker_Fret21' }}
+      />
+      <instances.BodySideFretMarkerFret2
+        name="Body_Side_Fret_Marker_Fret3"
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_Side_Fret_Marker_Fret3' }}
+      />
+      <instances.BodySideFretMarkerFret3
+        name="Body_Side_Fret_Marker_Fret5"
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_Side_Fret_Marker_Fret5' }}
+      />
+      <instances.BodySideFretMarkerFret4
+        name="Body_Side_Fret_Marker_Fret7"
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_Side_Fret_Marker_Fret7' }}
+      />
+      <instances.BodySideFretMarkerFret5
+        name="Body_Side_Fret_Marker_Fret9"
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_Side_Fret_Marker_Fret9' }}
+      />
+      <instances.BodyFret
+        name="Body_Fret1"
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_Fret1' }}
+      />
+      <instances.BodyFret1
+        name="Body_Fret10"
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_Fret10' }}
+      />
+      <instances.BodyFret2
+        name="Body_Fret11"
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_Fret11' }}
+      />
+      <instances.BodyFret3
+        name="Body_Fret12"
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_Fret12' }}
+      />
+      <instances.BodyFret4
+        name="Body_Fret13"
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_Fret13' }}
+      />
+      <instances.BodyFret5
+        name="Body_Fret14"
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_Fret14' }}
+      />
+      <instances.BodyFret6
+        name="Body_Fret15"
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_Fret15' }}
+      />
+      <instances.BodyFret7
+        name="Body_Fret16"
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_Fret16' }}
+      />
+      <instances.BodyFret8
+        name="Body_Fret17"
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_Fret17' }}
+      />
+      <instances.BodyFret9
+        name="Body_Fret18"
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_Fret18' }}
+      />
+      <instances.BodyFret10
+        name="Body_Fret19"
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_Fret19' }}
+      />
+      <instances.BodyFret11
+        name="Body_Fret2"
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_Fret2' }}
+      />
+      <instances.BodyFret12
+        name="Body_Fret20"
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_Fret20' }}
+      />
+      <instances.BodyFret13
+        name="Body_Fret3"
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_Fret3' }}
+      />
+      <instances.BodyFret14
+        name="Body_Fret4"
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_Fret4' }}
+      />
+      <instances.BodyFret15
+        name="Body_Fret5"
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_Fret5' }}
+      />
+      <instances.BodyFret16
+        name="Body_Fret6"
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_Fret6' }}
+      />
+      <instances.BodyFret17
+        name="Body_Fret7"
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_Fret7' }}
+      />
+      <instances.BodyFret18
+        name="Body_Fret8"
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_Fret8' }}
+      />
+      <instances.BodyFret19
+        name="Body_Fret9"
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_Fret9' }}
+      />
+      <instances.BodyNut
+        name="Body_Nut"
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_Nut' }}
+      />
+      <instances.BodyHeadstock
+        name="Body_Headstock"
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_Headstock' }}
+      />
+      <instances.PegHead
+        name="Peg_Head"
+        position={[-0.02, 0.544, -0.02]}
+        rotation={[1.359, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Peg_Head' }}
+      />
+      <instances.PegHead
+        name="Peg_Head001"
+        position={[-0.022, 0.583, -0.031]}
+        rotation={[1.359, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Peg_Head.001' }}
+      />
+      <instances.PegHead
+        name="Peg_Head002"
+        position={[-0.024, 0.624, -0.04]}
+        rotation={[1.359, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Peg_Head.002' }}
+      />
+      <instances.PegHead
+        name="Peg_Head003"
+        position={[0.02, 0.543, -0.02]}
+        rotation={[1.359, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Peg_Head.003' }}
+      />
+      <instances.PegHead
+        name="Peg_Head004"
+        position={[0.022, 0.584, -0.028]}
+        rotation={[1.359, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Peg_Head.004' }}
+      />
+      <instances.PegHead
+        name="Peg_Head005"
+        position={[0.024, 0.624, -0.037]}
+        rotation={[1.359, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Peg_Head.005' }}
+      />
+      <instances.PegHeadTunerRight
+        name="Peg_Head_Tuner_Right"
+        position={[-0.02, 0.544, -0.02]}
+        rotation={[1.359, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Peg_Head_Tuner_Right' }}
+      />
+      <instances.PegHeadTunerRight
+        name="Peg_Head_Tuner_Right001"
+        position={[-0.022, 0.583, -0.031]}
+        rotation={[1.359, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Peg_Head_Tuner_Right.001' }}
+      />
+      <instances.PegHeadTunerRight
+        name="Peg_Head_Tuner_Right002"
+        position={[-0.024, 0.624, -0.04]}
+        rotation={[1.359, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Peg_Head_Tuner_Right.002' }}
+      />
+      <instances.PegHeadTunerRight
+        name="Peg_Head_Tuner_Right003"
+        position={[0.02, 0.543, -0.02]}
+        rotation={[1.359, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Peg_Head_Tuner_Right.003' }}
+      />
+      <instances.PegHeadTunerRight
+        name="Peg_Head_Tuner_Right004"
+        position={[0.022, 0.584, -0.028]}
+        rotation={[1.359, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Peg_Head_Tuner_Right.004' }}
+      />
+      <instances.PegHeadTunerRight
+        name="Peg_Head_Tuner_Right005"
+        position={[0.024, 0.624, -0.037]}
+        rotation={[1.359, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Peg_Head_Tuner_Right.005' }}
+      />
+      <instances.BodyHeel
+        name="Body_Heel"
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_Heel' }}
+      />
+      <instances.BodyNeck
+        name="Body_Neck"
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_Neck' }}
+      />
+      <instances.SurfaceNeckProfile
+        name="Surface_Neck_Profile"
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Surface_Neck_Profile' }}
+      />
+      <instances.BodyPickguard
+        name="Body_Pickguard"
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_Pickguard' }}
+      />
+      <instances.BodySides
+        name="Body_Sides"
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_Sides' }}
+      />
+      <instances.BodySidesArmBevel
+        name="Body_Sides_Arm_Bevel"
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_Sides_Arm_Bevel' }}
+      />
+      <instances.BodySidesArmBevelFlorentineCutaway
+        name="Body_Sides_Arm_Bevel_Florentine_Cutaway"
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_Sides_Arm_Bevel_Florentine_Cutaway' }}
+      />
+      <instances.BodySidesArmBevelScallopedCutaway
+        name="Body_Sides_Arm_Bevel_Scalloped_Cutaway"
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_Sides_Arm_Bevel_Scalloped_Cutaway' }}
+      />
+      <instances.BodySidesArmBevelVenetianCutaway
+        name="Body_Sides_Arm_Bevel_Venetian_Cutaway"
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_Sides_Arm_Bevel_Venetian_Cutaway' }}
+      />
+      <instances.BodySidesFlorentineCutaway
+        name="Body_Sides_Florentine_Cutaway"
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_Sides_Florentine_Cutaway' }}
+      />
+      <instances.BodySidesScallopedCutaway
+        name="Body_Sides_Scalloped_Cutaway_(1)"
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_Sides_Scalloped_Cutaway (1)' }}
+      />
+      <instances.BodySidesVenetianCutaway
+        name="Body_Sides_Venetian_Cutaway"
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_Sides_Venetian_Cutaway' }}
+      />
+      <instances.BodyEndGraftWedge
+        name="Body_End_Graft_Wedge"
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_End_Graft_Wedge' }}
+      />
+      <instances.BodyHeelBlock
+        name="Body_Heel_Block"
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_Heel_Block' }}
+      />
+      <instances.BodyTailBlock
+        name="Body_Tail_Block"
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_Tail_Block' }}
+      />
+      <instances.BodyLiningBottom
+        name="Body_Lining_Bottom"
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_Lining_Bottom' }}
+      />
+      <instances.BodyLiningTop
+        name="Body_Lining_Top"
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_Lining_Top' }}
+      />
+      <instances.BodySoundboard
+        name="Body_Soundboard"
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_Soundboard' }}
+      />
+      <instances.BodySoundboardArmBevel
+        name="Body_Soundboard_Arm_Bevel"
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_Soundboard_Arm_Bevel' }}
+      />
+      <instances.BodySoundboardArmBevelCutawayFlorentine
+        name="Body_Soundboard_Arm_Bevel_Cutaway_Florentine"
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_Soundboard_Arm_Bevel_Cutaway_Florentine' }}
+      />
+      <instances.BodySoundboardArmBevelCutawayVenetian
+        name="Body_Soundboard_Arm_Bevel_Cutaway_Venetian"
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_Soundboard_Arm_Bevel_Cutaway_Venetian' }}
+      />
+      <instances.BodySoundboardFlorentineCutaway
+        name="Body_Soundboard_Florentine_Cutaway"
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_Soundboard_Florentine_Cutaway' }}
+      />
+      <instances.BodySoundboardVenetianCutaway
+        name="Body_Soundboard_Venetian_Cutaway"
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_Soundboard_Venetian_Cutaway' }}
+      />
+      <instances.BodyBraceFretboardReinforcementRight
+        name="Body_Brace_Fretboard_Reinforcement_Right"
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_Brace_Fretboard_Reinforcement_Right' }}
+      />
+      <instances.BodyBraceD
+        name="Body_BraceD"
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_BraceD' }}
+      />
+      <instances.BodyBraceE
+        name="Body_BraceE"
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_BraceE' }}
+      />
+      <instances.BodyBraceFLeft
+        name="Body_BraceF_Left"
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_BraceF_Left' }}
+      />
+      <instances.BodyBraceFRight
+        name="Body_BraceF_Right"
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_BraceF_Right' }}
+      />
+      <instances.BodyBraceGLeft
+        name="Body_BraceG_Left"
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_BraceG_Left' }}
+      />
+      <instances.BodyBraceGRight
+        name="Body_BraceG_Right"
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_BraceG_Right' }}
+      />
+      <instances.BodyBraceHLeft
+        name="Body_BraceH_Left"
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_BraceH_Left' }}
+      />
+      <instances.BodyBraceHRight
+        name="Body_BraceH_Right"
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_BraceH_Right' }}
+      />
+      <instances.BodyBridgePlate
+        name="Body_Bridge_Plate"
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_Bridge_Plate' }}
+      />
+      <instances.BodyLateralBraceA
+        name="Body_Lateral_BraceA"
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_Lateral_BraceA' }}
+      />
+      <instances.BodyXBraceB
+        name="Body_X_BraceB"
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_X_BraceB' }}
+      />
+      <instances.BodyXBraceC
+        name="Body_X_BraceC"
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_X_BraceC' }}
+      />
+      <instances.BodyRosette
+        name="Body_Rosette"
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_Rosette' }}
+      />
+      <instances.BodyRosette1
+        name="Body_Rosette_(1)"
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_Rosette (1)' }}
+      />
+      <instances.BodyRosette2
+        name="Body_Rosette_(2)"
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_Rosette (2)' }}
+      />
+      <instances.BodyRosette3
+        name="Body_Rosette_(3)"
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_Rosette (3)' }}
+      />
+      <instances.BodyRosette4
+        name="Body_Rosette_(4)"
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_Rosette (4)' }}
+      />
+      <instances.BodyStringA
+        name="Body_String_A"
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_String_A' }}
+      />
+      <instances.BodyStringB
+        name="Body_String_B"
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_String_B' }}
+      />
+      <instances.BodyStringD
+        name="Body_String_D"
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_String_D' }}
+      />
+      <instances.BodyStringG
+        name="Body_String_G"
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_String_G' }}
+      />
+      <instances.BodyStringHighE
+        name="Body_String_HighE"
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_String_HighE' }}
+      />
+      <instances.BodyStringLowE
+        name="Body_String_LowE"
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.01}
+        userData={{ name: 'Body_String_LowE' }}
+      />
     </group>
   )
 }

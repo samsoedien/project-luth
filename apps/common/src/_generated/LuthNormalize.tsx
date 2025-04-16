@@ -399,11 +399,13 @@ export function Instances({ children, ...props }: JSX.IntrinsicElements['group']
       BodyBackTwoPieceFlorentineCutawayRight: nodes.Body_Back_Two_Piece_Florentine_Cutaway_Right,
       BodyBackThreePieceMiddle: nodes.Body_Back_Three_Piece_Middle,
       BodyBackThreePieceVenetianCutawayMiddle: nodes.Body_Back_Three_Piece_Venetian_Cutaway_Middle,
-      BodyBackThreePieceFlorentineCutawayMiddle: nodes.Body_Back_Three_Piece_Florentine_Cutaway_Middle,
+      BodyBackThreePieceFlorentineCutawayMiddle:
+        nodes.Body_Back_Three_Piece_Florentine_Cutaway_Middle,
       BodyBackThreePieceLeft: nodes.Body_Back_Three_Piece_Left,
       BodyBackThreePieceRight: nodes.Body_Back_Three_Piece_Right,
       BodyBackThreePieceVenetianCutawayRight: nodes.Body_Back_Three_Piece_Venetian_Cutaway_Right,
-      BodyBackThreePieceFlorentineCutawayRight: nodes.Body_Back_Three_Piece_Florentine_Cutaway_Right,
+      BodyBackThreePieceFlorentineCutawayRight:
+        nodes.Body_Back_Three_Piece_Florentine_Cutaway_Right,
       BodyBackThreePieceFlorentineCutawayLeft: nodes.Body_Back_Three_Piece_Florentine_Cutaway_Left,
       BodyFret: nodes.Body_Fret1,
       BodyFret1: nodes.Body_Fret2,
@@ -462,7 +464,8 @@ export function Instances({ children, ...props }: JSX.IntrinsicElements['group']
       BodyPurflingTopFlorentineCutaway: nodes.Body_Purfling_Top_Florentine_Cutaway,
       BodyPurflingBottomFlorentineCutaway: nodes.Body_Purfling_Bottom_Florentine_Cutaway,
       BodyPurflingTopArmBevel: nodes.Body_Purfling_Top_Arm_Bevel,
-      BodyPurflingTopArmBevelFlorentineCutaway: nodes.Body_Purfling_Top_Arm_Bevel_Florentine_Cutaway,
+      BodyPurflingTopArmBevelFlorentineCutaway:
+        nodes.Body_Purfling_Top_Arm_Bevel_Florentine_Cutaway,
       BodyPurflingTopArmBevelVenetianCutaway: nodes.Body_Purfling_Top_Arm_Bevel_Venetian_Cutaway,
       BodyBindingTop: nodes.Body_Binding_Top,
       BodyBindingBottom: nodes.Body_Binding_Bottom,
@@ -493,82 +496,380 @@ export default function Model(props: JSX.IntrinsicElements['group']) {
   const instances = React.useContext(context)
   return (
     <group {...props} dispose={null}>
-      <PerspectiveCamera name="active" makeDefault={false} far={2063.254} near={1457.665} fov={39.598} position={[-1.093, 0.606, 1.254]} rotation={[-0.336, -0.67, -0.214]} scale={0.001} userData={{ name: 'active' }} />
-      <instances.BodyHeelBlock name="Body_Heel_Block" scale={0.001} userData={{ name: 'Body_Heel_Block' }} />
-      <instances.BodyTailBlock name="Body_Tail_Block" scale={0.001} userData={{ name: 'Body_Tail_Block' }} />
-      <instances.BodyLiningTop name="Body_Lining_Top" scale={0.001} userData={{ name: 'Body_Lining_Top' }} />
-      <instances.BodyLiningBottom name="Body_Lining_Bottom" scale={0.001} userData={{ name: 'Body_Lining_Bottom' }} />
-      <instances.BodyEndGraftWedge name="Body_End_Graft_Wedge" scale={0.001} userData={{ name: 'Body_End_Graft_Wedge' }} />
+      <PerspectiveCamera
+        name="active"
+        makeDefault={false}
+        far={2063.254}
+        near={1457.665}
+        fov={39.598}
+        position={[-1.093, 0.606, 1.254]}
+        rotation={[-0.336, -0.67, -0.214]}
+        scale={0.001}
+        userData={{ name: 'active' }}
+      />
+      <instances.BodyHeelBlock
+        name="Body_Heel_Block"
+        scale={0.001}
+        userData={{ name: 'Body_Heel_Block' }}
+      />
+      <instances.BodyTailBlock
+        name="Body_Tail_Block"
+        scale={0.001}
+        userData={{ name: 'Body_Tail_Block' }}
+      />
+      <instances.BodyLiningTop
+        name="Body_Lining_Top"
+        scale={0.001}
+        userData={{ name: 'Body_Lining_Top' }}
+      />
+      <instances.BodyLiningBottom
+        name="Body_Lining_Bottom"
+        scale={0.001}
+        userData={{ name: 'Body_Lining_Bottom' }}
+      />
+      <instances.BodyEndGraftWedge
+        name="Body_End_Graft_Wedge"
+        scale={0.001}
+        userData={{ name: 'Body_End_Graft_Wedge' }}
+      />
       <instances.BodySides name="Body_Sides" scale={0.001} userData={{ name: 'Body_Sides' }} />
-      <instances.BodySidesVenetianCutaway name="Body_Sides_Venetian_Cutaway" scale={0.001} userData={{ name: 'Body_Sides_Venetian_Cutaway' }} />
-      <instances.BodySidesFlorentineCutaway name="Body_Sides_Florentine_Cutaway" scale={0.001} userData={{ name: 'Body_Sides_Florentine_Cutaway' }} />
-      <instances.BodySidesScallopedCutaway name="Body_Sides_Scalloped_Cutaway" scale={0.001} userData={{ name: 'Body_Sides_Scalloped_Cutaway' }} />
-      <instances.BodySidesArmBevel name="Body_Sides_Arm_Bevel" scale={0.001} userData={{ name: 'Body_Sides_Arm_Bevel' }} />
-      <instances.BodySidesArmBevelFlorentineCutaway name="Body_Sides_Arm_Bevel_Florentine_Cutaway" scale={0.001} userData={{ name: 'Body_Sides_Arm_Bevel_Florentine_Cutaway' }} />
-      <instances.BodySidesArmBevelVenetianCutaway name="Body_Sides_Arm_Bevel_Venetian_Cutaway" scale={0.001} userData={{ name: 'Body_Sides_Arm_Bevel_Venetian_Cutaway' }} />
-      <instances.BodySidesArmBevelScallopedCutaway name="Body_Sides_Arm_Bevel_Scalloped_Cutaway" scale={0.001} userData={{ name: 'Body_Sides_Arm_Bevel_Scalloped_Cutaway' }} />
-      <instances.BodyRosette name="Body_Rosette" scale={0.001} userData={{ name: 'Body_Rosette' }} />
-      <instances.BodyRosette1 name="Body_Rosette_(1)" scale={0.001} userData={{ name: 'Body_Rosette (1)' }} />
-      <instances.BodyRosette2 name="Body_Rosette_(2)" scale={0.001} userData={{ name: 'Body_Rosette (2)' }} />
-      <instances.BodyRosette3 name="Body_Rosette_(3)" scale={0.001} userData={{ name: 'Body_Rosette (3)' }} />
-      <instances.BodyRosette4 name="Body_Rosette_(4)" scale={0.001} userData={{ name: 'Body_Rosette (4)' }} />
-      <instances.BodyBraceFretboardReinforcementRight name="Body_Brace_Fretboard_Reinforcement_Right" scale={0.001} userData={{ name: 'Body_Brace_Fretboard_Reinforcement_Right' }} />
-      <instances.BodyLateralBraceA name="Body_Lateral_BraceA" scale={0.001} userData={{ name: 'Body_Lateral_BraceA' }} />
-      <instances.BodyXBraceB name="Body_X_BraceB" scale={0.001} userData={{ name: 'Body_X_BraceB' }} />
-      <instances.BodyXBraceC name="Body_X_BraceC" scale={0.001} userData={{ name: 'Body_X_BraceC' }} />
+      <instances.BodySidesVenetianCutaway
+        name="Body_Sides_Venetian_Cutaway"
+        scale={0.001}
+        userData={{ name: 'Body_Sides_Venetian_Cutaway' }}
+      />
+      <instances.BodySidesFlorentineCutaway
+        name="Body_Sides_Florentine_Cutaway"
+        scale={0.001}
+        userData={{ name: 'Body_Sides_Florentine_Cutaway' }}
+      />
+      <instances.BodySidesScallopedCutaway
+        name="Body_Sides_Scalloped_Cutaway"
+        scale={0.001}
+        userData={{ name: 'Body_Sides_Scalloped_Cutaway' }}
+      />
+      <instances.BodySidesArmBevel
+        name="Body_Sides_Arm_Bevel"
+        scale={0.001}
+        userData={{ name: 'Body_Sides_Arm_Bevel' }}
+      />
+      <instances.BodySidesArmBevelFlorentineCutaway
+        name="Body_Sides_Arm_Bevel_Florentine_Cutaway"
+        scale={0.001}
+        userData={{ name: 'Body_Sides_Arm_Bevel_Florentine_Cutaway' }}
+      />
+      <instances.BodySidesArmBevelVenetianCutaway
+        name="Body_Sides_Arm_Bevel_Venetian_Cutaway"
+        scale={0.001}
+        userData={{ name: 'Body_Sides_Arm_Bevel_Venetian_Cutaway' }}
+      />
+      <instances.BodySidesArmBevelScallopedCutaway
+        name="Body_Sides_Arm_Bevel_Scalloped_Cutaway"
+        scale={0.001}
+        userData={{ name: 'Body_Sides_Arm_Bevel_Scalloped_Cutaway' }}
+      />
+      <instances.BodyRosette
+        name="Body_Rosette"
+        scale={0.001}
+        userData={{ name: 'Body_Rosette' }}
+      />
+      <instances.BodyRosette1
+        name="Body_Rosette_(1)"
+        scale={0.001}
+        userData={{ name: 'Body_Rosette (1)' }}
+      />
+      <instances.BodyRosette2
+        name="Body_Rosette_(2)"
+        scale={0.001}
+        userData={{ name: 'Body_Rosette (2)' }}
+      />
+      <instances.BodyRosette3
+        name="Body_Rosette_(3)"
+        scale={0.001}
+        userData={{ name: 'Body_Rosette (3)' }}
+      />
+      <instances.BodyRosette4
+        name="Body_Rosette_(4)"
+        scale={0.001}
+        userData={{ name: 'Body_Rosette (4)' }}
+      />
+      <instances.BodyBraceFretboardReinforcementRight
+        name="Body_Brace_Fretboard_Reinforcement_Right"
+        scale={0.001}
+        userData={{ name: 'Body_Brace_Fretboard_Reinforcement_Right' }}
+      />
+      <instances.BodyLateralBraceA
+        name="Body_Lateral_BraceA"
+        scale={0.001}
+        userData={{ name: 'Body_Lateral_BraceA' }}
+      />
+      <instances.BodyXBraceB
+        name="Body_X_BraceB"
+        scale={0.001}
+        userData={{ name: 'Body_X_BraceB' }}
+      />
+      <instances.BodyXBraceC
+        name="Body_X_BraceC"
+        scale={0.001}
+        userData={{ name: 'Body_X_BraceC' }}
+      />
       <instances.BodyBraceD name="Body_BraceD" scale={0.001} userData={{ name: 'Body_BraceD' }} />
       <instances.BodyBraceE name="Body_BraceE" scale={0.001} userData={{ name: 'Body_BraceE' }} />
-      <instances.BodyBraceFRight name="Body_BraceF_Right" scale={0.001} userData={{ name: 'Body_BraceF_Right' }} />
-      <instances.BodyBraceGRight name="Body_BraceG_Right" scale={0.001} userData={{ name: 'Body_BraceG_Right' }} />
-      <instances.BodyBraceGLeft name="Body_BraceG_Left" scale={0.001} userData={{ name: 'Body_BraceG_Left' }} />
-      <instances.BodyBraceFLeft name="Body_BraceF_Left" scale={0.001} userData={{ name: 'Body_BraceF_Left' }} />
-      <instances.BodyBraceHLeft name="Body_BraceH_Left" scale={0.001} userData={{ name: 'Body_BraceH_Left' }} />
-      <instances.BodyBraceHRight name="Body_BraceH_Right" scale={0.001} userData={{ name: 'Body_BraceH_Right' }} />
-      <instances.BodyBridgePlate name="Body_Bridge_Plate" scale={0.001} userData={{ name: 'Body_Bridge_Plate' }} />
-      <instances.BodySoundboard name="Body_Soundboard" scale={0.001} userData={{ name: 'Body_Soundboard' }} />
-      <instances.BodySoundboardVenetianCutaway name="Body_Soundboard_Venetian_Cutaway" scale={0.001} userData={{ name: 'Body_Soundboard_Venetian_Cutaway' }} />
-      <instances.BodySoundboardFlorentineCutaway name="Body_Soundboard_Florentine_Cutaway" scale={0.001} userData={{ name: 'Body_Soundboard_Florentine_Cutaway' }} />
-      <instances.BodySoundboardArmBevel name="Body_Soundboard_Arm_Bevel" scale={0.001} userData={{ name: 'Body_Soundboard_Arm_Bevel' }} />
-      <instances.BodySoundboardArmBevelCutawayVenetian name="Body_Soundboard_Arm_Bevel_Cutaway_Venetian" scale={0.001} userData={{ name: 'Body_Soundboard_Arm_Bevel_Cutaway_Venetian' }} />
-      <instances.BodySoundboardArmBevelCutawayFlorentine name="Body_Soundboard_Arm_Bevel_Cutaway_Florentine" scale={0.001} userData={{ name: 'Body_Soundboard_Arm_Bevel_Cutaway_Florentine' }} />
+      <instances.BodyBraceFRight
+        name="Body_BraceF_Right"
+        scale={0.001}
+        userData={{ name: 'Body_BraceF_Right' }}
+      />
+      <instances.BodyBraceGRight
+        name="Body_BraceG_Right"
+        scale={0.001}
+        userData={{ name: 'Body_BraceG_Right' }}
+      />
+      <instances.BodyBraceGLeft
+        name="Body_BraceG_Left"
+        scale={0.001}
+        userData={{ name: 'Body_BraceG_Left' }}
+      />
+      <instances.BodyBraceFLeft
+        name="Body_BraceF_Left"
+        scale={0.001}
+        userData={{ name: 'Body_BraceF_Left' }}
+      />
+      <instances.BodyBraceHLeft
+        name="Body_BraceH_Left"
+        scale={0.001}
+        userData={{ name: 'Body_BraceH_Left' }}
+      />
+      <instances.BodyBraceHRight
+        name="Body_BraceH_Right"
+        scale={0.001}
+        userData={{ name: 'Body_BraceH_Right' }}
+      />
+      <instances.BodyBridgePlate
+        name="Body_Bridge_Plate"
+        scale={0.001}
+        userData={{ name: 'Body_Bridge_Plate' }}
+      />
+      <instances.BodySoundboard
+        name="Body_Soundboard"
+        scale={0.001}
+        userData={{ name: 'Body_Soundboard' }}
+      />
+      <instances.BodySoundboardVenetianCutaway
+        name="Body_Soundboard_Venetian_Cutaway"
+        scale={0.001}
+        userData={{ name: 'Body_Soundboard_Venetian_Cutaway' }}
+      />
+      <instances.BodySoundboardFlorentineCutaway
+        name="Body_Soundboard_Florentine_Cutaway"
+        scale={0.001}
+        userData={{ name: 'Body_Soundboard_Florentine_Cutaway' }}
+      />
+      <instances.BodySoundboardArmBevel
+        name="Body_Soundboard_Arm_Bevel"
+        scale={0.001}
+        userData={{ name: 'Body_Soundboard_Arm_Bevel' }}
+      />
+      <instances.BodySoundboardArmBevelCutawayVenetian
+        name="Body_Soundboard_Arm_Bevel_Cutaway_Venetian"
+        scale={0.001}
+        userData={{ name: 'Body_Soundboard_Arm_Bevel_Cutaway_Venetian' }}
+      />
+      <instances.BodySoundboardArmBevelCutawayFlorentine
+        name="Body_Soundboard_Arm_Bevel_Cutaway_Florentine"
+        scale={0.001}
+        userData={{ name: 'Body_Soundboard_Arm_Bevel_Cutaway_Florentine' }}
+      />
       <instances.BodySaddle name="Body_Saddle" scale={0.001} userData={{ name: 'Body_Saddle' }} />
-      <instances.BodyBridgePinInlay name="Body_Bridge_Pin_Inlay" position={[-0.027, -0.156, 0.008]} scale={0.001} userData={{ name: 'Body_Bridge_Pin_Inlay' }} />
-      <instances.BodyBridgePinInlay name="Body_Bridge_Pin_Inlay_1" position={[-0.017, -0.156, 0.007]} scale={0.001} userData={{ name: 'Body_Bridge_Pin_Inlay' }} />
-      <instances.BodyBridgePinInlay name="Body_Bridge_Pin_Inlay_2" position={[-0.006, -0.156, 0.008]} scale={0.001} userData={{ name: 'Body_Bridge_Pin_Inlay' }} />
-      <instances.BodyBridgePinInlay name="Body_Bridge_Pin_Inlay_3" position={[0.005, -0.156, 0.007]} scale={0.001} userData={{ name: 'Body_Bridge_Pin_Inlay' }} />
-      <instances.BodyBridgePinInlay name="Body_Bridge_Pin_Inlay_4" position={[0.016, -0.156, 0.007]} scale={0.001} userData={{ name: 'Body_Bridge_Pin_Inlay' }} />
-      <instances.BodyBridgePinInlay name="Body_Bridge_Pin_Inlay_5" position={[0.027, -0.156, 0.007]} scale={0.001} userData={{ name: 'Body_Bridge_Pin_Inlay' }} />
-      <instances.BodyBridgePin name="Body_Bridge_Pin" position={[-0.027, -0.156, 0.008]} scale={0.001} userData={{ name: 'Body_Bridge_Pin' }} />
-      <instances.BodyBridgePin name="Body_Bridge_Pin_1" position={[-0.017, -0.156, 0.007]} scale={0.001} userData={{ name: 'Body_Bridge_Pin' }} />
-      <instances.BodyBridgePin name="Body_Bridge_Pin_2" position={[-0.006, -0.156, 0.008]} scale={0.001} userData={{ name: 'Body_Bridge_Pin' }} />
-      <instances.BodyBridgePin name="Body_Bridge_Pin_3" position={[0.005, -0.156, 0.007]} scale={0.001} userData={{ name: 'Body_Bridge_Pin' }} />
-      <instances.BodyBridgePin name="Body_Bridge_Pin_4" position={[0.016, -0.156, 0.007]} scale={0.001} userData={{ name: 'Body_Bridge_Pin' }} />
-      <instances.BodyBridgePin name="Body_Bridge_Pin_5" position={[0.027, -0.156, 0.007]} scale={0.001} userData={{ name: 'Body_Bridge_Pin' }} />
+      <instances.BodyBridgePinInlay
+        name="Body_Bridge_Pin_Inlay"
+        position={[-0.027, -0.156, 0.008]}
+        scale={0.001}
+        userData={{ name: 'Body_Bridge_Pin_Inlay' }}
+      />
+      <instances.BodyBridgePinInlay
+        name="Body_Bridge_Pin_Inlay_1"
+        position={[-0.017, -0.156, 0.007]}
+        scale={0.001}
+        userData={{ name: 'Body_Bridge_Pin_Inlay' }}
+      />
+      <instances.BodyBridgePinInlay
+        name="Body_Bridge_Pin_Inlay_2"
+        position={[-0.006, -0.156, 0.008]}
+        scale={0.001}
+        userData={{ name: 'Body_Bridge_Pin_Inlay' }}
+      />
+      <instances.BodyBridgePinInlay
+        name="Body_Bridge_Pin_Inlay_3"
+        position={[0.005, -0.156, 0.007]}
+        scale={0.001}
+        userData={{ name: 'Body_Bridge_Pin_Inlay' }}
+      />
+      <instances.BodyBridgePinInlay
+        name="Body_Bridge_Pin_Inlay_4"
+        position={[0.016, -0.156, 0.007]}
+        scale={0.001}
+        userData={{ name: 'Body_Bridge_Pin_Inlay' }}
+      />
+      <instances.BodyBridgePinInlay
+        name="Body_Bridge_Pin_Inlay_5"
+        position={[0.027, -0.156, 0.007]}
+        scale={0.001}
+        userData={{ name: 'Body_Bridge_Pin_Inlay' }}
+      />
+      <instances.BodyBridgePin
+        name="Body_Bridge_Pin"
+        position={[-0.027, -0.156, 0.008]}
+        scale={0.001}
+        userData={{ name: 'Body_Bridge_Pin' }}
+      />
+      <instances.BodyBridgePin
+        name="Body_Bridge_Pin_1"
+        position={[-0.017, -0.156, 0.007]}
+        scale={0.001}
+        userData={{ name: 'Body_Bridge_Pin' }}
+      />
+      <instances.BodyBridgePin
+        name="Body_Bridge_Pin_2"
+        position={[-0.006, -0.156, 0.008]}
+        scale={0.001}
+        userData={{ name: 'Body_Bridge_Pin' }}
+      />
+      <instances.BodyBridgePin
+        name="Body_Bridge_Pin_3"
+        position={[0.005, -0.156, 0.007]}
+        scale={0.001}
+        userData={{ name: 'Body_Bridge_Pin' }}
+      />
+      <instances.BodyBridgePin
+        name="Body_Bridge_Pin_4"
+        position={[0.016, -0.156, 0.007]}
+        scale={0.001}
+        userData={{ name: 'Body_Bridge_Pin' }}
+      />
+      <instances.BodyBridgePin
+        name="Body_Bridge_Pin_5"
+        position={[0.027, -0.156, 0.007]}
+        scale={0.001}
+        userData={{ name: 'Body_Bridge_Pin' }}
+      />
       <instances.BodyBridge name="Body_Bridge" scale={0.001} userData={{ name: 'Body_Bridge' }} />
-      <instances.BodyBackCenterStrip name="Body_Back_Center_Strip" scale={0.001} userData={{ name: 'Body_Back_Center_Strip' }} />
-      <instances.BodyBackDoubleStripRight name="Body_Back_Double_Strip_Right_(1)" scale={0.001} userData={{ name: 'Body_Back_Double_Strip_Right (1)' }} />
-      <instances.BodyBackDoubleStripLeft name="Body_Back_Double_Strip_Left" scale={0.001} userData={{ name: 'Body_Back_Double_Strip_Left' }} />
-      <instances.BodyCenterBackStrip name="Body_Center_Back_Strip" scale={0.001} userData={{ name: 'Body_Center_Back_Strip' }} />
-      <instances.BodyDoubleBackStripLeft name="Body_Double_Back_Strip_Left" scale={0.001} userData={{ name: 'Body_Double_Back_Strip_Left' }} />
-      <instances.BodyDoubleBackStripRight name="Body_Double_Back_Strip_Right" scale={0.001} userData={{ name: 'Body_Double_Back_Strip_Right' }} />
+      <instances.BodyBackCenterStrip
+        name="Body_Back_Center_Strip"
+        scale={0.001}
+        userData={{ name: 'Body_Back_Center_Strip' }}
+      />
+      <instances.BodyBackDoubleStripRight
+        name="Body_Back_Double_Strip_Right_(1)"
+        scale={0.001}
+        userData={{ name: 'Body_Back_Double_Strip_Right (1)' }}
+      />
+      <instances.BodyBackDoubleStripLeft
+        name="Body_Back_Double_Strip_Left"
+        scale={0.001}
+        userData={{ name: 'Body_Back_Double_Strip_Left' }}
+      />
+      <instances.BodyCenterBackStrip
+        name="Body_Center_Back_Strip"
+        scale={0.001}
+        userData={{ name: 'Body_Center_Back_Strip' }}
+      />
+      <instances.BodyDoubleBackStripLeft
+        name="Body_Double_Back_Strip_Left"
+        scale={0.001}
+        userData={{ name: 'Body_Double_Back_Strip_Left' }}
+      />
+      <instances.BodyDoubleBackStripRight
+        name="Body_Double_Back_Strip_Right"
+        scale={0.001}
+        userData={{ name: 'Body_Double_Back_Strip_Right' }}
+      />
       <instances.BodyBack name="Body_Back" scale={0.001} userData={{ name: 'Body_Back' }} />
-      <instances.BodyBackVenetianCutaway name="Body_Back_Venetian_Cutaway" scale={0.001} userData={{ name: 'Body_Back_Venetian_Cutaway' }} />
-      <instances.BodyBackFlorentineCutaway name="Body_Back_Florentine_Cutaway" scale={0.001} userData={{ name: 'Body_Back_Florentine_Cutaway' }} />
-      <instances.BodyBackTwoPieceLeft name="Body_Back_Two_Piece_Left" scale={0.001} userData={{ name: 'Body_Back_Two_Piece_Left' }} />
-      <instances.BodyBackTwoPieceLeft name="Body_Back_Two_Piece_Venetian_Cutaway_Left" scale={0.001} userData={{ name: 'Body_Back_Two_Piece_Venetian_Cutaway_Left' }} />
-      <instances.BodyBackTwoPieceLeft name="Body_Back_Two_Piece_Florentine_Cutaway_Left" scale={0.001} userData={{ name: 'Body_Back_Two_Piece_Florentine_Cutaway_Left' }} />
-      <instances.BodyBackTwoPieceRight name="Body_Back_Two_Piece_Right" scale={0.001} userData={{ name: 'Body_Back_Two_Piece_Right' }} />
-      <instances.BodyBackTwoPieceVenetianCutawayRight name="Body_Back_Two_Piece_Venetian_Cutaway_Right" scale={0.001} userData={{ name: 'Body_Back_Two_Piece_Venetian_Cutaway_Right' }} />
-      <instances.BodyBackTwoPieceFlorentineCutawayRight name="Body_Back_Two_Piece_Florentine_Cutaway_Right" scale={0.001} userData={{ name: 'Body_Back_Two_Piece_Florentine_Cutaway_Right' }} />
-      <instances.BodyBackThreePieceMiddle name="Body_Back_Three_Piece_Middle" scale={0.001} userData={{ name: 'Body_Back_Three_Piece_Middle' }} />
-      <instances.BodyBackThreePieceVenetianCutawayMiddle name="Body_Back_Three_Piece_Venetian_Cutaway_Middle" scale={0.001} userData={{ name: 'Body_Back_Three_Piece_Venetian_Cutaway_Middle' }} />
-      <instances.BodyBackThreePieceFlorentineCutawayMiddle name="Body_Back_Three_Piece_Florentine_Cutaway_Middle" scale={0.001} userData={{ name: 'Body_Back_Three_Piece_Florentine_Cutaway_Middle' }} />
-      <instances.BodyBackThreePieceLeft name="Body_Back_Three_Piece_Left" scale={0.001} userData={{ name: 'Body_Back_Three_Piece_Left' }} />
-      <instances.BodyBackThreePieceLeft name="Body_Back_Three_Piece_Venetian_Cutaway_Left" scale={0.001} userData={{ name: 'Body_Back_Three_Piece_Venetian_Cutaway_Left' }} />
-      <instances.BodyBackThreePieceRight name="Body_Back_Three_Piece_Right" scale={0.001} userData={{ name: 'Body_Back_Three_Piece_Right' }} />
-      <instances.BodyBackThreePieceVenetianCutawayRight name="Body_Back_Three_Piece_Venetian_Cutaway_Right" scale={0.001} userData={{ name: 'Body_Back_Three_Piece_Venetian_Cutaway_Right' }} />
-      <instances.BodyBackThreePieceFlorentineCutawayRight name="Body_Back_Three_Piece_Florentine_Cutaway_Right" scale={0.001} userData={{ name: 'Body_Back_Three_Piece_Florentine_Cutaway_Right' }} />
-      <instances.BodyBackThreePieceFlorentineCutawayLeft name="Body_Back_Three_Piece_Florentine_Cutaway_Left" scale={0.001} userData={{ name: 'Body_Back_Three_Piece_Florentine_Cutaway_Left' }} />
+      <instances.BodyBackVenetianCutaway
+        name="Body_Back_Venetian_Cutaway"
+        scale={0.001}
+        userData={{ name: 'Body_Back_Venetian_Cutaway' }}
+      />
+      <instances.BodyBackFlorentineCutaway
+        name="Body_Back_Florentine_Cutaway"
+        scale={0.001}
+        userData={{ name: 'Body_Back_Florentine_Cutaway' }}
+      />
+      <instances.BodyBackTwoPieceLeft
+        name="Body_Back_Two_Piece_Left"
+        scale={0.001}
+        userData={{ name: 'Body_Back_Two_Piece_Left' }}
+      />
+      <instances.BodyBackTwoPieceLeft
+        name="Body_Back_Two_Piece_Venetian_Cutaway_Left"
+        scale={0.001}
+        userData={{ name: 'Body_Back_Two_Piece_Venetian_Cutaway_Left' }}
+      />
+      <instances.BodyBackTwoPieceLeft
+        name="Body_Back_Two_Piece_Florentine_Cutaway_Left"
+        scale={0.001}
+        userData={{ name: 'Body_Back_Two_Piece_Florentine_Cutaway_Left' }}
+      />
+      <instances.BodyBackTwoPieceRight
+        name="Body_Back_Two_Piece_Right"
+        scale={0.001}
+        userData={{ name: 'Body_Back_Two_Piece_Right' }}
+      />
+      <instances.BodyBackTwoPieceVenetianCutawayRight
+        name="Body_Back_Two_Piece_Venetian_Cutaway_Right"
+        scale={0.001}
+        userData={{ name: 'Body_Back_Two_Piece_Venetian_Cutaway_Right' }}
+      />
+      <instances.BodyBackTwoPieceFlorentineCutawayRight
+        name="Body_Back_Two_Piece_Florentine_Cutaway_Right"
+        scale={0.001}
+        userData={{ name: 'Body_Back_Two_Piece_Florentine_Cutaway_Right' }}
+      />
+      <instances.BodyBackThreePieceMiddle
+        name="Body_Back_Three_Piece_Middle"
+        scale={0.001}
+        userData={{ name: 'Body_Back_Three_Piece_Middle' }}
+      />
+      <instances.BodyBackThreePieceVenetianCutawayMiddle
+        name="Body_Back_Three_Piece_Venetian_Cutaway_Middle"
+        scale={0.001}
+        userData={{ name: 'Body_Back_Three_Piece_Venetian_Cutaway_Middle' }}
+      />
+      <instances.BodyBackThreePieceFlorentineCutawayMiddle
+        name="Body_Back_Three_Piece_Florentine_Cutaway_Middle"
+        scale={0.001}
+        userData={{ name: 'Body_Back_Three_Piece_Florentine_Cutaway_Middle' }}
+      />
+      <instances.BodyBackThreePieceLeft
+        name="Body_Back_Three_Piece_Left"
+        scale={0.001}
+        userData={{ name: 'Body_Back_Three_Piece_Left' }}
+      />
+      <instances.BodyBackThreePieceLeft
+        name="Body_Back_Three_Piece_Venetian_Cutaway_Left"
+        scale={0.001}
+        userData={{ name: 'Body_Back_Three_Piece_Venetian_Cutaway_Left' }}
+      />
+      <instances.BodyBackThreePieceRight
+        name="Body_Back_Three_Piece_Right"
+        scale={0.001}
+        userData={{ name: 'Body_Back_Three_Piece_Right' }}
+      />
+      <instances.BodyBackThreePieceVenetianCutawayRight
+        name="Body_Back_Three_Piece_Venetian_Cutaway_Right"
+        scale={0.001}
+        userData={{ name: 'Body_Back_Three_Piece_Venetian_Cutaway_Right' }}
+      />
+      <instances.BodyBackThreePieceFlorentineCutawayRight
+        name="Body_Back_Three_Piece_Florentine_Cutaway_Right"
+        scale={0.001}
+        userData={{ name: 'Body_Back_Three_Piece_Florentine_Cutaway_Right' }}
+      />
+      <instances.BodyBackThreePieceFlorentineCutawayLeft
+        name="Body_Back_Three_Piece_Florentine_Cutaway_Left"
+        scale={0.001}
+        userData={{ name: 'Body_Back_Three_Piece_Florentine_Cutaway_Left' }}
+      />
       <instances.BodyFret name="Body_Fret1" scale={0.001} userData={{ name: 'Body_Fret1' }} />
       <instances.BodyFret1 name="Body_Fret2" scale={0.001} userData={{ name: 'Body_Fret2' }} />
       <instances.BodyFret2 name="Body_Fret3" scale={0.001} userData={{ name: 'Body_Fret3' }} />
@@ -590,69 +891,337 @@ export default function Model(props: JSX.IntrinsicElements['group']) {
       <instances.BodyFret18 name="Body_Fret19" scale={0.001} userData={{ name: 'Body_Fret19' }} />
       <instances.BodyFret19 name="Body_Fret20" scale={0.001} userData={{ name: 'Body_Fret20' }} />
       <instances.BodyNut name="Body_Nut" scale={0.001} userData={{ name: 'Body_Nut' }} />
-      <instances.BodyFretboard name="Body_Fretboard" scale={0.001} userData={{ name: 'Body_Fretboard' }} />
-      <instances.BodyFretMarkerFret name="Body_Fret_Marker_Fret17" scale={0.001} userData={{ name: 'Body_Fret_Marker_Fret17' }} />
-      <instances.BodyFretMarkerFret1 name="Body_Fret_Marker_Fret21" scale={0.001} userData={{ name: 'Body_Fret_Marker_Fret21' }} />
-      <instances.BodyFretMarkerFret2 name="Body_Fret_Marker_Fret7" scale={0.001} userData={{ name: 'Body_Fret_Marker_Fret7' }} />
-      <instances.BodyFretMarkerFret3 name="Body_Fret_Marker_Fret12-2" scale={0.001} userData={{ name: 'Body_Fret_Marker_Fret12-2' }} />
-      <instances.BodyFretMarkerFret4 name="Body_Fret_Marker_Fret3" scale={0.001} userData={{ name: 'Body_Fret_Marker_Fret3' }} />
-      <instances.BodyFretMarkerFret5 name="Body_Fret_Marker_Fret5" scale={0.001} userData={{ name: 'Body_Fret_Marker_Fret5' }} />
-      <instances.BodyFretMarkerFret6 name="Body_Fret_Marker_Fret15" scale={0.001} userData={{ name: 'Body_Fret_Marker_Fret15' }} />
-      <instances.BodyFretMarkerFret7 name="Body_Fret_Marker_Fret12-1" scale={0.001} userData={{ name: 'Body_Fret_Marker_Fret12-1' }} />
-      <instances.BodyFretMarkerFret8 name="Body_Fret_Marker_Fret9" scale={0.001} userData={{ name: 'Body_Fret_Marker_Fret9' }} />
-      <instances.BodyFretboard1 name="Body_Fretboard_(1)" scale={0.001} userData={{ name: 'Body_Fretboard (1)' }} />
-      <instances.BodyFretboard2 name="Body_Fretboard_(1)_(2)" scale={0.001} userData={{ name: 'Body_Fretboard (1) (2)' }} />
-      <instances.BodyFretboard3 name="Body_Fretboard_(1)_(3)" scale={0.001} userData={{ name: 'Body_Fretboard (1) (3)' }} />
-      <instances.BodySideFretMarkerFret name="Body_Side_Fret_Marker_Fret5" scale={0.001} userData={{ name: 'Body_Side_Fret_Marker_Fret5' }} />
-      <instances.BodySideFretMarkerFret1 name="Body_Side_Fret_Marker_Fret7" scale={0.001} userData={{ name: 'Body_Side_Fret_Marker_Fret7' }} />
-      <instances.BodySideFretMarkerFret2 name="Body_Side_Fret_Marker_Fret17" scale={0.001} userData={{ name: 'Body_Side_Fret_Marker_Fret17' }} />
-      <instances.BodySideFretMarkerFret3 name="Body_Side_Fret_Marker_Fret21" scale={0.001} userData={{ name: 'Body_Side_Fret_Marker_Fret21' }} />
-      <instances.BodySideFretMarkerFret4 name="Body_Side_Fret_Marker_Fret3" scale={0.001} userData={{ name: 'Body_Side_Fret_Marker_Fret3' }} />
-      <instances.BodySideFretMarkerFret5 name="Body_Side_Fret_Marker_Fret9" scale={0.001} userData={{ name: 'Body_Side_Fret_Marker_Fret9' }} />
-      <instances.BodyFretboard4 name="Body_Fretboard_(1)_(1)" scale={0.001} userData={{ name: 'Body_Fretboard (1) (1)' }} />
-      <instances.BodyFretboard5 name="Body_Fretboard_1" scale={0.001} userData={{ name: 'Body_Fretboard' }} />
-      <instances.BodyFretboardSoundholeTangent name="Body_Fretboard_Soundhole_Tangent" scale={0.001} userData={{ name: 'Body_Fretboard_Soundhole_Tangent' }} />
-      <instances.SurfaceNeckProfile name="Surface_Neck_Profile" scale={0.001} userData={{ name: 'Surface_Neck_Profile' }} />
+      <instances.BodyFretboard
+        name="Body_Fretboard"
+        scale={0.001}
+        userData={{ name: 'Body_Fretboard' }}
+      />
+      <instances.BodyFretMarkerFret
+        name="Body_Fret_Marker_Fret17"
+        scale={0.001}
+        userData={{ name: 'Body_Fret_Marker_Fret17' }}
+      />
+      <instances.BodyFretMarkerFret1
+        name="Body_Fret_Marker_Fret21"
+        scale={0.001}
+        userData={{ name: 'Body_Fret_Marker_Fret21' }}
+      />
+      <instances.BodyFretMarkerFret2
+        name="Body_Fret_Marker_Fret7"
+        scale={0.001}
+        userData={{ name: 'Body_Fret_Marker_Fret7' }}
+      />
+      <instances.BodyFretMarkerFret3
+        name="Body_Fret_Marker_Fret12-2"
+        scale={0.001}
+        userData={{ name: 'Body_Fret_Marker_Fret12-2' }}
+      />
+      <instances.BodyFretMarkerFret4
+        name="Body_Fret_Marker_Fret3"
+        scale={0.001}
+        userData={{ name: 'Body_Fret_Marker_Fret3' }}
+      />
+      <instances.BodyFretMarkerFret5
+        name="Body_Fret_Marker_Fret5"
+        scale={0.001}
+        userData={{ name: 'Body_Fret_Marker_Fret5' }}
+      />
+      <instances.BodyFretMarkerFret6
+        name="Body_Fret_Marker_Fret15"
+        scale={0.001}
+        userData={{ name: 'Body_Fret_Marker_Fret15' }}
+      />
+      <instances.BodyFretMarkerFret7
+        name="Body_Fret_Marker_Fret12-1"
+        scale={0.001}
+        userData={{ name: 'Body_Fret_Marker_Fret12-1' }}
+      />
+      <instances.BodyFretMarkerFret8
+        name="Body_Fret_Marker_Fret9"
+        scale={0.001}
+        userData={{ name: 'Body_Fret_Marker_Fret9' }}
+      />
+      <instances.BodyFretboard1
+        name="Body_Fretboard_(1)"
+        scale={0.001}
+        userData={{ name: 'Body_Fretboard (1)' }}
+      />
+      <instances.BodyFretboard2
+        name="Body_Fretboard_(1)_(2)"
+        scale={0.001}
+        userData={{ name: 'Body_Fretboard (1) (2)' }}
+      />
+      <instances.BodyFretboard3
+        name="Body_Fretboard_(1)_(3)"
+        scale={0.001}
+        userData={{ name: 'Body_Fretboard (1) (3)' }}
+      />
+      <instances.BodySideFretMarkerFret
+        name="Body_Side_Fret_Marker_Fret5"
+        scale={0.001}
+        userData={{ name: 'Body_Side_Fret_Marker_Fret5' }}
+      />
+      <instances.BodySideFretMarkerFret1
+        name="Body_Side_Fret_Marker_Fret7"
+        scale={0.001}
+        userData={{ name: 'Body_Side_Fret_Marker_Fret7' }}
+      />
+      <instances.BodySideFretMarkerFret2
+        name="Body_Side_Fret_Marker_Fret17"
+        scale={0.001}
+        userData={{ name: 'Body_Side_Fret_Marker_Fret17' }}
+      />
+      <instances.BodySideFretMarkerFret3
+        name="Body_Side_Fret_Marker_Fret21"
+        scale={0.001}
+        userData={{ name: 'Body_Side_Fret_Marker_Fret21' }}
+      />
+      <instances.BodySideFretMarkerFret4
+        name="Body_Side_Fret_Marker_Fret3"
+        scale={0.001}
+        userData={{ name: 'Body_Side_Fret_Marker_Fret3' }}
+      />
+      <instances.BodySideFretMarkerFret5
+        name="Body_Side_Fret_Marker_Fret9"
+        scale={0.001}
+        userData={{ name: 'Body_Side_Fret_Marker_Fret9' }}
+      />
+      <instances.BodyFretboard4
+        name="Body_Fretboard_(1)_(1)"
+        scale={0.001}
+        userData={{ name: 'Body_Fretboard (1) (1)' }}
+      />
+      <instances.BodyFretboard5
+        name="Body_Fretboard_1"
+        scale={0.001}
+        userData={{ name: 'Body_Fretboard' }}
+      />
+      <instances.BodyFretboardSoundholeTangent
+        name="Body_Fretboard_Soundhole_Tangent"
+        scale={0.001}
+        userData={{ name: 'Body_Fretboard_Soundhole_Tangent' }}
+      />
+      <instances.SurfaceNeckProfile
+        name="Surface_Neck_Profile"
+        scale={0.001}
+        userData={{ name: 'Surface_Neck_Profile' }}
+      />
       <instances.BodyHeel name="Body_Heel" scale={0.001} userData={{ name: 'Body_Heel' }} />
       <instances.BodyNeck name="Body_Neck" scale={0.001} userData={{ name: 'Body_Neck' }} />
-      <instances.BodyPickguard name="Body_Pickguard" scale={0.001} userData={{ name: 'Body_Pickguard' }} />
-      <instances.PegHead name="Peg_Head" position={[-0.02, 0.544, -0.02]} rotation={[-0.211, 0, 0]} scale={0.001} userData={{ name: 'Peg_Head' }} />
-      <instances.PegHead name="Peg_Head_1" position={[-0.022, 0.583, -0.031]} rotation={[-0.211, 0, 0]} scale={0.001} userData={{ name: 'Peg_Head' }} />
-      <instances.PegHead name="Peg_Head_2" position={[-0.024, 0.624, -0.04]} rotation={[-0.211, 0, 0]} scale={0.001} userData={{ name: 'Peg_Head' }} />
-      <instances.PegHead name="Peg_Head_3" position={[0.02, 0.543, -0.02]} rotation={[-0.211, 0, 0]} scale={0.001} userData={{ name: 'Peg_Head' }} />
-      <instances.PegHead name="Peg_Head_4" position={[0.022, 0.584, -0.028]} rotation={[-0.211, 0, 0]} scale={0.001} userData={{ name: 'Peg_Head' }} />
-      <instances.PegHead name="Peg_Head_5" position={[0.024, 0.624, -0.037]} rotation={[-0.211, 0, 0]} scale={0.001} userData={{ name: 'Peg_Head' }} />
-      <instances.PegHeadTunerRight name="Peg_Head_Tuner_Right" position={[-0.02, 0.544, -0.02]} rotation={[-0.211, 0, 0]} scale={0.001} userData={{ name: 'Peg_Head_Tuner_Right' }} />
-      <instances.PegHeadTunerRight name="Peg_Head_Tuner_Right_1" position={[-0.022, 0.583, -0.031]} rotation={[-0.211, 0, 0]} scale={0.001} userData={{ name: 'Peg_Head_Tuner_Right' }} />
-      <instances.PegHeadTunerRight name="Peg_Head_Tuner_Right_2" position={[-0.024, 0.624, -0.04]} rotation={[-0.211, 0, 0]} scale={0.001} userData={{ name: 'Peg_Head_Tuner_Right' }} />
-      <instances.PegHeadTunerRight name="Peg_Head_Tuner_Right_3" position={[0.02, 0.543, -0.02]} rotation={[-0.211, 0, 0]} scale={0.001} userData={{ name: 'Peg_Head_Tuner_Right' }} />
-      <instances.PegHeadTunerRight name="Peg_Head_Tuner_Right_4" position={[0.022, 0.584, -0.028]} rotation={[-0.211, 0, 0]} scale={0.001} userData={{ name: 'Peg_Head_Tuner_Right' }} />
-      <instances.PegHeadTunerRight name="Peg_Head_Tuner_Right_5" position={[0.024, 0.624, -0.037]} rotation={[-0.211, 0, 0]} scale={0.001} userData={{ name: 'Peg_Head_Tuner_Right' }} />
-      <instances.BodyHeadstock name="Body_Headstock" scale={0.001} userData={{ name: 'Body_Headstock' }} />
-      <instances.BodyPurflingTop name="Body_Purfling_Top" scale={0.001} userData={{ name: 'Body_Purfling_Top' }} />
-      <instances.BodyPurflingBottom name="Body_Purfling_Bottom" scale={0.001} userData={{ name: 'Body_Purfling_Bottom' }} />
-      <instances.BodyPurflingTopVenetianCutaway name="Body_Purfling_Top_Venetian_Cutaway" scale={0.001} userData={{ name: 'Body_Purfling_Top_Venetian_Cutaway' }} />
-      <instances.BodyPurflingBottomVenetianCutaway name="Body_Purfling_Bottom_Venetian_Cutaway" scale={0.001} userData={{ name: 'Body_Purfling_Bottom_Venetian_Cutaway' }} />
-      <instances.BodyPurflingTopFlorentineCutaway name="Body_Purfling_Top_Florentine_Cutaway" scale={0.001} userData={{ name: 'Body_Purfling_Top_Florentine_Cutaway' }} />
-      <instances.BodyPurflingBottomFlorentineCutaway name="Body_Purfling_Bottom_Florentine_Cutaway" scale={0.001} userData={{ name: 'Body_Purfling_Bottom_Florentine_Cutaway' }} />
-      <instances.BodyPurflingTopArmBevel name="Body_Purfling_Top_Arm_Bevel" scale={0.001} userData={{ name: 'Body_Purfling_Top_Arm_Bevel' }} />
-      <instances.BodyPurflingTopArmBevelFlorentineCutaway name="Body_Purfling_Top_Arm_Bevel_Florentine_Cutaway" scale={0.001} userData={{ name: 'Body_Purfling_Top_Arm_Bevel_Florentine_Cutaway' }} />
-      <instances.BodyPurflingTopArmBevelVenetianCutaway name="Body_Purfling_Top_Arm_Bevel_Venetian_Cutaway" scale={0.001} userData={{ name: 'Body_Purfling_Top_Arm_Bevel_Venetian_Cutaway' }} />
-      <instances.BodyBindingTop name="Body_Binding_Top" scale={0.001} userData={{ name: 'Body_Binding_Top' }} />
-      <instances.BodyBindingBottom name="Body_Binding_Bottom" scale={0.001} userData={{ name: 'Body_Binding_Bottom' }} />
-      <instances.BodyBindingTopVenetianCutaway name="Body_Binding_Top_Venetian_Cutaway" scale={0.001} userData={{ name: 'Body_Binding_Top_Venetian_Cutaway' }} />
-      <instances.BodyBindingBottomVenetianCutaway name="Body_Binding_Bottom_Venetian_Cutaway" scale={0.001} userData={{ name: 'Body_Binding_Bottom_Venetian_Cutaway' }} />
-      <instances.BodyBindingTopFlorentineCutaway name="Body_Binding_Top_Florentine_Cutaway" scale={0.001} userData={{ name: 'Body_Binding_Top_Florentine_Cutaway' }} />
-      <instances.BodyBindingBottomFlorentineCutaway name="Body_Binding_Bottom_Florentine_Cutaway" scale={0.001} userData={{ name: 'Body_Binding_Bottom_Florentine_Cutaway' }} />
-      <instances.BodyBindingTopArmBevel name="Body_Binding_Top_Arm_Bevel" scale={0.001} userData={{ name: 'Body_Binding_Top_Arm_Bevel' }} />
-      <instances.BodyBindingTopArmBevelVenetianCutaway name="Body_Binding_Top_Arm_Bevel_Venetian_Cutaway" scale={0.001} userData={{ name: 'Body_Binding_Top_Arm_Bevel_Venetian_Cutaway' }} />
-      <instances.BodyBindingTopArmBevelFlorentineCutaway name="Body_Binding_Top_Arm_Bevel_Florentine_Cutaway" scale={0.001} userData={{ name: 'Body_Binding_Top_Arm_Bevel_Florentine_Cutaway' }} />
-      <instances.BodyStringLowE name="Body_String_LowE" scale={0.001} userData={{ name: 'Body_String_LowE' }} />
-      <instances.BodyStringA name="Body_String_A" scale={0.001} userData={{ name: 'Body_String_A' }} />
-      <instances.BodyStringD name="Body_String_D" scale={0.001} userData={{ name: 'Body_String_D' }} />
-      <instances.BodyStringG name="Body_String_G" scale={0.001} userData={{ name: 'Body_String_G' }} />
-      <instances.BodyStringB name="Body_String_B" scale={0.001} userData={{ name: 'Body_String_B' }} />
-      <instances.BodyStringHighE name="Body_String_HighE" scale={0.001} userData={{ name: 'Body_String_HighE' }} />
+      <instances.BodyPickguard
+        name="Body_Pickguard"
+        scale={0.001}
+        userData={{ name: 'Body_Pickguard' }}
+      />
+      <instances.PegHead
+        name="Peg_Head"
+        position={[-0.02, 0.544, -0.02]}
+        rotation={[-0.211, 0, 0]}
+        scale={0.001}
+        userData={{ name: 'Peg_Head' }}
+      />
+      <instances.PegHead
+        name="Peg_Head_1"
+        position={[-0.022, 0.583, -0.031]}
+        rotation={[-0.211, 0, 0]}
+        scale={0.001}
+        userData={{ name: 'Peg_Head' }}
+      />
+      <instances.PegHead
+        name="Peg_Head_2"
+        position={[-0.024, 0.624, -0.04]}
+        rotation={[-0.211, 0, 0]}
+        scale={0.001}
+        userData={{ name: 'Peg_Head' }}
+      />
+      <instances.PegHead
+        name="Peg_Head_3"
+        position={[0.02, 0.543, -0.02]}
+        rotation={[-0.211, 0, 0]}
+        scale={0.001}
+        userData={{ name: 'Peg_Head' }}
+      />
+      <instances.PegHead
+        name="Peg_Head_4"
+        position={[0.022, 0.584, -0.028]}
+        rotation={[-0.211, 0, 0]}
+        scale={0.001}
+        userData={{ name: 'Peg_Head' }}
+      />
+      <instances.PegHead
+        name="Peg_Head_5"
+        position={[0.024, 0.624, -0.037]}
+        rotation={[-0.211, 0, 0]}
+        scale={0.001}
+        userData={{ name: 'Peg_Head' }}
+      />
+      <instances.PegHeadTunerRight
+        name="Peg_Head_Tuner_Right"
+        position={[-0.02, 0.544, -0.02]}
+        rotation={[-0.211, 0, 0]}
+        scale={0.001}
+        userData={{ name: 'Peg_Head_Tuner_Right' }}
+      />
+      <instances.PegHeadTunerRight
+        name="Peg_Head_Tuner_Right_1"
+        position={[-0.022, 0.583, -0.031]}
+        rotation={[-0.211, 0, 0]}
+        scale={0.001}
+        userData={{ name: 'Peg_Head_Tuner_Right' }}
+      />
+      <instances.PegHeadTunerRight
+        name="Peg_Head_Tuner_Right_2"
+        position={[-0.024, 0.624, -0.04]}
+        rotation={[-0.211, 0, 0]}
+        scale={0.001}
+        userData={{ name: 'Peg_Head_Tuner_Right' }}
+      />
+      <instances.PegHeadTunerRight
+        name="Peg_Head_Tuner_Right_3"
+        position={[0.02, 0.543, -0.02]}
+        rotation={[-0.211, 0, 0]}
+        scale={0.001}
+        userData={{ name: 'Peg_Head_Tuner_Right' }}
+      />
+      <instances.PegHeadTunerRight
+        name="Peg_Head_Tuner_Right_4"
+        position={[0.022, 0.584, -0.028]}
+        rotation={[-0.211, 0, 0]}
+        scale={0.001}
+        userData={{ name: 'Peg_Head_Tuner_Right' }}
+      />
+      <instances.PegHeadTunerRight
+        name="Peg_Head_Tuner_Right_5"
+        position={[0.024, 0.624, -0.037]}
+        rotation={[-0.211, 0, 0]}
+        scale={0.001}
+        userData={{ name: 'Peg_Head_Tuner_Right' }}
+      />
+      <instances.BodyHeadstock
+        name="Body_Headstock"
+        scale={0.001}
+        userData={{ name: 'Body_Headstock' }}
+      />
+      <instances.BodyPurflingTop
+        name="Body_Purfling_Top"
+        scale={0.001}
+        userData={{ name: 'Body_Purfling_Top' }}
+      />
+      <instances.BodyPurflingBottom
+        name="Body_Purfling_Bottom"
+        scale={0.001}
+        userData={{ name: 'Body_Purfling_Bottom' }}
+      />
+      <instances.BodyPurflingTopVenetianCutaway
+        name="Body_Purfling_Top_Venetian_Cutaway"
+        scale={0.001}
+        userData={{ name: 'Body_Purfling_Top_Venetian_Cutaway' }}
+      />
+      <instances.BodyPurflingBottomVenetianCutaway
+        name="Body_Purfling_Bottom_Venetian_Cutaway"
+        scale={0.001}
+        userData={{ name: 'Body_Purfling_Bottom_Venetian_Cutaway' }}
+      />
+      <instances.BodyPurflingTopFlorentineCutaway
+        name="Body_Purfling_Top_Florentine_Cutaway"
+        scale={0.001}
+        userData={{ name: 'Body_Purfling_Top_Florentine_Cutaway' }}
+      />
+      <instances.BodyPurflingBottomFlorentineCutaway
+        name="Body_Purfling_Bottom_Florentine_Cutaway"
+        scale={0.001}
+        userData={{ name: 'Body_Purfling_Bottom_Florentine_Cutaway' }}
+      />
+      <instances.BodyPurflingTopArmBevel
+        name="Body_Purfling_Top_Arm_Bevel"
+        scale={0.001}
+        userData={{ name: 'Body_Purfling_Top_Arm_Bevel' }}
+      />
+      <instances.BodyPurflingTopArmBevelFlorentineCutaway
+        name="Body_Purfling_Top_Arm_Bevel_Florentine_Cutaway"
+        scale={0.001}
+        userData={{ name: 'Body_Purfling_Top_Arm_Bevel_Florentine_Cutaway' }}
+      />
+      <instances.BodyPurflingTopArmBevelVenetianCutaway
+        name="Body_Purfling_Top_Arm_Bevel_Venetian_Cutaway"
+        scale={0.001}
+        userData={{ name: 'Body_Purfling_Top_Arm_Bevel_Venetian_Cutaway' }}
+      />
+      <instances.BodyBindingTop
+        name="Body_Binding_Top"
+        scale={0.001}
+        userData={{ name: 'Body_Binding_Top' }}
+      />
+      <instances.BodyBindingBottom
+        name="Body_Binding_Bottom"
+        scale={0.001}
+        userData={{ name: 'Body_Binding_Bottom' }}
+      />
+      <instances.BodyBindingTopVenetianCutaway
+        name="Body_Binding_Top_Venetian_Cutaway"
+        scale={0.001}
+        userData={{ name: 'Body_Binding_Top_Venetian_Cutaway' }}
+      />
+      <instances.BodyBindingBottomVenetianCutaway
+        name="Body_Binding_Bottom_Venetian_Cutaway"
+        scale={0.001}
+        userData={{ name: 'Body_Binding_Bottom_Venetian_Cutaway' }}
+      />
+      <instances.BodyBindingTopFlorentineCutaway
+        name="Body_Binding_Top_Florentine_Cutaway"
+        scale={0.001}
+        userData={{ name: 'Body_Binding_Top_Florentine_Cutaway' }}
+      />
+      <instances.BodyBindingBottomFlorentineCutaway
+        name="Body_Binding_Bottom_Florentine_Cutaway"
+        scale={0.001}
+        userData={{ name: 'Body_Binding_Bottom_Florentine_Cutaway' }}
+      />
+      <instances.BodyBindingTopArmBevel
+        name="Body_Binding_Top_Arm_Bevel"
+        scale={0.001}
+        userData={{ name: 'Body_Binding_Top_Arm_Bevel' }}
+      />
+      <instances.BodyBindingTopArmBevelVenetianCutaway
+        name="Body_Binding_Top_Arm_Bevel_Venetian_Cutaway"
+        scale={0.001}
+        userData={{ name: 'Body_Binding_Top_Arm_Bevel_Venetian_Cutaway' }}
+      />
+      <instances.BodyBindingTopArmBevelFlorentineCutaway
+        name="Body_Binding_Top_Arm_Bevel_Florentine_Cutaway"
+        scale={0.001}
+        userData={{ name: 'Body_Binding_Top_Arm_Bevel_Florentine_Cutaway' }}
+      />
+      <instances.BodyStringLowE
+        name="Body_String_LowE"
+        scale={0.001}
+        userData={{ name: 'Body_String_LowE' }}
+      />
+      <instances.BodyStringA
+        name="Body_String_A"
+        scale={0.001}
+        userData={{ name: 'Body_String_A' }}
+      />
+      <instances.BodyStringD
+        name="Body_String_D"
+        scale={0.001}
+        userData={{ name: 'Body_String_D' }}
+      />
+      <instances.BodyStringG
+        name="Body_String_G"
+        scale={0.001}
+        userData={{ name: 'Body_String_G' }}
+      />
+      <instances.BodyStringB
+        name="Body_String_B"
+        scale={0.001}
+        userData={{ name: 'Body_String_B' }}
+      />
+      <instances.BodyStringHighE
+        name="Body_String_HighE"
+        scale={0.001}
+        userData={{ name: 'Body_String_HighE' }}
+      />
     </group>
   )
 }
