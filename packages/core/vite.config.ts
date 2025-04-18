@@ -2,12 +2,13 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import path, { resolve } from 'path'
 import dts from 'vite-plugin-dts'
+import tailwindcss from '@tailwindcss/vite'
 
 import pkg from './package.json'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react(), dts({ outDir: 'lib/types' })],
+  plugins: [react(), tailwindcss(), dts({ outDir: 'lib/types' })],
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
