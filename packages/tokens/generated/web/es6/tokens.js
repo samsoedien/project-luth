@@ -1,9 +1,8 @@
 /**
- * Do not edit directly
- * Generated on Thu, 23 May 2024 12:18:09 GMT
+ * Do not edit directly, this file was auto-generated.
  */
 
-export const TokenColorBaseWhite = '#ffffff'
-export const TokenColorBaseRed = '#ff0000'
-export const TokenColorBaseGreen = '#00ff00'
-export const TokenColorBaseSuccess = '#00ff00'
+export const TokenColorBaseWhite = "#fff";
+export const TokenColorBaseRed = { r: 255, g: 0, b: 0 };
+export const TokenColorBaseGreen = "rgb(0,255,0)";
+export const TokenColorBaseSuccess = "rgb(0,255,0)";

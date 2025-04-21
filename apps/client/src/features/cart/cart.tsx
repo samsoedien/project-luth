@@ -157,7 +157,7 @@ export default function CartComponent(): JSX.Element {
         <div className="text-muted-foreground text-xs">
           Updated <time dateTime="2023-11-23">November 23, 2023</time>
         </div>
-        <Pagination className="ml-auto mr-0 w-auto">
+        <Pagination className="mr-0 ml-auto w-auto">
           <PaginationContent>
             <PaginationItem>
               <Button size="icon" variant="outline" className="h-6 w-6">

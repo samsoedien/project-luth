@@ -3,20 +3,19 @@
 // StyleDictionaryColor.h
 //
 
-// Do not edit directly
-// Generated on Thu, 23 May 2024 12:18:09 GMT
+// Do not edit directly, this file was auto-generated.
 
 
 #import <UIKit/UIKit.h>
 
-typedef NS_ENUM(NSInteger, StyleDictionaryColorName) {
+typedef NS_ENUM(NSInteger, ) {
 TokenColorBaseWhite,
 TokenColorBaseRed,
 TokenColorBaseGreen,
 TokenColorBaseSuccess
 };
 
-@interface StyleDictionaryColor : NSObject
+@interface : NSObject
 + (NSArray *)values;
-+ (UIColor *)color:(StyleDictionaryColorName)color;
++ (UIColor *)color:()color;
 @end

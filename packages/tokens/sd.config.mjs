@@ -1,77 +1,93 @@
-const yaml = require('yaml')
+// const yaml = require('yaml')
 
-module.exports = {
-  parsers: [
-    {
-      // A custom parser will only run against filenames that match the pattern
-      // This pattern will match any file with the .yaml extension.
-      // This allows you to mix different types of files in your token source
-      pattern: /\.yaml$/,
-      // the parse function takes a single argument, which is an object with
-      // 2 attributes: contents which is a string of the file contents, and
-      // filePath which is the path of the file.
-      // The function is expected to return a plain object.
-      parse: ({ contents }) => yaml.parse(contents),
+import yaml from 'yaml'
+import { formats, transformGroups } from 'style-dictionary/enums'
+
+export default {
+  hooks: {
+    parsers: {
+      'yaml-parser': {
+        // A custom parser will only run against filenames that match the pattern
+        // This pattern will match any file with the .yaml extension.
+        // This allows you to mix different types of files in your token source
+        pattern: /\.yaml$/,
+        // the parse function takes a single argument, which is an object with
+        // 2 attributes: contents which is a string of the file contents, and
+        // filePath which is the path of the file.
+        // The function is expected to return a plain object.
+        parser: ({ contents }) => yaml.parse(contents),
+      },
     },
-  ],
+  },
+  parsers: ['yaml-parser'],
   source: [`src/**/*.yaml`],
   platforms: {
+    css: {
+      transformGroup: transformGroups.css,
+      buildPath: 'generated/',
+      files: [
+        {
+          destination: 'variables.css',
+          format: formats.cssVariables,
+        },
+      ],
+    },
     'web/js': {
-      transformGroup: 'js',
+      transformGroup: transformGroups.js,
       buildPath: 'generated/web/es6/',
       prefix: 'token',
       files: [
         {
           destination: 'tokens.js',
-          format: 'javascript/es6',
+          format: formats.javascriptEs6,
         },
       ],
     },
     'web/scss': {
-      transformGroup: 'scss',
+      transformGroup: transformGroups.scss,
       buildPath: 'generated/web/scss/',
       prefix: 'token',
       files: [
         {
           destination: '_variables.scss',
-          format: 'scss/variables',
+          format: formats.scssVariables,
         },
       ],
     },
     'web/json': {
-      transformGroup: 'web',
+      transformGroup: transformGroups.web,
       buildPath: 'generated/web/json/',
       prefix: 'token',
       files: [
         {
           destination: 'tokens.json',
-          format: 'json/flat',
+          format: formats.jsonFlat,
         },
       ],
     },
     android: {
-      transformGroup: 'android',
+      transformGroup: transformGroups.android,
       buildPath: 'generated/android/',
       prefix: 'token',
       files: [
         {
           destination: 'font_dimens.xml',
-          format: 'android/fontDimens',
+          format: formats.androidFontDimens,
         },
         {
           destination: 'colors.xml',
-          format: 'android/colors',
+          format: formats.androidColors,
         },
       ],
     },
     ios: {
-      transformGroup: 'ios',
+      transformGroup: transformGroups.ios,
       buildPath: 'generated/ios/',
       prefix: 'token',
       files: [
         {
           destination: 'StyleDictionaryColor.h',
-          format: 'ios/colors.h',
+          format: formats.iosColorsH,
           className: 'StyleDictionaryColor',
           type: 'StyleDictionaryColorName',
           filter: {
@@ -82,7 +98,7 @@ module.exports = {
         },
         {
           destination: 'StyleDictionaryColor.m',
-          format: 'ios/colors.m',
+          format: formats.iosColorsM,
           className: 'StyleDictionaryColor',
           type: 'StyleDictionaryColorName',
           filter: {
@@ -93,7 +109,7 @@ module.exports = {
         },
         {
           destination: 'StyleDictionarySize.h',
-          format: 'ios/static.h',
+          format: formats.iosStaticH,
           className: 'StyleDictionarySize',
           type: 'float',
           filter: {
@@ -104,7 +120,7 @@ module.exports = {
         },
         {
           destination: 'StyleDictionarySize.m',
-          format: 'ios/static.m',
+          format: formats.iosStaticM,
           className: 'StyleDictionarySize',
           type: 'float',
           filter: {
@@ -116,26 +132,26 @@ module.exports = {
       ],
     },
     'ios-swift': {
-      transformGroup: 'ios-swift',
+      transformGroup: transformGroups.iosSwift,
       buildPath: 'generated/ios-swift/',
       prefix: 'token',
       files: [
         {
           destination: 'StyleDictionary.swift',
-          format: 'ios-swift/class.swift',
+          format: formats.iosSwiftClassSwift,
           className: 'StyleDictionary',
           filter: {},
         },
       ],
     },
     'ios-swift-separate-enums': {
-      transformGroup: 'ios-swift-separate',
+      transformGroup: transformGroups.iosSwiftSeparate,
       buildPath: 'generated/ios-swift/',
       prefix: 'token',
       files: [
         {
           destination: 'StyleDictionaryColor.swift',
-          format: 'ios-swift/enum.swift',
+          format: formats.iosSwiftEnumSwift,
           className: 'StyleDictionaryColor',
           filter: {
             attributes: {
@@ -145,7 +161,7 @@ module.exports = {
         },
         {
           destination: 'StyleDictionarySize.swift',
-          format: 'ios-swift/enum.swift',
+          format: formats.iosSwiftEnumSwift,
           className: 'StyleDictionarySize',
           type: 'float',
           filter: {
