@@ -14,7 +14,7 @@ export default defineConfig({
       name: 'mfe_common',
       filename: 'remoteEntry.js',
       exposes: {
-        './Three': './src/features/Three',
+        // './Three': './src/features/Three',
       },
       shared: ['react'],
     }),

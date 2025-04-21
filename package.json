@@ -30,7 +30,7 @@
     "lint": "yarn lint:scripts && yarn lint:styles",
     "lint:scripts": "eslint \"./packages/**/*.{js,jsx,ts,tsx}\"",
     "lint:styles": "stylelint ./packages/**/*.{css,scss}",
-    "test": "turbo run test ",
+    "test": "turbo run test",
     "build": "turbo build",
     "build:common": "turbo build --filter @project-luth/common",
     "build:tokens": "turbo build --filter @project-luth/tokens",

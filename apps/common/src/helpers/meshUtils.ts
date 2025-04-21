@@ -1,5 +1,4 @@
 import { Group, Mesh, MeshStandardMaterial, Material, TextureLoader } from 'three'
-import { IBaseConfiguration, IComponentData } from '../store/storeold'
 import { GLTFResult } from '../_generated/LuthAcousticParlor'
 import { ELuthComponent, IConfiguration } from '~/models/configuration.model'
 
@@ -28,7 +27,7 @@ export function applyMeshVisibility(group: Group, configuration: IConfiguration)
     if ((child as Mesh).isMesh) {
       const meshName = child.name as keyof GLTFResult['nodes']
 
-      const findVisibility = (components: IComponentData[]): boolean => {
+      const findVisibility = (components: IConfiguration[]): boolean => {
         return components.some(
           (component) =>
             component.meshes.includes(meshName) ||
@@ -51,7 +50,7 @@ export function applyMeshMaterial(group: Group, configuration: IConfiguration): 
       const meshName = mesh.name as keyof GLTFResult['nodes'] // Assert type here
 
       const findMaterial = (
-        components: IComponentData[],
+        components: IConfiguration[],
         meshName: keyof GLTFResult['nodes'],
       ): Material => {
         for (const component of components) {
@@ -78,7 +77,7 @@ export function applyMeshMaterial(group: Group, configuration: IConfiguration): 
 //   const whiteMaterial = new MeshStandardMaterial({ color: 'white' })
 
 //   const findMaterial = (
-//     components: IComponentData[],
+//     components: IConfiguration[],
 //     meshName: keyof GLTFResult['nodes'],
 //   ): MeshStandardMaterial => {
 //     for (const component of components) {
@@ -121,7 +120,7 @@ export function applyMeshMaterial(group: Group, configuration: IConfiguration): 
 export function applyGroupVisibility(group: Group, configuration: IConfiguration): void {
   // Function to determine visibility based on groupVisibility
   const findGroupVisibility = (
-    components: IComponentData[],
+    components: IConfiguration[],
     meshName: keyof GLTFResult['nodes'],
   ): boolean | undefined => {
     for (const component of components) {
@@ -171,7 +170,7 @@ export function applyGroupVisibility(group: Group, configuration: IConfiguration
 //   })
 // }
 
-export function hasUniqueComponentNames(components: IComponentData[]): boolean {
+export function hasUniqueComponentNames(components: IConfiguration[]): boolean {
   const names = components.map((c) => c.name)
   return new Set(names).size === names.length
 }
