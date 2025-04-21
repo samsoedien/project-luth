@@ -1,5 +1,7 @@
 import js from "@eslint/js";
+import eslintConfigPrettier from "eslint-config-prettier";
 import globals from "globals";
+import turboConfig from "eslint-config-turbo/flat";
 import tseslint from "typescript-eslint";
 import pluginReact from "eslint-plugin-react";
 import { defineConfig } from "eslint/config";
@@ -10,4 +12,7 @@ export default defineConfig([
   { files: ["**/*.{js,mjs,cjs,ts,jsx,tsx}"], languageOptions: { globals: {...globals.browser, ...globals.node} } },
   tseslint.configs.recommended,
   pluginReact.configs.flat.recommended,
+  eslintConfigPrettier,
+  ...turboConfig
 ]);
+

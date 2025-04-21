@@ -21,5 +21,6 @@ export default tseslint.config(
       ...reactHooks.configs.recommended.rules,
       'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
     },
+    ignorePatterns: ['dist', 'node_modules', 'coverage', 'build', 'out', 'public'],
   },
 )
