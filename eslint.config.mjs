@@ -13,7 +13,19 @@ export default defineConfig([
     languageOptions: { globals: { ...globals.browser, ...globals.node } },
   },
   {
-    ignores: ['**/dist/*', '**/lib/*', '**/build/*', '**/ui/*', 'coverage/**', 'node_modules/**'],
+    ignores: [
+      '**/dist/*',
+      '**/lib/*',
+      '**/build/*',
+      '**/out/*',
+      '**/public/*',
+      '**/.next/*',
+      '**/ui/*',
+      '**/prisma/*',
+      '**/_generated/*',
+      'coverage/**',
+      'node_modules/**',
+    ],
   },
   tseslint.configs.recommended,
   pluginReact.configs.flat.recommended,
@@ -27,6 +39,9 @@ export default defineConfig([
     },
     rules: {
       'react/react-in-jsx-scope': 'off',
+      'react/no-unknown-property': 'off',
+      '@typescript-eslint/no-unused-vars': 'warn',
+      '@typescript-eslint/no-explicit-any': 'warn',
     },
   },
 ])

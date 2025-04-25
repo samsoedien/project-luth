@@ -28,7 +28,7 @@
     "prisma": "cd apps/client && yarn prisma studio",
     "format": "prettier --write .",
     "lint": "yarn lint:scripts && yarn lint:styles",
-    "lint:scripts": "eslint \"./packages/**/*.{js,jsx,ts,tsx}\"",
+    "lint:scripts": "eslint \"./{apps,packages}/**/*.{js,jsx,ts,tsx}\"",
     "lint:styles": "stylelint ./packages/**/*.{css,scss} --allow-empty-input",
     "test": "turbo run test",
     "build": "turbo build",
