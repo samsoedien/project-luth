@@ -40,8 +40,10 @@ export default defineConfig([
     rules: {
       'react/react-in-jsx-scope': 'off',
       'react/no-unknown-property': 'off',
+      'react/prop-types': 'warn',
       '@typescript-eslint/no-unused-vars': 'warn',
       '@typescript-eslint/no-explicit-any': 'warn',
+      '@typescript-eslint/no-empty-object-type': 'warn',
     },
   },
 ])
