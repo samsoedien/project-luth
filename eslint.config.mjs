@@ -12,8 +12,21 @@ export default defineConfig([
     files: ['**/*.{js,mjs,cjs,ts,jsx,tsx}'],
     languageOptions: { globals: { ...globals.browser, ...globals.node } },
   },
+  {
+    ignores: ['**/dist/*', '**/lib/*', '**/build/*', '**/ui/*', 'coverage/**', 'node_modules/**'],
+  },
   tseslint.configs.recommended,
   pluginReact.configs.flat.recommended,
   eslintConfigPrettier,
   ...turboConfig,
+  {
+    settings: {
+      react: {
+        version: 'detect',
+      },
+    },
+    rules: {
+      'react/react-in-jsx-scope': 'off',
+    },
+  },
 ])

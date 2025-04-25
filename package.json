@@ -29,7 +29,7 @@
     "format": "prettier --write .",
     "lint": "yarn lint:scripts && yarn lint:styles",
     "lint:scripts": "eslint \"./packages/**/*.{js,jsx,ts,tsx}\"",
-    "lint:styles": "stylelint ./packages/**/*.{css,scss}",
+    "lint:styles": "stylelint ./packages/**/*.{css,scss} --allow-empty-input",
     "test": "turbo run test",
     "build": "turbo build",
     "build:common": "turbo build --filter @project-luth/common",
@@ -52,6 +52,7 @@
   "devDependencies": {
     "@commitlint/cli": "^19.8.0",
     "@commitlint/config-conventional": "^19.8.0",
+    "@eslint/js": "^9.25.1",
     "@manypkg/cli": "^0.23.0",
     "@originjs/vite-plugin-federation": "^1.4.1",
     "@types/jest": "^29.5.14",
@@ -73,6 +74,7 @@
     "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.19",
+    "globals": "^16.0.0",
     "husky": "^9.1.7",
     "jest": "^29.7.0",
     "kill-port": "^2.0.1",
@@ -90,6 +92,7 @@
     "stylelint-selector-bem-pattern": "^4.0.1",
     "ts-jest": "^29.3.2",
     "turbo": "^2.5.0",
-    "typescript": "^5.8.3"
+    "typescript": "^5.8.3",
+    "typescript-eslint": "^8.31.0"
   }
 }
