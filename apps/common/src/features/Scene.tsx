@@ -31,7 +31,7 @@ import { useConfigurationStore } from '~/store/store'
 import UVHelper from '~/helpers/uvHelper'
 
 const LuthModel = withMeshConfiguration(LuthDreadnaughtAcoustic)
-// const LuthModel = withMeshConfiguration(LuthAcousticBlender)
+// const LuthModel = withMeshConfiguration(LuthParlorAcoustic)
 
 export default function Scene() {
   const isDebug = true
@@ -62,8 +62,8 @@ export default function Scene() {
           <Suspense fallback={null}>
             {/* <Scroll> */}
             {/* <Sides /> */}
-            <Soundboard />
-            {/* <LuthModel position={[0, 0, 0]} /> */}
+            {/* <Soundboard /> */}
+            <LuthModel position={[0, 0, 0]} />
             <Preload all />
             {/* </Scroll> */}
           </Suspense>
