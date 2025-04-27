@@ -51,7 +51,7 @@ export default function Configurator() {
           zoom: 2,
           polar: [-Math.PI / 3, Math.PI / 3],
           azimuth: [-Math.PI / 4, Math.PI / 4],
-          snap: { mass: 5, tension: 140 },
+          // snap: { mass: 5, tension: 140 },
           config: { mass: 1, tension: 80 },
         })
         break
@@ -61,7 +61,7 @@ export default function Configurator() {
           zoom: 2,
           polar: [-Math.PI / 3, Math.PI / 3],
           azimuth: [-Math.PI / 4, Math.PI / 4],
-          snap: { mass: 5, tension: 140 },
+          // snap: { mass: 5, tension: 140 },
           config: { mass: 1, tension: 80 },
         })
         break
@@ -71,7 +71,7 @@ export default function Configurator() {
           zoom: 2,
           polar: [-Math.PI / 3, Math.PI / 3],
           azimuth: [-Math.PI / 4, Math.PI / 4],
-          snap: { mass: 5, tension: 140 },
+          // snap: { mass: 5, tension: 140 },
           config: { mass: 1, tension: 80 },
         })
         break
@@ -81,7 +81,7 @@ export default function Configurator() {
           zoom: 2,
           polar: [-Math.PI / 3, Math.PI / 3],
           azimuth: [-Math.PI / 4, Math.PI / 4],
-          snap: { mass: 5, tension: 140 },
+          // snap: { mass: 5, tension: 140 },
           config: { mass: 1, tension: 80 },
         })
         break
@@ -91,7 +91,7 @@ export default function Configurator() {
           zoom: 2,
           polar: [-Math.PI / 3, Math.PI / 3],
           azimuth: [-Math.PI / 4, Math.PI / 4],
-          snap: { mass: 5, tension: 140 },
+          // snap: { mass: 5, tension: 140 },
           config: { mass: 1, tension: 80 },
         })
         break

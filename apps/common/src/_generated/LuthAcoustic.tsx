@@ -9,7 +9,7 @@ import React from 'react'
 import { useGLTF, Merged, PerspectiveCamera } from '@react-three/drei'
 import { GLTF } from 'three-stdlib'
 
-type GLTFResult = GLTF & {
+export type GLTFResult = GLTF & {
   nodes: {
     Body_Heel_Block: THREE.Mesh
     Body_Heel_Block_1: THREE.Mesh

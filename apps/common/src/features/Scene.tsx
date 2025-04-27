@@ -19,7 +19,7 @@ import { Perf } from 'r3f-perf'
 import { Suspense, useEffect, useState } from 'react'
 
 import LuthDreadnaughtAcoustic from '../_generated/LuthAcoustic'
-import LuthParlorAcoustic from '../_generated/LuthAcousticParlor'
+// import LuthParlorAcoustic from '../_generated/LuthAcousticParlor'
 
 import withMeshConfiguration from '../components/withMeshConfiguration'
 import Lights from './Lights'
