@@ -52,7 +52,7 @@ export default function Configurator() {
           polar: [-Math.PI / 3, Math.PI / 3],
           azimuth: [-Math.PI / 4, Math.PI / 4],
           // snap: { mass: 5, tension: 140 },
-          config: { mass: 1, tension: 80 },
+          // config: { mass: 1, tension: 80 },
         })
         break
       case ELuthComponent.Back:
@@ -62,7 +62,7 @@ export default function Configurator() {
           polar: [-Math.PI / 3, Math.PI / 3],
           azimuth: [-Math.PI / 4, Math.PI / 4],
           // snap: { mass: 5, tension: 140 },
-          config: { mass: 1, tension: 80 },
+          // config: { mass: 1, tension: 80 },
         })
         break
       case ELuthComponent.Sides:
@@ -72,7 +72,7 @@ export default function Configurator() {
           polar: [-Math.PI / 3, Math.PI / 3],
           azimuth: [-Math.PI / 4, Math.PI / 4],
           // snap: { mass: 5, tension: 140 },
-          config: { mass: 1, tension: 80 },
+          // config: { mass: 1, tension: 80 },
         })
         break
       case ELuthComponent.Binding:
@@ -82,7 +82,7 @@ export default function Configurator() {
           polar: [-Math.PI / 3, Math.PI / 3],
           azimuth: [-Math.PI / 4, Math.PI / 4],
           // snap: { mass: 5, tension: 140 },
-          config: { mass: 1, tension: 80 },
+          // config: { mass: 1, tension: 80 },
         })
         break
       case ELuthComponent.EndGraft:
@@ -92,7 +92,7 @@ export default function Configurator() {
           polar: [-Math.PI / 3, Math.PI / 3],
           azimuth: [-Math.PI / 4, Math.PI / 4],
           // snap: { mass: 5, tension: 140 },
-          config: { mass: 1, tension: 80 },
+          // config: { mass: 1, tension: 80 },
         })
         break
     }

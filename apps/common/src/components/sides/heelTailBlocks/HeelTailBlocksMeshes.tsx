@@ -1,8 +1,8 @@
 import { useContext } from 'react'
 import { context as GLTFJSXContext } from '../../../_generated/LuthAcoustic'
-import { IConfiguration } from '~/store/store'
 import { GLTFJSXInstances } from '~/models/gltfjsx.model'
 import { useInstanceGeometry } from '~/hooks/useInstanceGeometry'
+import { IConfiguration } from '~/models/configuration.model'
 
 export interface IHeelTailBlockMeshesProps {
   configuration: IConfiguration

@@ -8,7 +8,7 @@ export const useInstanceGeometry = (
   configuration: IConfiguration,
 ): {
   instanceGeometry: PositionMesh[]
-  instanceGroupRef: React.RefObject<Group>
+  instanceGroupRef: React.RefObject<Group | null>
 } => {
   const instanceGroupRef = useRef<Group>(null)
   const [instanceGeometry, setInstanceGeometry] = useState<PositionMesh[]>([])

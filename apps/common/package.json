@@ -11,11 +11,9 @@
     "preview": "vite preview --port 8000 --strictPort --host",
     "gltf": "node ./scripts/gltf-pipeline.cjs",
     "gltf:normalize": "node ./scripts/gltf-normalize-uvs.cjs",
-    "model": "yarn model:dreadnaught && yarn model:parlor",
+    "model": "npx gltfjsx ./public/luth-acoustic.glb --types --transform --keepnames --keepmeshes --draco --meta --shadows --exportdefault --instanceall --output ./src/_generated/LuthAcoustic.tsx",
     "model:fork": "npx @rosskevin/gltfjsx ./public/luth-acoustic.glb --types --keepnames --draco --meta --transform --exportdefault --output ./src/_generated/LuthAcousticParlor.tsx",
-    "model:gltfjsx": "npx gltfjsx ./public/luth-acoustic.glb --types --transform --keepnames --keepmeshes --draco --meta --shadows --exportdefault --instanceall --output ./src/_generated/LuthAcoustic.tsx",
     "model:soundboard": "npx gltfjsx ./public/Luth_Soundboard.glb --types --transform --keepnames --keepmeshes --draco --meta --shadows --exportdefault --output ./src/_generated/LuthSoundboard.tsx",
-    "model:dreadnaught": "npx gltfjsx ./public/luth-acoustic.glb --types --transform --keepnames --keepmeshes --draco --meta --shadows --exportdefault --instanceall --output ./src/_generated/LuthAcoustic.tsx",
     "model:parlor": "npx gltfjsx ./public/luth-acoustic-parlor.glb --types --keepnames --draco --meta --transform --exportdefault --debug --output ./src/_generated/LuthAcousticParlor.tsx"
   },
   "dependencies": {

@@ -24,11 +24,9 @@ import LuthDreadnaughtAcoustic from '../_generated/LuthAcoustic'
 import withMeshConfiguration from '../components/withMeshConfiguration'
 import Lights from './Lights'
 
-import Sides from '../_generated/Sides'
 import Soundboard from '../_generated/LuthSoundboard'
 
 import { useConfigurationStore } from '~/store/store'
-import UVHelper from '~/helpers/uvHelper'
 
 const LuthModel = withMeshConfiguration(LuthDreadnaughtAcoustic)
 // const LuthModel = withMeshConfiguration(LuthParlorAcoustic)
@@ -61,7 +59,6 @@ export default function Scene() {
 
           <Suspense fallback={null}>
             {/* <Scroll> */}
-            {/* <Sides /> */}
             {/* <Soundboard /> */}
             <LuthModel position={[0, 0, 0]} />
             <Preload all />

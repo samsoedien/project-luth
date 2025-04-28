@@ -2,10 +2,10 @@ import { GradientTexture, GradientType, Helper, PositionMesh, useTexture } from 
 import { useContext, useRef, useState, useEffect } from 'react'
 import { TextureLoader, RepeatWrapping, BoxHelper, Box3 } from 'three'
 import { context as GLTFJSXContext } from '../../../_generated/LuthAcoustic'
-import { IConfiguration } from '~/store/store'
 import { GLTFJSXInstances } from '~/models/gltfjsx.model'
 import { useInstanceGeometry } from '~/hooks/useInstanceGeometry'
-import { useScaledTexture, useSharedTexture } from '~/hooks/useScaledTexture'
+import { IConfiguration } from '~/models/configuration.model'
+// import { useScaledTexture, useSharedTexture } from '~/hooks/useScaledTexture'
 
 export interface IRosetteMeshesProps {
   configuration: IConfiguration

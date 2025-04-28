@@ -22,55 +22,55 @@ import { ELuthComponent, IConfiguration } from '~/models/configuration.model'
 /**
  * Applies mesh visibility based on the provided configuration.
  */
-export function applyMeshVisibility(group: Group, configuration: IConfiguration): void {
-  group.traverse((child) => {
-    if ((child as Mesh).isMesh) {
-      const meshName = child.name as keyof GLTFResult['nodes']
+// export function applyMeshVisibility(group: Group, configuration: IConfiguration): void {
+//   group.traverse((child) => {
+//     if ((child as Mesh).isMesh) {
+//       const meshName = child.name as keyof GLTFResult['nodes']
 
-      const findVisibility = (components: IConfiguration[]): boolean => {
-        return components.some(
-          (component) =>
-            component.meshes.includes(meshName) ||
-            (component.components && findVisibility(component.components)),
-        )
-      }
+//       const findVisibility = (components: IConfiguration[]): boolean => {
+//         return components.some(
+//           (component) =>
+//             component.meshes.includes(meshName) ||
+//             (component.components && findVisibility(component.components)),
+//         )
+//       }
 
-      child.visible = findVisibility(configuration.components)
-    }
-  })
-}
+//       child.visible = findVisibility(configuration.components)
+//     }
+//   })
+// }
 
 // Function to apply a specified material or fallback to white material to all meshes
-export function applyMeshMaterial(group: Group, configuration: IConfiguration): void {
-  const whiteMaterial = new MeshStandardMaterial({ color: 'white' })
+// export function applyMeshMaterial(group: Group, configuration: IConfiguration): void {
+//   const whiteMaterial = new MeshStandardMaterial({ color: 'white' })
 
-  group.traverse((child) => {
-    if ((child as Mesh).isMesh) {
-      const mesh = child as Mesh
-      const meshName = mesh.name as keyof GLTFResult['nodes'] // Assert type here
+//   group.traverse((child) => {
+//     if ((child as Mesh).isMesh) {
+//       const mesh = child as Mesh
+//       const meshName = mesh.name as keyof GLTFResult['nodes'] // Assert type here
 
-      const findMaterial = (
-        components: IConfiguration[],
-        meshName: keyof GLTFResult['nodes'],
-      ): Material => {
-        for (const component of components) {
-          if (component.meshes.includes(meshName)) {
-            return component.material ?? whiteMaterial
-          }
-          if (component.components) {
-            const material = findMaterial(component.components, meshName)
-            if (material) return material
-          }
-        }
-        return whiteMaterial // Default to whiteMaterial if no matching material is found
-      }
+//       const findMaterial = (
+//         components: IConfiguration[],
+//         meshName: keyof GLTFResult['nodes'],
+//       ): Material => {
+//         for (const component of components) {
+//           if (component.meshes.includes(meshName)) {
+//             return component.material ?? whiteMaterial
+//           }
+//           if (component.components) {
+//             const material = findMaterial(component.components, meshName)
+//             if (material) return material
+//           }
+//         }
+//         return whiteMaterial // Default to whiteMaterial if no matching material is found
+//       }
 
-      const material = findMaterial(configuration.components, meshName)
+//       const material = findMaterial(configuration.components, meshName)
 
-      mesh.material = material
-    }
-  })
-}
+//       mesh.material = material
+//     }
+//   })
+// }
 
 // // Function to apply a specified material or texture to all meshes
 // export function applyMeshMaterial(group: Group, configuration: IConfiguration): void {
@@ -117,40 +117,40 @@ export function applyMeshMaterial(group: Group, configuration: IConfiguration): 
 // }
 
 // Function to apply visibility to specified meshes based on groupVisibility
-export function applyGroupVisibility(group: Group, configuration: IConfiguration): void {
-  // Function to determine visibility based on groupVisibility
-  const findGroupVisibility = (
-    components: IConfiguration[],
-    meshName: keyof GLTFResult['nodes'],
-  ): boolean | undefined => {
-    for (const component of components) {
-      if (component.meshes.includes(meshName)) {
-        return component.groupVisibility ?? true // Default to true if not specified
-      }
-      if (component.components) {
-        const visibility = findGroupVisibility(component.components, meshName)
-        if (visibility !== undefined) return visibility
-      }
-    }
-    return undefined // Return undefined if no matching component is found
-  }
+// export function applyGroupVisibility(group: Group, configuration: IConfiguration): void {
+//   // Function to determine visibility based on groupVisibility
+//   const findGroupVisibility = (
+//     components: IConfiguration[],
+//     meshName: keyof GLTFResult['nodes'],
+//   ): boolean | undefined => {
+//     for (const component of components) {
+//       if (component.meshes.includes(meshName)) {
+//         return component.groupVisibility ?? true // Default to true if not specified
+//       }
+//       if (component.components) {
+//         const visibility = findGroupVisibility(component.components, meshName)
+//         if (visibility !== undefined) return visibility
+//       }
+//     }
+//     return undefined // Return undefined if no matching component is found
+//   }
 
-  // Traverse the group and apply visibility
-  group.traverse((child) => {
-    if ((child as Mesh).isMesh) {
-      const mesh = child as Mesh
-      const meshName = mesh.name as keyof GLTFResult['nodes'] // Assert type here
+//   // Traverse the group and apply visibility
+//   group.traverse((child) => {
+//     if ((child as Mesh).isMesh) {
+//       const mesh = child as Mesh
+//       const meshName = mesh.name as keyof GLTFResult['nodes'] // Assert type here
 
-      // Find visibility based on the configuration
-      const visibility = findGroupVisibility(configuration.components, meshName)
+//       // Find visibility based on the configuration
+//       const visibility = findGroupVisibility(configuration.components, meshName)
 
-      // Only set visibility if the mesh is specified in the components array
-      if (visibility !== undefined) {
-        mesh.visible = visibility
-      }
-    }
-  })
-}
+//       // Only set visibility if the mesh is specified in the components array
+//       if (visibility !== undefined) {
+//         mesh.visible = visibility
+//       }
+//     }
+//   })
+// }
 // // Function to apply a specified material or fallback to white material to all meshes
 // export const applyMeshMaterial = (group: Group, configuration: IConfiguration) => {
 //   const whiteMaterial = new MeshStandardMaterial({ color: 'white' })
