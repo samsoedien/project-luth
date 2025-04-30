@@ -22,9 +22,9 @@ import LuthDreadnaughtAcoustic from '../_generated/LuthAcoustic'
 // import LuthParlorAcoustic from '../_generated/LuthAcousticParlor'
 
 import withMeshConfiguration from '../components/withMeshConfiguration'
-import Lights from './Lights'
+// import Lights from './Lights'
 
-import Soundboard from '../_generated/LuthSoundboard'
+// import Soundboard from '../_generated/LuthSoundboard'
 
 import { useConfigurationStore } from '~/store/store'
 

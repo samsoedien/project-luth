@@ -14,14 +14,14 @@ export default function BridgeMeshes({ configuration, children }: IBridgeMeshesP
   const instances = useContext(GLTFJSXContext) as GLTFJSXInstances
   const { instanceGeometry, instanceGroupRef } = useInstanceGeometry(configuration)
 
-  const bridgeTexture = useTexture('walnut.jpg')
+  // const bridgeTexture = useTexture('walnut.jpg')
 
   return (
     <group name={configuration.name} dispose={null}>
       {instanceGeometry.length > 0 &&
         instanceGeometry.map((child) => (
           <mesh key={child.uuid} name={child.name} geometry={child.geometry}>
-            <meshStandardMaterial map={bridgeTexture} />
+            {/* <meshStandardMaterial map={bridgeTexture} /> */}
           </mesh>
         ))}
       <group ref={instanceGroupRef} scale={0}>

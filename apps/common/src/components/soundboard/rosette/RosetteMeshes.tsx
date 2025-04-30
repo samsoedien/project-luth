@@ -15,7 +15,7 @@ export default function RosetteMeshes({ configuration }: IRosetteMeshesProps) {
   const instances = useContext(GLTFJSXContext) as GLTFJSXInstances
   const { instanceGeometry, instanceGroupRef } = useInstanceGeometry(configuration)
 
-  const soundboardTexture = useTexture('sitka-spruce.jpg')
+  // const soundboardTexture = useTexture('sitka-spruce.jpg')
 
   // // const desiredTextureWidth = 1024
   // // const desiredTextureHeight = 1024

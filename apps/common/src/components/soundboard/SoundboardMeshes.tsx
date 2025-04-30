@@ -46,22 +46,22 @@ export default function SoundboardMeshes({ configuration, children }: ISoundboar
   // soundboardTexture.repeat.x = 2
   // soundboardTexture.wrapS = MirroredRepeatWrapping
 
-  const soundboardBaseColorMap = useTexture('spruce-test_BaseColor.jpg')
-  const soundboardAOMap = useTexture('spruce-test_AmbientOcclusion.jpg')
-  const soundboardNormalMap = useTexture('spruce-test_Normal.jpg')
-  const soundboardHeightMap = useTexture('spruce-test_Height.jpg')
-  const soundboardMetalicMap = useTexture('spruce-test_Metallic.jpg')
-  const soundboardRoughnessMap = useTexture('spruce-test_Roughness.jpg')
+  // const soundboardBaseColorMap = useTexture('spruce-test_BaseColor.jpg')
+  // const soundboardAOMap = useTexture('spruce-test_AmbientOcclusion.jpg')
+  // const soundboardNormalMap = useTexture('spruce-test_Normal.jpg')
+  // const soundboardHeightMap = useTexture('spruce-test_Height.jpg')
+  // const soundboardMetalicMap = useTexture('spruce-test_Metallic.jpg')
+  // const soundboardRoughnessMap = useTexture('spruce-test_Roughness.jpg')
 
-  const Wood0244BaseColor = useTexture('Wood_024_basecolor.jpg')
-  const Wood0244Height = useTexture('Wood_024_height.jpg')
-  const Wood024Normal = useTexture('Wood_024_normal.jpg')
-  const Wood024Roughness = useTexture('Wood_024_roughness.jpg')
-  const Wood024AmbientOcclusion = useTexture('Wood_024_ambientOcclusion.jpg')
+  // const Wood0244BaseColor = useTexture('Wood_024_basecolor.jpg')
+  // const Wood0244Height = useTexture('Wood_024_height.jpg')
+  // const Wood024Normal = useTexture('Wood_024_normal.jpg')
+  // const Wood024Roughness = useTexture('Wood_024_roughness.jpg')
+  // const Wood024AmbientOcclusion = useTexture('Wood_024_ambientOcclusion.jpg')
 
   // Generate procedural textures for metalness and roughness maps
-  const proceduralMetalnessMap: Texture = generateProceduralTexture('metalness')
-  const proceduralRoughnessMap: Texture = generateProceduralTexture('roughness')
+  // const proceduralMetalnessMap: Texture = generateProceduralTexture('metalness')
+  // const proceduralRoughnessMap: Texture = generateProceduralTexture('roughness')
 
   return (
     <group name={configuration.name} dispose={null}>
@@ -76,7 +76,8 @@ export default function SoundboardMeshes({ configuration, children }: ISoundboar
               receiveShadow
               onClick={(e) => console.log('click', configuration)}
             >
-              <meshStandardMaterial map={soundboardBaseColorMap} />
+              <meshNormalMaterial />
+              {/* <meshStandardMaterial map={soundboardBaseColorMap} /> */}
               {/* <meshStandardMaterial
                 map={soundboardBaseColorMap}
                 aoMap={soundboardAOMap}

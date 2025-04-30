@@ -14,13 +14,13 @@ export default function SidesMeshes({ configuration, children }: ISidesMeshesPro
   const instances = useContext(GLTFJSXContext) as GLTFJSXInstances
   const { instanceGeometry, instanceGroupRef } = useInstanceGeometry(configuration)
 
-  const koaBaseColorMap = useTexture('koa.jpg')
+  // const koaBaseColorMap = useTexture('koa.jpg')
 
-  const Wood0244BaseColor = useTexture('Wood_024_basecolor.jpg')
-  const Wood0244Height = useTexture('Wood_024_height.jpg')
-  const Wood024Normal = useTexture('Wood_024_normal.jpg')
-  const Wood024Roughness = useTexture('Wood_024_roughness.jpg')
-  const Wood024AmbientOcclusion = useTexture('Wood_024_ambientOcclusion.jpg')
+  // const Wood0244BaseColor = useTexture('Wood_024_basecolor.jpg')
+  // const Wood0244Height = useTexture('Wood_024_height.jpg')
+  // const Wood024Normal = useTexture('Wood_024_normal.jpg')
+  // const Wood024Roughness = useTexture('Wood_024_roughness.jpg')
+  // const Wood024AmbientOcclusion = useTexture('Wood_024_ambientOcclusion.jpg')
 
   return (
     <group name={configuration.name} dispose={null}>
@@ -34,14 +34,14 @@ export default function SidesMeshes({ configuration, children }: ISidesMeshesPro
             receiveShadow
             onClick={(e) => console.log('click', e)}
           >
-            {/* <meshNormalMaterial /> */}
-            <meshStandardMaterial
+            <meshNormalMaterial />
+            {/* <meshStandardMaterial
               map={Wood0244BaseColor}
               displacementMap={Wood0244Height}
               roughnessMap={Wood024Roughness}
               normalMap={Wood024Normal}
               aoMap={Wood024AmbientOcclusion}
-            />
+            /> */}
             {child.userData.annotations && (
               <Html occlude>{`Thickness: ${child.userData.annotations.thickness}`}</Html>
             )}

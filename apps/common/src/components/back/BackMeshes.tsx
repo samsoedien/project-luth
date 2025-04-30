@@ -17,7 +17,7 @@ export default function BackMeshes({ configuration, children }: IBackMeshesProps
 
   console.log('BackMeshes instanceGeometry:', instanceGeometry)
 
-  const koaBaseColorMap = useTexture('koa.jpg')
+  // const koaBaseColorMap = useTexture('koa.jpg')
   // const koaBaseColorMap = useTexture('sitka-spruce.jpg')
 
   return (
@@ -32,8 +32,8 @@ export default function BackMeshes({ configuration, children }: IBackMeshesProps
             receiveShadow
             onClick={(e) => console.log('click', e)}
           >
-            <meshStandardMaterial map={koaBaseColorMap} />
-            {/* <meshNormalMaterial /> */}
+            {/* <meshStandardMaterial map={koaBaseColorMap} /> */}
+            <meshNormalMaterial />
           </mesh>
         ))}
       {/* {instanceGeometry.length > 0 &&

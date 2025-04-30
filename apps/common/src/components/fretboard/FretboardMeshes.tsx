@@ -14,14 +14,12 @@ export default function FretboardMeshes({ configuration, children }: IFretboardM
   const instances = useContext(GLTFJSXContext) as GLTFJSXInstances
   const { instanceGeometry, instanceGroupRef } = useInstanceGeometry(configuration)
 
-  const fretboardTexture = useTexture('walnut.jpg')
-
   return (
     <group name={configuration.name} dispose={null} visible={configuration?.groupVisibility}>
       {instanceGeometry.length > 0 &&
         instanceGeometry.map((child) => (
           <mesh key={child.uuid} name={child.name} geometry={child.geometry}>
-            <meshStandardMaterial map={fretboardTexture} />
+            <meshNormalMaterial />
           </mesh>
         ))}
       <group ref={instanceGroupRef} scale={0}>
