@@ -33,7 +33,7 @@ const withMeshConfiguration = <P extends IWithMeshConfigurationProps>(
   GLTFJSXComponent: React.ComponentType<P>,
   // configuration: IConfiguration,
 ) => {
-  return (props: P) => {
+  const WrappedComponent = (props: P) => {
     const configuration = useConfigurationStore((state) => state.configuration)
     const {
       soundboardConfiguration,
@@ -152,6 +152,10 @@ const withMeshConfiguration = <P extends IWithMeshConfigurationProps>(
       </group>
     )
   }
+
+  WrappedComponent.displayName = `withMeshConfiguration(${GLTFJSXComponent.displayName || GLTFJSXComponent.name || 'Component'})`
+
+  return WrappedComponent
 }
 
 export default withMeshConfiguration
