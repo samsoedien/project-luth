@@ -1,5 +1,6 @@
 import { useContext } from 'react'
-import { context as GLTFJSXContext } from '../../_generated//LuthAcoustic'
+// import { context as GLTFJSXContext } from '../../_generated//LuthAcoustic'
+import { context as GLTFJSXContext } from '../../_generated//LuthSides'
 import { GLTFJSXInstances } from '~/models/gltfjsx.model'
 import { useInstanceGeometry } from '~/hooks/useInstanceGeometry'
 import { IConfiguration } from '~/models/configuration.model'
@@ -48,7 +49,7 @@ export default function SidesMeshes({ configuration, children }: ISidesMeshesPro
           </mesh>
         ))}
       <group ref={instanceGroupRef} scale={0}>
-        {/* <instances.BodySides name="Body_Sides" /> */}
+        <instances.BodySides name="Body_Sides" />
         <instances.BodySidesVenetianCutaway
           name="Body_Sides_Venetian_Cutaway"
           userData={{ annotations: { thickness: 3 } }}

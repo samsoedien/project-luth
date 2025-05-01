@@ -1,5 +1,6 @@
 import React from 'react'
-import { Instances } from '~/_generated/LuthAcoustic'
+// import { LuthSoundboardInstances as Instances } from '~/_generated/LuthSoundboard'
+import { Instances } from '~/_generated/LuthSides'
 
 import SoundboardMeshes from '~/components/soundboard/SoundboardMeshes'
 import BracesMeshes from '~/components/soundboard/braces/BracesMeshes'
@@ -107,22 +108,28 @@ const withMeshConfiguration = <P extends IWithMeshConfigurationProps>(
       return
 
     return (
-      <group scale={0.001}>
+      <group scale={1}>
         <Instances>
           {configuration ? (
             <>
-              <SoundboardMeshes configuration={soundboardConfiguration}>
-                <RosetteMeshes configuration={rosetteConfiguration} />
-                <BracesMeshes configuration={bracesConfiguration} />
-              </SoundboardMeshes>
-              <BackMeshes configuration={backConfiguration}>
+              {/* <SoundboardMeshes configuration={soundboardConfiguration}>
+                <mesh position={[0, 0, 4]}>
+                  <boxGeometry />
+                </mesh> */}
+              {/* <RosetteMeshes configuration={rosetteConfiguration} />
+                <BracesMeshes configuration={bracesConfiguration} /> */}
+              {/* </SoundboardMeshes> */}
+              {/* <BackMeshes configuration={backConfiguration}>
                 <BackStripMeshes configuration={backStripConfiguration} />
-              </BackMeshes>
+              </BackMeshes> */}
               <SidesMeshes configuration={sidesConfiguration}>
-                <HeelTailBlockMeshes configuration={heelTailBlockConfiguration} />
-                <EndGraftMeshes configuration={endGraftConfiguration} />
+                <mesh position={[0, 0, 4]}>
+                  <boxGeometry />
+                </mesh>
               </SidesMeshes>
-              <BindingMeshes configuration={bindingConfiguration}>
+              {/* <HeelTailBlockMeshes configuration={heelTailBlockConfiguration} />
+                <EndGraftMeshes configuration={endGraftConfiguration} />*/}
+              {/* <BindingMeshes configuration={bindingConfiguration}>
                 <PurflingMeshes configuration={purflingConfiguration} />
               </BindingMeshes>
               <NeckMeshes configuration={neckConfiguration}>
@@ -143,7 +150,7 @@ const withMeshConfiguration = <P extends IWithMeshConfigurationProps>(
               <BridgeMeshes configuration={bridgeConfiguration}>
                 <SaddleMeshes configuration={saddleConfiguration} />
               </BridgeMeshes>
-              <StringsMeshes configuration={stringsConfiguration} />
+              <StringsMeshes configuration={stringsConfiguration} /> */}
             </>
           ) : (
             <GLTFJSXComponent {...props} position={[0, 0, 0]} />

@@ -18,7 +18,7 @@ import { Perf } from 'r3f-perf'
 
 import { Suspense, useEffect, useState } from 'react'
 
-import LuthDreadnaughtAcoustic from '../_generated/LuthAcoustic'
+import LuthDreadnaughtAcoustic from '../_generated/LuthAcousticTest'
 // import LuthParlorAcoustic from '../_generated/LuthAcousticParlor'
 
 import withMeshConfiguration from '../components/withMeshConfiguration'
@@ -27,9 +27,11 @@ import withMeshConfiguration from '../components/withMeshConfiguration'
 // import Soundboard from '../_generated/LuthSoundboard'
 
 import { useConfigurationStore } from '~/store/store'
+import LuthSides from '~/_generated/LuthSides'
+// import { LuthSoundboard } from '~/_generated/LuthSoundboard'
 
-const LuthModel = withMeshConfiguration(LuthDreadnaughtAcoustic)
-// const LuthModel = withMeshConfiguration(LuthParlorAcoustic)
+const LuthModel = withMeshConfiguration(LuthSides)
+// const LuthModel = withMeshConfiguration(LuthSoundboard)
 
 export default function Scene() {
   const isDebug = true
@@ -38,7 +40,7 @@ export default function Scene() {
 
   return (
     <Canvas>
-      {isDebug && <Perf position="top-left" />}
+      {/* {isDebug && <Perf position="top-left" />} */}
       <Stage adjustCamera={false}>
         {/* <Lights /> */}
         <PresentationControls
@@ -58,9 +60,14 @@ export default function Scene() {
           {/* </EffectComposer> */}
 
           <Suspense fallback={null}>
-            {/* <Scroll> */}
-            {/* <Soundboard /> */}
+            {/* <LuthDreadnaughtAcoustic /> */}
+            {/* <LuthSoundboard /> */}
+            {/* <Instances>
+              <LuthSides scale={10} />
+            </Instances> */}
+            {/* <LuthSoundboard scale={1} /> */}
             <LuthModel position={[0, 0, 0]} />
+            {/* <LuthModel position={[0, 0, 0]} /> */}
             <Preload all />
             {/* </Scroll> */}
           </Suspense>
