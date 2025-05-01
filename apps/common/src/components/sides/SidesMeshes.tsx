@@ -1,10 +1,13 @@
 import { useContext } from 'react'
 // import { context as GLTFJSXContext } from '../../_generated//LuthAcoustic'
-import { context as GLTFJSXContext } from '../../_generated//LuthSides'
+import LuthSides, { context as GLTFJSXContext, Instances } from '~/_generated/LuthSides'
+
 import { GLTFJSXInstances } from '~/models/gltfjsx.model'
 import { useInstanceGeometry } from '~/hooks/useInstanceGeometry'
 import { IConfiguration } from '~/models/configuration.model'
-import { Html, useTexture } from '@react-three/drei'
+import { createInstances, Html, useTexture } from '@react-three/drei'
+
+// const [Instances, LuthSidesTest] = createInstances()
 
 export interface ISidesMeshesProps {
   configuration: IConfiguration
@@ -15,16 +18,9 @@ export default function SidesMeshes({ configuration, children }: ISidesMeshesPro
   const instances = useContext(GLTFJSXContext) as GLTFJSXInstances
   const { instanceGeometry, instanceGroupRef } = useInstanceGeometry(configuration)
 
-  // const koaBaseColorMap = useTexture('koa.jpg')
-
-  // const Wood0244BaseColor = useTexture('Wood_024_basecolor.jpg')
-  // const Wood0244Height = useTexture('Wood_024_height.jpg')
-  // const Wood024Normal = useTexture('Wood_024_normal.jpg')
-  // const Wood024Roughness = useTexture('Wood_024_roughness.jpg')
-  // const Wood024AmbientOcclusion = useTexture('Wood_024_ambientOcclusion.jpg')
-
+  console.log(instanceGeometry)
   return (
-    <group name={configuration.name} dispose={null}>
+    <group name={configuration.name} dispose={null} scale={1} position={[0, 0, 0]}>
       {instanceGeometry.length > 0 &&
         instanceGeometry.map((child) => (
           <mesh
@@ -36,20 +32,17 @@ export default function SidesMeshes({ configuration, children }: ISidesMeshesPro
             onClick={(e) => console.log('click', e)}
           >
             <meshNormalMaterial />
-            {/* <meshStandardMaterial
-              map={Wood0244BaseColor}
-              displacementMap={Wood0244Height}
-              roughnessMap={Wood024Roughness}
-              normalMap={Wood024Normal}
-              aoMap={Wood024AmbientOcclusion}
-            /> */}
             {child.userData.annotations && (
               <Html occlude>{`Thickness: ${child.userData.annotations.thickness}`}</Html>
             )}
           </mesh>
         ))}
       <group ref={instanceGroupRef} scale={0}>
-        <instances.BodySides name="Body_Sides" />
+        {/* <LuthSidesInstances scale={10} /> */}
+        <Instances>
+          <LuthSides scale={1} />
+        </Instances>
+        {/*    <instances.BodySides name="Body_Sides" />
         <instances.BodySidesVenetianCutaway
           name="Body_Sides_Venetian_Cutaway"
           userData={{ annotations: { thickness: 3 } }}
@@ -59,9 +52,8 @@ export default function SidesMeshes({ configuration, children }: ISidesMeshesPro
         <instances.BodySidesArmBevel name="Body_Sides_Arm_Bevel" />
         <instances.BodySidesArmBevelVenetianCutaway name="Body_Sides_Arm_Bevel_Venetian_Cutaway" />
         <instances.BodySidesArmBevelFlorentineCutaway name="Body_Sides_Arm_Bevel_Florentine_Cutaway" />
-        <instances.BodySidesArmBevelScallopedCutaway name="Body_Sides_Arm_Bevel_Scalloped_Cutaway" />
+        <instances.BodySidesArmBevelScallopedCutaway name="Body_Sides_Arm_Bevel_Scalloped_Cutaway" /> */}
       </group>
-
       {children}
     </group>
   )

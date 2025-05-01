@@ -76,7 +76,7 @@ export default function Scene() {
 
         {/* <CameraControls /> */}
         {/* <OrbitControls /> */}
-        <PerspectiveCamera makeDefault position={[0, 0, 1]} />
+        {/* <PerspectiveCamera makeDefault /> */}
       </Stage>
     </Canvas>
   )

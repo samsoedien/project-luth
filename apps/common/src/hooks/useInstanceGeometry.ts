@@ -23,12 +23,16 @@ export const useInstanceGeometry = (
       }
     })
 
+    console.log('configuration.meshes', configuration.meshes)
+
     setInstanceGeometry(
       geometries.filter((child) =>
         configuration.meshes.includes(child.name as keyof GLTFResult['nodes']),
       ),
     )
   }, [configuration.meshes])
+
+  // console.log('instanceGeometry', instanceGeometry)
 
   return { instanceGeometry, instanceGroupRef }
 }
