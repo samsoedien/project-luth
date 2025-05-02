@@ -15,8 +15,11 @@
     "model:test": "npx gltfjsx@6.5.0 ./public/luth-acoustic.glb --types --transform --keepnames --keepmeshes --draco --meta --shadows --exportdefault --output ./src/_generated/LuthAcousticTest.tsx",
     "model:suz": "npx gltfjsx@6.5.0 ./public/suzanne.gltf --types --transform  --output ./src/_generated/Model.tsx",
     "model:fork": "npx @rosskevin/gltfjsx ./public/luth-acoustic.glb --types --keepnames --draco --meta --transform --exportdefault --output ./src/_generated/LuthAcousticRoss.tsx",
-    "model:sides": "npx gltfjsx@6.5.0 ./public/Sides_Collection.glb --transform --types --keepnames --keepmeshes --draco --meta --shadows --exportdefault --instanceall --output ./src/_generated/LuthSides.tsx",
-    "model:soundboard": "npx @rosskevin/gltfjsx ./public/Soundboard_Collection.glb --transform --types --keepnames --keepmeshes --draco --meta --shadows --exportdefault  --instanceall --output ./src/_generated/LuthSoundboard.tsx"
+    "model:sides": "npx @rosskevin/gltfjsx ./public/Sides_Collection.glb --transform --types --keepnames --keepmeshes --draco --meta --shadows --exportdefault --instanceall --output ./src/_generated/LuthSides.tsx",
+    "model:heeltailblocks": "npx @rosskevin/gltfjsx ./public/Heel_Tail_Blocks_Collection.glb --transform --types --keepnames --keepmeshes --draco --meta --shadows --exportdefault --instanceall --output ./src/_generated/LuthHeelTailBlocks.tsx",
+    "model:soundboard": "npx @rosskevin/gltfjsx ./public/Soundboard_Collection.glb --transform --types --keepnames --keepmeshes --draco --meta --shadows --exportdefault  --instanceall --output ./src/_generated/LuthSoundboard.tsx",
+    "model:parlor": "npx @rosskevin/gltfjsx ./public/Parlor_Collection.glb --transform --types --keepnames --keepmeshes --draco --meta --shadows --exportdefault  --instanceall --output ./src/_generated/LuthParlor.tsx",
+    "model:flor": "npx @rosskevin/gltfjsx ./public/Body_Sides_Florentine_Cutaway.glb --transform --types --keepnames --keepmeshes --draco --meta --shadows --exportdefault  --instanceall --output ./src/_generated/LuthFlor.tsx"
   },
   "dependencies": {
     "@react-three/drei": "^10.0.6",

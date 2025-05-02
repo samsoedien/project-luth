@@ -1,6 +1,10 @@
 import { useContext } from 'react'
 // import { context as GLTFJSXContext } from '../../_generated//LuthAcoustic'
-import LuthSides, { context as GLTFJSXContext, Instances } from '~/_generated/LuthSides'
+import {
+  LuthSides,
+  context as GLTFJSXContext,
+  LuthSidesInstances as Instances,
+} from '~/_generated/LuthSides'
 
 import { GLTFJSXInstances } from '~/models/gltfjsx.model'
 import { useInstanceGeometry } from '~/hooks/useInstanceGeometry'
@@ -18,7 +22,6 @@ export default function SidesMeshes({ configuration, children }: ISidesMeshesPro
   const instances = useContext(GLTFJSXContext) as GLTFJSXInstances
   const { instanceGeometry, instanceGroupRef } = useInstanceGeometry(configuration)
 
-  console.log(instanceGeometry)
   return (
     <group name={configuration.name} dispose={null} scale={1} position={[0, 0, 0]}>
       {instanceGeometry.length > 0 &&
@@ -37,7 +40,7 @@ export default function SidesMeshes({ configuration, children }: ISidesMeshesPro
             )}
           </mesh>
         ))}
-      <group ref={instanceGroupRef} scale={0}>
+      <group ref={instanceGroupRef} scale={0.2}>
         {/* <LuthSidesInstances scale={10} /> */}
         <Instances>
           <LuthSides scale={1} />

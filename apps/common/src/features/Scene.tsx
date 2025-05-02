@@ -27,7 +27,7 @@ import withMeshConfiguration from '../components/withMeshConfiguration'
 // import Soundboard from '../_generated/LuthSoundboard'
 
 import { useConfigurationStore } from '~/store/store'
-import LuthSides from '~/_generated/LuthSides'
+import { LuthSides } from '~/_generated/LuthSides'
 // import { LuthSoundboard } from '~/_generated/LuthSoundboard'
 
 const LuthModel = withMeshConfiguration(LuthSides)
