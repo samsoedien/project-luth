@@ -22,14 +22,14 @@
     "model:flor": "npx @rosskevin/gltfjsx ./public/Body_Sides_Florentine_Cutaway.glb --transform --types --keepnames --keepmeshes --draco --meta --shadows --exportdefault  --instanceall --output ./src/_generated/LuthFlor.tsx"
   },
   "dependencies": {
-    "@react-three/drei": "^10.0.6",
+    "@react-three/drei": "^10.0.7",
     "@react-three/fiber": "^9.1.2",
     "@react-three/postprocessing": "^3.0.4",
     "leva": "^0.10.0",
     "postprocessing": "^6.37.2",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
-    "three": "^0.176.0",
+    "three": "^0.175.0",
     "zustand": "^5.0.4"
   },
   "devDependencies": {
