@@ -1,83 +1,48 @@
-import {
-  Stage,
-  OrbitControls,
-  PresentationControls,
-  MeshReflectorMaterial,
-  Preload,
-  Helper,
-  PerspectiveCamera,
-  Center,
-  ScrollControls,
-  useScroll,
-  Scroll,
-  CameraControls,
-  Grid,
-} from '@react-three/drei'
-import { Canvas, useFrame, useLoader } from '@react-three/fiber'
+import { Stage, PresentationControls, Preload, Loader, PerspectiveCamera } from '@react-three/drei'
+import { Canvas } from '@react-three/fiber'
 import { Perf } from 'r3f-perf'
 
-import { Suspense, useEffect, useState } from 'react'
-
-import LuthDreadnaughtAcoustic from '../_generated/LuthAcousticTest'
-// import LuthParlorAcoustic from '../_generated/LuthAcousticParlor'
-
-import withMeshConfiguration from '../components/withMeshConfiguration'
-// import Lights from './Lights'
-
-// import Soundboard from '../_generated/LuthSoundboard'
+import { ReactNode, Suspense, useEffect, useRef } from 'react'
 
 import { useConfigurationStore } from '~/store/store'
-import { LuthSides } from '~/_generated/LuthSides'
-// import { LuthSoundboard } from '~/_generated/LuthSoundboard'
 
-const LuthModel = withMeshConfiguration(LuthSides)
-// const LuthModel = withMeshConfiguration(LuthSoundboard)
+interface ISceneProps {
+  children: ReactNode
+}
 
-export default function Scene() {
+export default function Scene({ children }: ISceneProps) {
   const isDebug = true
 
   const controls = useConfigurationStore((state) => state.controls)
+  console.log('controls', controls)
+
+  const ref = useRef<any>(null)
+
+  useEffect(() => {
+    if (!ref.current) return
+
+    console.log('ref', ref.current)
+
+    if (controls.rotation) {
+      ref.current.group.rotation.set(...controls.rotation)
+    }
+  }, [controls])
 
   return (
-    <Canvas>
-      {/* {isDebug && <Perf position="top-left" />} */}
-      <Stage adjustCamera={false}>
-        {/* <Lights /> */}
-        <PresentationControls
-          enabled={true} // the controls can be disabled by setting this to false
-          global={true} // Spin globally or by dragging the model
-          cursor={false} // Whether to toggle cursor style on drag
-          speed={2} // Speed factor
-          {...controls}
-        >
-          {/* <ScrollControls pages={3} damping={0.1} horizontal> */}
-
-          {/* <EffectComposer> */}
-          {/* <DepthOfField focusDistance={0} focalLength={0.02} bokehScale={2} height={480} /> */}
-          {/* <Bloom luminanceThreshold={0} luminanceSmoothing={0.9} height={300} /> */}
-          {/* <Noise opacity={0.02} /> */}
-          {/* <Vignette eskil={false} offset={0.1} darkness={1.1} /> */}
-          {/* </EffectComposer> */}
-
-          <Suspense fallback={null}>
-            {/* <LuthDreadnaughtAcoustic /> */}
-            {/* <LuthSoundboard /> */}
-            {/* <Instances>
-              <LuthSides scale={10} />
-            </Instances> */}
-            {/* <LuthSoundboard scale={1} /> */}
-            <LuthModel position={[0, 0, 0]} />
-            {/* <LuthModel position={[0, 0, 0]} /> */}
-            <Preload all />
-            {/* </Scroll> */}
-          </Suspense>
-          {/* </ScrollControls> */}
-        </PresentationControls>
-
-        {/* <CameraControls /> */}
-        {/* <OrbitControls /> */}
-        {/* <PerspectiveCamera makeDefault /> */}
-      </Stage>
-    </Canvas>
+    <>
+      <Canvas>
+        {isDebug && <Perf position="top-left" />}
+        <Stage adjustCamera={false}>
+          <PresentationControls ref={ref} enabled={true} speed={2} global={true} {...controls}>
+            <Suspense fallback={null}>
+              {children}
+              <Preload all />
+            </Suspense>
+          </PresentationControls>
+          <PerspectiveCamera makeDefault position={[0, 0, 2]} />
+        </Stage>
+      </Canvas>
+      <Loader />
+    </>
   )
 }

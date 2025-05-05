@@ -3,7 +3,7 @@ import { useContext, useEffect, useRef } from 'react'
 import {
   LuthSoundboard,
   context as GLTFJSXContext,
-  LuthSoundboardInstances,
+  LuthSoundboardInstances as Instances,
 } from '../../_generated/LuthSoundboard'
 import { useInstanceGeometry } from '~/hooks/useInstanceGeometry'
 // import { Mesh, MirroredRepeatWrapping, Texture } from 'three'
@@ -63,9 +63,9 @@ export default function SoundboardMeshes({ configuration, children }: ISoundboar
             </mesh>
           )
         })} */}
-      <LuthSoundboardInstances>
-        <LuthSoundboard scale={1} />
-      </LuthSoundboardInstances>
+      <Instances>
+        <LuthSoundboard />
+      </Instances>
       {/* <group ref={instanceGroupRef} scale={0}>
         <instances.BodySoundboard name="Body_Soundboard" />
         <instances.BodySoundboardVenetianCutaway name="Body_Soundboard_Venetian_Cutaway" />

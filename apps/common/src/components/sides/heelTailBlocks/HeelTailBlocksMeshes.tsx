@@ -25,7 +25,7 @@ export default function HeelTailBlockMeshes({ configuration }: IHeelTailBlockMes
           </mesh>
         ))
       ) : ( */}
-      <group ref={instanceGroupRef} scale={0.2}>
+      <group ref={instanceGroupRef} scale={1}>
         <Instances>
           <LuthHeelTailBlocks />
         </Instances>

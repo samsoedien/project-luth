@@ -11,7 +11,7 @@
     "preview": "vite preview --port 8000 --strictPort --host",
     "gltf": "node ./scripts/gltf-pipeline.cjs",
     "gltf:normalize": "node ./scripts/gltf-normalize-uvs.cjs",
-    "model": "npx gltfjsx@6.5.0 ./public/luth-acoustic.glb --types --transform --keepnames --keepmeshes --draco --meta --shadows --exportdefault --instanceall --output ./src/_generated/LuthAcoustic.tsx",
+    "model": "npx gltfjsx@6.5.0 ./public/luth-acoustic.glb --types --transform --keepnames --keepmeshes --draco --meta --shadows --exportdefault --output ./src/_generated/LuthAcoustic.tsx",
     "model:test": "npx gltfjsx@6.5.0 ./public/luth-acoustic.glb --types --transform --keepnames --keepmeshes --draco --meta --shadows --exportdefault --output ./src/_generated/LuthAcousticTest.tsx",
     "model:suz": "npx gltfjsx@6.5.0 ./public/suzanne.gltf --types --transform  --output ./src/_generated/Model.tsx",
     "model:fork": "npx @rosskevin/gltfjsx ./public/luth-acoustic.glb --types --keepnames --draco --meta --transform --exportdefault --output ./src/_generated/LuthAcousticRoss.tsx",
@@ -26,10 +26,10 @@
     "@react-three/fiber": "^9.1.2",
     "@react-three/postprocessing": "^3.0.4",
     "leva": "^0.10.0",
-    "postprocessing": "^6.37.2",
+    "postprocessing": "^6.37.3",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
-    "three": "^0.175.0",
+    "three": "^0.166.1",
     "zustand": "^5.0.4"
   },
   "devDependencies": {

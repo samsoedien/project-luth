@@ -23,7 +23,7 @@ export default function SidesMeshes({ configuration, children }: ISidesMeshesPro
   const { instanceGeometry, instanceGroupRef } = useInstanceGeometry(configuration)
 
   return (
-    <group name={configuration.name} dispose={null} scale={1} position={[0, 0, 0]}>
+    <group name={configuration.name} dispose={null}>
       {instanceGeometry.length > 0 &&
         instanceGeometry.map((child) => (
           <mesh
@@ -40,10 +40,10 @@ export default function SidesMeshes({ configuration, children }: ISidesMeshesPro
             )}
           </mesh>
         ))}
-      <group ref={instanceGroupRef} scale={0.2}>
+      <group ref={instanceGroupRef} scale={1}>
         {/* <LuthSidesInstances scale={10} /> */}
         <Instances>
-          <LuthSides scale={1} />
+          <LuthSides />
         </Instances>
         {/*    <instances.BodySides name="Body_Sides" />
         <instances.BodySidesVenetianCutaway

@@ -184,16 +184,16 @@ export const createOptionsSlice: StateCreator<StoreState, [], [], IOptionsStoreS
 
 /** UI CONTROLS STATE SLICE */
 
-interface IControls extends PresentationControlProps {
-  rotation: [number, number, number]
-}
+// interface IControls extends PresentationControlProps {
+//   rotation: [number, number, number]
+// }
 
 export interface IUIControlsStoreState {
   workflow: 'Design' | 'Crafting'
   scope: ELuthComponent
   setScope: (scope: ELuthComponent) => void
-  controls: IControls
-  setControls: (controls: Partial<IControls>) => void
+  controls: PresentationControlProps
+  setControls: (controls: Partial<PresentationControlProps>) => void
 }
 
 export const createUIControlsSlice: StateCreator<StoreState, [], [], IUIControlsStoreState> = (
@@ -210,7 +210,7 @@ export const createUIControlsSlice: StateCreator<StoreState, [], [], IUIControls
     polar: [-Math.PI / 3, Math.PI / 3],
     azimuth: [-Math.PI / 4, Math.PI / 4],
     // snap: { mass: 5, tension: 140 },
-    config: { mass: 1, tension: 80 },
+    // co nfig: { mass: 1, tension: 80 },
   },
   setControls: (controls) => {
     set((state) => ({ controls: { ...state.controls, ...controls } }))
