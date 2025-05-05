@@ -40,16 +40,16 @@ export default function Configurator() {
         setControls({
           rotation: [0, -Math.PI / 5, 0],
           // rotation: undefined,
-          zoom: undefined,
-          polar: undefined,
-          azimuth: undefined,
-          snap: false,
+          // zoom: undefined,
+          // polar: undefined,
+          // azimuth: undefined,
+          // snap: false,
         })
         break
       case ELuthComponent.Soundboard:
         setControls({
           rotation: [0, 0, 0],
-          zoom: 2,
+          // zoom: 2,
           // polar: [-Math.PI / 3, Math.PI / 3],
           // azimuth: [-Math.PI / 4, Math.PI / 4],
           // snap: true,
@@ -60,7 +60,7 @@ export default function Configurator() {
       case ELuthComponent.Back:
         setControls({
           rotation: [Math.PI / 6, Math.PI - Math.PI / 8, 0],
-          zoom: 2,
+          // zoom: 2,
           // polar: [-Math.PI / 3, Math.PI / 3],
           // azimuth: [-Math.PI / 4, Math.PI / 4],
           // snap: { mass: 5, tension: 140 },
@@ -70,7 +70,7 @@ export default function Configurator() {
       case ELuthComponent.Sides:
         setControls({
           rotation: [-Math.PI / 2.5, 0, -Math.PI / 3],
-          zoom: 2,
+          // zoom: 2,
           // polar: [-Math.PI / 3, Math.PI / 3],
           // azimuth: [-Math.PI / 4, Math.PI / 4],
           // snap: { mass: 5, tension: 140 },
@@ -80,9 +80,9 @@ export default function Configurator() {
       case ELuthComponent.Binding:
         setControls({
           rotation: [0, -Math.PI / 3, -Math.PI / 5],
-          zoom: 2,
-          polar: [-Math.PI / 3, Math.PI / 3],
-          azimuth: [-Math.PI / 4, Math.PI / 4],
+          // zoom: 2,
+          // polar: [-Math.PI / 3, Math.PI / 3],
+          // azimuth: [-Math.PI / 4, Math.PI / 4],
           // snap: { mass: 5, tension: 140 },
           // config: { mass: 1, tension: 80 },
         })
