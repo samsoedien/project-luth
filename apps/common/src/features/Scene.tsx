@@ -1,41 +1,42 @@
-import { Stage, PresentationControls, Preload, Loader, PerspectiveCamera } from '@react-three/drei'
+import {
+  Stage,
+  PresentationControls,
+  Preload,
+  Loader,
+  PerspectiveCamera,
+  Box,
+} from '@react-three/drei'
 import { Canvas } from '@react-three/fiber'
 import { Perf } from 'r3f-perf'
 
-import { ReactNode, Suspense, useEffect, useRef } from 'react'
+import { ReactNode, Suspense } from 'react'
 
 import { useConfigurationStore } from '~/store/store'
 
 interface ISceneProps {
+  isDebug: boolean
   children: ReactNode
 }
 
-export default function Scene({ children }: ISceneProps) {
-  const isDebug = true
-
+export default function Scene({ children, isDebug }: ISceneProps) {
   const controls = useConfigurationStore((state) => state.controls)
-  console.log('controls', controls)
-
-  const ref = useRef<any>(null)
-
-  useEffect(() => {
-    if (!ref.current) return
-
-    console.log('ref', ref.current)
-
-    if (controls.rotation) {
-      ref.current.group.rotation.set(...controls.rotation)
-    }
-  }, [controls])
+  console.log('rotation', controls.rotation) // When external controls within leva are used, it will provide a new rotation from the store
 
   return (
     <>
       <Canvas>
         {isDebug && <Perf position="top-left" />}
         <Stage adjustCamera={false}>
-          <PresentationControls ref={ref} enabled={true} speed={2} global={true} {...controls}>
+          <PresentationControls
+            enabled={true}
+            speed={2}
+            global={true}
+            rotation={controls.rotation}
+            // {...controls}
+          >
             <Suspense fallback={null}>
-              {children}
+              <Box args={[1, 1, 1]} />
+              {/* {children} */}
               <Preload all />
             </Suspense>
           </PresentationControls>

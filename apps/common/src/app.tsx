@@ -14,9 +14,8 @@ export function App() {
   return (
     <div className="app">
       <>
-        <Scene>
-          {/* <LuthModel /> */}
-          <Box args={[1, 1, 1]} position={[0, 0, 0]} />
+        <Scene isDebug={true}>
+          <LuthModel />
         </Scene>
         <Configurator />
       </>
