@@ -52,6 +52,7 @@ export default function Configurator() {
           polar: [-Math.PI / 3, Math.PI / 3],
           azimuth: [-Math.PI / 4, Math.PI / 4],
           snap: true,
+
           // config: { mass: 1, tension: 80 },
         })
         break

@@ -46,9 +46,12 @@ export default function SoundboardMeshes({ configuration, children }: ISoundboar
   const instances = useContext(GLTFJSXContext) as GLTFJSXInstances
   const { instanceGeometry, instanceGroupRef } = useInstanceGeometry(configuration)
 
+  console.log('SoundboardMeshes', instanceGeometry)
+  console.log('configuration', configuration.meshes)
+
   return (
     <group name={configuration.name} dispose={null}>
-      {/* {instanceGeometry.length > 0 &&
+      {instanceGeometry.length > 0 &&
         instanceGeometry.map((child) => {
           return (
             <mesh
@@ -62,11 +65,12 @@ export default function SoundboardMeshes({ configuration, children }: ISoundboar
               <meshNormalMaterial />
             </mesh>
           )
-        })} */}
-      <Instances>
-        <LuthSoundboard />
-      </Instances>
-      {/* <group ref={instanceGroupRef} scale={0}>
+        })}
+      <group ref={instanceGroupRef} scale={0}>
+        <Instances frustumCulled={false}>
+          <LuthSoundboard />
+        </Instances>
+        {/* <group ref={instanceGroupRef} scale={0}>
         <instances.BodySoundboard name="Body_Soundboard" />
         <instances.BodySoundboardVenetianCutaway name="Body_Soundboard_Venetian_Cutaway" />
         <instances.BodySoundboardFlorentineCutaway name="Body_Soundboard_Florentine_Cutaway" />
@@ -74,6 +78,7 @@ export default function SoundboardMeshes({ configuration, children }: ISoundboar
         <instances.BodySoundboardArmBevelCutawayVenetian name="Body_Soundboard_Arm_Bevel_Cutaway_Venetian" />
         <instances.BodySoundboardArmBevelCutawayFlorentine name="Body_Soundboard_Arm_Bevel_Cutaway_Florentine" />
       </group> */}
+      </group>
       {children}
     </group>
   )

@@ -25,8 +25,8 @@ export default function HeelTailBlockMeshes({ configuration }: IHeelTailBlockMes
           </mesh>
         ))
       ) : ( */}
-      <group ref={instanceGroupRef} scale={1}>
-        <Instances>
+      <group ref={instanceGroupRef}>
+        <Instances frustumCulled={false}>
           <LuthHeelTailBlocks />
         </Instances>
         {/* <mesh>
@@ -35,7 +35,6 @@ export default function HeelTailBlockMeshes({ configuration }: IHeelTailBlockMes
         {/* <instances.BodyHeelBlock name="Body_Heel_Block" /> */}
         {/* <instances.BodyTailBlock name="Body_Tail_Block" /> */}
       </group>
-      {/* )} */}
     </group>
   )
 }

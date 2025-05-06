@@ -9,7 +9,8 @@ import {
 import { GLTFJSXInstances } from '~/models/gltfjsx.model'
 import { useInstanceGeometry } from '~/hooks/useInstanceGeometry'
 import { IConfiguration } from '~/models/configuration.model'
-import { createInstances, Html, useTexture } from '@react-three/drei'
+import { createInstances, Helper, Html, useTexture } from '@react-three/drei'
+import { BoxHelper } from 'three'
 
 // const [Instances, LuthSidesTest] = createInstances()
 
@@ -40,10 +41,11 @@ export default function SidesMeshes({ configuration, children }: ISidesMeshesPro
             )}
           </mesh>
         ))}
-      <group ref={instanceGroupRef} scale={1}>
+      <group ref={instanceGroupRef}>
         {/* <LuthSidesInstances scale={10} /> */}
-        <Instances>
+        <Instances frustumCulled={false}>
           <LuthSides />
+          {/* <Helper type={BoxHelper} args={['red']} /> */}
         </Instances>
         {/*    <instances.BodySides name="Body_Sides" />
         <instances.BodySidesVenetianCutaway

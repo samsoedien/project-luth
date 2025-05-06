@@ -112,15 +112,15 @@ const withMeshConfiguration = <P extends IWithMeshConfigurationProps>(
         {/* <Instances> */}
         {configuration ? (
           <>
-            {/* <SoundboardMeshes configuration={soundboardConfiguration}> */}
-            {/* <RosetteMeshes configuration={rosetteConfiguration} />
+            <SoundboardMeshes configuration={soundboardConfiguration}>
+              {/* <RosetteMeshes configuration={rosetteConfiguration} />
                 <BracesMeshes configuration={bracesConfiguration} /> */}
-            {/* </SoundboardMeshes> */}
+            </SoundboardMeshes>
             {/* <BackMeshes configuration={backConfiguration}>
                 <BackStripMeshes configuration={backStripConfiguration} />
               </BackMeshes> */}
             <SidesMeshes configuration={sidesConfiguration}>
-              {/* <HeelTailBlockMeshes configuration={heelTailBlockConfiguration} /> */}
+              <HeelTailBlockMeshes configuration={heelTailBlockConfiguration} />
               {/*     <EndGraftMeshes configuration={endGraftConfiguration} />*/}
             </SidesMeshes>
             {/* <BindingMeshes configuration={bindingConfiguration}>

@@ -5,11 +5,17 @@ import {
   Loader,
   PerspectiveCamera,
   Box,
+  OrbitControls,
+  CameraControls,
+  OrthographicCamera,
+  Helper,
 } from '@react-three/drei'
 import { Canvas } from '@react-three/fiber'
 import { Perf } from 'r3f-perf'
 
 import { ReactNode, Suspense } from 'react'
+import { BoxHelper } from 'three'
+import { LuthSides, LuthSidesInstances } from '~/_generated/LuthSides'
 
 import { useConfigurationStore } from '~/store/store'
 
@@ -27,14 +33,19 @@ export default function Scene({ children, isDebug }: ISceneProps) {
       <Canvas>
         {isDebug && <Perf position="top-left" />}
         <Stage adjustCamera={false} shadows={false}>
-          <PresentationControls enabled={true} speed={2} global={true} {...controls}>
-            <Suspense fallback={null}>
-              {/* <Box args={[1, 1, 1]} /> */}
-              {children}
-              <Preload all />
-            </Suspense>
-          </PresentationControls>
-          <PerspectiveCamera makeDefault position={[0, 0, 1]} />
+          {/* <PresentationControls enabled={true} speed={2} global={true} {...controls}> */}
+          <Suspense fallback={null}>
+            {/* <Box args={[1, 1, 1]} /> */}
+            {/* <LuthSidesInstances frustumCulled={false}>
+              <LuthSides />
+            </LuthSidesInstances> */}
+            {children}
+            <Preload all />
+          </Suspense>
+          {/* </PresentationControls> */}
+          <OrbitControls />
+          {/* <OrthographicCamera makeDefault position={[0, 0, 1]} /> */}
+          <PerspectiveCamera makeDefault position={[0, 0, 1]} near={0.0001} far={10000} fov={35} />
         </Stage>
       </Canvas>
       <Loader />
