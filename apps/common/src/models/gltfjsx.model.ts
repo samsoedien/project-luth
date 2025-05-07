@@ -1,5 +1,9 @@
 import { GLTFResult } from '~/_generated/LuthAcoustic'
 
+import { GLTFResult as LuthSoundboardGLTF } from '~/_generated/LuthSoundboard'
+import { GLTFResult as LuthSidesGLTF } from '~/_generated/LuthSides'
+import { GLTFResult as LuthHeelTailBlocksGLTF } from '~/_generated/LuthHeelTailBlocks'
+
 export type GLTFJSXInstances = Record<
   string,
   React.ForwardRefExoticComponent<
@@ -8,3 +12,5 @@ export type GLTFJSXInstances = Record<
     }
   >
 >
+
+export type GLTFResultCombined = LuthSidesGLTF & LuthSoundboardGLTF & LuthHeelTailBlocksGLTF

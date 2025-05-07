@@ -3,6 +3,7 @@ import { BufferGeometry, Group } from 'three'
 import { PositionMesh } from '@react-three/drei'
 import { GLTFResult } from '~/_generated/LuthAcoustic'
 import { IConfiguration } from '~/models/configuration.model'
+import { GLTFResultCombined } from '~/models/gltfjsx.model'
 
 export const useInstanceGeometry = (
   configuration: IConfiguration,
@@ -25,7 +26,7 @@ export const useInstanceGeometry = (
 
     setInstanceGeometry(
       geometries.filter((child) =>
-        configuration.meshes.includes(child.name as keyof GLTFResult['nodes']),
+        configuration.meshes.includes(child.name as keyof GLTFResultCombined['nodes']),
       ),
     )
   }, [configuration.meshes])

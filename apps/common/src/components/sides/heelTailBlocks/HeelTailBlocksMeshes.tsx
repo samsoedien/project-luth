@@ -1,8 +1,7 @@
-import { useContext } from 'react'
-import {
-  context as GLTFJSXContext,
-  LuthHeelTailBlocksInstances as Instances,
-  LuthHeelTailBlocks,
+import LuthHeelTailBlocks, {
+  // context as GLTFJSXContext,
+  // LuthHeelTailBlocksInstances as Instances,
+  Instances,
 } from '../../../_generated/LuthHeelTailBlocks'
 import { GLTFJSXInstances } from '~/models/gltfjsx.model'
 import { useInstanceGeometry } from '~/hooks/useInstanceGeometry'
@@ -13,7 +12,7 @@ export interface IHeelTailBlockMeshesProps {
 }
 
 export default function HeelTailBlockMeshes({ configuration }: IHeelTailBlockMeshesProps) {
-  const instances = useContext(GLTFJSXContext) as GLTFJSXInstances
+  // const instances = useContext(GLTFJSXContext) as GLTFJSXInstances
   const { instanceGeometry, instanceGroupRef } = useInstanceGeometry(configuration)
 
   return (

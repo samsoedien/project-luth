@@ -1,41 +1,15 @@
-import { useContext, useEffect, useRef } from 'react'
-// import { context as GLTFJSXContext } from '../../_generated/LuthAcoustic'
-import {
-  LuthSoundboard,
-  context as GLTFJSXContext,
-  LuthSoundboardInstances as Instances,
+import { useContext } from 'react'
+import LuthSoundboard, {
+  // context as GLTFJSXContext,
+  // LuthSoundboardInstances as Instances,
+  Instances,
 } from '../../_generated/LuthSoundboard'
 import { useInstanceGeometry } from '~/hooks/useInstanceGeometry'
-// import { Mesh, MirroredRepeatWrapping, Texture } from 'three'
-// import { useTexture } from '@react-three/drei'
+import { Helper, useTexture } from '@react-three/drei'
 import { IConfiguration } from '~/models/configuration.model'
 
 import { GLTFJSXInstances } from '~/models/gltfjsx.model'
-
-// Procedural texture generator for metalness and roughness maps
-// function generateProceduralTexture(type: 'metalness' | 'roughness'): Texture {
-//   const size = 256 // Size of the texture
-//   const data = new Uint8Array(size * size * 3) // Create empty pixel data
-
-//   for (let i = 0; i < size * size * 3; i += 3) {
-//     const value = Math.random() * 255 // Generate random grayscale value
-//     data[i] = value // R
-//     data[i + 1] = value // G
-//     data[i + 2] = value // B
-//   }
-
-//   // Create the texture
-//   const texture = new Texture()
-//   texture.image = { data, width: size, height: size }
-//   texture.needsUpdate = true
-
-//   if (type === 'roughness') {
-//     texture.wrapS = MirroredRepeatWrapping
-//     texture.wrapT = MirroredRepeatWrapping
-//   }
-
-//   return texture
-// }
+import { BoxHelper } from 'three'
 
 export interface ISoundboardMeshesProps {
   configuration: IConfiguration
@@ -43,11 +17,12 @@ export interface ISoundboardMeshesProps {
 }
 
 export default function SoundboardMeshes({ configuration, children }: ISoundboardMeshesProps) {
-  const instances = useContext(GLTFJSXContext) as GLTFJSXInstances
+  // const instances = useContext(GLTFJSXContext) as GLTFJSXInstances
   const { instanceGeometry, instanceGroupRef } = useInstanceGeometry(configuration)
 
-  console.log('SoundboardMeshes', instanceGeometry)
-  console.log('configuration', configuration.meshes)
+  const BaseColorMap = useTexture('Body_Sides_Venetian_Cutaway_Batch001_PBR_Diffuse.png')
+  const NormalMap = useTexture('Body_Sides_Venetian_Cutaway_Batch001_PBR_Normal.png')
+  const ORMMap = useTexture('Body_Sides_Venetian_Cutaway_Batch001_PBR_ORM_Textures.png')
 
   return (
     <group name={configuration.name} dispose={null}>
@@ -60,14 +35,22 @@ export default function SoundboardMeshes({ configuration, children }: ISoundboar
               geometry={child.geometry}
               castShadow
               receiveShadow
-              onClick={(e) => console.log('click', configuration)}
             >
-              <meshNormalMaterial />
+              <meshStandardMaterial
+                color="white"
+                // map={BaseColorMap}
+                // normalMap={NormalMap}
+                // displacementMap={spruceHeightMap}
+                // roughnessMap={ORMMap}
+                // metalnessMap={ORMMap}
+                // aoMap={ORMMap}
+              />
             </mesh>
           )
         })}
       <group ref={instanceGroupRef} scale={0}>
-        <Instances frustumCulled={false}>
+        <Instances>
+          <Helper type={BoxHelper} args={['red']} />
           <LuthSoundboard />
         </Instances>
         {/* <group ref={instanceGroupRef} scale={0}>
