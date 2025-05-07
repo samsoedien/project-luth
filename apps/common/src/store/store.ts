@@ -157,7 +157,7 @@ export const createOptionsSlice: StateCreator<StoreState, [], [], IOptionsStoreS
   bindingOptions: {},
   setBindingOptions: (options) => {
     set((state) => ({
-      sidesOptions: { ...state.sidesOptions, ...options },
+      bindingOptions: { ...state.bindingOptions, ...options },
     }))
 
     const { bodyOptions, bindingOptions, configuration } = get()

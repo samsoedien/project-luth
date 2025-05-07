@@ -1,4 +1,5 @@
-import { GLTFResult } from '~/_generated/LuthAcoustic'
+// import { GLTFResult } from '~/_generated/LuthAcoustic'
+import { LuthGLTFResultCombined } from '~/models/gltfjsx.model'
 import {
   EArmBevelOption,
   EBackMultiPieceOption,
@@ -12,7 +13,7 @@ type SoundboardMeshMap = Partial<{
   [key in EBodyShapeOption]: {
     [key in ECutawayOption]: {
       [key in EArmBevelOption]: {
-        [key in ESoundHoleOption]: Array<keyof GLTFResult['nodes']>
+        [key in ESoundHoleOption]: Array<keyof LuthGLTFResultCombined['nodes']>
       }
     }
   }
@@ -95,7 +96,7 @@ export const soundboardMeshMap: SoundboardMeshMap = {
 type BackMeshMap = Partial<{
   [key in EBodyShapeOption]: {
     [key in ECutawayOption]: {
-      [key in EBackMultiPieceOption]: Array<keyof GLTFResult['nodes']>
+      [key in EBackMultiPieceOption]: Array<keyof LuthGLTFResultCombined['nodes']>
     }
   }
 }>
@@ -150,7 +151,7 @@ export const backMeshMap: BackMeshMap = {
 type SidesboardMeshMap = Partial<{
   [key in EBodyShapeOption]: {
     [key in ECutawayOption]: {
-      [key in EArmBevelOption]: Array<keyof GLTFResult['nodes']>
+      [key in EArmBevelOption]: Array<keyof LuthGLTFResultCombined['nodes']>
     }
   }
 }>
@@ -179,7 +180,7 @@ export const sidesMeshMap: SidesboardMeshMap = {
 type BindingdMeshMap = Partial<{
   [key in EBodyShapeOption]: {
     [key in ECutawayOption]: {
-      [key in EArmBevelOption]: Array<keyof GLTFResult['nodes']>
+      [key in EArmBevelOption]: Array<keyof LuthGLTFResultCombined['nodes']>
     }
   }
 }>
@@ -187,35 +188,20 @@ type BindingdMeshMap = Partial<{
 export const bindingMeshMap: BindingdMeshMap = {
   [EBodyShapeOption.Dreadnought]: {
     [ECutawayOption.None]: {
-      [EArmBevelOption.None]: ['Body_Binding_Top', 'Body_Binding_Bottom'],
-      [EArmBevelOption.Standard]: ['Body_Binding_Top_Arm_Bevel', 'Body_Binding_Bottom'],
+      [EArmBevelOption.None]: ['Binding_Top', 'Binding_Bottom'],
+      [EArmBevelOption.Standard]: ['Binding_Top_CW_None_AB_Std', 'Binding_Bottom'],
     },
     [ECutawayOption.Venetian]: {
-      [EArmBevelOption.None]: [
-        'Body_Binding_Top_Venetian_Cutaway',
-        'Body_Binding_Bottom_Venetian_Cutaway',
-      ],
-      [EArmBevelOption.Standard]: [
-        'Body_Binding_Top_Arm_Bevel_Venetian_Cutaway',
-        'Body_Binding_Bottom_Venetian_Cutaway',
-      ],
+      [EArmBevelOption.None]: ['Bind_Top_CW_Vene', 'Binding_Bottom_CW_Vene'],
+      [EArmBevelOption.Standard]: ['Binding_Top_CW_Vene_AB_Std', 'Binding_Bottom_CW_Vene'],
     },
     [ECutawayOption.Florentine]: {
-      [EArmBevelOption.None]: [
-        'Body_Binding_Top_Florentine_Cutaway',
-        'Body_Binding_Bottom_Florentine_Cutaway',
-      ],
-      [EArmBevelOption.Standard]: [
-        'Body_Binding_Top_Arm_Bevel_Florentine_Cutaway',
-        'Body_Binding_Bottom_Florentine_Cutaway',
-      ],
+      [EArmBevelOption.None]: ['Binding_Top_CW_Flor', 'Binding_Bottom_CW_Flor'],
+      [EArmBevelOption.Standard]: ['Binding_Top_CW_Flor_AB_Std', 'Binding_Bottom_CW_Flor'],
     },
     [ECutawayOption.Scalloped]: {
-      [EArmBevelOption.None]: ['Body_Binding_Top_Florentine_Cutaway', 'Body_Binding_Bottom'],
-      [EArmBevelOption.Standard]: [
-        'Body_Binding_Top_Arm_Bevel_Florentine_Cutaway',
-        'Body_Binding_Bottom',
-      ],
+      [EArmBevelOption.None]: ['Binding_Top_CW_Flor', 'Binding_Bottom'],
+      [EArmBevelOption.Standard]: ['Binding_Top_CW_Flor_AB_Std', 'Binding_Bottom'],
     },
   },
 }
@@ -223,7 +209,7 @@ export const bindingMeshMap: BindingdMeshMap = {
 type PurflingMeshMap = Partial<{
   [key in EBodyShapeOption]: {
     [key in ECutawayOption]: {
-      [key in EArmBevelOption]: Array<keyof GLTFResult['nodes']>
+      [key in EArmBevelOption]: Array<keyof LuthGLTFResultCombined['nodes']>
     }
   }
 }>
@@ -266,7 +252,7 @@ export const purflingMeshMap: PurflingMeshMap = {
 
 type BackStripMeshMap = Partial<{
   [key in EBodyShapeOption]: {
-    [key in EBackMultiPieceOption]: Array<keyof GLTFResult['nodes']>
+    [key in EBackMultiPieceOption]: Array<keyof LuthGLTFResultCombined['nodes']>
   }
 }>
 

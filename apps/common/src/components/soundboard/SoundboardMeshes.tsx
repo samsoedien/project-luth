@@ -36,7 +36,8 @@ export default function SoundboardMeshes({ configuration, children }: ISoundboar
               castShadow
               receiveShadow
             >
-              <meshStandardMaterial
+              <meshNormalMaterial />
+              {/* <meshStandardMaterial
                 color="white"
                 // map={BaseColorMap}
                 // normalMap={NormalMap}
@@ -44,7 +45,7 @@ export default function SoundboardMeshes({ configuration, children }: ISoundboar
                 // roughnessMap={ORMMap}
                 // metalnessMap={ORMMap}
                 // aoMap={ORMMap}
-              />
+              /> */}
             </mesh>
           )
         })}

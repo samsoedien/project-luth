@@ -16,6 +16,7 @@
     "model:soundboard": "npx gltfjsx ./public/Soundboard_Collection.glb --types --transform --instanceall --keepmeshes --keepmaterials --keepattributes --keepnames --draco --meta --shadows --exportdefault --output ./src/_generated/LuthSoundboard.tsx",
     "model:sides": "npx gltfjsx ./public/Sides_Collection.glb --types --transform --instanceall --keepmeshes --keepmaterials --keepattributes --keepnames --draco --meta --shadows --exportdefault --output ./src/_generated/LuthSides.tsx",
     "model:heeltailblocks": "npx gltfjsx ./public/Heel_Tail_Blocks_Collection.glb --types --transform --instanceall --keepmeshes --keepmaterials --keepattributes --keepnames --draco --meta --shadows --exportdefault --output  ./src/_generated/LuthHeelTailBlocks.tsx",
+    "model:binding": "npx gltfjsx ./public/variants/acou_drea_25-4in_6str_collection_binding_variants.glb --types --transform --instanceall --keepmeshes --keepmaterials --keepattributes --keepnames --draco --meta --shadows --exportdefault --output  ./src/_generated/LuthAcousticDreadnaught_25-4in_6str_Binding.tsx",
     "model:codemod": "npx tsx scripts/export-gltfresult-codemod.js --dir ./src/_generated"
   },
   "dependencies": {

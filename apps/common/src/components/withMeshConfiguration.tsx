@@ -119,14 +119,14 @@ const withMeshConfiguration = <P extends IWithMeshConfigurationProps>(
             {/* <BackMeshes configuration={backConfiguration}>
                 <BackStripMeshes configuration={backStripConfiguration} />
               </BackMeshes> */}
-            <SidesMeshes configuration={sidesConfiguration}>
-              <HeelTailBlockMeshes configuration={heelTailBlockConfiguration} />
-              {/*     <EndGraftMeshes configuration={endGraftConfiguration} />*/}
-            </SidesMeshes>
-            {/* <BindingMeshes configuration={bindingConfiguration}>
-                <PurflingMeshes configuration={purflingConfiguration} />
-              </BindingMeshes>
-              <NeckMeshes configuration={neckConfiguration}>
+            {/* <SidesMeshes configuration={sidesConfiguration}> */}
+            {/* <HeelTailBlockMeshes configuration={heelTailBlockConfiguration} /> */}
+            {/*     <EndGraftMeshes configuration={endGraftConfiguration} />*/}
+            {/* </SidesMeshes> */}
+            <BindingMeshes configuration={bindingConfiguration}>
+              {/* <PurflingMeshes configuration={purflingConfiguration} /> */}
+            </BindingMeshes>
+            {/*  <NeckMeshes configuration={neckConfiguration}>
                 <mesh>
                   <boxGeometry />
                 </mesh>
