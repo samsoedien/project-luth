@@ -16,7 +16,7 @@
     "model:soundboard": "npx gltfjsx ./public/Soundboard_Collection.glb --types --transform --instanceall --keepmeshes --keepmaterials --keepattributes --keepnames --draco --meta --shadows --exportdefault --output ./src/_generated/LuthSoundboard.tsx",
     "model:sides": "npx gltfjsx ./public/Sides_Collection.glb --types --transform --instanceall --keepmeshes --keepmaterials --keepattributes --keepnames --draco --meta --shadows --exportdefault --output ./src/_generated/LuthSides.tsx",
     "model:heeltailblocks": "npx gltfjsx ./public/Heel_Tail_Blocks_Collection.glb --types --transform --instanceall --keepmeshes --keepmaterials --keepattributes --keepnames --draco --meta --shadows --exportdefault --output  ./src/_generated/LuthHeelTailBlocks.tsx",
-    "model:codemod": "npx tsx scripts/codemod.ts --dir ./src/_generated"
+    "model:codemod": "npx tsx scripts/export-gltfresult-codemod.js --dir ./src/_generated"
   },
   "dependencies": {
     "@react-three/drei": "^10.0.7",

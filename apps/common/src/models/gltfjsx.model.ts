@@ -13,4 +13,4 @@ export type GLTFJSXInstances = Record<
   >
 >
 
-export type GLTFResultCombined = LuthSidesGLTF & LuthSoundboardGLTF & LuthHeelTailBlocksGLTF
+export type LuthGLTFResultCombined = LuthSidesGLTF & LuthSoundboardGLTF & LuthHeelTailBlocksGLTF
