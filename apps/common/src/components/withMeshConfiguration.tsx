@@ -36,6 +36,7 @@ const withMeshConfiguration = <P extends IWithMeshConfigurationProps>(
 ) => {
   const WrappedComponent = (props: P) => {
     const configuration = useConfigurationStore((state) => state.configuration)
+    console.log('configuration', configuration)
     const {
       soundboardConfiguration,
       rosetteConfiguration,

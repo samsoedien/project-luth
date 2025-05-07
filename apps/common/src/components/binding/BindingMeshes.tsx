@@ -23,6 +23,7 @@ export default function BindingMeshes({ configuration, children }: IBindingMeshe
       {instanceGeometry.length > 0 &&
         instanceGeometry.map((child) => (
           <mesh
+            scale={0.01}
             key={child.uuid}
             name={child.name}
             geometry={child.geometry}
@@ -32,7 +33,7 @@ export default function BindingMeshes({ configuration, children }: IBindingMeshe
             <meshNormalMaterial />
           </mesh>
         ))}
-      <group ref={instanceGroupRef} scale={1}>
+      <group ref={instanceGroupRef} scale={0}>
         <Instances>
           <LuthBinding />
         </Instances>
