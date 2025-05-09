@@ -65,6 +65,18 @@ class ExportGLBOperator(bpy.types.Operator):
         export_all_collections_as_glb(output_path)
         self.report({'INFO'}, "GLB files exported.")
         return {'FINISHED'}
+    
+# -------------------------------
+# Operator: Runn All Pipeline
+# -------------------------------
+class RunAllPipelineOperator(bpy.types.Operator):
+    bl_idname = "wm.run_all_luth_pipeline"
+    bl_label = "Run All Pipeline Tasks"
+
+    def execute(self, context):
+        main()
+        self.report({'INFO'}, "Run All Pipeline.")
+        return {'FINISHED'}
 
 
 # -------------------------------
@@ -87,6 +99,8 @@ class LuthGLTFPipelinePopup(bpy.types.Operator):
         layout.operator("wm.clear_luth_scene", icon="TRASH")
         layout.operator("wm.import_luth_usdz", icon="IMPORT")
         layout.operator("wm.export_luth_glb", icon="EXPORT")
+        layout.separator()
+        layout.operator("wm.run_all_luth_pipeline", icon="PLAY")
 
 
 # -------------------------------
@@ -96,6 +110,7 @@ classes = (
     ClearSceneOperator,
     ImportUSDZOperator,
     ExportGLBOperator,
+    RunAllPipelineOperator,
     LuthGLTFPipelinePopup,
 )
 
@@ -120,3 +135,12 @@ def unregister():
 if __name__ == "__main__":
     register()
     bpy.ops.wm.luth_gltf_pipeline_popup('INVOKE_DEFAULT')
+
+
+def main():
+    print("== Blender pipeline started ==")
+    clear_scene()
+    import_usdz_to_collections(base_path, import_scale=0.001)
+    export_all_collections_as_glb(output_path)
+    print("== Blender pipeline finished ==")
+
