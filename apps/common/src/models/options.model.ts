@@ -1,9 +1,9 @@
 export enum EBodyShapeOption {
   Dreadnought = 'Dreadnought',
-  GrandConcert = 'GrandConcert',
-  Auditorium = 'Auditorium',
-  Jumbo = 'Jumbo',
-  OM = 'OM',
+  // GrandConcert = 'GrandConcert',
+  // Auditorium = 'Auditorium',
+  // Jumbo = 'Jumbo',
+  // OM = 'OM',
   Parlor = 'Parlor',
 }
 

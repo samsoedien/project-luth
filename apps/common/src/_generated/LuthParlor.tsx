@@ -43,7 +43,7 @@ const draco = true
 
 type ContextType = Record<string, React.ForwardRefExoticComponent<MeshProps>>
 
-const context = React.createContext<ContextType>({})
+export const context = React.createContext<ContextType>({})
 
 export function LuthParlorInstances({ children, ...props }: LuthParlorProps) {
   const { nodes } = useGLTF(modelLoadPath, draco) as LuthParlorGLTF

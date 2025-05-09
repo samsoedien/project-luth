@@ -44,15 +44,58 @@ class ClearSceneOperator(bpy.types.Operator):
 # -------------------------------
 # Operator: Import USDZ
 # -------------------------------
+# class ImportUSDZOperator(bpy.types.Operator):
+#     bl_idname = "wm.import_luth_usdz"
+#     bl_label = "Import USDZ Files"
+
+#     def execute(self, context):
+#         import_usdz_to_collections(base_path, import_scale=1, filter_keywords=["soundboard", "sides"])
+#         self.report({'INFO'}, "USDZ files imported.")
+#         return {'FINISHED'}
+
 class ImportUSDZOperator(bpy.types.Operator):
     bl_idname = "wm.import_luth_usdz"
     bl_label = "Import USDZ Files"
+    bl_options = {'REGISTER', 'UNDO'}
+
+    import_soundboard: bpy.props.BoolProperty(name="Soundboard", default=True)
+    import_sides: bpy.props.BoolProperty(name="Sides", default=True)
+    import_back: bpy.props.BoolProperty(name="Back", default=False)
+    import_binding: bpy.props.BoolProperty(name="Binding", default=False)
+    import_neck: bpy.props.BoolProperty(name="Neck", default=False)
+    import_bridge: bpy.props.BoolProperty(name="Bridge", default=False)
+    clear_before_import: bpy.props.BoolProperty(name="Clear Before Import", default=True)
 
     def execute(self, context):
-        import_usdz_to_collections(base_path, import_scale=0.001)
-        self.report({'INFO'}, "USDZ files imported.")
+        keywords = []
+        if self.import_soundboard:
+            keywords.append("soundboard")
+        if self.import_sides:
+            keywords.append("sides")
+        if self.import_back:
+            keywords.append("back")
+        if self.import_binding:
+            keywords.append("binding")
+        if self.import_neck:
+            keywords.append("neck")
+        if self.import_bridge:
+            keywords.append("bridge")
+
+        try:
+            if self.clear_before_import:
+                clear_scene()
+                self.report({'INFO'}, "Scene cleared before import.")
+
+            import_usdz_to_collections(base_path, import_scale=1, filter_keywords=keywords)
+            self.report({'INFO'}, f"Imported USDZ files for: {', '.join(keywords)}")
+        except Exception as e:
+            self.report({'ERROR'}, f"Import failed: {e}")
+            return {'CANCELLED'}
+
         return {'FINISHED'}
 
+
+ 
 
 # -------------------------------
 # Operator: Export GLB
@@ -88,7 +131,7 @@ class RunAllPipelineOperator(bpy.types.Operator):
 
             wm.progress_update(2)
             self.report({'INFO'}, "Step 3/3: Exporting GLB files...")
-            export_all_collections_as_glb(output_path)
+            export_all_collections_as_glb(output_path, import_scale=1, filter_keywords=["soundboard", "sides"])
 
             self.report({'INFO'}, "Pipeline complete.")
         except Exception as e:
@@ -107,6 +150,14 @@ class LuthGLTFPipelinePopup(bpy.types.Operator):
     bl_idname = "wm.luth_gltf_pipeline_popup"
     bl_label = "Luth GLTF Pipeline Tools"
 
+    # Add these inside LuthGLTFPipelinePopup
+    import_soundboard: bpy.props.BoolProperty(name="Soundboard", default=True)
+    import_sides: bpy.props.BoolProperty(name="Sides", default=True)
+    import_back: bpy.props.BoolProperty(name="Back", default=False)
+    import_binding: bpy.props.BoolProperty(name="Binding", default=False)
+    import_neck: bpy.props.BoolProperty(name="Neck", default=False)
+    import_bridge: bpy.props.BoolProperty(name="Bridge", default=False)
+
     def execute(self, context):
         return {'FINISHED'}
 
@@ -118,12 +169,17 @@ class LuthGLTFPipelinePopup(bpy.types.Operator):
         layout.label(text="Run Luth Pipeline Tasks:")
         layout.separator()
         layout.operator("wm.clear_luth_scene", icon="TRASH")
+        layout.prop(self, "import_soundboard")
+        layout.prop(self, "import_sides")
+        layout.prop(self, "import_back")
+        layout.prop(self, "import_binding")
+        layout.prop(self, "import_neck")
+        layout.prop(self, "import_bridge")
         layout.operator("wm.import_luth_usdz", icon="IMPORT")
         layout.operator("wm.export_luth_glb", icon="EXPORT")
         layout.separator()
         layout.operator("wm.run_all_luth_pipeline", icon="PLAY")
         layout.label(text="Status will appear in the Info panel.")
-
 
 
 # -------------------------------

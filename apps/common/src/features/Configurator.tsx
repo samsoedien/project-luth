@@ -106,17 +106,17 @@ export default function Configurator() {
   useControls(
     'Configuration', // Store names
     {
+      bodyShape: {
+        options: Object.values(EBodyShapeOption) as EBodyShapeOption[],
+        value: bodyOptions.bodyShape,
+        onChange: (value) => setBodyOptions({ bodyShape: value }),
+      },
       cutaway: {
         options: Object.values(ECutawayOption) as ECutawayOption[], // Use enum values
         value: bodyOptions.cutaway, // Default value
         onChange: (value: ECutawayOption) => {
           setBodyOptions({ cutaway: value })
         },
-      },
-      bodyShape: {
-        options: Object.values(EBodyShapeOption) as EBodyShapeOption[],
-        value: bodyOptions.bodyShape,
-        onChange: (value) => setBodyOptions({ bodyShape: value }),
       },
       armBevel: {
         options: Object.values(EArmBevelOption) as EArmBevelOption[],
