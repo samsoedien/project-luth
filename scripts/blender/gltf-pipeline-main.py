@@ -74,9 +74,30 @@ class RunAllPipelineOperator(bpy.types.Operator):
     bl_label = "Run All Pipeline Tasks"
 
     def execute(self, context):
-        main()
-        self.report({'INFO'}, "Run All Pipeline.")
+        wm = context.window_manager
+        wm.progress_begin(0, 3)
+
+        try:
+            wm.progress_update(0)
+            self.report({'INFO'}, "Step 1/3: Clearing scene...")
+            clear_scene()
+
+            wm.progress_update(1)
+            self.report({'INFO'}, "Step 2/3: Importing USDZ files...")
+            import_usdz_to_collections(base_path)
+
+            wm.progress_update(2)
+            self.report({'INFO'}, "Step 3/3: Exporting GLB files...")
+            export_all_collections_as_glb(output_path)
+
+            self.report({'INFO'}, "Pipeline complete.")
+        except Exception as e:
+            self.report({'ERROR'}, f"Pipeline failed: {e}")
+        finally:
+            wm.progress_end()
+
         return {'FINISHED'}
+
 
 
 # -------------------------------
@@ -101,6 +122,8 @@ class LuthGLTFPipelinePopup(bpy.types.Operator):
         layout.operator("wm.export_luth_glb", icon="EXPORT")
         layout.separator()
         layout.operator("wm.run_all_luth_pipeline", icon="PLAY")
+        layout.label(text="Status will appear in the Info panel.")
+
 
 
 # -------------------------------
@@ -136,11 +159,4 @@ if __name__ == "__main__":
     register()
     bpy.ops.wm.luth_gltf_pipeline_popup('INVOKE_DEFAULT')
 
-
-def main():
-    print("== Blender pipeline started ==")
-    clear_scene()
-    import_usdz_to_collections(base_path, import_scale=0.001)
-    export_all_collections_as_glb(output_path)
-    print("== Blender pipeline finished ==")
 

@@ -3,7 +3,8 @@
 
 import LuthBinding, {
   Instances,
-} from '../../_generated/LuthAcousticDreadnaught_25-4in_6str_Binding'
+  // } from '../../_generated/LuthAcousticDreadnaught_25-4in_6str_Binding'
+} from '../../_generated/LuthAcousticParlor_25-4in_6str_Binding'
 import { IConfiguration } from '../../models/configuration.model'
 // import { GLTFJSXInstances } from '~/models/gltfjsx.model'
 import { useInstanceGeometry } from '~/hooks/useInstanceGeometry'
@@ -23,7 +24,6 @@ export default function BindingMeshes({ configuration, children }: IBindingMeshe
       {instanceGeometry.length > 0 &&
         instanceGeometry.map((child) => (
           <mesh
-            scale={0.01}
             key={child.uuid}
             name={child.name}
             geometry={child.geometry}
