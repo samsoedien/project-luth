@@ -178,23 +178,29 @@ export function hasUniqueComponentNames(components: IConfiguration[]): boolean {
 export const getConfiguredComponent = (
   configuration: IConfiguration,
   name: ELuthComponent,
-): IConfiguration | undefined => {
-  // Define a recursive search function
+): IConfiguration => {
   const findComponent = (
     components: IConfiguration[],
     name: ELuthComponent,
   ): IConfiguration | undefined => {
     for (const component of components) {
-      if (component.name === name) {
-        return component
-      }
-      if (component.components && component.components.length > 0) {
-        const found = findComponent(component.components, name)
-        if (found) return found
+      if (component.name === name) return component
+      if (component.components?.length) {
+        const matched = findComponent(component.components, name)
+        if (matched) return matched
       }
     }
     return undefined
   }
-  if (!configuration.components) return undefined
-  return findComponent(configuration.components, name)
+
+  if (!configuration.components) {
+    throw new Error(`No components found in configuration.`)
+  }
+
+  const matchedComponent = findComponent(configuration.components, name)
+  if (!matchedComponent) {
+    throw new Error(`Component '${name}' not found in configuration.`)
+  }
+
+  return matchedComponent
 }

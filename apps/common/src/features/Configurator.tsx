@@ -14,6 +14,12 @@ export default function Configurator() {
 
   const setControls = useConfigurationStore((state) => state.setControls)
 
+  const undo = useConfigurationStore((state) => state.undo)
+  const redo = useConfigurationStore((state) => state.redo)
+
+  const history = useConfigurationStore((state) => state.history)
+  console.log('History:', history)
+
   useControls('Scope', {
     scope: {
       options: Object.values(ELuthComponent) as ELuthComponent[],
@@ -102,6 +108,10 @@ export default function Configurator() {
       <ScaleOptions />
       <SoundboardOptions />
       <BackOptions />
+      <div className="absolute bottom-0 left-0 p-4">
+        <button onClick={undo}>Undo Action</button>
+        <button onClick={redo}>Redo Action</button>
+      </div>
     </div>
   )
 }

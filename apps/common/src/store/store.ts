@@ -204,13 +204,11 @@ export const createOptionsSlice: StateCreator<StoreState, [], [], IOptionsStoreS
 
     const backComponent = getConfiguredComponent(configuration, ELuthComponent.Back)
 
-    if (backComponent) {
-      const selectedBackMeshes =
-        backMeshMap[bodyOptions.bodyShape][bodyOptions.bodyDepth][bodyOptions.cutaway][
-          backOptions.backMultiPiece
-        ] ?? []
-      backComponent.meshes = selectedBackMeshes
-    }
+    const selectedBackMeshes =
+      backMeshMap[bodyOptions.bodyShape][bodyOptions.bodyDepth][bodyOptions.cutaway][
+        backOptions.backMultiPiece
+      ] ?? []
+    backComponent.meshes = selectedBackMeshes
 
     get().setBackStripOptions(backStripOptions)
 
@@ -226,11 +224,10 @@ export const createOptionsSlice: StateCreator<StoreState, [], [], IOptionsStoreS
 
     const sidesComponent = getConfiguredComponent(configuration, ELuthComponent.Sides)
 
-    if (sidesComponent) {
-      const selectedSidesMeshes =
-        sidesMeshMap?.[bodyOptions.bodyShape]?.[bodyOptions.cutaway]?.[bodyOptions.armBevel] ?? []
-      sidesComponent.meshes = selectedSidesMeshes
-    }
+    const selectedSidesMeshes =
+      sidesMeshMap?.[bodyOptions.bodyShape]?.[bodyOptions.cutaway]?.[bodyOptions.armBevel] ?? []
+    sidesComponent.meshes = selectedSidesMeshes
+
     set({ configuration: { ...configuration } })
   },
   bindingOptions: {},
@@ -243,13 +240,11 @@ export const createOptionsSlice: StateCreator<StoreState, [], [], IOptionsStoreS
 
     const bindingComponent = getConfiguredComponent(configuration, ELuthComponent.Binding)
 
-    if (bindingComponent) {
-      const selectedBindingMeshes =
-        bindingMeshMap[bodyOptions.bodyShape][bodyOptions.bodyDepth][bodyOptions.cutaway][
-          bodyOptions.armBevel
-        ] ?? []
-      bindingComponent.meshes = selectedBindingMeshes
-    }
+    const selectedBindingMeshes =
+      bindingMeshMap[bodyOptions.bodyShape][bodyOptions.bodyDepth][bodyOptions.cutaway][
+        bodyOptions.armBevel
+      ] ?? []
+    bindingComponent.meshes = selectedBindingMeshes
 
     get().setPurflingOptions(purflingOptions)
 
@@ -265,12 +260,11 @@ export const createOptionsSlice: StateCreator<StoreState, [], [], IOptionsStoreS
 
     const neckComponent = getConfiguredComponent(configuration, ELuthComponent.Neck)
 
-    if (neckComponent) {
-      const selectedneckMeshes: any[] = []
-      //     backMeshMap?.[bodyOptions.bodyShape]?.[bodyOptions.cutaway]?.[backOptions.backMultiPiece] ??
-      //     []
-      neckComponent.meshes = selectedneckMeshes
-    }
+    const selectedneckMeshes: any[] = []
+    //     backMeshMap?.[bodyOptions.bodyShape]?.[bodyOptions.cutaway]?.[backOptions.backMultiPiece] ??
+    //     []
+    neckComponent.meshes = selectedneckMeshes
+
     set({ configuration: { ...configuration } })
   },
   headstockOptions: {},
@@ -283,12 +277,11 @@ export const createOptionsSlice: StateCreator<StoreState, [], [], IOptionsStoreS
 
     const headstockComponent = getConfiguredComponent(configuration, ELuthComponent.Headstock)
 
-    if (headstockComponent) {
-      const selectedHeadstockMeshes: any[] = []
-      //     backMeshMap?.[bodyOptions.bodyShape]?.[bodyOptions.cutaway]?.[backOptions.backMultiPiece] ??
-      //     []
-      headstockComponent.meshes = selectedHeadstockMeshes
-    }
+    const selectedHeadstockMeshes: any[] = []
+    //     backMeshMap?.[bodyOptions.bodyShape]?.[bodyOptions.cutaway]?.[backOptions.backMultiPiece] ??
+    //     []
+    headstockComponent.meshes = selectedHeadstockMeshes
+
     set({ configuration: { ...configuration } })
   },
   fretboardOptions: {},
@@ -301,12 +294,11 @@ export const createOptionsSlice: StateCreator<StoreState, [], [], IOptionsStoreS
 
     const fretboardComponent = getConfiguredComponent(configuration, ELuthComponent.Fretboard)
 
-    if (fretboardComponent) {
-      const selectedFretboardkMeshes: any[] = []
-      //     backMeshMap?.[bodyOptions.bodyShape]?.[bodyOptions.cutaway]?.[backOptions.backMultiPiece] ??
-      //     []
-      fretboardComponent.meshes = selectedFretboardkMeshes
-    }
+    const selectedFretboardkMeshes: any[] = []
+    //     backMeshMap?.[bodyOptions.bodyShape]?.[bodyOptions.cutaway]?.[backOptions.backMultiPiece] ??
+    //     []
+    fretboardComponent.meshes = selectedFretboardkMeshes
+
     set({ configuration: { ...configuration } })
   },
   bridgeOptions: {},
@@ -319,12 +311,11 @@ export const createOptionsSlice: StateCreator<StoreState, [], [], IOptionsStoreS
 
     const bridgeComponent = getConfiguredComponent(configuration, ELuthComponent.Bridge)
 
-    if (bridgeComponent) {
-      const selectedBridgekMeshes: any[] = []
-      //     backMeshMap?.[bodyOptions.bodyShape]?.[bodyOptions.cutaway]?.[backOptions.backMultiPiece] ??
-      //     []
-      bridgeComponent.meshes = selectedBridgekMeshes
-    }
+    const selectedBridgekMeshes: any[] = []
+    //     backMeshMap?.[bodyOptions.bodyShape]?.[bodyOptions.cutaway]?.[backOptions.backMultiPiece] ??
+    //     []
+    bridgeComponent.meshes = selectedBridgekMeshes
+
     set({ configuration: { ...configuration } })
   },
   pickguardOptions: {},
@@ -337,12 +328,11 @@ export const createOptionsSlice: StateCreator<StoreState, [], [], IOptionsStoreS
 
     const pickguardComponent = getConfiguredComponent(configuration, ELuthComponent.Pickguard)
 
-    if (pickguardComponent) {
-      const selectedPickguardkMeshes: any[] = []
-      //     backMeshMap?.[bodyOptions.bodyShape]?.[bodyOptions.cutaway]?.[backOptions.backMultiPiece] ??
-      //     []
-      pickguardComponent.meshes = selectedPickguardkMeshes
-    }
+    const selectedPickguardkMeshes: any[] = []
+    //     backMeshMap?.[bodyOptions.bodyShape]?.[bodyOptions.cutaway]?.[backOptions.backMultiPiece] ??
+    //     []
+    pickguardComponent.meshes = selectedPickguardkMeshes
+
     set({ configuration: { ...configuration } })
   },
   stringsOptions: {},
@@ -355,12 +345,11 @@ export const createOptionsSlice: StateCreator<StoreState, [], [], IOptionsStoreS
 
     const stringsComponent = getConfiguredComponent(configuration, ELuthComponent.Strings)
 
-    if (stringsComponent) {
-      const selectedStringsMeshes: any[] = []
-      //     backMeshMap?.[bodyOptions.bodyShape]?.[bodyOptions.cutaway]?.[backOptions.backMultiPiece] ??
-      //     []
-      stringsComponent.meshes = selectedStringsMeshes
-    }
+    const selectedStringsMeshes: any[] = []
+    //     backMeshMap?.[bodyOptions.bodyShape]?.[bodyOptions.cutaway]?.[backOptions.backMultiPiece] ??
+    //     []
+    stringsComponent.meshes = selectedStringsMeshes
+
     set({ configuration: { ...configuration } })
   },
   /** Level 3 Options: Sub Components will not delegate any changes since it cannot have any child relations */
@@ -374,12 +363,11 @@ export const createOptionsSlice: StateCreator<StoreState, [], [], IOptionsStoreS
 
     const rosetteComponent = getConfiguredComponent(configuration, ELuthComponent.Rosette)
 
-    if (rosetteComponent) {
-      const selectedRosetteMeshes: any[] = []
-      //     backMeshMap?.[bodyOptions.bodyShape]?.[bodyOptions.cutaway]?.[backOptions.backMultiPiece] ??
-      //     []
-      rosetteComponent.meshes = selectedRosetteMeshes
-    }
+    const selectedRosetteMeshes: any[] = []
+    //     backMeshMap?.[bodyOptions.bodyShape]?.[bodyOptions.cutaway]?.[backOptions.backMultiPiece] ??
+    //     []
+    rosetteComponent.meshes = selectedRosetteMeshes
+
     set({ configuration: { ...configuration } })
   },
   bracesOptions: {},
@@ -392,16 +380,13 @@ export const createOptionsSlice: StateCreator<StoreState, [], [], IOptionsStoreS
 
     const bracesComponent = getConfiguredComponent(configuration, ELuthComponent.Braces)
 
-    if (bracesComponent) {
-      // const selectedBracesMeshes: any[] = []
+    const selectedBracesMeshes =
+      bracesMeshMap[bodyOptions.bodyShape][bodyOptions.cutaway][bodyOptions.armBevel][
+        soundboardOptions.soundHole
+      ] ?? []
 
-      const selectedBracesMeshes =
-        bracesMeshMap[bodyOptions.bodyShape][bodyOptions.cutaway][bodyOptions.armBevel][
-          soundboardOptions.soundHole
-        ] ?? []
+    bracesComponent.meshes = selectedBracesMeshes
 
-      bracesComponent.meshes = selectedBracesMeshes
-    }
     set({ configuration: { ...configuration } })
   },
   backStripOptions: {},
@@ -414,16 +399,15 @@ export const createOptionsSlice: StateCreator<StoreState, [], [], IOptionsStoreS
 
     const backStripOptions = getConfiguredComponent(configuration, ELuthComponent.BackStrip)
 
-    if (backStripOptions) {
-      const selectedBackStripMeshes: any[] = []
+    const selectedBackStripMeshes: any[] = []
 
-      // const selectedBackStripMeshes =
-      //   bracesMeshMap[bodyOptions.bodyShape][bodyOptions.cutaway][bodyOptions.armBevel][
-      //     soundboardOptions.soundHole
-      //   ] ?? []
+    // const selectedBackStripMeshes =
+    //   bracesMeshMap[bodyOptions.bodyShape][bodyOptions.cutaway][bodyOptions.armBevel][
+    //     soundboardOptions.soundHole
+    //   ] ?? []
 
-      backStripOptions.meshes = selectedBackStripMeshes
-    }
+    backStripOptions.meshes = selectedBackStripMeshes
+
     set({ configuration: { ...configuration } })
   },
   heelTailBlocksOptions: {},
@@ -439,16 +423,15 @@ export const createOptionsSlice: StateCreator<StoreState, [], [], IOptionsStoreS
       ELuthComponent.HeelTailBlocks,
     )
 
-    if (heelTailBlocksOptions) {
-      const selectedHeelTailBlocksMeshes: any[] = []
+    const selectedHeelTailBlocksMeshes: any[] = []
 
-      // const selectedBackStripMeshes =
-      //   bracesMeshMap[bodyOptions.bodyShape][bodyOptions.cutaway][bodyOptions.armBevel][
-      //     soundboardOptions.soundHole
-      //   ] ?? []
+    // const selectedBackStripMeshes =
+    //   bracesMeshMap[bodyOptions.bodyShape][bodyOptions.cutaway][bodyOptions.armBevel][
+    //     soundboardOptions.soundHole
+    //   ] ?? []
 
-      heelTailBlocksOptions.meshes = selectedHeelTailBlocksMeshes
-    }
+    heelTailBlocksOptions.meshes = selectedHeelTailBlocksMeshes
+
     set({ configuration: { ...configuration } })
   },
   purflingOptions: {},
@@ -461,13 +444,12 @@ export const createOptionsSlice: StateCreator<StoreState, [], [], IOptionsStoreS
 
     const purflingComponent = getConfiguredComponent(configuration, ELuthComponent.Purfling)
 
-    if (purflingComponent) {
-      const selectedPurflingMeshes =
-        purflingMeshMap[bodyOptions.bodyShape][bodyOptions.bodyDepth][bodyOptions.cutaway][
-          bodyOptions.armBevel
-        ] ?? []
-      purflingComponent.meshes = selectedPurflingMeshes
-    }
+    const selectedPurflingMeshes =
+      purflingMeshMap[bodyOptions.bodyShape][bodyOptions.bodyDepth][bodyOptions.cutaway][
+        bodyOptions.armBevel
+      ] ?? []
+    purflingComponent.meshes = selectedPurflingMeshes
+
     set({ configuration: { ...configuration } })
   },
 })
@@ -499,19 +481,42 @@ export const createUIControlsSlice: StateCreator<StoreState, [], [], IUIControls
     zoom: 2,
     polar: [-Math.PI / 3, Math.PI / 3],
     azimuth: [-Math.PI / 4, Math.PI / 4],
-    // snap: { mass: 5, tension: 140 },
-    // co nfig: { mass: 1, tension: 80 },
+    snap: false,
   },
   setControls: (controls) => {
     set((state) => ({ controls: { ...state.controls, ...controls } }))
   },
 })
+
+/** HISTORY STATE SLICE  */
+
+export interface IHistoryStoreState {
+  history: IOptionsStoreState[]
+  future: IOptionsStoreState[]
+  undo: () => void
+  redo: () => void
+}
+
+export const createHistorySlice: StateCreator<StoreState, [], [], IHistoryStoreState> = (
+  set,
+  get,
+) => ({
+  history: [],
+  future: [],
+  undo: () => {},
+  redo: () => {},
+})
+
 /** COMBINED STORE SLICES */
 
-export type StoreState = IConfigurationStoreState & IOptionsStoreState & IUIControlsStoreState
+export type StoreState = IConfigurationStoreState &
+  IOptionsStoreState &
+  IUIControlsStoreState &
+  IHistoryStoreState
 
 export const useConfigurationStore = create<StoreState>()((set, get, store) => ({
   ...createConfigurationSlice(set, get, store),
   ...createOptionsSlice(set, get, store),
   ...createUIControlsSlice(set, get, store),
+  ...createHistorySlice(set, get, store),
 }))
