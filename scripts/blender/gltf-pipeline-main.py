@@ -54,6 +54,7 @@ class ImportUSDZOperator(bpy.types.Operator):
     import_headstock: bpy.props.BoolProperty(name="Headstock", default=False)
     import_fretboard: bpy.props.BoolProperty(name="Fretboard", default=False)
     import_bridge: bpy.props.BoolProperty(name="Bridge", default=False)
+    import_pickguard: bpy.props.BoolProperty(name="Pickguard", default=False)
     import_strings: bpy.props.BoolProperty(name="Strings", default=False)
 
     def execute(self, context):
@@ -74,6 +75,8 @@ class ImportUSDZOperator(bpy.types.Operator):
             keywords.append("Fretboard")
         if self.import_bridge:
             keywords.append("Bridge")
+        if self.import_pickguard:
+            keywords.append("Pickguard")
         if self.import_strings:
             keywords.append("Strings")
 
@@ -143,6 +146,7 @@ class LuthGLTFPipelinePopup(bpy.types.Operator):
     import_headstock: bpy.props.BoolProperty(name="Headstock", default=False)
     import_fretboard: bpy.props.BoolProperty(name="Fretboard", default=False)
     import_bridge: bpy.props.BoolProperty(name="Bridge", default=False)
+    import_pickguard: bpy.props.BoolProperty(name="Pickguard", default=False)
     import_strings: bpy.props.BoolProperty(name="Strings", default=False)
 
     def execute(self, context):
@@ -165,6 +169,7 @@ class LuthGLTFPipelinePopup(bpy.types.Operator):
         layout.prop(self, "import_headstock")
         layout.prop(self, "import_fretboard")
         layout.prop(self, "import_bridge")
+        layout.prop(self, "import_pickguard")
         layout.prop(self, "import_strings")
 
         # Properly assign props to the operator
@@ -177,6 +182,7 @@ class LuthGLTFPipelinePopup(bpy.types.Operator):
         import_op.import_headstock = self.import_headstock
         import_op.import_fretboard = self.import_fretboard
         import_op.import_bridge = self.import_bridge
+        import_op.import_pickguard = self.import_pickguard
         import_op.import_strings = self.import_strings
 
         layout.operator("wm.export_luth_glb", icon="EXPORT")
