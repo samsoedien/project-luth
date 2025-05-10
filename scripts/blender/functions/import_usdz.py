@@ -1,9 +1,9 @@
 import bpy
 import os
 
-keywords = ["Sides"]
+default_keywords = ["Soundboard", "Back", "Sides", "Binding", "Neck", "Headstock", "Fretboard", "Bridge", "Pickguard", "Strings"]
 
-def import_usdz_files(base_path, keywords=keywords, import_scale=1.0):
+def import_usdz_files(base_path, keywords=default_keywords, import_scale=1.0):
     """
     Imports .usdz files from a base path into collections based on matching keywords.
     

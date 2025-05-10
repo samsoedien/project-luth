@@ -1,6 +1,6 @@
 import React from 'react'
 import { Leva, useControls } from 'leva'
-import { useConfigurationStore } from '../store/store'
+import { useConfigurationStore } from '../../store/store'
 import {
   EArmBevelOption,
   EBackMultiPieceOption,

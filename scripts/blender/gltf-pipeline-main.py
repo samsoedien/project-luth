@@ -80,7 +80,9 @@ class ImportUSDZOperator(bpy.types.Operator):
         if self.import_strings:
             keywords.append("Strings")
 
-        import_usdz_files(base_path, keywords if keywords else None)
+        keywords_args = {"keywords": keywords} if keywords else {}
+        import_usdz_files(base_path, **keywords_args)
+
         self.report({'INFO'}, f"Imported USDZ files for: {', '.join(keywords) if keywords else 'ALL'}")
         return {'FINISHED'}
 

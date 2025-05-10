@@ -7,6 +7,7 @@ import {
   EBackMultiPieceOption,
   EBodyShapeOption,
   ECutawayOption,
+  EScaleLengthOption,
   ESoundHoleOption,
 } from '~/models/options.model'
 import { getConfiguredComponent } from '~/helpers/meshUtils'
@@ -44,6 +45,10 @@ export interface IBodyOptions {
   armBevel: EArmBevelOption
 }
 
+export interface IScaleOptions {
+  scaleLength: EScaleLengthOption
+}
+
 export interface ISoundboardOptions {
   soundHole: ESoundHoleOption
 }
@@ -56,9 +61,23 @@ export interface ISidesOptions {}
 
 export interface IBindingOptions {}
 
+export interface INeckOptions {}
+
+export interface IHeadstockOptions {}
+
+export interface IFretboardOptions {}
+
+export interface IBridgeOptions {}
+
+export interface IPickguardOptions {}
+
+export interface IStringsOptions {}
+
 export interface IOptionsStoreState {
   bodyOptions: IBodyOptions
   setBodyOptions: (bodyOptions: Partial<IBodyOptions>) => void
+  scaleOptions: IScaleOptions
+  setScaleOptions: (bodyOptions: Partial<IScaleOptions>) => void
   soundboardOptions: ISoundboardOptions
   setSoundboardOptions: (soundboardOptions: Partial<ISoundboardOptions>) => void
   backOptions: IBackOptions
@@ -89,6 +108,21 @@ export const createOptionsSlice: StateCreator<StoreState, [], [], IOptionsStoreS
     get().setBackOptions(backOptions)
     get().setSidesOptions(sidesOptions)
     get().setBindingOptions(bindingOptions)
+  },
+  scaleOptions: {
+    scaleLength: EScaleLengthOption.Standard,
+  },
+  setScaleOptions: (scaleOptions) => {
+    set((state) => ({
+      scaleOptions: { ...state.scaleOptions, ...scaleOptions },
+    }))
+
+    // const { neckOptions, headstockOptions, fretboardOptions, bridgeOptions } = get()
+
+    // get().setSoundboardOptions(soundboardOptions)
+    // get().setBackOptions(backOptions)
+    // get().setSidesOptions(sidesOptions)
+    // get().setBindingOptions(bindingOptions)
   },
   soundboardOptions: {
     soundHole: ESoundHoleOption.Round,

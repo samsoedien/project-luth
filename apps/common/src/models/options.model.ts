@@ -1,3 +1,5 @@
+import { LuthGLTFResultCombined } from './gltfjsx.model'
+
 export enum EBodyShapeOption {
   Dreadnought = 'Dreadnought',
   // GrandConcert = 'GrandConcert',
@@ -19,7 +21,7 @@ export enum ECutawayOption {
   Scalloped = 'Scalloped',
 }
 
-export enum EScaleLength {
+export enum EScaleLengthOption {
   Standard = 'Standard',
 }
 
@@ -37,9 +39,30 @@ export enum EBackMultiPieceOption {
 export enum ESoundHoleOption {
   None = 'None',
   Round = 'Round',
-  FHole = 'F-Hole',
+  FHole = 'FHole',
 }
 
 export enum ETonewoodOption {
   Mahogany = 'Mahogany',
+}
+
+export enum EBodyThicknessOption {
+  Standard = 'Standard',
+  Thinline = 'Thinline',
+}
+
+type SoundboardMeshMap = {
+  [key in EBodyShapeOption]: {
+    [key in EBodyThicknessOption]: {
+      [key in ECutawayOption]: {
+        [key in EArmBevelOption]: {
+          [key in ESoundHoleOption]: Array<keyof LuthGLTFResultCombined['nodes']>
+        }
+      }
+    }
+  }
+}
+
+export enum EStringCountOption {
+  Six = 'Six',
 }
