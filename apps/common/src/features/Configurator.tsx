@@ -1,22 +1,14 @@
 import React from 'react'
 import { Leva, useControls } from 'leva'
 import { useConfigurationStore } from '../store/store'
-import {
-  EArmBevelOption,
-  EBackMultiPieceOption,
-  EBodyShapeOption,
-  ECutawayOption,
-} from '~/models/options.model'
+
 import { ELuthComponent } from '~/models/configuration.model'
-import BackOptions from './BackOptions'
+import BodyOptions from './options/BodyOptions'
+import SoundboardOptions from './options/SoundboardOptions'
+import ScaleOptions from './options/ScaleOptions'
+import BackOptions from './options/BackOptions'
 
 export default function Configurator() {
-  const bodyOptions = useConfigurationStore((state) => state.bodyOptions)
-  const setBodyOptions = useConfigurationStore((state) => state.setBodyOptions)
-
-  const backOptions = useConfigurationStore((state) => state.backOptions)
-  const setBackOptions = useConfigurationStore((state) => state.setBackOptions)
-
   const scope = useConfigurationStore((state) => state.scope)
   const setScope = useConfigurationStore((state) => state.setScope)
 
@@ -51,8 +43,9 @@ export default function Configurator() {
           zoom: 2,
           polar: [-Math.PI / 3, Math.PI / 3],
           azimuth: [-Math.PI / 4, Math.PI / 4],
-          snap: { mass: 5, tension: 140 },
-          config: { mass: 1, tension: 80 },
+          snap: true,
+
+          // config: { mass: 1, tension: 80 },
         })
         break
       case ELuthComponent.Back:
@@ -61,8 +54,9 @@ export default function Configurator() {
           zoom: 2,
           polar: [-Math.PI / 3, Math.PI / 3],
           azimuth: [-Math.PI / 4, Math.PI / 4],
-          snap: { mass: 5, tension: 140 },
-          config: { mass: 1, tension: 80 },
+          snap: true,
+          // snap: { mass: 5, tension: 140 },
+          // config: { mass: 1, tension: 80 },
         })
         break
       case ELuthComponent.Sides:
@@ -71,8 +65,9 @@ export default function Configurator() {
           zoom: 2,
           polar: [-Math.PI / 3, Math.PI / 3],
           azimuth: [-Math.PI / 4, Math.PI / 4],
-          snap: { mass: 5, tension: 140 },
-          config: { mass: 1, tension: 80 },
+          snap: true,
+          // snap: { mass: 5, tension: 140 },
+          // config: { mass: 1, tension: 80 },
         })
         break
       case ELuthComponent.Binding:
@@ -81,8 +76,9 @@ export default function Configurator() {
           zoom: 2,
           polar: [-Math.PI / 3, Math.PI / 3],
           azimuth: [-Math.PI / 4, Math.PI / 4],
-          snap: { mass: 5, tension: 140 },
-          config: { mass: 1, tension: 80 },
+          snap: true,
+          // snap: { mass: 5, tension: 140 },
+          // config: { mass: 1, tension: 80 },
         })
         break
       case ELuthComponent.EndGraft:
@@ -91,40 +87,20 @@ export default function Configurator() {
           zoom: 2,
           polar: [-Math.PI / 3, Math.PI / 3],
           azimuth: [-Math.PI / 4, Math.PI / 4],
-          snap: { mass: 5, tension: 140 },
-          config: { mass: 1, tension: 80 },
+          snap: true,
+          // snap: { mass: 5, tension: 140 },
+          // config: { mass: 1, tension: 80 },
         })
         break
     }
   }
 
-  useControls(
-    'Configuration', // Store names
-    {
-      cutaway: {
-        options: Object.values(ECutawayOption) as ECutawayOption[], // Use enum values
-        value: bodyOptions.cutaway, // Default value
-        onChange: (value: ECutawayOption) => {
-          setBodyOptions({ cutaway: value })
-        },
-      },
-      bodyShape: {
-        options: Object.values(EBodyShapeOption) as EBodyShapeOption[],
-        value: bodyOptions.bodyShape,
-        onChange: (value) => setBodyOptions({ bodyShape: value }),
-      },
-      armBevel: {
-        options: Object.values(EArmBevelOption) as EArmBevelOption[],
-        value: bodyOptions.armBevel,
-        onChange: (value) => setBodyOptions({ armBevel: value }),
-      },
-    },
-  )
-
-  // const { material, setMaterial, cutaway, setCutaway } = useConfiguration()
   return (
     <div className="absolute h-[160px] w-[320px]">
       <Leva />
+      <BodyOptions />
+      <ScaleOptions />
+      <SoundboardOptions />
       <BackOptions />
     </div>
   )

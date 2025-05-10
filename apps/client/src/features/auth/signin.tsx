@@ -117,7 +117,7 @@ function SigninForm() {
       </CardContent>
       <CardFooter>
         <Button variant="link" size="sm" className="text-black" asChild>
-          <Link href="/signup">Don't have an account yet?</Link>
+          <Link href="/signup">Don&apos;t have an account yet?</Link>
         </Button>
       </CardFooter>
     </Card>

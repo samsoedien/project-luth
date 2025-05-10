@@ -48,9 +48,10 @@ export const initialConfigurationState: IConfiguration = {
       name: ELuthComponent.Back,
       groupVisibility: true,
       meshes: [
-        'Body_Back_Three_Piece_Left',
-        'Body_Back_Three_Piece_Right',
-        'Body_Back_Three_Piece_Middle',
+        'Body_Back_Venetian_Cutaway',
+        // 'Body_Back_Three_Piece_Left',
+        // 'Body_Back_Three_Piece_Right',
+        // 'Body_Back_Three_Piece_Middle',
       ],
       components: [
         {
@@ -93,7 +94,7 @@ export const initialConfigurationState: IConfiguration = {
     },
     {
       name: ELuthComponent.Fretboard,
-      meshes: ['Body_Fretboard_1'],
+      meshes: ['Body_Fretboard_Soundhole_Tangent'],
       components: [
         {
           name: ELuthComponent.Frets,
@@ -118,6 +119,20 @@ export const initialConfigurationState: IConfiguration = {
             'Body_Fret18',
             'Body_Fret19',
             'Body_Fret20',
+          ],
+        },
+        {
+          name: ELuthComponent.FretboardMarkers,
+          meshes: [
+            'Body_Fret_Marker_Fret17',
+            'Body_Fret_Marker_Fret21',
+            'Body_Fret_Marker_Fret7',
+            'Body_Fret_Marker_Fret12-2',
+            'Body_Fret_Marker_Fret3',
+            'Body_Fret_Marker_Fret5',
+            'Body_Fret_Marker_Fret15',
+            'Body_Fret_Marker_Fret12-1',
+            'Body_Fret_Marker_Fret9',
           ],
         },
         {

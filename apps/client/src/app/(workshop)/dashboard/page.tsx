@@ -72,7 +72,7 @@ export default function DashboardPage(): JSX.Element {
   return (
     <TooltipProvider>
       <div className="bg-muted/40 flex min-h-screen w-full flex-col">
-        <aside className="z-5 bg-background fixed inset-y-0 left-0 hidden w-14 flex-col border-r sm:flex">
+        <aside className="bg-background fixed inset-y-0 left-0 z-5 hidden w-14 flex-col border-r sm:flex">
           <nav className="flex flex-col items-center gap-4 px-2 sm:py-4">
             <Link
               href="#"
@@ -272,7 +272,7 @@ export default function DashboardPage(): JSX.Element {
                 <Card className="sm:col-span-2" x-chunk="dashboard-05-chunk-0">
                   <CardHeader className="pb-3">
                     <CardTitle>Your Orders</CardTitle>
-                    <CardDescription className="max-w-lg text-balance leading-relaxed">
+                    <CardDescription className="max-w-lg leading-relaxed text-balance">
                       Introducing Our Dynamic Orders Dashboard for Seamless Management and
                       Insightful Analysis.
                     </CardDescription>
@@ -624,7 +624,7 @@ export default function DashboardPage(): JSX.Element {
                   <div className="text-muted-foreground text-xs">
                     Updated <time dateTime="2023-11-23">November 23, 2023</time>
                   </div>
-                  <Pagination className="ml-auto mr-0 w-auto">
+                  <Pagination className="mr-0 ml-auto w-auto">
                     <PaginationContent>
                       <PaginationItem>
                         <Button size="icon" variant="outline" className="h-6 w-6">

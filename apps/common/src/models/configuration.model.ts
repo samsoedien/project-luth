@@ -1,5 +1,6 @@
 import { Material } from 'three'
-import { GLTFResult } from '~/_generated/LuthAcoustic'
+// import { GLTFResult } from '~/_generated/LuthAcoustic'
+import { LuthGLTFResultCombined } from './gltfjsx.model'
 
 export enum ELuthModel {
   Acoustic = 'Acoustic',
@@ -28,11 +29,12 @@ export enum ELuthComponent {
   EndGraft = 'EndGraft',
   Nut = 'Nut',
   Saddle = 'Saddle',
+  FretboardMarkers = 'FretboardMarkers',
 }
 
 export interface IConfiguration {
   name: ELuthComponent
-  meshes: Array<keyof GLTFResult['nodes']>
+  meshes: Array<keyof LuthGLTFResultCombined['nodes']>
   material?: Material
   texture?: string
   components?: IConfiguration[]

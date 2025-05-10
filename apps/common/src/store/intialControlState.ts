@@ -30,7 +30,7 @@ const getPresentationControls = (scope: ELuthComponent): PresentationControlProp
         rotation: [0, 0, 0],
         polar: [-Math.PI / 3, Math.PI / 3],
         azimuth: [-Math.PI / 4, Math.PI / 4],
-        snap: { mass: 5, tension: 80 },
+        // snap: { mass: 5, tension: 80 },
       }
     default:
       return {

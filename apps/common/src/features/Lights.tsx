@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-function Lights(props) {
+function Lights() {
   return (
     <>
       <ambientLight intensity={Math.PI / 2} />

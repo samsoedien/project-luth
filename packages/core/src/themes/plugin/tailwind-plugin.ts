@@ -1,6 +1,8 @@
 import plugin from 'tailwindcss/plugin'
 
 export const luthTailwindPlugin = plugin(function ({ addBase }) {
+  // FIXME: Reconsider the use of this plugin
+  // eslint-disable-next-line @typescript-eslint/no-unused-expressions
   addBase({
     ':root': {
       '--background': '0 0% 100%',

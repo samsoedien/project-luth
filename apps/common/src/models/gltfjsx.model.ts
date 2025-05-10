@@ -1,10 +1,23 @@
 import { GLTFResult } from '~/_generated/LuthAcoustic'
 
+import { GLTFResult as LuthSoundboardGLTF } from '~/_generated/LuthSoundboard'
+import { GLTFResult as LuthSidesGLTF } from '~/_generated/LuthSides'
+import { GLTFResult as LuthHeelTailBlocksGLTF } from '~/_generated/LuthHeelTailBlocks'
+import { GLTFResult as LuthBindingDreaGLTF } from '~/_generated/LuthAcousticDreadnaught_25-4in_6str_Binding'
+import { GLTFResult as LuthBindingParlGLTF } from '~/_generated/LuthAcousticParlor_25-4in_6str_Binding'
+
 export type GLTFJSXInstances = Record<
   string,
   React.ForwardRefExoticComponent<
-    Omit<JSX.IntrinsicElements['mesh'], 'name'> & {
+    Omit<JSX.IntrinsicElements & { mesh: any }['mesh'], 'name'> & {
       name: keyof GLTFResult['nodes']
     }
   >
 >
+
+export type LuthGLTFResultCombined = LuthSidesGLTF &
+  LuthSoundboardGLTF &
+  LuthHeelTailBlocksGLTF &
+  LuthBindingDreaGLTF &
+  LuthBindingParlGLTF &
+  GLTFResult

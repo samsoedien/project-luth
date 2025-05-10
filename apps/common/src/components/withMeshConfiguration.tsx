@@ -1,5 +1,6 @@
 import React from 'react'
-import { Instances } from '~/_generated/LuthAcoustic'
+// import { LuthSoundboardInstances as Instances } from '~/_generated/LuthSoundboard'
+import { Instances } from '~/_generated/LuthSides'
 
 import SoundboardMeshes from '~/components/soundboard/SoundboardMeshes'
 import BracesMeshes from '~/components/soundboard/braces/BracesMeshes'
@@ -22,6 +23,7 @@ import BridgeMeshes from './bridge/BridgeMeshes'
 import StringsMeshes from './strings/StringsMeshes'
 import NutMeshes from './fretboard/nut/NutMeshes'
 import SaddleMeshes from './bridge/saddle/SaddleMeshes'
+import FretboardMarkersMeshes from './fretboard/fretboardMarkers/FretboardMarkersMeshes'
 
 interface IWithMeshConfigurationProps {
   position: [number, number, number]
@@ -32,8 +34,9 @@ const withMeshConfiguration = <P extends IWithMeshConfigurationProps>(
   GLTFJSXComponent: React.ComponentType<P>,
   // configuration: IConfiguration,
 ) => {
-  return (props: P) => {
+  const WrappedComponent = (props: P) => {
     const configuration = useConfigurationStore((state) => state.configuration)
+    console.log('configuration', configuration)
     const {
       soundboardConfiguration,
       rosetteConfiguration,
@@ -53,6 +56,7 @@ const withMeshConfiguration = <P extends IWithMeshConfigurationProps>(
       stringsConfiguration,
       nutConfiguration,
       saddleConfiguration,
+      fretboardMarkersConfiguration,
     } = {
       soundboardConfiguration: getConfiguredComponent(configuration, ELuthComponent.Soundboard),
       backStripConfiguration: getConfiguredComponent(configuration, ELuthComponent.BackStrip),
@@ -75,6 +79,10 @@ const withMeshConfiguration = <P extends IWithMeshConfigurationProps>(
       stringsConfiguration: getConfiguredComponent(configuration, ELuthComponent.Strings),
       nutConfiguration: getConfiguredComponent(configuration, ELuthComponent.Nut),
       saddleConfiguration: getConfiguredComponent(configuration, ELuthComponent.Saddle),
+      fretboardMarkersConfiguration: getConfiguredComponent(
+        configuration,
+        ELuthComponent.FretboardMarkers,
+      ),
     }
 
     if (
@@ -95,30 +103,31 @@ const withMeshConfiguration = <P extends IWithMeshConfigurationProps>(
       !bridgeConfiguration ||
       !stringsConfiguration ||
       !nutConfiguration ||
-      !saddleConfiguration
+      !saddleConfiguration ||
+      !fretboardMarkersConfiguration
     )
       return
 
     return (
-      <group scale={0.001}>
-        <Instances>
-          {configuration ? (
-            <>
-              <SoundboardMeshes configuration={soundboardConfiguration}>
-                <RosetteMeshes configuration={rosetteConfiguration} />
-                <BracesMeshes configuration={bracesConfiguration} />
-              </SoundboardMeshes>
-              <BackMeshes configuration={backConfiguration}>
+      <group>
+        {/* <Instances> */}
+        {configuration ? (
+          <>
+            <SoundboardMeshes configuration={soundboardConfiguration}>
+              {/* <RosetteMeshes configuration={rosetteConfiguration} />
+                <BracesMeshes configuration={bracesConfiguration} /> */}
+            </SoundboardMeshes>
+            {/* <BackMeshes configuration={backConfiguration}>
                 <BackStripMeshes configuration={backStripConfiguration} />
-              </BackMeshes>
-              <SidesMeshes configuration={sidesConfiguration}>
-                <HeelTailBlockMeshes configuration={heelTailBlockConfiguration} />
-                <EndGraftMeshes configuration={endGraftConfiguration} />
-              </SidesMeshes>
-              <BindingMeshes configuration={bindingConfiguration}>
-                <PurflingMeshes configuration={purflingConfiguration} />
-              </BindingMeshes>
-              <NeckMeshes configuration={neckConfiguration}>
+              </BackMeshes> */}
+            {/* <SidesMeshes configuration={sidesConfiguration}> */}
+            {/* <HeelTailBlockMeshes configuration={heelTailBlockConfiguration} /> */}
+            {/*     <EndGraftMeshes configuration={endGraftConfiguration} />*/}
+            {/* </SidesMeshes> */}
+            <BindingMeshes configuration={bindingConfiguration}>
+              {/* <PurflingMeshes configuration={purflingConfiguration} /> */}
+            </BindingMeshes>
+            {/*  <NeckMeshes configuration={neckConfiguration}>
                 <mesh>
                   <boxGeometry />
                 </mesh>
@@ -131,19 +140,24 @@ const withMeshConfiguration = <P extends IWithMeshConfigurationProps>(
               <FretboardMeshes configuration={fretboardConfiguration}>
                 <FretsMeshes configuration={fretsConfiguration} />
                 <NutMeshes configuration={nutConfiguration} />
+                <FretboardMarkersMeshes configuration={fretboardMarkersConfiguration} />
               </FretboardMeshes>
               <BridgeMeshes configuration={bridgeConfiguration}>
                 <SaddleMeshes configuration={saddleConfiguration} />
               </BridgeMeshes>
-              <StringsMeshes configuration={stringsConfiguration} />
-            </>
-          ) : (
-            <GLTFJSXComponent {...props} position={[0, 0, 0]} visible={false} />
-          )}
-        </Instances>
+              <StringsMeshes configuration={stringsConfiguration} /> */}
+          </>
+        ) : (
+          <GLTFJSXComponent {...props} position={[0, 0, 0]} />
+        )}
+        {/* </Instances> */}
       </group>
     )
   }
+
+  WrappedComponent.displayName = `withMeshConfiguration(${GLTFJSXComponent.displayName || GLTFJSXComponent.name || 'Component'})`
+
+  return WrappedComponent
 }
 
 export default withMeshConfiguration
