@@ -43,7 +43,7 @@
     "postinstall": "manypkg check",
     "deps": "manypkg fix && depcheck",
     "pre-commit": "yarn lint-staged",
-    "blender": "cd ./scripts && chmod +x blender.sh"
+    "blender": "cd ./scripts/blender && chmod +x blender.sh"
   },
   "lint-staged": {
     "packages/**/*.{html,css,scss,js,jsx,ts,tsx,json,md,mdx}": [

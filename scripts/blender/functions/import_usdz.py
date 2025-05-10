@@ -1,41 +1,62 @@
 import bpy
 import os
 
-def import_usdz_to_collections(base_path, import_scale=1, filter_keywords=None):
+keywords = ["Sides"]
+
+def import_usdz_files(base_path, keywords=keywords, import_scale=1.0):
+    """
+    Imports .usdz files from a base path into collections based on matching keywords.
+    
+    Args:
+        base_path (str): Path to the directory containing subfolders with .usdz files.
+        keywords (list[str]): Keywords to match in filenames (e.g., ["Soundboard", "Sides"]).
+        import_scale (float): Scale to apply during import.
+    """
+
+    # Create or retrieve top-level collections for each keyword
+    keyword_collections = {}
+    for keyword in keywords:
+        collection_name = f"{keyword}_Collection"
+        if collection_name in bpy.data.collections:
+            keyword_collections[keyword] = bpy.data.collections[collection_name]
+        else:
+            new_collection = bpy.data.collections.new(collection_name)
+            bpy.context.scene.collection.children.link(new_collection)
+            keyword_collections[keyword] = new_collection
+
+    # Iterate through config folders
     for config_folder in os.listdir(base_path):
         config_path = os.path.join(base_path, config_folder)
         if not os.path.isdir(config_path):
             continue
 
-        top_collection_name = f"{config_folder}_collection"
-        top_collection = bpy.data.collections.new(top_collection_name)
-        bpy.context.scene.collection.children.link(top_collection)
-
         for file_name in os.listdir(config_path):
             if not file_name.lower().endswith(".usdz"):
                 continue
 
-            # Optional filtering by filename
-            if filter_keywords:
-                if not any(keyword.lower() in file_name.lower() for keyword in filter_keywords):
-                    continue
+            matching_keyword = next(
+                (kw for kw in keywords if kw.lower() in file_name.lower()), None
+            )
+            if not matching_keyword:
+                continue
 
+            collection = keyword_collections[matching_keyword]
             file_path = os.path.join(config_path, file_name)
-            sub_name = os.path.splitext(file_name)[0].lower()
-            sub_collection_name = f"{config_folder}_collection_{sub_name}"
 
-            # Import the USDZ file with scale
+            print(f"📦 Importing '{file_name}' to '{collection.name}'")
+
+            # Track objects before import
+            before_objs = set(bpy.data.objects)
+
+            # Import USDZ
             bpy.ops.wm.usd_import(filepath=file_path, scale=import_scale)
 
-            # Create a new collection for this import
-            sub_collection = bpy.data.collections.new(sub_collection_name)
-            top_collection.children.link(sub_collection)
+            # Determine new objects
+            after_objs = set(bpy.data.objects)
+            new_objs = list(after_objs - before_objs)
 
-            # Get all selected (imported) objects
-            imported_objects = [obj for obj in bpy.context.view_layer.objects if obj.select_get()]
-
-            for obj in imported_objects:
-                # Ensure unique name to avoid .001 suffix
+            for obj in new_objs:
+                # Make name unique
                 base_name = obj.name
                 counter = 1
                 while base_name in bpy.data.objects and bpy.data.objects[base_name] != obj:
@@ -43,14 +64,15 @@ def import_usdz_to_collections(base_path, import_scale=1, filter_keywords=None):
                     counter += 1
                 obj.name = base_name
 
-                # Apply scale to mesh
+                # Apply scale
                 if obj.type == 'MESH':
                     bpy.context.view_layer.objects.active = obj
                     bpy.ops.object.transform_apply(scale=True)
 
-                # Link to sub-collection and unlink from scene
-                sub_collection.objects.link(obj)
+                # Move to target collection
+                collection.objects.link(obj)
                 if bpy.context.scene.collection.objects.get(obj.name):
                     bpy.context.scene.collection.objects.unlink(obj)
 
-            print(f"Imported {file_name} into collection '{sub_collection_name}'.")
+            print(f"✅ Imported {len(new_objs)} objects from '{file_name}'")
+
