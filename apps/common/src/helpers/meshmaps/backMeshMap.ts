@@ -2,13 +2,13 @@ import { LuthGLTFResultCombined } from '~/models/gltfjsx.model'
 import {
   EBackMultiPieceOption,
   EBodyShapeOption,
-  EBodyThicknessOption,
+  EBodyDepthOption,
   ECutawayOption,
 } from '~/models/options.model'
 
 type BackMeshMap = {
   [key in EBodyShapeOption]: {
-    [key in EBodyThicknessOption]: {
+    [key in EBodyDepthOption]: {
       [key in ECutawayOption]: {
         [key in EBackMultiPieceOption]: Array<keyof LuthGLTFResultCombined['nodes']>
       }
@@ -18,7 +18,7 @@ type BackMeshMap = {
 
 export const backMeshMap: BackMeshMap = {
   [EBodyShapeOption.Dreadnought]: {
-    [EBodyThicknessOption.Standard]: {
+    [EBodyDepthOption.Standard]: {
       [ECutawayOption.None]: {
         [EBackMultiPieceOption.OnePiece]: ['Body_Back'],
         [EBackMultiPieceOption.TwoPiece]: ['Body_Back_Two_Piece_Left', 'Body_Back_Two_Piece_Right'],
@@ -62,7 +62,7 @@ export const backMeshMap: BackMeshMap = {
         ],
       },
     },
-    [EBodyThicknessOption.Thinline]: {
+    [EBodyDepthOption.Thinline]: {
       [ECutawayOption.None]: {
         [EBackMultiPieceOption.OnePiece]: ['Body_Back'],
         [EBackMultiPieceOption.TwoPiece]: ['Body_Back_Two_Piece_Left', 'Body_Back_Two_Piece_Right'],
@@ -108,7 +108,7 @@ export const backMeshMap: BackMeshMap = {
     },
   },
   [EBodyShapeOption.Parlor]: {
-    [EBodyThicknessOption.Standard]: {
+    [EBodyDepthOption.Standard]: {
       [ECutawayOption.None]: {
         [EBackMultiPieceOption.OnePiece]: ['Body_Back'],
         [EBackMultiPieceOption.TwoPiece]: ['Body_Back_Two_Piece_Left', 'Body_Back_Two_Piece_Right'],
@@ -152,7 +152,7 @@ export const backMeshMap: BackMeshMap = {
         ],
       },
     },
-    [EBodyThicknessOption.Thinline]: {
+    [EBodyDepthOption.Thinline]: {
       [ECutawayOption.None]: {
         [EBackMultiPieceOption.OnePiece]: ['Body_Back'],
         [EBackMultiPieceOption.TwoPiece]: ['Body_Back_Two_Piece_Left', 'Body_Back_Two_Piece_Right'],

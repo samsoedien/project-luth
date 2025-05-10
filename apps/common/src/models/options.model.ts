@@ -46,14 +46,9 @@ export enum ETonewoodOption {
   Mahogany = 'Mahogany',
 }
 
-export enum EBodyThicknessOption {
-  Standard = 'Standard',
-  Thinline = 'Thinline',
-}
-
 type SoundboardMeshMap = {
   [key in EBodyShapeOption]: {
-    [key in EBodyThicknessOption]: {
+    [key in EBodyDepthOption]: {
       [key in ECutawayOption]: {
         [key in EArmBevelOption]: {
           [key in ESoundHoleOption]: Array<keyof LuthGLTFResultCombined['nodes']>

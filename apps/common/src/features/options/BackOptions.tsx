@@ -11,9 +11,6 @@ import { ELuthComponent } from '~/models/configuration.model'
 // import { useUpdateConfiguration } from '~/hooks/useUpdateConfiguration'
 
 export default function BackOptions() {
-  const bodyOptions = useConfigurationStore((state) => state.bodyOptions)
-  const setBodyOptions = useConfigurationStore((state) => state.setBodyOptions)
-
   const backOptions = useConfigurationStore((state) => state.backOptions)
   const setBackOptions = useConfigurationStore((state) => state.setBackOptions)
 

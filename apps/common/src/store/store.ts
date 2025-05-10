@@ -5,6 +5,7 @@ import { initialConfigurationState } from './initialConfigurationState'
 import {
   EArmBevelOption,
   EBackMultiPieceOption,
+  EBodyDepthOption,
   EBodyShapeOption,
   ECutawayOption,
   EScaleLengthOption,
@@ -41,6 +42,7 @@ export const createConfigurationSlice: StateCreator<
 /** OPTIONS STATE SLICE */
 export interface IBodyOptions {
   bodyShape: EBodyShapeOption
+  bodyDepth: EBodyDepthOption
   cutaway: ECutawayOption
   armBevel: EArmBevelOption
 }
@@ -86,6 +88,18 @@ export interface IOptionsStoreState {
   setSidesOptions: (sidesOptions: Partial<ISidesOptions>) => void
   bindingOptions: IBindingOptions
   setBindingOptions: (bindingOptions: Partial<IBindingOptions>) => void
+  neckOptions: INeckOptions
+  setNeckOptions: (neckOptions: Partial<INeckOptions>) => void
+  headstockOptions: IHeadstockOptions
+  setHeadstockOptions: (headstockOptions: Partial<IHeadstockOptions>) => void
+  fretboardOptions: IFretboardOptions
+  setFretboardOptions: (fretboardOptions: Partial<IFretboardOptions>) => void
+  bridgeOptions: IBridgeOptions
+  setBridgeOptions: (bridgeOptions: Partial<IBridgeOptions>) => void
+  pickguardOptions: IPickguardOptions
+  setPickguardOptions: (pickguardOptions: Partial<IPickguardOptions>) => void
+  stringsOptions: IStringsOptions
+  setStringsOptions: (stringsOptions: Partial<IStringsOptions>) => void
 }
 
 export const createOptionsSlice: StateCreator<StoreState, [], [], IOptionsStoreState> = (
@@ -94,6 +108,7 @@ export const createOptionsSlice: StateCreator<StoreState, [], [], IOptionsStoreS
 ) => ({
   bodyOptions: {
     bodyShape: EBodyShapeOption.Dreadnought,
+    bodyDepth: EBodyDepthOption.Standard,
     cutaway: ECutawayOption.Venetian,
     armBevel: EArmBevelOption.None,
   },
@@ -117,12 +132,12 @@ export const createOptionsSlice: StateCreator<StoreState, [], [], IOptionsStoreS
       scaleOptions: { ...state.scaleOptions, ...scaleOptions },
     }))
 
-    // const { neckOptions, headstockOptions, fretboardOptions, bridgeOptions } = get()
+    const { neckOptions, headstockOptions, fretboardOptions, bridgeOptions } = get()
 
-    // get().setSoundboardOptions(soundboardOptions)
-    // get().setBackOptions(backOptions)
-    // get().setSidesOptions(sidesOptions)
-    // get().setBindingOptions(bindingOptions)
+    get().setNeckOptions(neckOptions)
+    get().setHeadstockOptions(headstockOptions)
+    get().setFretboardOptions(fretboardOptions)
+    get().setBridgeOptions(bridgeOptions)
   },
   soundboardOptions: {
     soundHole: ESoundHoleOption.Round,
@@ -135,7 +150,7 @@ export const createOptionsSlice: StateCreator<StoreState, [], [], IOptionsStoreS
     const { bodyOptions, soundboardOptions, configuration } = get()
 
     const selectedSoundboardMeshes =
-      soundboardMeshMap?.[bodyOptions.bodyShape]?.[bodyOptions.cutaway]?.[bodyOptions.armBevel]?.[
+      soundboardMeshMap[bodyOptions.bodyShape][bodyOptions.cutaway][bodyOptions.armBevel][
         soundboardOptions.soundHole
       ] ?? []
 
@@ -165,8 +180,9 @@ export const createOptionsSlice: StateCreator<StoreState, [], [], IOptionsStoreS
 
     if (backComponent) {
       const selectedBackMeshes =
-        backMeshMap?.[bodyOptions.bodyShape]?.[bodyOptions.cutaway]?.[backOptions.backMultiPiece] ??
-        []
+        backMeshMap[bodyOptions.bodyShape][bodyOptions.bodyDepth][bodyOptions.cutaway][
+          backOptions.backMultiPiece
+        ] ?? []
       backComponent.meshes = selectedBackMeshes
     }
     set({ configuration: { ...configuration } })
@@ -200,7 +216,9 @@ export const createOptionsSlice: StateCreator<StoreState, [], [], IOptionsStoreS
 
     if (bindingComponent) {
       const selectedBindingMeshes =
-        bindingMeshMap?.[bodyOptions.bodyShape]?.[bodyOptions.cutaway]?.[bodyOptions.armBevel] ?? []
+        bindingMeshMap[bodyOptions.bodyShape][bodyOptions.bodyDepth][bodyOptions.cutaway][
+          bodyOptions.armBevel
+        ] ?? []
       bindingComponent.meshes = selectedBindingMeshes
     }
 
@@ -212,6 +230,114 @@ export const createOptionsSlice: StateCreator<StoreState, [], [], IOptionsStoreS
       purflingComponent.meshes = selectedBindingMeshes
     }
 
+    set({ configuration: { ...configuration } })
+  },
+  neckOptions: {},
+  setNeckOptions: (options) => {
+    set((state) => ({
+      neckOptions: { ...state.neckOptions, ...options },
+    }))
+
+    const { configuration, scaleOptions } = get()
+
+    const neckComponent = getConfiguredComponent(configuration, ELuthComponent.Neck)
+
+    if (neckComponent) {
+      const selectedneckMeshes: any[] = []
+      //     backMeshMap?.[bodyOptions.bodyShape]?.[bodyOptions.cutaway]?.[backOptions.backMultiPiece] ??
+      //     []
+      neckComponent.meshes = selectedneckMeshes
+    }
+    set({ configuration: { ...configuration } })
+  },
+  headstockOptions: {},
+  setHeadstockOptions: (options) => {
+    set((state) => ({
+      headstockOptions: { ...state.headstockOptions, ...options },
+    }))
+
+    const { configuration, scaleOptions } = get()
+
+    const headstockComponent = getConfiguredComponent(configuration, ELuthComponent.Headstock)
+
+    if (headstockComponent) {
+      const selectedHeadstockMeshes: any[] = []
+      //     backMeshMap?.[bodyOptions.bodyShape]?.[bodyOptions.cutaway]?.[backOptions.backMultiPiece] ??
+      //     []
+      headstockComponent.meshes = selectedHeadstockMeshes
+    }
+    set({ configuration: { ...configuration } })
+  },
+  fretboardOptions: {},
+  setFretboardOptions: (options) => {
+    set((state) => ({
+      fretboardOptions: { ...state.fretboardOptions, ...options },
+    }))
+
+    const { configuration, scaleOptions } = get()
+
+    const fretboardComponent = getConfiguredComponent(configuration, ELuthComponent.Fretboard)
+
+    if (fretboardComponent) {
+      const selectedFretboardkMeshes: any[] = []
+      //     backMeshMap?.[bodyOptions.bodyShape]?.[bodyOptions.cutaway]?.[backOptions.backMultiPiece] ??
+      //     []
+      fretboardComponent.meshes = selectedFretboardkMeshes
+    }
+    set({ configuration: { ...configuration } })
+  },
+  bridgeOptions: {},
+  setBridgeOptions: (options) => {
+    set((state) => ({
+      bridgeOptions: { ...state.bridgeOptions, ...options },
+    }))
+
+    const { configuration, scaleOptions } = get()
+
+    const bridgeComponent = getConfiguredComponent(configuration, ELuthComponent.Bridge)
+
+    if (bridgeComponent) {
+      const selectedBridgekMeshes: any[] = []
+      //     backMeshMap?.[bodyOptions.bodyShape]?.[bodyOptions.cutaway]?.[backOptions.backMultiPiece] ??
+      //     []
+      bridgeComponent.meshes = selectedBridgekMeshes
+    }
+    set({ configuration: { ...configuration } })
+  },
+  pickguardOptions: {},
+  setPickguardOptions: (options) => {
+    set((state) => ({
+      pickguardOptions: { ...state.pickguardOptions, ...options },
+    }))
+
+    const { configuration } = get()
+
+    const pickguardComponent = getConfiguredComponent(configuration, ELuthComponent.Pickguard)
+
+    if (pickguardComponent) {
+      const selectedPickguardkMeshes: any[] = []
+      //     backMeshMap?.[bodyOptions.bodyShape]?.[bodyOptions.cutaway]?.[backOptions.backMultiPiece] ??
+      //     []
+      pickguardComponent.meshes = selectedPickguardkMeshes
+    }
+    set({ configuration: { ...configuration } })
+  },
+  stringsOptions: {},
+  setStringsOptions: (options) => {
+    set((state) => ({
+      stringsOptions: { ...state.pickguardOptions, ...options },
+    }))
+
+    const { configuration, scaleOptions } = get()
+
+    const stringsComponent = getConfiguredComponent(configuration, ELuthComponent.Strings)
+
+    if (stringsComponent) {
+      const selectedStringskMeshes: any[] = []
+      //     backMeshMap?.[bodyOptions.bodyShape]?.[bodyOptions.cutaway]?.[backOptions.backMultiPiece] ??
+      //     []
+      stringsComponent.meshes = selectedStringskMeshes
+    }
     set({ configuration: { ...configuration } })
   },
 })
