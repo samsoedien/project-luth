@@ -49,7 +49,7 @@ export default function SoundboardMeshes({ configuration, children }: ISoundboar
             </mesh>
           )
         })}
-      <group ref={instanceGroupRef} scale={0}>
+      <group ref={instanceGroupRef} visible={false}>
         <Instances>
           <Helper type={BoxHelper} args={['red']} />
           <LuthSoundboard />

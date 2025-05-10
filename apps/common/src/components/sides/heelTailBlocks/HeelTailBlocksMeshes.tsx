@@ -15,24 +15,29 @@ export default function HeelTailBlockMeshes({ configuration }: IHeelTailBlockMes
   // const instances = useContext(GLTFJSXContext) as GLTFJSXInstances
   const { instanceGeometry, instanceGroupRef } = useInstanceGeometry(configuration)
 
+  console.log('HeelTailBlockMeshes instanceGeometry:', instanceGeometry)
+  // FIXME: instance geometry doesnt wotk recursively yet?
+
   return (
-    <group dispose={null}>
-      {/* {instanceGeometry.length > 0 ? (
+    <group name={configuration.name} dispose={null}>
+      {instanceGeometry.length > 0 &&
         instanceGeometry.map((child) => (
-          <mesh key={child.uuid} name={child.name} geometry={child.geometry}>
+          <mesh
+            key={child.uuid}
+            name={child.name}
+            geometry={child.geometry}
+            castShadow
+            receiveShadow
+            onClick={(e) => console.log('click', e)}
+          >
             <meshNormalMaterial />
           </mesh>
-        ))
-      ) : ( */}
-      <group ref={instanceGroupRef}>
+        ))}
+
+      <group ref={instanceGroupRef} scale={1}>
         <Instances frustumCulled={false}>
           <LuthHeelTailBlocks />
         </Instances>
-        {/* <mesh>
-          <boxGeometry args={[1, 1, 1]} />
-        </mesh> */}
-        {/* <instances.BodyHeelBlock name="Body_Heel_Block" /> */}
-        {/* <instances.BodyTailBlock name="Body_Tail_Block" /> */}
       </group>
     </group>
   )

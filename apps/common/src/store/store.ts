@@ -15,6 +15,7 @@ import { getConfiguredComponent } from '~/helpers/meshUtils'
 import {
   backMeshMap,
   bindingMeshMap,
+  bracesMeshMap,
   purflingMeshMap,
   sidesMeshMap,
   soundboardMeshMap,
@@ -75,6 +76,16 @@ export interface IPickguardOptions {}
 
 export interface IStringsOptions {}
 
+export interface IRosetteOptions {}
+
+export interface IBracesOptions {}
+
+export interface IBackStripOptions {}
+
+export interface IHeelTailBlocksOptions {}
+
+export interface IPurflingOptions {}
+
 export interface IOptionsStoreState {
   bodyOptions: IBodyOptions
   setBodyOptions: (bodyOptions: Partial<IBodyOptions>) => void
@@ -100,12 +111,23 @@ export interface IOptionsStoreState {
   setPickguardOptions: (pickguardOptions: Partial<IPickguardOptions>) => void
   stringsOptions: IStringsOptions
   setStringsOptions: (stringsOptions: Partial<IStringsOptions>) => void
+  rosetteOptions: IRosetteOptions
+  setRosetteOptions: (rosetteOptions: Partial<IRosetteOptions>) => void
+  bracesOptions: IBracesOptions
+  setBracesOptions: (bracesOptions: Partial<IBracesOptions>) => void
+  backStripOptions: IBackStripOptions
+  setBackStripOptions: (backStripOptions: Partial<IBackStripOptions>) => void
+  heelTailBlocksOptions: IHeelTailBlocksOptions
+  setHeelTailBlocksOptions: (heelTailBlocksOptions: Partial<IHeelTailBlocksOptions>) => void
+  purflingOptions: IPurflingOptions
+  setPurflingOptions: (purflingOptions: Partial<IPurflingOptions>) => void
 }
 
 export const createOptionsSlice: StateCreator<StoreState, [], [], IOptionsStoreState> = (
   set,
   get,
 ) => ({
+  /** Level 1 Options: Body & Scale (will delegate changes to a set components */
   bodyOptions: {
     bodyShape: EBodyShapeOption.Dreadnought,
     bodyDepth: EBodyDepthOption.Standard,
@@ -139,6 +161,7 @@ export const createOptionsSlice: StateCreator<StoreState, [], [], IOptionsStoreS
     get().setFretboardOptions(fretboardOptions)
     get().setBridgeOptions(bridgeOptions)
   },
+  /** Level 2 Options: Components wil delegate changes to all it's child components */
   soundboardOptions: {
     soundHole: ESoundHoleOption.Round,
   },
@@ -147,14 +170,17 @@ export const createOptionsSlice: StateCreator<StoreState, [], [], IOptionsStoreS
       soundboardOptions: { ...state.soundboardOptions, ...options },
     }))
 
-    const { bodyOptions, soundboardOptions, configuration } = get()
+    const { bodyOptions, soundboardOptions, rosetteOptions, bracesOptions, configuration } = get()
 
     const selectedSoundboardMeshes =
       soundboardMeshMap[bodyOptions.bodyShape][bodyOptions.cutaway][bodyOptions.armBevel][
         soundboardOptions.soundHole
       ] ?? []
 
-    // Create the new configuration with updated meshes
+    get().setRosetteOptions(rosetteOptions)
+    get().setBracesOptions(bracesOptions)
+
+    // Create the new configuration with updated meshes //TODO: verify if this implementation can be applied to other setOptions
     set({
       configuration: {
         ...configuration, // ensure new reference
@@ -174,7 +200,7 @@ export const createOptionsSlice: StateCreator<StoreState, [], [], IOptionsStoreS
       backOptions: { ...state.backOptions, ...options },
     }))
 
-    const { bodyOptions, backOptions, configuration } = get()
+    const { bodyOptions, backOptions, backStripOptions, configuration } = get()
 
     const backComponent = getConfiguredComponent(configuration, ELuthComponent.Back)
 
@@ -185,6 +211,9 @@ export const createOptionsSlice: StateCreator<StoreState, [], [], IOptionsStoreS
         ] ?? []
       backComponent.meshes = selectedBackMeshes
     }
+
+    get().setBackStripOptions(backStripOptions)
+
     set({ configuration: { ...configuration } })
   },
   sidesOptions: {},
@@ -210,7 +239,7 @@ export const createOptionsSlice: StateCreator<StoreState, [], [], IOptionsStoreS
       bindingOptions: { ...state.bindingOptions, ...options },
     }))
 
-    const { bodyOptions, bindingOptions, configuration } = get()
+    const { bodyOptions, bindingOptions, purflingOptions, configuration } = get()
 
     const bindingComponent = getConfiguredComponent(configuration, ELuthComponent.Binding)
 
@@ -222,13 +251,7 @@ export const createOptionsSlice: StateCreator<StoreState, [], [], IOptionsStoreS
       bindingComponent.meshes = selectedBindingMeshes
     }
 
-    const purflingComponent = getConfiguredComponent(configuration, ELuthComponent.Purfling)
-    if (purflingComponent) {
-      const selectedBindingMeshes =
-        purflingMeshMap?.[bodyOptions.bodyShape]?.[bodyOptions.cutaway]?.[bodyOptions.armBevel] ??
-        []
-      purflingComponent.meshes = selectedBindingMeshes
-    }
+    get().setPurflingOptions(purflingOptions)
 
     set({ configuration: { ...configuration } })
   },
@@ -333,10 +356,117 @@ export const createOptionsSlice: StateCreator<StoreState, [], [], IOptionsStoreS
     const stringsComponent = getConfiguredComponent(configuration, ELuthComponent.Strings)
 
     if (stringsComponent) {
-      const selectedStringskMeshes: any[] = []
+      const selectedStringsMeshes: any[] = []
       //     backMeshMap?.[bodyOptions.bodyShape]?.[bodyOptions.cutaway]?.[backOptions.backMultiPiece] ??
       //     []
-      stringsComponent.meshes = selectedStringskMeshes
+      stringsComponent.meshes = selectedStringsMeshes
+    }
+    set({ configuration: { ...configuration } })
+  },
+  /** Level 3 Options: Sub Components will not delegate any changes since it cannot have any child relations */
+  rosetteOptions: {},
+  setRosetteOptions: (options) => {
+    set((state) => ({
+      rosetteOptions: { ...state.rosetteOptions, ...options },
+    }))
+
+    const { configuration, bodyOptions, soundboardOptions } = get()
+
+    const rosetteComponent = getConfiguredComponent(configuration, ELuthComponent.Rosette)
+
+    if (rosetteComponent) {
+      const selectedRosetteMeshes: any[] = []
+      //     backMeshMap?.[bodyOptions.bodyShape]?.[bodyOptions.cutaway]?.[backOptions.backMultiPiece] ??
+      //     []
+      rosetteComponent.meshes = selectedRosetteMeshes
+    }
+    set({ configuration: { ...configuration } })
+  },
+  bracesOptions: {},
+  setBracesOptions: (options) => {
+    set((state) => ({
+      bracesOptions: { ...state.bracesOptions, ...options },
+    }))
+
+    const { configuration, bodyOptions, soundboardOptions } = get()
+
+    const bracesComponent = getConfiguredComponent(configuration, ELuthComponent.Braces)
+
+    if (bracesComponent) {
+      // const selectedBracesMeshes: any[] = []
+
+      const selectedBracesMeshes =
+        bracesMeshMap[bodyOptions.bodyShape][bodyOptions.cutaway][bodyOptions.armBevel][
+          soundboardOptions.soundHole
+        ] ?? []
+
+      bracesComponent.meshes = selectedBracesMeshes
+    }
+    set({ configuration: { ...configuration } })
+  },
+  backStripOptions: {},
+  setBackStripOptions: (options) => {
+    set((state) => ({
+      backStripOptions: { ...state.backStripOptions, ...options },
+    }))
+
+    const { configuration, bodyOptions, backOptions } = get()
+
+    const backStripOptions = getConfiguredComponent(configuration, ELuthComponent.BackStrip)
+
+    if (backStripOptions) {
+      const selectedBackStripMeshes: any[] = []
+
+      // const selectedBackStripMeshes =
+      //   bracesMeshMap[bodyOptions.bodyShape][bodyOptions.cutaway][bodyOptions.armBevel][
+      //     soundboardOptions.soundHole
+      //   ] ?? []
+
+      backStripOptions.meshes = selectedBackStripMeshes
+    }
+    set({ configuration: { ...configuration } })
+  },
+  heelTailBlocksOptions: {},
+  setHeelTailBlocksOptions: (options) => {
+    set((state) => ({
+      heelTailBlocksOptions: { ...state.heelTailBlocksOptions, ...options },
+    }))
+
+    const { configuration, bodyOptions, backOptions } = get()
+
+    const heelTailBlocksOptions = getConfiguredComponent(
+      configuration,
+      ELuthComponent.HeelTailBlocks,
+    )
+
+    if (heelTailBlocksOptions) {
+      const selectedHeelTailBlocksMeshes: any[] = []
+
+      // const selectedBackStripMeshes =
+      //   bracesMeshMap[bodyOptions.bodyShape][bodyOptions.cutaway][bodyOptions.armBevel][
+      //     soundboardOptions.soundHole
+      //   ] ?? []
+
+      heelTailBlocksOptions.meshes = selectedHeelTailBlocksMeshes
+    }
+    set({ configuration: { ...configuration } })
+  },
+  purflingOptions: {},
+  setPurflingOptions: (options) => {
+    set((state) => ({
+      purflingOptions: { ...state.purflingOptions, ...options },
+    }))
+
+    const { configuration, bodyOptions, bindingOptions } = get()
+
+    const purflingComponent = getConfiguredComponent(configuration, ELuthComponent.Purfling)
+
+    if (purflingComponent) {
+      const selectedPurflingMeshes =
+        purflingMeshMap[bodyOptions.bodyShape][bodyOptions.bodyDepth][bodyOptions.cutaway][
+          bodyOptions.armBevel
+        ] ?? []
+      purflingComponent.meshes = selectedPurflingMeshes
     }
     set({ configuration: { ...configuration } })
   },

@@ -39,7 +39,7 @@ export default function SidesMeshes({ configuration, children }: ISidesMeshesPro
             )} */}
           </mesh>
         ))}
-      <group ref={instanceGroupRef} scale={0}>
+      <group ref={instanceGroupRef} visible={false}>
         <Instances frustumCulled={true}>
           <LuthSides />
         </Instances>
