@@ -46,6 +46,10 @@ export enum ETonewoodOption {
   Mahogany = 'Mahogany',
 }
 
+export enum EHeelJointOption {
+  Dovetail = 'Dovetail',
+  BoltOn = 'BoltOn',
+}
 type SoundboardMeshMap = {
   [key in EBodyShapeOption]: {
     [key in EBodyDepthOption]: {

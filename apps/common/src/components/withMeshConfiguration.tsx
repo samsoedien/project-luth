@@ -36,7 +36,6 @@ const withMeshConfiguration = <P extends IWithMeshConfigurationProps>(
 ) => {
   const WrappedComponent = (props: P) => {
     const configuration = useConfigurationStore((state) => state.configuration)
-    console.log('configuration', configuration)
     const {
       soundboardConfiguration,
       rosetteConfiguration,
@@ -57,6 +56,7 @@ const withMeshConfiguration = <P extends IWithMeshConfigurationProps>(
       nutConfiguration,
       saddleConfiguration,
       fretboardMarkersConfiguration,
+      pickguardConfiguration,
     } = {
       soundboardConfiguration: getConfiguredComponent(configuration, ELuthComponent.Soundboard),
       backStripConfiguration: getConfiguredComponent(configuration, ELuthComponent.BackStrip),
@@ -83,6 +83,7 @@ const withMeshConfiguration = <P extends IWithMeshConfigurationProps>(
         configuration,
         ELuthComponent.FretboardMarkers,
       ),
+      pickguardConfiguration: getConfiguredComponent(configuration, ELuthComponent.Pickguard),
     }
 
     if (
@@ -104,9 +105,12 @@ const withMeshConfiguration = <P extends IWithMeshConfigurationProps>(
       !stringsConfiguration ||
       !nutConfiguration ||
       !saddleConfiguration ||
-      !fretboardMarkersConfiguration
+      !fretboardMarkersConfiguration ||
+      !pickguardConfiguration
     )
       return
+
+    console.log('heelTailBlockConfiguration', heelTailBlockConfiguration)
 
     return (
       <group>
@@ -125,7 +129,7 @@ const withMeshConfiguration = <P extends IWithMeshConfigurationProps>(
               {/*     <EndGraftMeshes configuration={endGraftConfiguration} />*/}
             </SidesMeshes>
             <BindingMeshes configuration={bindingConfiguration}>
-              {/* <PurflingMeshes configuration={purflingConfiguration} /> */}
+              <PurflingMeshes configuration={purflingConfiguration} />
             </BindingMeshes>
             {/*  <NeckMeshes configuration={neckConfiguration}>
                 <mesh>
@@ -145,7 +149,8 @@ const withMeshConfiguration = <P extends IWithMeshConfigurationProps>(
               <BridgeMeshes configuration={bridgeConfiguration}>
                 <SaddleMeshes configuration={saddleConfiguration} />
               </BridgeMeshes>
-              <StringsMeshes configuration={stringsConfiguration} /> */}
+              <PickguardMeshes configuration={pickguardConfiguration} /> 
+            <StringsMeshes configuration={stringsConfiguration} /> */}
           </>
         ) : (
           <GLTFJSXComponent {...props} position={[0, 0, 0]} />

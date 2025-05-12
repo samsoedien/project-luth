@@ -1,23 +1,13 @@
-import { useContext } from 'react'
-import LuthSides, {
-  // context as GLTFJSXContext,
-  // LuthSidesInstances,
-  Instances,
-} from '~/_generated/LuthSides'
-
 // import { GLTFJSXInstances } from '~/models/gltfjsx.model'
 import { useInstanceGeometry } from '~/hooks/useInstanceGeometry'
 import { IConfiguration } from '~/models/configuration.model'
-import { useGLTF } from '@react-three/drei'
 
-// const [Instances, LuthSidesTest] = createInstances()
-
-export interface ISidesMeshesProps {
+export interface IPickguardMeshesProps {
   configuration: IConfiguration
   children: React.ReactNode
 }
 
-export default function SidesMeshes({ configuration, children }: ISidesMeshesProps) {
+export default function PickguardMeshes({ configuration, children }: IPickguardMeshesProps) {
   // const instances = useContext(GLTFJSXContext) as GLTFJSXInstances
   const { instanceGeometry, instanceGroupRef } = useInstanceGeometry(configuration)
   return (
@@ -33,17 +23,13 @@ export default function SidesMeshes({ configuration, children }: ISidesMeshesPro
             onClick={(e) => console.log('click', e)}
           >
             <meshNormalMaterial />
-            {/* {child.userData.annotations && (
-              <Html occlude>{`Thickness: ${child.userData.annotations.thickness}`}</Html>
-            )} */}
           </mesh>
         ))}
       <group ref={instanceGroupRef} visible={false}>
-        <Instances frustumCulled={true}>
+        {/* <Instances frustumCulled={true}>
           <LuthSides />
-        </Instances>
+        </Instances> */}
       </group>
-      {children}
     </group>
   )
 }

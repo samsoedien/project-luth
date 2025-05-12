@@ -152,6 +152,11 @@ export const initialConfigurationState: IConfiguration = {
       ],
     },
     {
+      name: ELuthComponent.Pickguard,
+      meshes: [],
+    },
+
+    {
       name: ELuthComponent.Strings,
       meshes: [
         'Body_String_LowE',

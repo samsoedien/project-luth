@@ -13,6 +13,8 @@ export interface IHeelTailBlockMeshesProps {
 
 export default function HeelTailBlockMeshes({ configuration }: IHeelTailBlockMeshesProps) {
   // const instances = useContext(GLTFJSXContext) as GLTFJSXInstances
+
+  console.log('HeelTailBlockMeshes configuration:', configuration)
   const { instanceGeometry, instanceGroupRef } = useInstanceGeometry(configuration)
 
   console.log('HeelTailBlockMeshes instanceGeometry:', instanceGeometry)
@@ -34,7 +36,7 @@ export default function HeelTailBlockMeshes({ configuration }: IHeelTailBlockMes
           </mesh>
         ))}
 
-      <group ref={instanceGroupRef} scale={1}>
+      <group ref={instanceGroupRef} visible={false}>
         <Instances frustumCulled={false}>
           <LuthHeelTailBlocks />
         </Instances>

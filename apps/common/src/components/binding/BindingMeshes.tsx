@@ -1,9 +1,5 @@
-import LuthParlorBinding, {
-  Instances as ParlorBindingInstances,
-} from '../../_generated/LuthAcousticParlor_25-4in_6str_Binding'
-import LuthDreadnaughtBinding, {
-  Instances as DreadnaughtBindingInstances,
-} from '../../_generated/LuthAcousticDreadnaught_25-4in_6str_Binding'
+import LuthBinding, { Instances as BindingInstances } from '../../_generated/LuthBinding'
+
 import { IConfiguration } from '../../models/configuration.model'
 import { useInstanceGeometry } from '~/hooks/useInstanceGeometry'
 
@@ -14,7 +10,6 @@ export interface IBindingMeshesProps {
 
 export default function BindingMeshes({ configuration, children }: IBindingMeshesProps) {
   const { instanceGeometry, instanceGroupRef } = useInstanceGeometry(configuration)
-  console.log('BindingMeshes', instanceGeometry)
   return (
     <group name={configuration.name} dispose={null}>
       {instanceGeometry.length > 0 &&
@@ -26,16 +21,13 @@ export default function BindingMeshes({ configuration, children }: IBindingMeshe
             castShadow
             receiveShadow
           >
-            <meshNormalMaterial />
+            <meshStandardMaterial color="white" />
           </mesh>
         ))}
-      <group ref={instanceGroupRef} scale={0}>
-        <ParlorBindingInstances>
-          <LuthParlorBinding />
-        </ParlorBindingInstances>
-        <DreadnaughtBindingInstances>
-          <LuthDreadnaughtBinding />
-        </DreadnaughtBindingInstances>
+      <group ref={instanceGroupRef} visible={false}>
+        <BindingInstances>
+          <LuthBinding />
+        </BindingInstances>
       </group>
       {children}
     </group>

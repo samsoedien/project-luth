@@ -3,8 +3,8 @@ import { GLTFResult } from '~/_generated/LuthAcoustic'
 import { GLTFResult as LuthSoundboardGLTF } from '~/_generated/LuthSoundboard'
 import { GLTFResult as LuthSidesGLTF } from '~/_generated/LuthSides'
 import { GLTFResult as LuthHeelTailBlocksGLTF } from '~/_generated/LuthHeelTailBlocks'
-import { GLTFResult as LuthBindingDreaGLTF } from '~/_generated/LuthAcousticDreadnaught_25-4in_6str_Binding'
-import { GLTFResult as LuthBindingParlGLTF } from '~/_generated/LuthAcousticParlor_25-4in_6str_Binding'
+import { GLTFResult as LuthBindingGLTF } from '~/_generated/LuthBinding'
+import { GLTFResult as LuthPurfllingGLTF } from '~/_generated/LuthPurfling'
 
 export type GLTFJSXInstances = Record<
   string,
@@ -18,6 +18,6 @@ export type GLTFJSXInstances = Record<
 export type LuthGLTFResultCombined = LuthSidesGLTF &
   LuthSoundboardGLTF &
   LuthHeelTailBlocksGLTF &
-  LuthBindingDreaGLTF &
-  LuthBindingParlGLTF &
+  LuthBindingGLTF &
+  LuthPurfllingGLTF &
   GLTFResult

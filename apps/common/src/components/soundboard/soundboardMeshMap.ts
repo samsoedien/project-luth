@@ -1,5 +1,5 @@
-// import { GLTFResult } from '~/_generated/LuthAcoustic'
-import { LuthGLTFResultCombined } from '~/models/gltfjsx.model'
+import { GLTFResult as LuthSoundboardGLTF } from '~/_generated/LuthSoundboard'
+
 import {
   EArmBevelOption,
   EBodyShapeOption,
@@ -11,7 +11,7 @@ type SoundboardMeshMap = {
   [key in EBodyShapeOption]: {
     [key in ECutawayOption]: {
       [key in EArmBevelOption]: {
-        [key in ESoundHoleOption]: Array<keyof LuthGLTFResultCombined['nodes']>
+        [key in ESoundHoleOption]: Array<keyof LuthSoundboardGLTF['nodes']>
       }
     }
   }

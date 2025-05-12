@@ -20,7 +20,7 @@ export default function StringsMeshes({ configuration }: IStringsMeshesProps) {
             <meshStandardMaterial color="gray" />
           </mesh>
         ))}
-      <group ref={instanceGroupRef} scale={0}>
+      <group ref={instanceGroupRef} scale={1}>
         <instances.BodyStringLowE name="Body_String_LowE" />
         <instances.BodyStringA name="Body_String_A" />
         <instances.BodyStringD name="Body_String_D" />

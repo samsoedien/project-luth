@@ -15,8 +15,6 @@ export default function BackMeshes({ configuration, children }: IBackMeshesProps
   const instances = useContext(GLTFJSXContext) as GLTFJSXInstances
   const { instanceGeometry, instanceGroupRef } = useInstanceGeometry(configuration)
 
-  console.log('BackMeshes instanceGeometry:', instanceGeometry)
-
   // const koaBaseColorMap = useTexture('koa.jpg')
   // const koaBaseColorMap = useTexture('sitka-spruce.jpg')
 

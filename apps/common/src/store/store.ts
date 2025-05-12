@@ -8,19 +8,21 @@ import {
   EBodyDepthOption,
   EBodyShapeOption,
   ECutawayOption,
+  EHeelJointOption,
   EScaleLengthOption,
   ESoundHoleOption,
 } from '~/models/options.model'
 import { getConfiguredComponent } from '~/helpers/meshUtils'
-import {
-  backMeshMap,
-  bindingMeshMap,
-  bracesMeshMap,
-  purflingMeshMap,
-  sidesMeshMap,
-  soundboardMeshMap,
-} from '~/helpers/meshMap'
+
 import { PresentationControlProps } from '@react-three/drei'
+
+import { backMeshMap } from '~/components/back/backMeshMap'
+import { bindingMeshMap } from '~/components/binding/bindingMeshMap'
+import { purflingMeshMap } from '~/components/binding/purfling/purflingMeshMap'
+import { sidesMeshMap } from '~/components/sides/sidesMeshMap'
+import { bracesMeshMap } from '~/components/soundboard/braces/bracesMeshMap'
+import { soundboardMeshMap } from '~/components/soundboard/soundboardMeshMap'
+import { heelTailBlocksMeshMap } from '~/components/sides/heelTailBlocks/heelTailBlocksMeshMap'
 
 /** CONFIGURATION STATE SLICE */
 export interface IConfigurationStoreState {
@@ -82,7 +84,9 @@ export interface IBracesOptions {}
 
 export interface IBackStripOptions {}
 
-export interface IHeelTailBlocksOptions {}
+export interface IHeelTailBlocksOptions {
+  heelJoint: EHeelJointOption
+}
 
 export interface IPurflingOptions {}
 
@@ -127,7 +131,7 @@ export const createOptionsSlice: StateCreator<StoreState, [], [], IOptionsStoreS
   set,
   get,
 ) => ({
-  /** Level 1 Options: Body & Scale (will delegate changes to a set components */
+  /** Level 1 Options: Body & Scale (will delegate changes to a set components) */
   bodyOptions: {
     bodyShape: EBodyShapeOption.Dreadnought,
     bodyDepth: EBodyDepthOption.Standard,
@@ -161,7 +165,7 @@ export const createOptionsSlice: StateCreator<StoreState, [], [], IOptionsStoreS
     get().setFretboardOptions(fretboardOptions)
     get().setBridgeOptions(bridgeOptions)
   },
-  /** Level 2 Options: Components wil delegate changes to all it's child components */
+  /** Level 2 Options: Components (wil delegate changes to all it's child components) */
   soundboardOptions: {
     soundHole: ESoundHoleOption.Round,
   },
@@ -352,7 +356,7 @@ export const createOptionsSlice: StateCreator<StoreState, [], [], IOptionsStoreS
 
     set({ configuration: { ...configuration } })
   },
-  /** Level 3 Options: Sub Components will not delegate any changes since it cannot have any child relations */
+  /** Level 3 Options: Sub Components (will not delegate any changes since it cannot have any child relations) */
   rosetteOptions: {},
   setRosetteOptions: (options) => {
     set((state) => ({
@@ -410,27 +414,23 @@ export const createOptionsSlice: StateCreator<StoreState, [], [], IOptionsStoreS
 
     set({ configuration: { ...configuration } })
   },
-  heelTailBlocksOptions: {},
+  heelTailBlocksOptions: { heelJoint: EHeelJointOption.Dovetail },
   setHeelTailBlocksOptions: (options) => {
     set((state) => ({
       heelTailBlocksOptions: { ...state.heelTailBlocksOptions, ...options },
     }))
 
-    const { configuration, bodyOptions, backOptions } = get()
+    const { configuration, bodyOptions, heelTailBlocksOptions, backOptions } = get()
 
-    const heelTailBlocksOptions = getConfiguredComponent(
+    const heelTailBlocksComponent = getConfiguredComponent(
       configuration,
       ELuthComponent.HeelTailBlocks,
     )
 
-    const selectedHeelTailBlocksMeshes: any[] = []
+    const selectedHeelTailBlocksMeshes =
+      heelTailBlocksMeshMap[bodyOptions.bodyShape][heelTailBlocksOptions.heelJoint] ?? []
 
-    // const selectedBackStripMeshes =
-    //   bracesMeshMap[bodyOptions.bodyShape][bodyOptions.cutaway][bodyOptions.armBevel][
-    //     soundboardOptions.soundHole
-    //   ] ?? []
-
-    heelTailBlocksOptions.meshes = selectedHeelTailBlocksMeshes
+    heelTailBlocksComponent.meshes = selectedHeelTailBlocksMeshes
 
     set({ configuration: { ...configuration } })
   },

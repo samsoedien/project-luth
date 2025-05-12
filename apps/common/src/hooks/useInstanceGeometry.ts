@@ -3,7 +3,7 @@ import { BufferGeometry, Group } from 'three'
 import { PositionMesh } from '@react-three/drei'
 import { GLTFResult } from '~/_generated/LuthAcoustic'
 import { IConfiguration } from '~/models/configuration.model'
-import { GLTFResultCombined } from '~/models/gltfjsx.model'
+import { LuthGLTFResultCombined } from '~/models/gltfjsx.model'
 
 export const useInstanceGeometry = (
   configuration: IConfiguration,
@@ -13,6 +13,8 @@ export const useInstanceGeometry = (
 } => {
   const instanceGroupRef = useRef<Group>(null)
   const [instanceGeometry, setInstanceGeometry] = useState<PositionMesh[]>([])
+
+  console.log('configuration', configuration)
 
   useEffect(() => {
     if (!instanceGroupRef.current) return
@@ -26,7 +28,7 @@ export const useInstanceGeometry = (
 
     setInstanceGeometry(
       geometries.filter((child) =>
-        configuration.meshes.includes(child.name as keyof GLTFResultCombined['nodes']),
+        configuration.meshes.includes(child.name as keyof LuthGLTFResultCombined['nodes']),
       ),
     )
   }, [configuration.meshes])
