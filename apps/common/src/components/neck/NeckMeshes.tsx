@@ -5,13 +5,18 @@ import { IConfiguration } from '~/models/configuration.model'
 import { useInstanceGeometry } from '~/hooks/useInstanceGeometry'
 import { useTexture } from '@react-three/drei'
 
+import LuthNeck, {
+  // context as GLTFJSXContext,
+  // LuthSoundboardInstances as Instances,
+  Instances,
+} from '../../_generated/LuthNeck'
+
 export interface INeckMeshesProps {
   configuration: IConfiguration
   children: React.ReactNode
 }
 
 export default function NeckMeshes({ configuration, children }: INeckMeshesProps) {
-  const instances = useContext(GLTFJSXContext) as GLTFJSXInstances
   const { instanceGeometry, instanceGroupRef } = useInstanceGeometry(configuration)
 
   // const spruceBaseColorMap = useTexture('spruce-test_BaseColor.jpg')
@@ -34,11 +39,13 @@ export default function NeckMeshes({ configuration, children }: INeckMeshesProps
               normalMap={spruceNormalMap}
               aoMap={spruceAOMap}
             /> */}
+            <meshNormalMaterial />
           </mesh>
         ))}
-      <group ref={instanceGroupRef} scale={0}>
-        <instances.BodyNeck name="Body_Neck" />
-        <instances.BodyHeel name="Body_Heel" />
+      <group ref={instanceGroupRef} visible={false}>
+        <Instances frustumCulled={false}>
+          <LuthNeck />
+        </Instances>
       </group>
 
       {children}

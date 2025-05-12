@@ -1,9 +1,7 @@
-import { useContext } from 'react'
-import { context as GLTFJSXContext } from '../../_generated/LuthAcoustic'
-import { GLTFJSXInstances } from '~/models/gltfjsx.model'
 import { IConfiguration } from '~/models/configuration.model'
 import { useInstanceGeometry } from '~/hooks/useInstanceGeometry'
-import { useTexture } from '@react-three/drei'
+
+import LuthFretboard, { Instances } from '../../_generated/LuthFretboard'
 
 export interface IFretboardMeshesProps {
   configuration: IConfiguration
@@ -11,7 +9,6 @@ export interface IFretboardMeshesProps {
 }
 
 export default function FretboardMeshes({ configuration, children }: IFretboardMeshesProps) {
-  const instances = useContext(GLTFJSXContext) as GLTFJSXInstances
   const { instanceGeometry, instanceGroupRef } = useInstanceGeometry(configuration)
 
   return (
@@ -22,10 +19,10 @@ export default function FretboardMeshes({ configuration, children }: IFretboardM
             <meshNormalMaterial />
           </mesh>
         ))}
-      <group ref={instanceGroupRef} scale={0}>
-        <instances.BodyFretboard name="Body_Fretboard" />
-        <instances.BodyFretboard5 name="Body_Fretboard_1" />
-        <instances.BodyFretboardSoundholeTangent name="Body_Fretboard_Soundhole_Tangent" />
+      <group ref={instanceGroupRef} visible={false}>
+        <Instances>
+          <LuthFretboard />
+        </Instances>
       </group>
       {children}
     </group>

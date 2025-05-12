@@ -1,4 +1,5 @@
-import { LuthGLTFResultCombined } from '~/models/gltfjsx.model'
+import { GLTFResult as LuthBackGLTF } from '~/_generated/LuthBack'
+
 import {
   EBackMultiPieceOption,
   EBodyShapeOption,
@@ -10,7 +11,7 @@ type BackMeshMap = {
   [key in EBodyShapeOption]: {
     [key in EBodyDepthOption]: {
       [key in ECutawayOption]: {
-        [key in EBackMultiPieceOption]: Array<keyof LuthGLTFResultCombined['nodes']>
+        [key in EBackMultiPieceOption]: Array<keyof LuthBackGLTF['nodes']>
       }
     }
   }

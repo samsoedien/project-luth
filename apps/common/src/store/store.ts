@@ -26,6 +26,9 @@ import { bracesMeshMap } from '~/components/soundboard/braces/bracesMeshMap'
 import { soundboardMeshMap } from '~/components/soundboard/soundboardMeshMap'
 import { heelTailBlocksMeshMap } from '~/components/sides/heelTailBlocks/heelTailBlocksMeshMap'
 import { rosetteMeshMap } from '~/components/soundboard/rosette/rosetteMeshMap'
+import { neckMeshMap } from '~/components/neck/neckMeshMap'
+import { headstockMeshMap } from '~/components/headstock/headstockMeshMap'
+import { fretboardMeshMap } from '~/components/fretboard/fretboardMeshMap'
 
 /** CONFIGURATION STATE SLICE */
 export interface IConfigurationStoreState {
@@ -285,9 +288,8 @@ export const createOptionsSlice: StateCreator<StoreState, [], [], IOptionsStoreS
 
     const neckComponent = getConfiguredComponent(configuration, ELuthComponent.Neck)
 
-    const selectedneckMeshes: any[] = []
-    //     backMeshMap?.[bodyOptions.bodyShape]?.[bodyOptions.cutaway]?.[backOptions.backMultiPiece] ??
-    //     []
+    const selectedneckMeshes = neckMeshMap[scaleOptions.scaleLength]
+
     neckComponent.meshes = selectedneckMeshes
 
     set({ configuration: { ...configuration } })
@@ -302,9 +304,8 @@ export const createOptionsSlice: StateCreator<StoreState, [], [], IOptionsStoreS
 
     const headstockComponent = getConfiguredComponent(configuration, ELuthComponent.Headstock)
 
-    const selectedHeadstockMeshes: any[] = []
-    //     backMeshMap?.[bodyOptions.bodyShape]?.[bodyOptions.cutaway]?.[backOptions.backMultiPiece] ??
-    //     []
+    const selectedHeadstockMeshes = headstockMeshMap[scaleOptions.scaleLength]
+
     headstockComponent.meshes = selectedHeadstockMeshes
 
     set({ configuration: { ...configuration } })
@@ -319,9 +320,8 @@ export const createOptionsSlice: StateCreator<StoreState, [], [], IOptionsStoreS
 
     const fretboardComponent = getConfiguredComponent(configuration, ELuthComponent.Fretboard)
 
-    const selectedFretboardkMeshes: any[] = []
-    //     backMeshMap?.[bodyOptions.bodyShape]?.[bodyOptions.cutaway]?.[backOptions.backMultiPiece] ??
-    //     []
+    const selectedFretboardkMeshes = fretboardMeshMap[scaleOptions.scaleLength]
+
     fretboardComponent.meshes = selectedFretboardkMeshes
 
     set({ configuration: { ...configuration } })
@@ -440,7 +440,7 @@ export const createOptionsSlice: StateCreator<StoreState, [], [], IOptionsStoreS
       heelTailBlocksOptions: { ...state.heelTailBlocksOptions, ...options },
     }))
 
-    const { configuration, bodyOptions, heelTailBlocksOptions, backOptions } = get()
+    const { configuration, bodyOptions, heelTailBlocksOptions } = get()
 
     const heelTailBlocksComponent = getConfiguredComponent(
       configuration,
@@ -448,7 +448,7 @@ export const createOptionsSlice: StateCreator<StoreState, [], [], IOptionsStoreS
     )
 
     const selectedHeelTailBlocksMeshes =
-      heelTailBlocksMeshMap[bodyOptions.bodyShape][heelTailBlocksOptions.heelJoint] ?? []
+      heelTailBlocksMeshMap[bodyOptions.bodyShape][heelTailBlocksOptions.heelJoint]
 
     heelTailBlocksComponent.meshes = selectedHeelTailBlocksMeshes
 
@@ -467,7 +467,7 @@ export const createOptionsSlice: StateCreator<StoreState, [], [], IOptionsStoreS
     const selectedPurflingMeshes =
       purflingMeshMap[bodyOptions.bodyShape][bodyOptions.bodyDepth][bodyOptions.cutaway][
         bodyOptions.armBevel
-      ] ?? []
+      ]
     purflingComponent.meshes = selectedPurflingMeshes
 
     set({ configuration: { ...configuration } })

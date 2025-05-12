@@ -4,12 +4,13 @@ import LuthRosette, { Instances as LuthRosetteInstances } from '../../../_genera
 
 import { useInstanceGeometry } from '~/hooks/useInstanceGeometry'
 import { IConfiguration } from '~/models/configuration.model'
+import { memo } from 'react'
 
 export interface IRosetteMeshesProps {
   configuration: IConfiguration
 }
 
-export default function RosetteMeshes({ configuration }: IRosetteMeshesProps) {
+function RosetteMeshes({ configuration }: IRosetteMeshesProps) {
   const { instanceGeometry, instanceGroupRef } = useInstanceGeometry(configuration)
 
   return (
@@ -44,3 +45,5 @@ export default function RosetteMeshes({ configuration }: IRosetteMeshesProps) {
     </group>
   )
 }
+
+export default memo(RosetteMeshes)

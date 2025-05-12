@@ -47,14 +47,8 @@ export default function Model(props: JSX.IntrinsicElements['group']) {
   return (
     <group {...props} dispose={null}>
       <instances.BodyRosette name="Body_Rosette" userData={{ name: 'Body_Rosette' }} />
-      <instances.BodyRosetteHalf
-        name="Body_Rosette_Half"
-        userData={{ name: 'Body_Rosette_Half' }}
-      />
-      <instances.BodyRosetteHalf1
-        name="Body_Rosette_Half1"
-        userData={{ name: 'Body_Rosette_Half1' }}
-      />
+      <instances.BodyRosetteHalf name="Body_Rosette_Half" userData={{ name: 'Body_Rosette_Half' }} />
+      <instances.BodyRosetteHalf1 name="Body_Rosette_Half1" userData={{ name: 'Body_Rosette_Half1' }} />
     </group>
   )
 }

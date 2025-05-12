@@ -119,9 +119,9 @@ const withMeshConfiguration = <P extends IWithMeshConfigurationProps>(
               <RosetteMeshes configuration={rosetteConfiguration} />
               {/*   <BracesMeshes configuration={bracesConfiguration} /> */}
             </SoundboardMeshes>
-            {/* <BackMeshes configuration={backConfiguration}>
-              <BackStripMeshes configuration={backStripConfiguration} />
-            </BackMeshes> */}
+            <BackMeshes configuration={backConfiguration}>
+              {/* <BackStripMeshes configuration={backStripConfiguration} /> */}
+            </BackMeshes>
             <SidesMeshes configuration={sidesConfiguration}>
               <HeelTailBlockMeshes configuration={heelTailBlockConfiguration} />
               {/*     <EndGraftMeshes configuration={endGraftConfiguration} />*/}
@@ -129,22 +129,18 @@ const withMeshConfiguration = <P extends IWithMeshConfigurationProps>(
             <BindingMeshes configuration={bindingConfiguration}>
               <PurflingMeshes configuration={purflingConfiguration} />
             </BindingMeshes>
-            {/*  <NeckMeshes configuration={neckConfiguration}>
-                <mesh>
-                  <boxGeometry />
-                </mesh>
-              </NeckMeshes>
-              <HeadstockMeshes configuration={headstockConfiguration}>
-                <mesh>
-                  <boxGeometry />
-                </mesh>
-              </HeadstockMeshes>
-              <FretboardMeshes configuration={fretboardConfiguration}>
-                <FretsMeshes configuration={fretsConfiguration} />
-                <NutMeshes configuration={nutConfiguration} />
-                <FretboardMarkersMeshes configuration={fretboardMarkersConfiguration} />
-              </FretboardMeshes>
-              <BridgeMeshes configuration={bridgeConfiguration}>
+            <NeckMeshes configuration={neckConfiguration}>
+              {/* <mesh>
+                <boxGeometry />
+              </mesh> */}
+            </NeckMeshes>
+            <HeadstockMeshes configuration={headstockConfiguration}></HeadstockMeshes>
+            <FretboardMeshes configuration={fretboardConfiguration}>
+              {/* <FretsMeshes configuration={fretsConfiguration} />
+              <NutMeshes configuration={nutConfiguration} />
+              <FretboardMarkersMeshes configuration={fretboardMarkersConfiguration} /> */}
+            </FretboardMeshes>
+            {/*     <BridgeMeshes configuration={bridgeConfiguration}>
                 <SaddleMeshes configuration={saddleConfiguration} />
               </BridgeMeshes>
               <PickguardMeshes configuration={pickguardConfiguration} /> 

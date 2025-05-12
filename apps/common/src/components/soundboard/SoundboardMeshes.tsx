@@ -1,4 +1,4 @@
-import { useContext } from 'react'
+import { memo, useContext } from 'react'
 import LuthSoundboard, {
   // context as GLTFJSXContext,
   // LuthSoundboardInstances as Instances,
@@ -16,7 +16,7 @@ export interface ISoundboardMeshesProps {
   children: React.ReactNode
 }
 
-export default function SoundboardMeshes({ configuration, children }: ISoundboardMeshesProps) {
+function SoundboardMeshes({ configuration, children }: ISoundboardMeshesProps) {
   // const instances = useContext(GLTFJSXContext) as GLTFJSXInstances
   const { instanceGeometry, instanceGroupRef } = useInstanceGeometry(configuration)
 
@@ -69,3 +69,5 @@ export default function SoundboardMeshes({ configuration, children }: ISoundboar
     </group>
   )
 }
+
+export default memo(SoundboardMeshes)
