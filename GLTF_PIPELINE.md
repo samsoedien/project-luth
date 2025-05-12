@@ -61,14 +61,14 @@ Lastly a prefix of type is put in front to make clear what kind of asset we are 
 
 Therefore the process of exporting will be as follows:
 
-- Select a configuration which needed to export. E.g. Acoustic_Dreadnaught_25Inch_ScaleLength
+- Select a configuration which needed to export. E.g. Acoustic_Dreadnought_25Inch_ScaleLength
 - Right click on each component and isolate them with all bodies visible.
 - Export each component as .USDZ file in the fusion_exports folder.
 
 The `fusion_exports` folder is organised as follows:
 
 - {component_name}\_variants (e.g. soundboard_variants, sides_variants, heel_tail_block_variants)
-  - acoustic*{configuration_name}*{component_name} (e.g. acoustic_dreadnaught_25inch_soundboards, acoustic_parlor_243/4inch_soundboards)
+  - acoustic*{configuration_name}*{component_name} (e.g. acoustic_dreadnought_25inch_soundboards, acoustic_parlor_243/4inch_soundboards)
 
 This process needs to be automated using the python scripting feature within Fusion. However as on the time of documenting this there is no API yet to interact with th configurations to toggle them programmatically.
 

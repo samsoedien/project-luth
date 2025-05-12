@@ -9,6 +9,7 @@ import {
   EBodyShapeOption,
   ECutawayOption,
   EHeelJointOption,
+  ENeckShapeOption,
   EScaleLengthOption,
   ESoundHoleOption,
 } from '~/models/options.model'
@@ -27,7 +28,9 @@ import { heelTailBlocksMeshMap } from '~/components/sides/heelTailBlocks/heelTai
 /** CONFIGURATION STATE SLICE */
 export interface IConfigurationStoreState {
   configuration: IConfiguration
-  setConfiguration: () => void
+  setConfiguration: (config: Partial<IConfiguration>) => void
+  saveConfiguration: () => void
+  loadConfiguration: (config: IConfiguration) => void
 }
 
 export const createConfigurationSlice: StateCreator<
@@ -35,10 +38,25 @@ export const createConfigurationSlice: StateCreator<
   [],
   [],
   IConfigurationStoreState
-> = (set) => ({
+> = (set, get) => ({
   configuration: initialConfigurationState,
   setConfiguration: () => {
     set((state) => ({ configuration: state.configuration }))
+  },
+  // setConfiguration: (config) => {
+  //   set((state) => ({
+  //     configuration: {
+  //       ...state.configuration,
+  //       ...config,
+  //     },
+  //   }))
+  // },
+  saveConfiguration: () => {
+    const config = get().configuration
+    localStorage.setItem('guitar-config', JSON.stringify(config))
+  },
+  loadConfiguration: (config) => {
+    set({ configuration: config })
   },
 })
 
@@ -66,7 +84,9 @@ export interface ISidesOptions {}
 
 export interface IBindingOptions {}
 
-export interface INeckOptions {}
+export interface INeckOptions {
+  profileShape: ENeckShapeOption
+}
 
 export interface IHeadstockOptions {}
 
@@ -84,9 +104,7 @@ export interface IBracesOptions {}
 
 export interface IBackStripOptions {}
 
-export interface IHeelTailBlocksOptions {
-  heelJoint: EHeelJointOption
-}
+export interface IHeelTailBlocksOptions {}
 
 export interface IPurflingOptions {}
 
@@ -254,7 +272,9 @@ export const createOptionsSlice: StateCreator<StoreState, [], [], IOptionsStoreS
 
     set({ configuration: { ...configuration } })
   },
-  neckOptions: {},
+  neckOptions: {
+    profileShape: ENeckShapeOption.CShape,
+  },
   setNeckOptions: (options) => {
     set((state) => ({
       neckOptions: { ...state.neckOptions, ...options },

@@ -1,4 +1,3 @@
-import React from 'react'
 import { Leva, useControls } from 'leva'
 import { useConfigurationStore } from '../store/store'
 
@@ -7,6 +6,7 @@ import BodyOptions from './options/BodyOptions'
 import SoundboardOptions from './options/SoundboardOptions'
 import ScaleOptions from './options/ScaleOptions'
 import BackOptions from './options/BackOptions'
+import NeckOptions from './options/NeckOptions'
 
 export default function Configurator() {
   const scope = useConfigurationStore((state) => state.scope)
@@ -16,6 +16,9 @@ export default function Configurator() {
 
   const undo = useConfigurationStore((state) => state.undo)
   const redo = useConfigurationStore((state) => state.redo)
+
+  const saveConfiguration = useConfigurationStore((state) => state.saveConfiguration)
+  const loadConfiguration = useConfigurationStore((state) => state.loadConfiguration)
 
   const history = useConfigurationStore((state) => state.history)
   console.log('History:', history)
@@ -101,16 +104,56 @@ export default function Configurator() {
     }
   }
 
+  const handleSave = () => {
+    saveConfiguration()
+    alert('Configuration saved to localStorage!')
+  }
+
+  const handleLoad = () => {
+    const saved = localStorage.getItem('guitar-config')
+    if (saved) {
+      try {
+        const config = JSON.parse(saved)
+        loadConfiguration(config)
+        alert('Configuration loaded!')
+      } catch (e) {
+        console.error('Failed to parse configuration:', e)
+        alert('Error loading configuration.')
+      }
+    } else {
+      alert('No saved configuration found.')
+    }
+  }
+
   return (
-    <div>
+    <div className="relatve">
       <Leva />
       <BodyOptions />
       <ScaleOptions />
       <SoundboardOptions />
       <BackOptions />
-      <div className="absolute bottom-0 left-0 p-4">
-        <button onClick={undo}>Undo Action</button>
-        <button onClick={redo}>Redo Action</button>
+      <NeckOptions />
+
+      <div
+        style={{
+          position: 'absolute',
+          bottom: '48px',
+          left: '48px',
+          background: 'white',
+          boxShadow: '0 0 10px rgba(0,0,0,0.1)',
+          padding: '16px',
+          borderRadius: '8px',
+        }}
+      >
+        <div>
+          <button onClick={handleLoad}>Load configuration</button>
+          <button onClick={handleSave}>Save configuration</button>
+        </div>
+        <br />
+        <div>
+          <button onClick={undo}>Undo Action</button>
+          <button onClick={redo}>Redo Action</button>
+        </div>
       </div>
     </div>
   )

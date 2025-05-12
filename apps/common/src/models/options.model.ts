@@ -1,4 +1,4 @@
-import { LuthGLTFResultCombined } from './gltfjsx.model'
+/** Body options */
 
 export enum EBodyShapeOption {
   Dreadnought = 'Dreadnought',
@@ -21,20 +21,18 @@ export enum ECutawayOption {
   Scalloped = 'Scalloped',
 }
 
-export enum EScaleLengthOption {
-  Standard = 'Standard',
-}
-
 export enum EArmBevelOption {
   None = 'None',
   Standard = 'Standard',
 }
 
-export enum EBackMultiPieceOption {
-  OnePiece = 'OnePiece',
-  TwoPiece = 'TwoPiece',
-  ThreePiece = 'ThreePiece',
+/** Scale options */
+
+export enum EScaleLengthOption {
+  Standard = 'Standard',
 }
+
+/** Soundboard options */
 
 export enum ESoundHoleOption {
   None = 'None',
@@ -42,26 +40,28 @@ export enum ESoundHoleOption {
   FHole = 'FHole',
 }
 
-export enum ETonewoodOption {
-  Mahogany = 'Mahogany',
+/** Back options */
+
+export enum EBackMultiPieceOption {
+  OnePiece = 'OnePiece',
+  TwoPiece = 'TwoPiece',
+  ThreePiece = 'ThreePiece',
 }
 
 export enum EHeelJointOption {
   Dovetail = 'Dovetail',
   BoltOn = 'BoltOn',
 }
-type SoundboardMeshMap = {
-  [key in EBodyShapeOption]: {
-    [key in EBodyDepthOption]: {
-      [key in ECutawayOption]: {
-        [key in EArmBevelOption]: {
-          [key in ESoundHoleOption]: Array<keyof LuthGLTFResultCombined['nodes']>
-        }
-      }
-    }
-  }
-}
 
 export enum EStringCountOption {
   Six = 'Six',
+}
+
+export enum ENeckShapeOption {
+  CShape = 'CShape',
+  VShape = 'VShape',
+}
+
+export enum ETonewoodOption {
+  Mahogany = 'Mahogany',
 }
