@@ -11,11 +11,12 @@
     "preview": "vite preview --port 8000 --strictPort --host",
     "gltf": "node ./scripts/gltf-pipeline.cjs",
     "gltf:normalize": "node ./scripts/gltf-normalize-uvs.cjs",
-    "model": "yarn model:soundboard && yarn model:sides && yarn model:binding && yarn model:heeltailblocks && yarn model:purfling && yarn model:codemod",
+    "model": "yarn model:soundboard && yarn model:sides && yarn model:binding &&  yarn model:rosette && yarn model:heeltailblocks && yarn model:purfling && yarn model:codemod",
     "model:luth": "npx @rosskevin/gltfjsx ./public/luth-acoustic.glb --types --transform --keepnames --keepmeshes --draco --meta --shadows --exportdefault --output ./src/_generated/LuthAcoustic.tsx",
     "model:soundboard": "npx gltfjsx ./public/Soundboard_Collection.glb --types --transform --instanceall --keepmeshes --keepmaterials --keepattributes --keepnames --draco --meta --shadows --exportdefault --output ./src/_generated/LuthSoundboard.tsx",
     "model:sides": "npx gltfjsx ./public/Sides_Collection.glb --types --transform --instanceall --keepmeshes --keepmaterials --keepattributes --keepnames --draco --meta --shadows --exportdefault --output ./src/_generated/LuthSides.tsx",
     "model:binding": "npx gltfjsx ./public/Binding_Collection.glb --types --transform --instanceall --keepmeshes --keepmaterials --keepattributes --keepnames --draco --meta --shadows --exportdefault --output  ./src/_generated/LuthBinding.tsx",
+    "model:rosette": "npx gltfjsx ./public/Rosette_Collection.glb --types --transform --instanceall --keepmeshes --keepmaterials --keepattributes --keepnames --draco --meta --shadows --exportdefault --output  ./src/_generated/LuthRosette.tsx",
     "model:heeltailblocks": "npx gltfjsx ./public/Heel_Tail_Blocks_Collection.glb --types --transform --instanceall --keepmeshes --keepmaterials --keepattributes --keepnames --draco --meta --shadows --exportdefault --output  ./src/_generated/LuthHeelTailBlocks.tsx",
     "model:purfling": "npx gltfjsx ./public/Purfling_Collection.glb --types --transform --instanceall --keepmeshes --keepmaterials --keepattributes --keepnames --draco --meta --shadows --exportdefault --output  ./src/_generated/LuthPurfling.tsx",
     "model:codemod": "npx tsx scripts/export-gltfresult-codemod.js --dir ./src/_generated"

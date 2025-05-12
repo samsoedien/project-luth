@@ -1,7 +1,7 @@
 import bpy
 import os
 
-default_keywords = ["Soundboard", "Back", "Sides", "Binding", "Neck", "Headstock", "Fretboard", "Bridge", "Pickguard", "Strings", "Purfling"]
+default_keywords = ["Soundboard", "Back", "Sides", "Binding", "Neck", "Headstock", "Fretboard", "Bridge", "Pickguard", "Strings", "Rosette", "Purfling"]
 
 def import_usdz_files(base_path, keywords=default_keywords, import_scale=1.0):
     """

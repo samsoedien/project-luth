@@ -12,13 +12,7 @@ export interface IHeelTailBlockMeshesProps {
 }
 
 export default function HeelTailBlockMeshes({ configuration }: IHeelTailBlockMeshesProps) {
-  // const instances = useContext(GLTFJSXContext) as GLTFJSXInstances
-
-  console.log('HeelTailBlockMeshes configuration:', configuration)
   const { instanceGeometry, instanceGroupRef } = useInstanceGeometry(configuration)
-
-  console.log('HeelTailBlockMeshes instanceGeometry:', instanceGeometry)
-  // FIXME: instance geometry doesnt wotk recursively yet?
 
   return (
     <group name={configuration.name} dispose={null}>

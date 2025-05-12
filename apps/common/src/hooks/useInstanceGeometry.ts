@@ -14,8 +14,6 @@ export const useInstanceGeometry = (
   const instanceGroupRef = useRef<Group>(null)
   const [instanceGeometry, setInstanceGeometry] = useState<PositionMesh[]>([])
 
-  console.log('configuration', configuration)
-
   useEffect(() => {
     if (!instanceGroupRef.current) return
 

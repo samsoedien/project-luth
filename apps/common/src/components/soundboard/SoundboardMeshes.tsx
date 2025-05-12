@@ -24,6 +24,8 @@ export default function SoundboardMeshes({ configuration, children }: ISoundboar
   const NormalMap = useTexture('Body_Sides_Venetian_Cutaway_Batch001_PBR_Normal.png')
   const ORMMap = useTexture('Body_Sides_Venetian_Cutaway_Batch001_PBR_ORM_Textures.png')
 
+  console.log('soundboard rerenderd')
+
   return (
     <group name={configuration.name} dispose={null}>
       {instanceGeometry.length > 0 &&

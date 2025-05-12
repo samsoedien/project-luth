@@ -10,6 +10,7 @@ import {
   ECutawayOption,
   EHeelJointOption,
   ENeckShapeOption,
+  ERosetteVariantOption,
   EScaleLengthOption,
   ESoundHoleOption,
 } from '~/models/options.model'
@@ -24,6 +25,7 @@ import { sidesMeshMap } from '~/components/sides/sidesMeshMap'
 import { bracesMeshMap } from '~/components/soundboard/braces/bracesMeshMap'
 import { soundboardMeshMap } from '~/components/soundboard/soundboardMeshMap'
 import { heelTailBlocksMeshMap } from '~/components/sides/heelTailBlocks/heelTailBlocksMeshMap'
+import { rosetteMeshMap } from '~/components/soundboard/rosette/rosetteMeshMap'
 
 /** CONFIGURATION STATE SLICE */
 export interface IConfigurationStoreState {
@@ -40,17 +42,14 @@ export const createConfigurationSlice: StateCreator<
   IConfigurationStoreState
 > = (set, get) => ({
   configuration: initialConfigurationState,
-  setConfiguration: () => {
-    set((state) => ({ configuration: state.configuration }))
+  setConfiguration: (config) => {
+    set((state) => ({
+      configuration: {
+        ...state.configuration,
+        ...config,
+      },
+    }))
   },
-  // setConfiguration: (config) => {
-  //   set((state) => ({
-  //     configuration: {
-  //       ...state.configuration,
-  //       ...config,
-  //     },
-  //   }))
-  // },
   saveConfiguration: () => {
     const config = get().configuration
     localStorage.setItem('guitar-config', JSON.stringify(config))
@@ -98,7 +97,9 @@ export interface IPickguardOptions {}
 
 export interface IStringsOptions {}
 
-export interface IRosetteOptions {}
+export interface IRosetteOptions {
+  variant: ERosetteVariantOption
+}
 
 export interface IBracesOptions {}
 
@@ -377,19 +378,18 @@ export const createOptionsSlice: StateCreator<StoreState, [], [], IOptionsStoreS
     set({ configuration: { ...configuration } })
   },
   /** Level 3 Options: Sub Components (will not delegate any changes since it cannot have any child relations) */
-  rosetteOptions: {},
+  rosetteOptions: { variant: ERosetteVariantOption.VariantA },
   setRosetteOptions: (options) => {
     set((state) => ({
       rosetteOptions: { ...state.rosetteOptions, ...options },
     }))
 
-    const { configuration, bodyOptions, soundboardOptions } = get()
+    const { configuration, bodyOptions, rosetteOptions, soundboardOptions } = get()
 
     const rosetteComponent = getConfiguredComponent(configuration, ELuthComponent.Rosette)
 
-    const selectedRosetteMeshes: any[] = []
-    //     backMeshMap?.[bodyOptions.bodyShape]?.[bodyOptions.cutaway]?.[backOptions.backMultiPiece] ??
-    //     []
+    const selectedRosetteMeshes =
+      rosetteMeshMap[soundboardOptions.soundHole][rosetteOptions.variant]
     rosetteComponent.meshes = selectedRosetteMeshes
 
     set({ configuration: { ...configuration } })

@@ -7,6 +7,7 @@ import SoundboardOptions from './options/SoundboardOptions'
 import ScaleOptions from './options/ScaleOptions'
 import BackOptions from './options/BackOptions'
 import NeckOptions from './options/NeckOptions'
+import RosetteOptions from './options/RosetteOptions'
 
 export default function Configurator() {
   const scope = useConfigurationStore((state) => state.scope)
@@ -131,6 +132,7 @@ export default function Configurator() {
       <BodyOptions />
       <ScaleOptions />
       <SoundboardOptions />
+      <RosetteOptions />
       <BackOptions />
       <NeckOptions />
 

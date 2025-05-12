@@ -110,16 +110,14 @@ const withMeshConfiguration = <P extends IWithMeshConfigurationProps>(
     )
       return
 
-    console.log('heelTailBlockConfiguration', heelTailBlockConfiguration)
-
     return (
       <group>
         {/* <Instances> */}
         {configuration ? (
           <>
             <SoundboardMeshes configuration={soundboardConfiguration}>
-              {/* <RosetteMeshes configuration={rosetteConfiguration} />
-                <BracesMeshes configuration={bracesConfiguration} /> */}
+              <RosetteMeshes configuration={rosetteConfiguration} />
+              {/*   <BracesMeshes configuration={bracesConfiguration} /> */}
             </SoundboardMeshes>
             {/* <BackMeshes configuration={backConfiguration}>
               <BackStripMeshes configuration={backStripConfiguration} />

@@ -62,6 +62,11 @@ export enum ENeckShapeOption {
   VShape = 'VShape',
 }
 
+export enum ERosetteVariantOption {
+  VariantA = 'VariantA',
+  VariantB = 'VariantB',
+}
+
 export enum ETonewoodOption {
   Mahogany = 'Mahogany',
 }
