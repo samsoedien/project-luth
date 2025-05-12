@@ -29,6 +29,9 @@ import { rosetteMeshMap } from '~/components/soundboard/rosette/rosetteMeshMap'
 import { neckMeshMap } from '~/components/neck/neckMeshMap'
 import { headstockMeshMap } from '~/components/headstock/headstockMeshMap'
 import { fretboardMeshMap } from '~/components/fretboard/fretboardMeshMap'
+import { stringsMeshMap } from '~/components/strings/stringsMeshMap'
+import { pickguardMeshMap } from '~/components/pickguard/pickguardMeshMap'
+import { bridgeMeshMap } from '~/components/bridge/bridgeMeshMap'
 
 /** CONFIGURATION STATE SLICE */
 export interface IConfigurationStoreState {
@@ -336,9 +339,8 @@ export const createOptionsSlice: StateCreator<StoreState, [], [], IOptionsStoreS
 
     const bridgeComponent = getConfiguredComponent(configuration, ELuthComponent.Bridge)
 
-    const selectedBridgekMeshes: any[] = []
-    //     backMeshMap?.[bodyOptions.bodyShape]?.[bodyOptions.cutaway]?.[backOptions.backMultiPiece] ??
-    //     []
+    const selectedBridgekMeshes = bridgeMeshMap[scaleOptions.scaleLength]
+
     bridgeComponent.meshes = selectedBridgekMeshes
 
     set({ configuration: { ...configuration } })
@@ -349,13 +351,12 @@ export const createOptionsSlice: StateCreator<StoreState, [], [], IOptionsStoreS
       pickguardOptions: { ...state.pickguardOptions, ...options },
     }))
 
-    const { configuration } = get()
+    const { configuration, bodyOptions } = get()
 
     const pickguardComponent = getConfiguredComponent(configuration, ELuthComponent.Pickguard)
 
-    const selectedPickguardkMeshes: any[] = []
-    //     backMeshMap?.[bodyOptions.bodyShape]?.[bodyOptions.cutaway]?.[backOptions.backMultiPiece] ??
-    //     []
+    const selectedPickguardkMeshes = pickguardMeshMap[bodyOptions.bodyShape]
+
     pickguardComponent.meshes = selectedPickguardkMeshes
 
     set({ configuration: { ...configuration } })
@@ -370,9 +371,8 @@ export const createOptionsSlice: StateCreator<StoreState, [], [], IOptionsStoreS
 
     const stringsComponent = getConfiguredComponent(configuration, ELuthComponent.Strings)
 
-    const selectedStringsMeshes: any[] = []
-    //     backMeshMap?.[bodyOptions.bodyShape]?.[bodyOptions.cutaway]?.[backOptions.backMultiPiece] ??
-    //     []
+    const selectedStringsMeshes = stringsMeshMap[scaleOptions.scaleLength]
+
     stringsComponent.meshes = selectedStringsMeshes
 
     set({ configuration: { ...configuration } })

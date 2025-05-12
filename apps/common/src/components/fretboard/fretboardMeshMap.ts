@@ -7,5 +7,5 @@ type FretboardMeshMap = {
 }
 
 export const fretboardMeshMap: FretboardMeshMap = {
-  [EScaleLengthOption.Standard]: ['Body_Fretboard'],
+  [EScaleLengthOption.Standard]: ['Body_Fretboard001'],
 }

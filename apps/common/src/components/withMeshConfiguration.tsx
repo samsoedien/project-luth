@@ -24,6 +24,7 @@ import StringsMeshes from './strings/StringsMeshes'
 import NutMeshes from './fretboard/nut/NutMeshes'
 import SaddleMeshes from './bridge/saddle/SaddleMeshes'
 import FretboardMarkersMeshes from './fretboard/fretboardMarkers/FretboardMarkersMeshes'
+import PickguardMeshes from './pickguard/PickguardMeshes'
 
 interface IWithMeshConfigurationProps {
   position: [number, number, number]
@@ -140,11 +141,11 @@ const withMeshConfiguration = <P extends IWithMeshConfigurationProps>(
               <NutMeshes configuration={nutConfiguration} />
               <FretboardMarkersMeshes configuration={fretboardMarkersConfiguration} /> */}
             </FretboardMeshes>
-            {/*     <BridgeMeshes configuration={bridgeConfiguration}>
-                <SaddleMeshes configuration={saddleConfiguration} />
-              </BridgeMeshes>
-              <PickguardMeshes configuration={pickguardConfiguration} /> 
-            <StringsMeshes configuration={stringsConfiguration} /> */}
+            <BridgeMeshes configuration={bridgeConfiguration}>
+              {/* <SaddleMeshes configuration={saddleConfiguration} /> */}
+            </BridgeMeshes>
+            <PickguardMeshes configuration={pickguardConfiguration} />
+            <StringsMeshes configuration={stringsConfiguration} />
           </>
         ) : (
           <GLTFJSXComponent {...props} position={[0, 0, 0]} />
