@@ -13,7 +13,6 @@ import {
   ERosetteVariantOption,
   EScaleLengthOption,
   ESoundboardSoundHoleOption,
-  EScaleAssemetrical,
   EScaleFretHeelJointOption,
   ESidesSoundPortOption,
   EPurflingVariantOption,
@@ -21,6 +20,8 @@ import {
   EKerflingVariant,
   EFretboardRadiusOption,
   EFretboardExtensionOption,
+  EScaleAssymetrical,
+  ENeckAssymmetricalOption,
 } from '~/models/options.model'
 import { getConfiguredComponent } from '~/helpers/meshUtils'
 
@@ -85,7 +86,7 @@ export interface IBodyOptions {
 
 export interface IScaleOptions {
   scaleLength: EScaleLengthOption
-  assemetrical: EScaleAssemetrical
+  assymetrical: EScaleAssymetrical
   fretHeelJoint: EScaleFretHeelJointOption
 }
 
@@ -105,6 +106,7 @@ export interface IBindingOptions {}
 
 export interface INeckOptions {
   profileShape: ENeckShapeOption
+  assymetrical: ENeckAssymmetricalOption
 }
 
 export interface IHeadstockOptions {}
@@ -203,7 +205,7 @@ export const createOptionsSlice: StateCreator<StoreState, [], [], IOptionsStoreS
   },
   scaleOptions: {
     scaleLength: EScaleLengthOption.Standard,
-    assemetrical: EScaleAssemetrical.None,
+    assymetrical: EScaleAssymetrical.None,
     fretHeelJoint: EScaleFretHeelJointOption.Fret14,
   },
   setScaleOptions: (scaleOptions) => {
@@ -325,17 +327,21 @@ export const createOptionsSlice: StateCreator<StoreState, [], [], IOptionsStoreS
   },
   neckOptions: {
     profileShape: ENeckShapeOption.CShape,
+    assymetrical: ENeckAssymmetricalOption.None,
   },
   setNeckOptions: (options) => {
     set((state) => ({
       neckOptions: { ...state.neckOptions, ...options },
     }))
 
-    const { configuration, scaleOptions } = get()
+    const { configuration, scaleOptions, neckOptions } = get()
 
     const neckComponent = getConfiguredComponent(configuration, ELuthComponent.Neck)
 
-    const selectedneckMeshes = neckMeshMap[scaleOptions.scaleLength]
+    const selectedneckMeshes =
+      neckMeshMap[scaleOptions.scaleLength][scaleOptions.assymetrical][scaleOptions.fretHeelJoint][
+        neckOptions.profileShape
+      ][neckOptions.assymetrical]
 
     neckComponent.meshes = selectedneckMeshes
 
@@ -371,7 +377,7 @@ export const createOptionsSlice: StateCreator<StoreState, [], [], IOptionsStoreS
     const fretboardComponent = getConfiguredComponent(configuration, ELuthComponent.Fretboard)
 
     const selectedFretboardkMeshes =
-      fretboardMeshMap[scaleOptions.scaleLength][scaleOptions.assemetrical][
+      fretboardMeshMap[scaleOptions.scaleLength][scaleOptions.assymetrical][
         scaleOptions.fretHeelJoint
       ][fretboardOptions.extension][fretboardOptions.radius]
 

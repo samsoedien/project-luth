@@ -66,9 +66,9 @@ export enum EScaleLengthOption {
   Standard = 'Standard',
 }
 
-export enum EScaleAssemetrical {
+export enum EScaleAssymetrical {
   None = 'None',
-  Assemetrical = 'Assemetrical',
+  Assymetrical = 'Assymetrical',
 }
 
 export enum EScaleFretHeelJointOption {
