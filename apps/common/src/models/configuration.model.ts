@@ -5,7 +5,20 @@ import { LuthGLTFResultCombined } from './gltfjsx.model'
 export enum ELuthModel {
   Acoustic = 'Acoustic',
   Electric = 'Electric',
-  Ukelele = 'Ukelele',
+  ElectricAcoustic = 'ElectricAcoustic',
+  Classical = 'Classical',
+  Travel = 'Travel',
+  Mini = 'Mini',
+  Bass = 'Bass',
+  SemiHollow = 'SemiHollow',
+  HollowBody = 'HollowBody',
+  Resonator = 'Resonator',
+  Baritone = 'Baritone',
+  Guitalele = 'Guitalele',
+  Ukulele = 'Ukulele',
+  Mandolin = 'Mandolin',
+  Banjo = 'Banjo',
+  Other = 'Other',
 }
 
 export enum ELuthComponent {

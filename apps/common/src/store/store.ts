@@ -22,6 +22,29 @@ import {
   EFretboardExtensionOption,
   EScaleAssymetrical,
   ENeckAssymmetricalOption,
+  IBackOptions,
+  IBackStripOptions,
+  IBindingOptions,
+  IBodyOptions,
+  IBracesOptions,
+  IBridgeOptions,
+  IFretboardOptions,
+  IHeadstockOptions,
+  IHeelTailBlocksOptions,
+  IKerflingOtions,
+  INeckOptions,
+  IPickguardOptions,
+  IPurflingOptions,
+  IRosetteOptions,
+  IScaleOptions,
+  ISidesOptions,
+  ISoundboardOptions,
+  IStringsOptions,
+  EHeadstockShapeOption,
+  EBridgeTypeOption,
+  EBracePatternOption,
+  EBindingThicknessOption,
+  EBodyOrientationOption,
 } from '~/models/options.model'
 import { getConfiguredComponent } from '~/helpers/meshUtils'
 
@@ -77,70 +100,6 @@ export const createConfigurationSlice: StateCreator<
 })
 
 /** OPTIONS STATE SLICE */
-export interface IBodyOptions {
-  bodyShape: EBodyShapeOption
-  bodyDepth: EBodyDepthOption
-  cutaway: EBodyCutawayOption
-  armBevel: EBodyArmBevelOption
-}
-
-export interface IScaleOptions {
-  scaleLength: EScaleLengthOption
-  assymetrical: EScaleAssymetrical
-  fretHeelJoint: EScaleFretHeelJointOption
-}
-
-export interface ISoundboardOptions {
-  soundHole: ESoundboardSoundHoleOption
-}
-
-export interface IBackOptions {
-  backMultiPiece: EBackMultiPieceOption
-}
-
-export interface ISidesOptions {
-  soundPort: ESidesSoundPortOption
-}
-
-export interface IBindingOptions {}
-
-export interface INeckOptions {
-  profileShape: ENeckShapeOption
-  assymetrical: ENeckAssymmetricalOption
-}
-
-export interface IHeadstockOptions {}
-
-export interface IFretboardOptions {
-  radius: EFretboardRadiusOption
-  extension: EFretboardExtensionOption
-}
-
-export interface IBridgeOptions {}
-
-export interface IPickguardOptions {
-  shape: EPickguardShapeOption
-}
-
-export interface IStringsOptions {}
-
-export interface IRosetteOptions {
-  variant: ERosetteVariantOption
-}
-
-export interface IBracesOptions {}
-
-export interface IBackStripOptions {}
-export interface IKerflingOtions {
-  variant: EKerflingVariant
-}
-
-export interface IHeelTailBlocksOptions {}
-
-export interface IPurflingOptions {
-  variant: EPurflingVariantOption
-}
-
 export interface IOptionsStoreState {
   bodyOptions: IBodyOptions
   setBodyOptions: (bodyOptions: Partial<IBodyOptions>) => void
@@ -186,6 +145,7 @@ export const createOptionsSlice: StateCreator<StoreState, [], [], IOptionsStoreS
 ) => ({
   /** Level 1 Options: Body & Scale (will delegate changes to a set components) */
   bodyOptions: {
+    orientation: EBodyOrientationOption.RightHanded,
     bodyShape: EBodyShapeOption.Dreadnought,
     bodyDepth: EBodyDepthOption.Standard,
     cutaway: EBodyCutawayOption.Venetian,
@@ -305,7 +265,9 @@ export const createOptionsSlice: StateCreator<StoreState, [], [], IOptionsStoreS
 
     set({ configuration: { ...configuration } })
   },
-  bindingOptions: {},
+  bindingOptions: {
+    thickness: EBindingThicknessOption.Standard,
+  },
   setBindingOptions: (options) => {
     set((state) => ({
       bindingOptions: { ...state.bindingOptions, ...options },
@@ -347,17 +309,22 @@ export const createOptionsSlice: StateCreator<StoreState, [], [], IOptionsStoreS
 
     set({ configuration: { ...configuration } })
   },
-  headstockOptions: {},
+  headstockOptions: {
+    headstockShape: EHeadstockShapeOption.Standard,
+  },
   setHeadstockOptions: (options) => {
     set((state) => ({
       headstockOptions: { ...state.headstockOptions, ...options },
     }))
 
-    const { configuration, scaleOptions } = get()
+    const { configuration, scaleOptions, headstockOptions } = get()
 
     const headstockComponent = getConfiguredComponent(configuration, ELuthComponent.Headstock)
 
-    const selectedHeadstockMeshes = headstockMeshMap[scaleOptions.scaleLength]
+    const selectedHeadstockMeshes =
+      headstockMeshMap[scaleOptions.scaleLength][scaleOptions.assymetrical][
+        scaleOptions.fretHeelJoint
+      ][headstockOptions.headstockShape]
 
     headstockComponent.meshes = selectedHeadstockMeshes
 
@@ -385,17 +352,20 @@ export const createOptionsSlice: StateCreator<StoreState, [], [], IOptionsStoreS
 
     set({ configuration: { ...configuration } })
   },
-  bridgeOptions: {},
+  bridgeOptions: { variant: EBridgeTypeOption.Traditional },
   setBridgeOptions: (options) => {
     set((state) => ({
       bridgeOptions: { ...state.bridgeOptions, ...options },
     }))
 
-    const { configuration, scaleOptions } = get()
+    const { configuration, scaleOptions, bridgeOptions } = get()
 
     const bridgeComponent = getConfiguredComponent(configuration, ELuthComponent.Bridge)
 
-    const selectedBridgekMeshes = bridgeMeshMap[scaleOptions.scaleLength]
+    const selectedBridgekMeshes =
+      bridgeMeshMap[scaleOptions.scaleLength][scaleOptions.assymetrical][
+        scaleOptions.fretHeelJoint
+      ][bridgeOptions.variant]
 
     bridgeComponent.meshes = selectedBridgekMeshes
 
@@ -451,7 +421,7 @@ export const createOptionsSlice: StateCreator<StoreState, [], [], IOptionsStoreS
 
     set({ configuration: { ...configuration } })
   },
-  bracesOptions: {},
+  bracesOptions: { bracePattern: EBracePatternOption.X },
   setBracesOptions: (options) => {
     set((state) => ({
       bracesOptions: { ...state.bracesOptions, ...options },
@@ -464,7 +434,7 @@ export const createOptionsSlice: StateCreator<StoreState, [], [], IOptionsStoreS
     const selectedBracesMeshes =
       bracesMeshMap[bodyOptions.bodyShape][bodyOptions.cutaway][bodyOptions.armBevel][
         soundboardOptions.soundHole
-      ] ?? []
+      ]
 
     bracesComponent.meshes = selectedBracesMeshes
 

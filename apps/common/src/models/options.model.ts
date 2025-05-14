@@ -1,22 +1,3 @@
-export enum EGuitarTypeOption {
-  Acoustic = 'Acoustic',
-  Electric = 'Electric',
-  ElectricAcoustic = 'ElectricAcoustic',
-  Classical = 'Classical',
-  Travel = 'Travel',
-  Mini = 'Mini',
-  Bass = 'Bass',
-  SemiHollow = 'SemiHollow',
-  HollowBody = 'HollowBody',
-  Resonator = 'Resonator',
-  Baritone = 'Baritone',
-  Guitalele = 'Guitalele',
-  Ukulele = 'Ukulele',
-  Mandolin = 'Mandolin',
-  Banjo = 'Banjo',
-  Other = 'Other',
-}
-
 export enum EGuitarStringsCountOption {
   Six = 'Six',
   Seven = 'Seven',
@@ -43,6 +24,11 @@ export enum EBodyShapeOption {
   Parlor = 'Parlor',
 }
 
+export enum EBodyOrientationOption {
+  RightHanded = 'RightHanded',
+  LeftHanded = 'LeftHanded',
+}
+
 export enum EBodyDepthOption {
   Standard = 'Standard',
   Thinline = 'Thinline',
@@ -64,6 +50,7 @@ export enum EBodyArmBevelOption {
 
 export enum EScaleLengthOption {
   Standard = 'Standard',
+  // '24-7/8' = '24-7/8',
 }
 
 export enum EScaleAssymetrical {
@@ -82,6 +69,7 @@ export enum ESoundboardSoundHoleOption {
   Standard = 'Standard',
   None = 'None',
   FHole = 'FHole',
+  Oval = 'Oval',
 }
 
 /** Back options */
@@ -103,6 +91,11 @@ export enum ESidesSoundPortOption {
 
 /** Binding options */
 
+export enum EBindingThicknessOption {
+  Standard = 'Standard',
+  Thin = 'Thin',
+}
+
 /** Neck options */
 
 export enum ENeckShapeOption {
@@ -116,6 +109,13 @@ export enum ENeckAssymmetricalOption {
 }
 
 /** Headstock options */
+
+export enum EHeadstockShapeOption {
+  Standard = 'Standard',
+  // Reverse = 'Reverse',
+  // Telecaster = 'Telecaster',
+  // Stratocaster = 'Stratocaster',
+}
 
 /** Fretboard options */
 
@@ -131,10 +131,16 @@ export enum EFretboardRadiusOption {
   Flat = 'Flat',
 }
 
+export enum EFretboardBindingOption {
+  None = 'None',
+  fretboardBinding = 'FretboardBinding',
+}
+
 /** Bridge options */
 
 export enum EBridgeTypeOption {
   Traditional = 'Traditional',
+  BellyUp = 'BellyUp',
   Tailpiece = 'Tailpiece',
 }
 
@@ -142,6 +148,7 @@ export enum EBridgeTypeOption {
 
 export enum EPickguardShapeOption {
   Standard = 'Standard',
+  TearDrop = 'TearDrop',
   None = 'None',
 }
 
@@ -157,6 +164,14 @@ export enum ERosetteVariantOption {
   VariantB = 'VariantB',
 }
 
+export enum EBracePatternOption {
+  X = 'X',
+  VClass = 'V-Class',
+  Fan = 'Fan',
+  Ladder = 'Ladder',
+  None = 'None',
+}
+
 export enum EKerflingVariant {
   Traditional = 'Traditional',
   Lining = 'Lining',
@@ -167,6 +182,87 @@ export enum EPurflingVariantOption {
   Herringbone = 'Herringbone',
 }
 
+export enum EFretTypeOption {
+  Standard = 'Standard',
+  Jumbo = 'Jumbo',
+}
+
 export enum ETonewoodOption {
   Mahogany = 'Mahogany',
+}
+
+export interface IBodyOptions {
+  orientation: EBodyOrientationOption
+  bodyShape: EBodyShapeOption
+  bodyDepth: EBodyDepthOption
+  cutaway: EBodyCutawayOption
+  armBevel: EBodyArmBevelOption
+}
+
+export interface IScaleOptions {
+  scaleLength: EScaleLengthOption
+  assymetrical: EScaleAssymetrical
+  fretHeelJoint: EScaleFretHeelJointOption
+}
+
+export interface ISoundboardOptions {
+  soundHole: ESoundboardSoundHoleOption
+}
+
+export interface IBackOptions {
+  backMultiPiece: EBackMultiPieceOption
+}
+
+export interface ISidesOptions {
+  soundPort: ESidesSoundPortOption
+}
+
+export interface IBindingOptions {
+  thickness: EBindingThicknessOption
+}
+
+export interface INeckOptions {
+  profileShape: ENeckShapeOption
+  assymetrical: ENeckAssymmetricalOption
+}
+
+export interface IHeadstockOptions {
+  headstockShape: EHeadstockShapeOption
+}
+
+export interface IFretboardOptions {
+  radius: EFretboardRadiusOption
+  extension: EFretboardExtensionOption
+}
+
+export interface IBridgeOptions {
+  variant: EBridgeTypeOption
+}
+
+export interface IPickguardOptions {
+  shape: EPickguardShapeOption
+}
+
+export interface IStringsOptions {}
+
+export interface IRosetteOptions {
+  variant: ERosetteVariantOption
+}
+
+export interface IBracesOptions {
+  bracePattern: EBracePatternOption
+}
+
+export interface IBackStripOptions {}
+
+export interface IKerflingOtions {
+  variant: EKerflingVariant
+}
+
+export interface IHeelTailBlocksOptions {
+  heelJoint: EHeelJointOption
+}
+
+export interface IPurflingOptions {
+  variant: EPurflingVariantOption
 }

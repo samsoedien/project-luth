@@ -1,11 +1,39 @@
 import { GLTFResult as LuthHeadstockGLTF } from '~/_generated/LuthHeadstock'
 
-import { EScaleLengthOption } from '~/models/options.model'
+import {
+  EHeadstockShapeOption,
+  EScaleAssymetrical,
+  EScaleFretHeelJointOption,
+  EScaleLengthOption,
+} from '~/models/options.model'
 
 type HeadstockMeshMap = {
-  [key in EScaleLengthOption]: Array<keyof LuthHeadstockGLTF['nodes']>
+  [key in EScaleLengthOption]: {
+    [key in EScaleAssymetrical]: {
+      [key in EScaleFretHeelJointOption]: {
+        [key in EHeadstockShapeOption]: Array<keyof LuthHeadstockGLTF['nodes']>
+      }
+    }
+  }
 }
 
 export const headstockMeshMap: HeadstockMeshMap = {
-  [EScaleLengthOption.Standard]: ['Body_Headstock'],
+  [EScaleLengthOption.Standard]: {
+    [EScaleAssymetrical.None]: {
+      [EScaleFretHeelJointOption.Fret14]: {
+        [EHeadstockShapeOption.Standard]: ['Body_Headstock'],
+      },
+      [EScaleFretHeelJointOption.Fret12]: {
+        [EHeadstockShapeOption.Standard]: ['Body_Headstock'],
+      },
+    },
+    [EScaleAssymetrical.Assymetrical]: {
+      [EScaleFretHeelJointOption.Fret14]: {
+        [EHeadstockShapeOption.Standard]: ['Body_Headstock'],
+      },
+      [EScaleFretHeelJointOption.Fret12]: {
+        [EHeadstockShapeOption.Standard]: ['Body_Headstock'],
+      },
+    },
+  },
 }
