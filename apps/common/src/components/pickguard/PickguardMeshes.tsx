@@ -21,7 +21,7 @@ export default function PickguardMeshes({ configuration }: IPickguardMeshesProps
             receiveShadow
             onClick={(e) => console.log('click', e)}
           >
-            <meshNormalMaterial />
+            <meshStandardMaterial color="black" />
           </mesh>
         ))}
       <group ref={instanceGroupRef} visible={false}>

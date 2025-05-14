@@ -119,7 +119,17 @@ export enum ENeckAssymmetricalOption {
 
 /** Fretboard options */
 
-export enum EFretboardExtensionOption {}
+export enum EFretboardExtensionOption {
+  Straight = 'Straight',
+  Rounded = 'Rounded',
+  Extended = 'Extended',
+}
+
+export enum EFretboardRadiusOption {
+  Vintage = 'Vintage',
+  Modern = 'Modern',
+  Flat = 'Flat',
+}
 
 /** Bridge options */
 
@@ -145,6 +155,16 @@ export enum EHeelJointOption {
 export enum ERosetteVariantOption {
   VariantA = 'VariantA',
   VariantB = 'VariantB',
+}
+
+export enum EKerflingVariant {
+  Traditional = 'Traditional',
+  Lining = 'Lining',
+}
+
+export enum EPurflingVariantOption {
+  Standard = 'Standard',
+  Herringbone = 'Herringbone',
 }
 
 export enum ETonewoodOption {

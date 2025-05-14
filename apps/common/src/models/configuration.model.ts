@@ -30,6 +30,7 @@ export enum ELuthComponent {
   Nut = 'Nut',
   Saddle = 'Saddle',
   FretboardMarkers = 'FretboardMarkers',
+  Kerfling = 'Kerfling',
 }
 
 export interface IConfiguration {

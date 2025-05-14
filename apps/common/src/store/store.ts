@@ -16,6 +16,11 @@ import {
   EScaleAssemetrical,
   EScaleFretHeelJointOption,
   ESidesSoundPortOption,
+  EPurflingVariantOption,
+  EPickguardShapeOption,
+  EKerflingVariant,
+  EFretboardRadiusOption,
+  EFretboardExtensionOption,
 } from '~/models/options.model'
 import { getConfiguredComponent } from '~/helpers/meshUtils'
 
@@ -35,6 +40,8 @@ import { fretboardMeshMap } from '~/components/fretboard/fretboardMeshMap'
 import { stringsMeshMap } from '~/components/strings/stringsMeshMap'
 import { pickguardMeshMap } from '~/components/pickguard/pickguardMeshMap'
 import { bridgeMeshMap } from '~/components/bridge/bridgeMeshMap'
+import { kerflingMeshMap } from '~/components/sides/kerfling/kerflingMeshMap'
+import { backStripMeshMap } from '~/components/back/backStrip/backStripMeshMap'
 
 /** CONFIGURATION STATE SLICE */
 export interface IConfigurationStoreState {
@@ -102,11 +109,16 @@ export interface INeckOptions {
 
 export interface IHeadstockOptions {}
 
-export interface IFretboardOptions {}
+export interface IFretboardOptions {
+  radius: EFretboardRadiusOption
+  extension: EFretboardExtensionOption
+}
 
 export interface IBridgeOptions {}
 
-export interface IPickguardOptions {}
+export interface IPickguardOptions {
+  shape: EPickguardShapeOption
+}
 
 export interface IStringsOptions {}
 
@@ -117,10 +129,15 @@ export interface IRosetteOptions {
 export interface IBracesOptions {}
 
 export interface IBackStripOptions {}
+export interface IKerflingOtions {
+  variant: EKerflingVariant
+}
 
 export interface IHeelTailBlocksOptions {}
 
-export interface IPurflingOptions {}
+export interface IPurflingOptions {
+  variant: EPurflingVariantOption
+}
 
 export interface IOptionsStoreState {
   bodyOptions: IBodyOptions
@@ -153,6 +170,8 @@ export interface IOptionsStoreState {
   setBracesOptions: (bracesOptions: Partial<IBracesOptions>) => void
   backStripOptions: IBackStripOptions
   setBackStripOptions: (backStripOptions: Partial<IBackStripOptions>) => void
+  kerflingOptions: IKerflingOtions
+  setKerflingOptions: (kerflingOptions: Partial<IKerflingOtions>) => void
   heelTailBlocksOptions: IHeelTailBlocksOptions
   setHeelTailBlocksOptions: (heelTailBlocksOptions: Partial<IHeelTailBlocksOptions>) => void
   purflingOptions: IPurflingOptions
@@ -269,7 +288,7 @@ export const createOptionsSlice: StateCreator<StoreState, [], [], IOptionsStoreS
       sidesOptions: { ...state.sidesOptions, ...options },
     }))
 
-    const { bodyOptions, sidesOptions, configuration } = get()
+    const { bodyOptions, sidesOptions, heelTailBlocksOptions, configuration } = get()
 
     const sidesComponent = getConfiguredComponent(configuration, ELuthComponent.Sides)
 
@@ -279,6 +298,8 @@ export const createOptionsSlice: StateCreator<StoreState, [], [], IOptionsStoreS
       ][sidesOptions.soundPort]
 
     sidesComponent.meshes = selectedSidesMeshes
+
+    get().setHeelTailBlocksOptions(heelTailBlocksOptions)
 
     set({ configuration: { ...configuration } })
   },
@@ -336,17 +357,23 @@ export const createOptionsSlice: StateCreator<StoreState, [], [], IOptionsStoreS
 
     set({ configuration: { ...configuration } })
   },
-  fretboardOptions: {},
+  fretboardOptions: {
+    radius: EFretboardRadiusOption.Modern,
+    extension: EFretboardExtensionOption.Straight,
+  },
   setFretboardOptions: (options) => {
     set((state) => ({
       fretboardOptions: { ...state.fretboardOptions, ...options },
     }))
 
-    const { configuration, scaleOptions } = get()
+    const { configuration, scaleOptions, fretboardOptions } = get()
 
     const fretboardComponent = getConfiguredComponent(configuration, ELuthComponent.Fretboard)
 
-    const selectedFretboardkMeshes = fretboardMeshMap[scaleOptions.scaleLength]
+    const selectedFretboardkMeshes =
+      fretboardMeshMap[scaleOptions.scaleLength][scaleOptions.assemetrical][
+        scaleOptions.fretHeelJoint
+      ][fretboardOptions.extension][fretboardOptions.radius]
 
     fretboardComponent.meshes = selectedFretboardkMeshes
 
@@ -368,19 +395,20 @@ export const createOptionsSlice: StateCreator<StoreState, [], [], IOptionsStoreS
 
     set({ configuration: { ...configuration } })
   },
-  pickguardOptions: {},
+  pickguardOptions: { shape: EPickguardShapeOption.Standard },
   setPickguardOptions: (options) => {
     set((state) => ({
       pickguardOptions: { ...state.pickguardOptions, ...options },
     }))
 
-    const { configuration, soundboardOptions, bodyOptions } = get()
+    const { configuration, soundboardOptions, pickguardOptions, bodyOptions } = get()
 
     const pickguardComponent = getConfiguredComponent(configuration, ELuthComponent.Pickguard)
 
-    const selectedPickguardkMeshes = pickguardMeshMap[soundboardOptions.soundHole]
+    const selectedPickguardMeshes =
+      pickguardMeshMap[soundboardOptions.soundHole][pickguardOptions.shape]
 
-    pickguardComponent.meshes = selectedPickguardkMeshes
+    pickguardComponent.meshes = selectedPickguardMeshes
 
     set({ configuration: { ...configuration } })
   },
@@ -444,16 +472,33 @@ export const createOptionsSlice: StateCreator<StoreState, [], [], IOptionsStoreS
 
     const { configuration, bodyOptions, backOptions } = get()
 
-    const backStripOptions = getConfiguredComponent(configuration, ELuthComponent.BackStrip)
+    const backStripComponent = getConfiguredComponent(configuration, ELuthComponent.BackStrip)
 
-    const selectedBackStripMeshes: any[] = []
+    const selectedBackStripMeshes =
+      backStripMeshMap[bodyOptions.bodyShape][bodyOptions.bodyDepth][backOptions.backMultiPiece]
 
-    // const selectedBackStripMeshes =
-    //   bracesMeshMap[bodyOptions.bodyShape][bodyOptions.cutaway][bodyOptions.armBevel][
-    //     soundboardOptions.soundHole
-    //   ] ?? []
+    backStripComponent.meshes = selectedBackStripMeshes
 
-    backStripOptions.meshes = selectedBackStripMeshes
+    set({ configuration: { ...configuration } })
+  },
+  kerflingOptions: {
+    variant: EKerflingVariant.Traditional,
+  },
+  setKerflingOptions: (options) => {
+    set((state) => ({
+      kerflingOptions: { ...state.kerflingOptions, ...options },
+    }))
+
+    const { configuration, bodyOptions, kerflingOptions, backOptions } = get()
+
+    const kerflingComponent = getConfiguredComponent(configuration, ELuthComponent.Kerfling)
+
+    const selectedKerflingMeshes =
+      kerflingMeshMap[bodyOptions.bodyShape][bodyOptions.bodyDepth][bodyOptions.cutaway][
+        bodyOptions.armBevel
+      ][kerflingOptions.variant]
+
+    kerflingComponent.meshes = selectedKerflingMeshes
 
     set({ configuration: { ...configuration } })
   },
@@ -471,26 +516,30 @@ export const createOptionsSlice: StateCreator<StoreState, [], [], IOptionsStoreS
     )
 
     const selectedHeelTailBlocksMeshes =
-      heelTailBlocksMeshMap[bodyOptions.bodyShape][heelTailBlocksOptions.heelJoint]
+      heelTailBlocksMeshMap[bodyOptions.bodyShape][bodyOptions.bodyDepth][
+        heelTailBlocksOptions.heelJoint
+      ]
 
     heelTailBlocksComponent.meshes = selectedHeelTailBlocksMeshes
 
     set({ configuration: { ...configuration } })
   },
-  purflingOptions: {},
+  purflingOptions: {
+    variant: EPurflingVariantOption.Herringbone,
+  },
   setPurflingOptions: (options) => {
     set((state) => ({
       purflingOptions: { ...state.purflingOptions, ...options },
     }))
 
-    const { configuration, bodyOptions, bindingOptions } = get()
+    const { configuration, bodyOptions, bindingOptions, purflingOptions } = get()
 
     const purflingComponent = getConfiguredComponent(configuration, ELuthComponent.Purfling)
 
     const selectedPurflingMeshes =
       purflingMeshMap[bodyOptions.bodyShape][bodyOptions.bodyDepth][bodyOptions.cutaway][
         bodyOptions.armBevel
-      ]
+      ][purflingOptions.variant]
     purflingComponent.meshes = selectedPurflingMeshes
 
     set({ configuration: { ...configuration } })
