@@ -61,5 +61,5 @@
     "vite": "^6.3.2",
     "yargs": "^17.7.2"
   },
-  "repository": "https://github.com/samsoedien/project-luth/tree/master/apps/common"
+  "repository": "https://github.com/samsoedien/project-luth/tree/main/apps/common"
 }

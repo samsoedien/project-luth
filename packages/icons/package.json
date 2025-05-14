@@ -33,5 +33,5 @@
     "vite": "^6.3.2",
     "vite-plugin-dts": "^4.5.3"
   },
-  "repository": "https://github.com/samsoedien/project-luth/tree/master/packages/icons"
+  "repository": "https://github.com/samsoedien/project-luth/tree/main/packages/icons"
 }

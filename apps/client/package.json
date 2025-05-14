@@ -66,5 +66,5 @@
     "initVersion": "7.28.0"
   },
   "packageManager": "yarn@4.1.1",
-  "repository": "https://github.com/samsoedien/project-luth/tree/master/apps/client"
+  "repository": "https://github.com/samsoedien/project-luth/tree/main/apps/client"
 }
