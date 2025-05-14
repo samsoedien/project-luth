@@ -1,22 +1,22 @@
 import { GLTFResult } from '~/_generated/LuthRosette'
-import { ERosetteVariantOption, ESoundHoleOption } from '~/models/options.model'
+import { ERosetteVariantOption, ESoundboardSoundHoleOption } from '~/models/options.model'
 
 type RosetteMeshMap = {
-  [key in ESoundHoleOption]: {
+  [key in ESoundboardSoundHoleOption]: {
     [key in ERosetteVariantOption]: Array<keyof GLTFResult['nodes']>
   }
 }
 
 export const rosetteMeshMap: RosetteMeshMap = {
-  [ESoundHoleOption.Round]: {
+  [ESoundboardSoundHoleOption.Standard]: {
     [ERosetteVariantOption.VariantA]: ['Body_Rosette'],
     [ERosetteVariantOption.VariantB]: ['Body_Rosette_Half'],
   },
-  [ESoundHoleOption.FHole]: {
+  [ESoundboardSoundHoleOption.FHole]: {
     [ERosetteVariantOption.VariantA]: [],
     [ERosetteVariantOption.VariantB]: [],
   },
-  [ESoundHoleOption.None]: {
+  [ESoundboardSoundHoleOption.None]: {
     [ERosetteVariantOption.VariantA]: [],
     [ERosetteVariantOption.VariantB]: [],
   },

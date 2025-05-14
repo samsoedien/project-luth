@@ -1,4 +1,4 @@
-import { useContext } from 'react'
+import { memo, useContext } from 'react'
 import LuthSides, {
   // context as GLTFJSXContext,
   // LuthSidesInstances,
@@ -8,7 +8,6 @@ import LuthSides, {
 // import { GLTFJSXInstances } from '~/models/gltfjsx.model'
 import { useInstanceGeometry } from '~/hooks/useInstanceGeometry'
 import { IConfiguration } from '~/models/configuration.model'
-import { useGLTF } from '@react-three/drei'
 
 // const [Instances, LuthSidesTest] = createInstances()
 
@@ -16,9 +15,7 @@ export interface ISidesMeshesProps {
   configuration: IConfiguration
   children: React.ReactNode
 }
-
 export default function SidesMeshes({ configuration, children }: ISidesMeshesProps) {
-  // const instances = useContext(GLTFJSXContext) as GLTFJSXInstances
   const { instanceGeometry, instanceGroupRef } = useInstanceGeometry(configuration)
   return (
     <group name={configuration.name} dispose={null}>

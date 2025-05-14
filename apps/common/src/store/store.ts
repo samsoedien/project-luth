@@ -3,16 +3,19 @@ import { create, StateCreator } from 'zustand'
 import { ELuthComponent, IConfiguration } from '~/models/configuration.model'
 import { initialConfigurationState } from './initialConfigurationState'
 import {
-  EArmBevelOption,
+  EBodyArmBevelOption,
   EBackMultiPieceOption,
   EBodyDepthOption,
   EBodyShapeOption,
-  ECutawayOption,
+  EBodyCutawayOption,
   EHeelJointOption,
   ENeckShapeOption,
   ERosetteVariantOption,
   EScaleLengthOption,
-  ESoundHoleOption,
+  ESoundboardSoundHoleOption,
+  EScaleAssemetrical,
+  EScaleFretHeelJointOption,
+  ESidesSoundPortOption,
 } from '~/models/options.model'
 import { getConfiguredComponent } from '~/helpers/meshUtils'
 
@@ -69,23 +72,27 @@ export const createConfigurationSlice: StateCreator<
 export interface IBodyOptions {
   bodyShape: EBodyShapeOption
   bodyDepth: EBodyDepthOption
-  cutaway: ECutawayOption
-  armBevel: EArmBevelOption
+  cutaway: EBodyCutawayOption
+  armBevel: EBodyArmBevelOption
 }
 
 export interface IScaleOptions {
   scaleLength: EScaleLengthOption
+  assemetrical: EScaleAssemetrical
+  fretHeelJoint: EScaleFretHeelJointOption
 }
 
 export interface ISoundboardOptions {
-  soundHole: ESoundHoleOption
+  soundHole: ESoundboardSoundHoleOption
 }
 
 export interface IBackOptions {
   backMultiPiece: EBackMultiPieceOption
 }
 
-export interface ISidesOptions {}
+export interface ISidesOptions {
+  soundPort: ESidesSoundPortOption
+}
 
 export interface IBindingOptions {}
 
@@ -160,8 +167,8 @@ export const createOptionsSlice: StateCreator<StoreState, [], [], IOptionsStoreS
   bodyOptions: {
     bodyShape: EBodyShapeOption.Dreadnought,
     bodyDepth: EBodyDepthOption.Standard,
-    cutaway: ECutawayOption.Venetian,
-    armBevel: EArmBevelOption.None,
+    cutaway: EBodyCutawayOption.Venetian,
+    armBevel: EBodyArmBevelOption.None,
   },
   setBodyOptions: (bodyOptions) => {
     set((state) => ({
@@ -177,6 +184,8 @@ export const createOptionsSlice: StateCreator<StoreState, [], [], IOptionsStoreS
   },
   scaleOptions: {
     scaleLength: EScaleLengthOption.Standard,
+    assemetrical: EScaleAssemetrical.None,
+    fretHeelJoint: EScaleFretHeelJointOption.Fret14,
   },
   setScaleOptions: (scaleOptions) => {
     set((state) => ({
@@ -192,22 +201,31 @@ export const createOptionsSlice: StateCreator<StoreState, [], [], IOptionsStoreS
   },
   /** Level 2 Options: Components (wil delegate changes to all it's child components) */
   soundboardOptions: {
-    soundHole: ESoundHoleOption.Round,
+    soundHole: ESoundboardSoundHoleOption.Standard,
   },
   setSoundboardOptions: (options) => {
     set((state) => ({
       soundboardOptions: { ...state.soundboardOptions, ...options },
     }))
 
-    const { bodyOptions, soundboardOptions, rosetteOptions, bracesOptions, configuration } = get()
+    const {
+      bodyOptions,
+      soundboardOptions,
+      rosetteOptions,
+      bracesOptions,
+      pickguardOptions,
+      configuration,
+    } = get()
 
     const selectedSoundboardMeshes =
       soundboardMeshMap[bodyOptions.bodyShape][bodyOptions.cutaway][bodyOptions.armBevel][
         soundboardOptions.soundHole
-      ] ?? []
+      ]
 
     get().setRosetteOptions(rosetteOptions)
     get().setBracesOptions(bracesOptions)
+
+    get().setPickguardOptions(pickguardOptions)
 
     // Create the new configuration with updated meshes //TODO: verify if this implementation can be applied to other setOptions
     set({
@@ -236,14 +254,16 @@ export const createOptionsSlice: StateCreator<StoreState, [], [], IOptionsStoreS
     const selectedBackMeshes =
       backMeshMap[bodyOptions.bodyShape][bodyOptions.bodyDepth][bodyOptions.cutaway][
         backOptions.backMultiPiece
-      ] ?? []
+      ]
     backComponent.meshes = selectedBackMeshes
 
     get().setBackStripOptions(backStripOptions)
 
     set({ configuration: { ...configuration } })
   },
-  sidesOptions: {},
+  sidesOptions: {
+    soundPort: ESidesSoundPortOption.None,
+  },
   setSidesOptions: (options) => {
     set((state) => ({
       sidesOptions: { ...state.sidesOptions, ...options },
@@ -254,7 +274,10 @@ export const createOptionsSlice: StateCreator<StoreState, [], [], IOptionsStoreS
     const sidesComponent = getConfiguredComponent(configuration, ELuthComponent.Sides)
 
     const selectedSidesMeshes =
-      sidesMeshMap?.[bodyOptions.bodyShape]?.[bodyOptions.cutaway]?.[bodyOptions.armBevel] ?? []
+      sidesMeshMap[bodyOptions.bodyShape][bodyOptions.bodyDepth][bodyOptions.cutaway][
+        bodyOptions.armBevel
+      ][sidesOptions.soundPort]
+
     sidesComponent.meshes = selectedSidesMeshes
 
     set({ configuration: { ...configuration } })
@@ -272,7 +295,7 @@ export const createOptionsSlice: StateCreator<StoreState, [], [], IOptionsStoreS
     const selectedBindingMeshes =
       bindingMeshMap[bodyOptions.bodyShape][bodyOptions.bodyDepth][bodyOptions.cutaway][
         bodyOptions.armBevel
-      ] ?? []
+      ]
     bindingComponent.meshes = selectedBindingMeshes
 
     get().setPurflingOptions(purflingOptions)
@@ -351,11 +374,11 @@ export const createOptionsSlice: StateCreator<StoreState, [], [], IOptionsStoreS
       pickguardOptions: { ...state.pickguardOptions, ...options },
     }))
 
-    const { configuration, bodyOptions } = get()
+    const { configuration, soundboardOptions, bodyOptions } = get()
 
     const pickguardComponent = getConfiguredComponent(configuration, ELuthComponent.Pickguard)
 
-    const selectedPickguardkMeshes = pickguardMeshMap[bodyOptions.bodyShape]
+    const selectedPickguardkMeshes = pickguardMeshMap[soundboardOptions.soundHole]
 
     pickguardComponent.meshes = selectedPickguardkMeshes
 

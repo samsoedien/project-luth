@@ -1,7 +1,7 @@
 import React from 'react'
 import { Leva, useControls } from 'leva'
 import { useConfigurationStore } from '../../store/store'
-import { EArmBevelOption, EBodyShapeOption, ECutawayOption } from '~/models/options.model'
+import { EBodyArmBevelOption, EBodyShapeOption, EBodyCutawayOption } from '~/models/options.model'
 
 export default function BodyOptions() {
   const bodyOptions = useConfigurationStore((state) => state.bodyOptions)
@@ -16,14 +16,14 @@ export default function BodyOptions() {
         onChange: (value) => setBodyOptions({ bodyShape: value }),
       },
       cutaway: {
-        options: Object.values(ECutawayOption) as ECutawayOption[], // Use enum values
+        options: Object.values(EBodyCutawayOption) as EBodyCutawayOption[], // Use enum values
         value: bodyOptions.cutaway, // Default value
-        onChange: (value: ECutawayOption) => {
+        onChange: (value: EBodyCutawayOption) => {
           setBodyOptions({ cutaway: value })
         },
       },
       armBevel: {
-        options: Object.values(EArmBevelOption) as EArmBevelOption[],
+        options: Object.values(EBodyArmBevelOption) as EBodyArmBevelOption[],
         value: bodyOptions.armBevel,
         onChange: (value) => setBodyOptions({ armBevel: value }),
       },

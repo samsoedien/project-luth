@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { BufferGeometry, Group } from 'three'
 import { PositionMesh } from '@react-three/drei'
-import { GLTFResult } from '~/_generated/LuthAcoustic'
 import { IConfiguration } from '~/models/configuration.model'
 import { LuthGLTFResultCombined } from '~/models/gltfjsx.model'
 

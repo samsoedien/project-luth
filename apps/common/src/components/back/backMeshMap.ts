@@ -4,13 +4,13 @@ import {
   EBackMultiPieceOption,
   EBodyShapeOption,
   EBodyDepthOption,
-  ECutawayOption,
+  EBodyCutawayOption,
 } from '~/models/options.model'
 
 type BackMeshMap = {
   [key in EBodyShapeOption]: {
     [key in EBodyDepthOption]: {
-      [key in ECutawayOption]: {
+      [key in EBodyCutawayOption]: {
         [key in EBackMultiPieceOption]: Array<keyof LuthBackGLTF['nodes']>
       }
     }
@@ -20,7 +20,7 @@ type BackMeshMap = {
 export const backMeshMap: BackMeshMap = {
   [EBodyShapeOption.Dreadnought]: {
     [EBodyDepthOption.Standard]: {
-      [ECutawayOption.None]: {
+      [EBodyCutawayOption.None]: {
         [EBackMultiPieceOption.OnePiece]: ['Body_Back'],
         [EBackMultiPieceOption.TwoPiece]: ['Body_Back_Two_Piece_Left', 'Body_Back_Two_Piece_Right'],
         [EBackMultiPieceOption.ThreePiece]: [
@@ -29,7 +29,7 @@ export const backMeshMap: BackMeshMap = {
           'Body_Back_Three_Piece_Middle',
         ],
       },
-      [ECutawayOption.Venetian]: {
+      [EBodyCutawayOption.Venetian]: {
         [EBackMultiPieceOption.OnePiece]: ['Body_Back_Venetian_Cutaway'],
         [EBackMultiPieceOption.TwoPiece]: [
           'Body_Back_Two_Piece_Venetian_Cutaway_Left',
@@ -41,7 +41,7 @@ export const backMeshMap: BackMeshMap = {
           'Body_Back_Three_Piece_Venetian_Cutaway_Middle',
         ],
       },
-      [ECutawayOption.Florentine]: {
+      [EBodyCutawayOption.Florentine]: {
         [EBackMultiPieceOption.OnePiece]: ['Body_Back_Florentine_Cutaway'],
         [EBackMultiPieceOption.TwoPiece]: [
           'Body_Back_Two_Piece_Florentine_Cutaway_Left',
@@ -53,7 +53,7 @@ export const backMeshMap: BackMeshMap = {
           'Body_Back_Three_Piece_Florentine_Cutaway_Middle',
         ],
       },
-      [ECutawayOption.Scalloped]: {
+      [EBodyCutawayOption.Scalloped]: {
         [EBackMultiPieceOption.OnePiece]: ['Body_Back'],
         [EBackMultiPieceOption.TwoPiece]: ['Body_Back_Two_Piece_Left', 'Body_Back_Two_Piece_Right'],
         [EBackMultiPieceOption.ThreePiece]: [
@@ -64,7 +64,7 @@ export const backMeshMap: BackMeshMap = {
       },
     },
     [EBodyDepthOption.Thinline]: {
-      [ECutawayOption.None]: {
+      [EBodyCutawayOption.None]: {
         [EBackMultiPieceOption.OnePiece]: ['Body_Back'],
         [EBackMultiPieceOption.TwoPiece]: ['Body_Back_Two_Piece_Left', 'Body_Back_Two_Piece_Right'],
         [EBackMultiPieceOption.ThreePiece]: [
@@ -73,7 +73,7 @@ export const backMeshMap: BackMeshMap = {
           'Body_Back_Three_Piece_Middle',
         ],
       },
-      [ECutawayOption.Venetian]: {
+      [EBodyCutawayOption.Venetian]: {
         [EBackMultiPieceOption.OnePiece]: ['Body_Back_Venetian_Cutaway'],
         [EBackMultiPieceOption.TwoPiece]: [
           'Body_Back_Two_Piece_Venetian_Cutaway_Left',
@@ -85,7 +85,7 @@ export const backMeshMap: BackMeshMap = {
           'Body_Back_Three_Piece_Venetian_Cutaway_Middle',
         ],
       },
-      [ECutawayOption.Florentine]: {
+      [EBodyCutawayOption.Florentine]: {
         [EBackMultiPieceOption.OnePiece]: ['Body_Back_Florentine_Cutaway'],
         [EBackMultiPieceOption.TwoPiece]: [
           'Body_Back_Two_Piece_Florentine_Cutaway_Left',
@@ -97,7 +97,7 @@ export const backMeshMap: BackMeshMap = {
           'Body_Back_Three_Piece_Florentine_Cutaway_Middle',
         ],
       },
-      [ECutawayOption.Scalloped]: {
+      [EBodyCutawayOption.Scalloped]: {
         [EBackMultiPieceOption.OnePiece]: ['Body_Back'],
         [EBackMultiPieceOption.TwoPiece]: ['Body_Back_Two_Piece_Left', 'Body_Back_Two_Piece_Right'],
         [EBackMultiPieceOption.ThreePiece]: [
@@ -110,7 +110,7 @@ export const backMeshMap: BackMeshMap = {
   },
   [EBodyShapeOption.Parlor]: {
     [EBodyDepthOption.Standard]: {
-      [ECutawayOption.None]: {
+      [EBodyCutawayOption.None]: {
         [EBackMultiPieceOption.OnePiece]: ['Body_Back'],
         [EBackMultiPieceOption.TwoPiece]: ['Body_Back_Two_Piece_Left', 'Body_Back_Two_Piece_Right'],
         [EBackMultiPieceOption.ThreePiece]: [
@@ -119,7 +119,7 @@ export const backMeshMap: BackMeshMap = {
           'Body_Back_Three_Piece_Middle',
         ],
       },
-      [ECutawayOption.Venetian]: {
+      [EBodyCutawayOption.Venetian]: {
         [EBackMultiPieceOption.OnePiece]: ['Body_Back_Venetian_Cutaway'],
         [EBackMultiPieceOption.TwoPiece]: [
           'Body_Back_Two_Piece_Venetian_Cutaway_Left',
@@ -131,7 +131,7 @@ export const backMeshMap: BackMeshMap = {
           'Body_Back_Three_Piece_Venetian_Cutaway_Middle',
         ],
       },
-      [ECutawayOption.Florentine]: {
+      [EBodyCutawayOption.Florentine]: {
         [EBackMultiPieceOption.OnePiece]: ['Body_Back_Florentine_Cutaway'],
         [EBackMultiPieceOption.TwoPiece]: [
           'Body_Back_Two_Piece_Florentine_Cutaway_Left',
@@ -143,7 +143,7 @@ export const backMeshMap: BackMeshMap = {
           'Body_Back_Three_Piece_Florentine_Cutaway_Middle',
         ],
       },
-      [ECutawayOption.Scalloped]: {
+      [EBodyCutawayOption.Scalloped]: {
         [EBackMultiPieceOption.OnePiece]: ['Body_Back'],
         [EBackMultiPieceOption.TwoPiece]: ['Body_Back_Two_Piece_Left', 'Body_Back_Two_Piece_Right'],
         [EBackMultiPieceOption.ThreePiece]: [
@@ -154,7 +154,7 @@ export const backMeshMap: BackMeshMap = {
       },
     },
     [EBodyDepthOption.Thinline]: {
-      [ECutawayOption.None]: {
+      [EBodyCutawayOption.None]: {
         [EBackMultiPieceOption.OnePiece]: ['Body_Back'],
         [EBackMultiPieceOption.TwoPiece]: ['Body_Back_Two_Piece_Left', 'Body_Back_Two_Piece_Right'],
         [EBackMultiPieceOption.ThreePiece]: [
@@ -163,7 +163,7 @@ export const backMeshMap: BackMeshMap = {
           'Body_Back_Three_Piece_Middle',
         ],
       },
-      [ECutawayOption.Venetian]: {
+      [EBodyCutawayOption.Venetian]: {
         [EBackMultiPieceOption.OnePiece]: ['Body_Back_Venetian_Cutaway'],
         [EBackMultiPieceOption.TwoPiece]: [
           'Body_Back_Two_Piece_Venetian_Cutaway_Left',
@@ -175,7 +175,7 @@ export const backMeshMap: BackMeshMap = {
           'Body_Back_Three_Piece_Venetian_Cutaway_Middle',
         ],
       },
-      [ECutawayOption.Florentine]: {
+      [EBodyCutawayOption.Florentine]: {
         [EBackMultiPieceOption.OnePiece]: ['Body_Back_Florentine_Cutaway'],
         [EBackMultiPieceOption.TwoPiece]: [
           'Body_Back_Two_Piece_Florentine_Cutaway_Left',
@@ -187,7 +187,7 @@ export const backMeshMap: BackMeshMap = {
           'Body_Back_Three_Piece_Florentine_Cutaway_Middle',
         ],
       },
-      [ECutawayOption.Scalloped]: {
+      [EBodyCutawayOption.Scalloped]: {
         [EBackMultiPieceOption.OnePiece]: ['Body_Back'],
         [EBackMultiPieceOption.TwoPiece]: ['Body_Back_Two_Piece_Left', 'Body_Back_Two_Piece_Right'],
         [EBackMultiPieceOption.ThreePiece]: [

@@ -1,17 +1,25 @@
 import { GLTFResult as LuthSoundboardGLTF } from '~/_generated/LuthSoundboard'
+import { ELuthComponent } from '~/models/configuration.model'
 
 import {
-  EArmBevelOption,
+  EBodyArmBevelOption,
   EBodyShapeOption,
-  ECutawayOption,
-  ESoundHoleOption,
+  EBodyCutawayOption,
+  ESoundboardSoundHoleOption,
 } from '~/models/options.model'
+import { IBodyOptions, ISoundboardOptions } from '~/store/store'
+
+type IOptions = IBodyOptions & ISoundboardOptions
+
+// const soundboardMeshDependencies: Record<ELuthComponent, Array<keyof IOptions>> = {
+//   [ELuthComponent.Soundboard]: ['bodyShape', 'cutaway', 'armBevel', 'soundHole'],
+// }
 
 type SoundboardMeshMap = {
   [key in EBodyShapeOption]: {
-    [key in ECutawayOption]: {
-      [key in EArmBevelOption]: {
-        [key in ESoundHoleOption]: Array<keyof LuthSoundboardGLTF['nodes']>
+    [key in EBodyCutawayOption]: {
+      [key in EBodyArmBevelOption]: {
+        [key in ESoundboardSoundHoleOption]: Array<keyof LuthSoundboardGLTF['nodes']>
       }
     }
   }
@@ -19,108 +27,108 @@ type SoundboardMeshMap = {
 
 export const soundboardMeshMap: SoundboardMeshMap = {
   [EBodyShapeOption.Dreadnought]: {
-    [ECutawayOption.None]: {
-      [EArmBevelOption.None]: {
-        [ESoundHoleOption.None]: ['Body_Soundboard'],
-        [ESoundHoleOption.Round]: ['Body_Soundboard'],
-        [ESoundHoleOption.FHole]: ['Body_Soundboard'],
+    [EBodyCutawayOption.None]: {
+      [EBodyArmBevelOption.None]: {
+        [ESoundboardSoundHoleOption.None]: ['Body_Soundboard'],
+        [ESoundboardSoundHoleOption.Standard]: ['Body_Soundboard'],
+        [ESoundboardSoundHoleOption.FHole]: ['Body_Soundboard'],
       },
-      [EArmBevelOption.Standard]: {
-        [ESoundHoleOption.None]: ['Body_Soundboard_Arm_Bevel'],
-        [ESoundHoleOption.Round]: ['Body_Soundboard_Arm_Bevel'],
-        [ESoundHoleOption.FHole]: ['Body_Soundboard_Arm_Bevel'],
-      },
-    },
-    [ECutawayOption.Venetian]: {
-      [EArmBevelOption.None]: {
-        [ESoundHoleOption.None]: ['Body_Soundboard_Venetian_Cutaway'],
-        [ESoundHoleOption.Round]: ['Body_Soundboard_Venetian_Cutaway'],
-        [ESoundHoleOption.FHole]: ['Body_Soundboard_Venetian_Cutaway'],
-      },
-
-      [EArmBevelOption.Standard]: {
-        [ESoundHoleOption.None]: ['Body_Soundboard_Arm_Bevel_Cutaway_Venetian'],
-        [ESoundHoleOption.Round]: ['Body_Soundboard_Arm_Bevel_Cutaway_Venetian'],
-        [ESoundHoleOption.FHole]: ['Body_Soundboard_Arm_Bevel_Cutaway_Venetian'],
+      [EBodyArmBevelOption.Standard]: {
+        [ESoundboardSoundHoleOption.None]: ['Body_Soundboard_Arm_Bevel'],
+        [ESoundboardSoundHoleOption.Standard]: ['Body_Soundboard_Arm_Bevel'],
+        [ESoundboardSoundHoleOption.FHole]: ['Body_Soundboard_Arm_Bevel'],
       },
     },
-    [ECutawayOption.Florentine]: {
-      [EArmBevelOption.None]: {
-        [ESoundHoleOption.None]: ['Body_Soundboard_Florentine_Cutaway'],
-        [ESoundHoleOption.Round]: ['Body_Soundboard_Florentine_Cutaway'],
-        [ESoundHoleOption.FHole]: ['Body_Soundboard_Florentine_Cutaway'],
+    [EBodyCutawayOption.Venetian]: {
+      [EBodyArmBevelOption.None]: {
+        [ESoundboardSoundHoleOption.None]: ['Body_Soundboard_Venetian_Cutaway'],
+        [ESoundboardSoundHoleOption.Standard]: ['Body_Soundboard_Venetian_Cutaway'],
+        [ESoundboardSoundHoleOption.FHole]: ['Body_Soundboard_Venetian_Cutaway'],
       },
 
-      [EArmBevelOption.Standard]: {
-        [ESoundHoleOption.None]: ['Body_Soundboard_Arm_Bevel_Cutaway_Florentine'],
-        [ESoundHoleOption.Round]: ['Body_Soundboard_Arm_Bevel_Cutaway_Florentine'],
-        [ESoundHoleOption.FHole]: ['Body_Soundboard_Arm_Bevel_Cutaway_Florentine'],
+      [EBodyArmBevelOption.Standard]: {
+        [ESoundboardSoundHoleOption.None]: ['Body_Soundboard_Arm_Bevel_Cutaway_Venetian'],
+        [ESoundboardSoundHoleOption.Standard]: ['Body_Soundboard_Arm_Bevel_Cutaway_Venetian'],
+        [ESoundboardSoundHoleOption.FHole]: ['Body_Soundboard_Arm_Bevel_Cutaway_Venetian'],
       },
     },
-    [ECutawayOption.Scalloped]: {
-      [EArmBevelOption.None]: {
-        [ESoundHoleOption.None]: ['Body_Soundboard_Florentine_Cutaway'],
-        [ESoundHoleOption.Round]: ['Body_Soundboard_Florentine_Cutaway'],
-        [ESoundHoleOption.FHole]: ['Body_Soundboard_Florentine_Cutaway'],
+    [EBodyCutawayOption.Florentine]: {
+      [EBodyArmBevelOption.None]: {
+        [ESoundboardSoundHoleOption.None]: ['Body_Soundboard_Florentine_Cutaway'],
+        [ESoundboardSoundHoleOption.Standard]: ['Body_Soundboard_Florentine_Cutaway'],
+        [ESoundboardSoundHoleOption.FHole]: ['Body_Soundboard_Florentine_Cutaway'],
       },
 
-      [EArmBevelOption.Standard]: {
-        [ESoundHoleOption.None]: ['Body_Soundboard_Arm_Bevel_Cutaway_Florentine'],
-        [ESoundHoleOption.Round]: ['Body_Soundboard_Arm_Bevel_Cutaway_Florentine'],
-        [ESoundHoleOption.FHole]: ['Body_Soundboard_Arm_Bevel_Cutaway_Florentine'],
+      [EBodyArmBevelOption.Standard]: {
+        [ESoundboardSoundHoleOption.None]: ['Body_Soundboard_Arm_Bevel_Cutaway_Florentine'],
+        [ESoundboardSoundHoleOption.Standard]: ['Body_Soundboard_Arm_Bevel_Cutaway_Florentine'],
+        [ESoundboardSoundHoleOption.FHole]: ['Body_Soundboard_Arm_Bevel_Cutaway_Florentine'],
+      },
+    },
+    [EBodyCutawayOption.Scalloped]: {
+      [EBodyArmBevelOption.None]: {
+        [ESoundboardSoundHoleOption.None]: ['Body_Soundboard_Florentine_Cutaway'],
+        [ESoundboardSoundHoleOption.Standard]: ['Body_Soundboard_Florentine_Cutaway'],
+        [ESoundboardSoundHoleOption.FHole]: ['Body_Soundboard_Florentine_Cutaway'],
+      },
+
+      [EBodyArmBevelOption.Standard]: {
+        [ESoundboardSoundHoleOption.None]: ['Body_Soundboard_Arm_Bevel_Cutaway_Florentine'],
+        [ESoundboardSoundHoleOption.Standard]: ['Body_Soundboard_Arm_Bevel_Cutaway_Florentine'],
+        [ESoundboardSoundHoleOption.FHole]: ['Body_Soundboard_Arm_Bevel_Cutaway_Florentine'],
       },
     },
   },
   [EBodyShapeOption.Parlor]: {
-    [ECutawayOption.None]: {
-      [EArmBevelOption.None]: {
-        [ESoundHoleOption.None]: [],
-        [ESoundHoleOption.Round]: [],
-        [ESoundHoleOption.FHole]: [],
+    [EBodyCutawayOption.None]: {
+      [EBodyArmBevelOption.None]: {
+        [ESoundboardSoundHoleOption.None]: [],
+        [ESoundboardSoundHoleOption.Standard]: [],
+        [ESoundboardSoundHoleOption.FHole]: [],
       },
-      [EArmBevelOption.Standard]: {
-        [ESoundHoleOption.None]: [],
-        [ESoundHoleOption.Round]: [],
-        [ESoundHoleOption.FHole]: [],
-      },
-    },
-    [ECutawayOption.Venetian]: {
-      [EArmBevelOption.None]: {
-        [ESoundHoleOption.None]: [],
-        [ESoundHoleOption.Round]: [],
-        [ESoundHoleOption.FHole]: [],
-      },
-
-      [EArmBevelOption.Standard]: {
-        [ESoundHoleOption.None]: [],
-        [ESoundHoleOption.Round]: [],
-        [ESoundHoleOption.FHole]: [],
+      [EBodyArmBevelOption.Standard]: {
+        [ESoundboardSoundHoleOption.None]: [],
+        [ESoundboardSoundHoleOption.Standard]: [],
+        [ESoundboardSoundHoleOption.FHole]: [],
       },
     },
-    [ECutawayOption.Florentine]: {
-      [EArmBevelOption.None]: {
-        [ESoundHoleOption.None]: [],
-        [ESoundHoleOption.Round]: [],
-        [ESoundHoleOption.FHole]: [],
+    [EBodyCutawayOption.Venetian]: {
+      [EBodyArmBevelOption.None]: {
+        [ESoundboardSoundHoleOption.None]: [],
+        [ESoundboardSoundHoleOption.Standard]: [],
+        [ESoundboardSoundHoleOption.FHole]: [],
       },
 
-      [EArmBevelOption.Standard]: {
-        [ESoundHoleOption.None]: [],
-        [ESoundHoleOption.Round]: [],
-        [ESoundHoleOption.FHole]: [],
+      [EBodyArmBevelOption.Standard]: {
+        [ESoundboardSoundHoleOption.None]: [],
+        [ESoundboardSoundHoleOption.Standard]: [],
+        [ESoundboardSoundHoleOption.FHole]: [],
       },
     },
-    [ECutawayOption.Scalloped]: {
-      [EArmBevelOption.None]: {
-        [ESoundHoleOption.None]: [],
-        [ESoundHoleOption.Round]: [],
-        [ESoundHoleOption.FHole]: [],
+    [EBodyCutawayOption.Florentine]: {
+      [EBodyArmBevelOption.None]: {
+        [ESoundboardSoundHoleOption.None]: [],
+        [ESoundboardSoundHoleOption.Standard]: [],
+        [ESoundboardSoundHoleOption.FHole]: [],
       },
 
-      [EArmBevelOption.Standard]: {
-        [ESoundHoleOption.None]: [],
-        [ESoundHoleOption.Round]: [],
-        [ESoundHoleOption.FHole]: [],
+      [EBodyArmBevelOption.Standard]: {
+        [ESoundboardSoundHoleOption.None]: [],
+        [ESoundboardSoundHoleOption.Standard]: [],
+        [ESoundboardSoundHoleOption.FHole]: [],
+      },
+    },
+    [EBodyCutawayOption.Scalloped]: {
+      [EBodyArmBevelOption.None]: {
+        [ESoundboardSoundHoleOption.None]: [],
+        [ESoundboardSoundHoleOption.Standard]: [],
+        [ESoundboardSoundHoleOption.FHole]: [],
+      },
+
+      [EBodyArmBevelOption.Standard]: {
+        [ESoundboardSoundHoleOption.None]: [],
+        [ESoundboardSoundHoleOption.Standard]: [],
+        [ESoundboardSoundHoleOption.FHole]: [],
       },
     },
   },

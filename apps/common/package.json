@@ -12,7 +12,7 @@
     "gltf": "node ./scripts/gltf-pipeline.cjs",
     "gltf:normalize": "node ./scripts/gltf-normalize-uvs.cjs",
     "model": "yarn model:soundboard && yarn model:back && yarn model:sides && yarn model:binding && yarn model:neck && yarn model:headstock && yarn model:fretboard && yarn model:bridge && yarn model:pickguard && yarn model:strings && yarn model:rosette && yarn model:heeltailblocks && yarn model:purfling && yarn model:codemod",
-    "model:luth": "npx @rosskevin/gltfjsx ./public/luth-acoustic.glb --types --transform --keepnames --keepmeshes --draco --meta --shadows --exportdefault --output ./src/_generated/LuthAcoustic.tsx",
+    "model:luth": "npx @rosskevin/gltfjsx ./public/luth-acoustic.glb --types --transform --instanceall --keepnames --keepmeshes --draco --meta --shadows --exportdefault --output ./src/_generated/LuthAcoustic.tsx",
     "model:soundboard": "npx gltfjsx ./public/Soundboard_Collection.glb --types --transform --instanceall --keepmeshes --keepmaterials --keepattributes --keepnames --draco --meta --shadows --exportdefault --output ./src/_generated/LuthSoundboard.tsx",
     "model:back": "npx gltfjsx ./public/Back_Collection.glb --types --transform --instanceall --keepmeshes --keepmaterials --keepattributes --keepnames --draco --meta --shadows --exportdefault --output ./src/_generated/LuthBack.tsx",
     "model:sides": "npx gltfjsx ./public/Sides_Collection.glb --types --transform --instanceall --keepmeshes --keepmaterials --keepattributes --keepnames --draco --meta --shadows --exportdefault --output ./src/_generated/LuthSides.tsx",

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 // import { LuthSoundboardInstances as Instances } from '~/_generated/LuthSoundboard'
 import { Instances } from '~/_generated/LuthSides'
 
@@ -87,30 +87,6 @@ const withMeshConfiguration = <P extends IWithMeshConfigurationProps>(
       pickguardConfiguration: getConfiguredComponent(configuration, ELuthComponent.Pickguard),
     }
 
-    if (
-      !soundboardConfiguration ||
-      !rosetteConfiguration ||
-      !bracesConfiguration ||
-      !backConfiguration ||
-      !backStripConfiguration ||
-      !sidesConfiguration ||
-      !heelTailBlockConfiguration ||
-      !bindingConfiguration ||
-      !purflingConfiguration ||
-      !neckConfiguration ||
-      !fretboardConfiguration ||
-      !fretsConfiguration ||
-      !headstockConfiguration ||
-      !endGraftConfiguration ||
-      !bridgeConfiguration ||
-      !stringsConfiguration ||
-      !nutConfiguration ||
-      !saddleConfiguration ||
-      !fretboardMarkersConfiguration ||
-      !pickguardConfiguration
-    )
-      return
-
     return (
       <group>
         {/* <Instances> */}
@@ -118,7 +94,7 @@ const withMeshConfiguration = <P extends IWithMeshConfigurationProps>(
           <>
             <SoundboardMeshes configuration={soundboardConfiguration}>
               <RosetteMeshes configuration={rosetteConfiguration} />
-              {/*   <BracesMeshes configuration={bracesConfiguration} /> */}
+              <BracesMeshes configuration={bracesConfiguration} />
             </SoundboardMeshes>
             <BackMeshes configuration={backConfiguration}>
               {/* <BackStripMeshes configuration={backStripConfiguration} /> */}

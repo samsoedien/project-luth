@@ -2,10 +2,10 @@ import React from 'react'
 import { Leva, useControls } from 'leva'
 import { useConfigurationStore } from '../../store/store'
 import {
-  EArmBevelOption,
+  EBodyArmBevelOption,
   EBackMultiPieceOption,
   EBodyShapeOption,
-  ECutawayOption,
+  EBodyCutawayOption,
 } from '~/models/options.model'
 import { ELuthComponent } from '~/models/configuration.model'
 // import { useUpdateConfiguration } from '~/hooks/useUpdateConfiguration'

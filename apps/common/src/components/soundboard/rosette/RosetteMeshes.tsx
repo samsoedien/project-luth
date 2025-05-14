@@ -10,7 +10,7 @@ export interface IRosetteMeshesProps {
   configuration: IConfiguration
 }
 
-function RosetteMeshes({ configuration }: IRosetteMeshesProps) {
+export default function RosetteMeshes({ configuration }: IRosetteMeshesProps) {
   const { instanceGeometry, instanceGroupRef } = useInstanceGeometry(configuration)
 
   return (
@@ -45,5 +45,3 @@ function RosetteMeshes({ configuration }: IRosetteMeshesProps) {
     </group>
   )
 }
-
-export default memo(RosetteMeshes)

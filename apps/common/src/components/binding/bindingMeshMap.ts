@@ -3,15 +3,15 @@ import { GLTFResult as LuthBindingGLTF } from '~/_generated/LuthBinding'
 import {
   EBodyShapeOption,
   EBodyDepthOption,
-  ECutawayOption,
-  EArmBevelOption,
+  EBodyCutawayOption,
+  EBodyArmBevelOption,
 } from '~/models/options.model'
 
 type BindingdMeshMap = {
   [key in EBodyShapeOption]: {
     [key in EBodyDepthOption]: {
-      [key in ECutawayOption]: {
-        [key in EArmBevelOption]: Array<keyof LuthBindingGLTF['nodes']>
+      [key in EBodyCutawayOption]: {
+        [key in EBodyArmBevelOption]: Array<keyof LuthBindingGLTF['nodes']>
       }
     }
   }
@@ -20,77 +20,77 @@ type BindingdMeshMap = {
 export const bindingMeshMap: BindingdMeshMap = {
   [EBodyShapeOption.Dreadnought]: {
     [EBodyDepthOption.Standard]: {
-      [ECutawayOption.None]: {
-        [EArmBevelOption.None]: ['Binding_Top001', 'Binding_Bottom001'],
-        [EArmBevelOption.Standard]: ['Binding_Top_CW_None_AB_Std', 'Binding_Bottom'],
+      [EBodyCutawayOption.None]: {
+        [EBodyArmBevelOption.None]: ['Binding_Top001', 'Binding_Bottom001'],
+        [EBodyArmBevelOption.Standard]: ['Binding_Top_CW_None_AB_Std', 'Binding_Bottom'],
       },
-      [ECutawayOption.Venetian]: {
-        [EArmBevelOption.None]: ['Binding_Top_CW_Vene', 'Binding_Bottom_CW_Vene'],
-        [EArmBevelOption.Standard]: ['Binding_Top_CW_Vene_AB_Std', 'Binding_Bottom_CW_Vene'],
+      [EBodyCutawayOption.Venetian]: {
+        [EBodyArmBevelOption.None]: ['Binding_Top_CW_Vene', 'Binding_Bottom_CW_Vene'],
+        [EBodyArmBevelOption.Standard]: ['Binding_Top_CW_Vene_AB_Std', 'Binding_Bottom_CW_Vene'],
       },
-      [ECutawayOption.Florentine]: {
-        [EArmBevelOption.None]: ['Binding_Top_CW_Flor', 'Binding_Bottom_CW_Flor'],
-        [EArmBevelOption.Standard]: ['Binding_Top_CW_Flor_AB_Std', 'Binding_Bottom_CW_Flor'],
+      [EBodyCutawayOption.Florentine]: {
+        [EBodyArmBevelOption.None]: ['Binding_Top_CW_Flor', 'Binding_Bottom_CW_Flor'],
+        [EBodyArmBevelOption.Standard]: ['Binding_Top_CW_Flor_AB_Std', 'Binding_Bottom_CW_Flor'],
       },
-      [ECutawayOption.Scalloped]: {
-        [EArmBevelOption.None]: ['Binding_Top_CW_Flor', 'Binding_Bottom'],
-        [EArmBevelOption.Standard]: ['Binding_Top_CW_Flor_AB_Std', 'Binding_Bottom'],
+      [EBodyCutawayOption.Scalloped]: {
+        [EBodyArmBevelOption.None]: ['Binding_Top_CW_Flor', 'Binding_Bottom'],
+        [EBodyArmBevelOption.Standard]: ['Binding_Top_CW_Flor_AB_Std', 'Binding_Bottom'],
       },
     },
     [EBodyDepthOption.Thinline]: {
-      [ECutawayOption.None]: {
-        [EArmBevelOption.None]: ['Binding_Top', 'Binding_Bottom'],
-        [EArmBevelOption.Standard]: ['Binding_Top_CW_None_AB_Std', 'Binding_Bottom'],
+      [EBodyCutawayOption.None]: {
+        [EBodyArmBevelOption.None]: ['Binding_Top', 'Binding_Bottom'],
+        [EBodyArmBevelOption.Standard]: ['Binding_Top_CW_None_AB_Std', 'Binding_Bottom'],
       },
-      [ECutawayOption.Venetian]: {
-        [EArmBevelOption.None]: ['Binding_Top_CW_Vene', 'Binding_Bottom_CW_Vene'],
-        [EArmBevelOption.Standard]: ['Binding_Top_CW_Vene_AB_Std', 'Binding_Bottom_CW_Vene'],
+      [EBodyCutawayOption.Venetian]: {
+        [EBodyArmBevelOption.None]: ['Binding_Top_CW_Vene', 'Binding_Bottom_CW_Vene'],
+        [EBodyArmBevelOption.Standard]: ['Binding_Top_CW_Vene_AB_Std', 'Binding_Bottom_CW_Vene'],
       },
-      [ECutawayOption.Florentine]: {
-        [EArmBevelOption.None]: ['Binding_Top_CW_Flor', 'Binding_Bottom_CW_Flor'],
-        [EArmBevelOption.Standard]: ['Binding_Top_CW_Flor_AB_Std', 'Binding_Bottom_CW_Flor'],
+      [EBodyCutawayOption.Florentine]: {
+        [EBodyArmBevelOption.None]: ['Binding_Top_CW_Flor', 'Binding_Bottom_CW_Flor'],
+        [EBodyArmBevelOption.Standard]: ['Binding_Top_CW_Flor_AB_Std', 'Binding_Bottom_CW_Flor'],
       },
-      [ECutawayOption.Scalloped]: {
-        [EArmBevelOption.None]: ['Binding_Top_CW_Flor', 'Binding_Bottom'],
-        [EArmBevelOption.Standard]: ['Binding_Top_CW_Flor_AB_Std', 'Binding_Bottom'],
+      [EBodyCutawayOption.Scalloped]: {
+        [EBodyArmBevelOption.None]: ['Binding_Top_CW_Flor', 'Binding_Bottom'],
+        [EBodyArmBevelOption.Standard]: ['Binding_Top_CW_Flor_AB_Std', 'Binding_Bottom'],
       },
     },
   },
   [EBodyShapeOption.Parlor]: {
     [EBodyDepthOption.Standard]: {
-      [ECutawayOption.None]: {
-        [EArmBevelOption.None]: ['Binding_Top', 'Binding_Bottom'],
-        [EArmBevelOption.Standard]: ['Binding_Top_CW_None_AB_Std', 'Binding_Bottom'],
+      [EBodyCutawayOption.None]: {
+        [EBodyArmBevelOption.None]: ['Binding_Top', 'Binding_Bottom'],
+        [EBodyArmBevelOption.Standard]: ['Binding_Top_CW_None_AB_Std', 'Binding_Bottom'],
       },
-      [ECutawayOption.Venetian]: {
-        [EArmBevelOption.None]: ['Binding_Top_CW_Vene', 'Binding_Bottom_CW_Vene'],
-        [EArmBevelOption.Standard]: ['Binding_Top_CW_Vene_AB_Std', 'Binding_Bottom_CW_Vene'],
+      [EBodyCutawayOption.Venetian]: {
+        [EBodyArmBevelOption.None]: ['Binding_Top_CW_Vene', 'Binding_Bottom_CW_Vene'],
+        [EBodyArmBevelOption.Standard]: ['Binding_Top_CW_Vene_AB_Std', 'Binding_Bottom_CW_Vene'],
       },
-      [ECutawayOption.Florentine]: {
-        [EArmBevelOption.None]: ['Binding_Top_CW_Flor', 'Binding_Bottom_CW_Flor'],
-        [EArmBevelOption.Standard]: ['Binding_Top_CW_Flor_AB_Std', 'Binding_Bottom_CW_Flor'],
+      [EBodyCutawayOption.Florentine]: {
+        [EBodyArmBevelOption.None]: ['Binding_Top_CW_Flor', 'Binding_Bottom_CW_Flor'],
+        [EBodyArmBevelOption.Standard]: ['Binding_Top_CW_Flor_AB_Std', 'Binding_Bottom_CW_Flor'],
       },
-      [ECutawayOption.Scalloped]: {
-        [EArmBevelOption.None]: ['Binding_Top_CW_Flor', 'Binding_Bottom'],
-        [EArmBevelOption.Standard]: ['Binding_Top_CW_Flor_AB_Std', 'Binding_Bottom'],
+      [EBodyCutawayOption.Scalloped]: {
+        [EBodyArmBevelOption.None]: ['Binding_Top_CW_Flor', 'Binding_Bottom'],
+        [EBodyArmBevelOption.Standard]: ['Binding_Top_CW_Flor_AB_Std', 'Binding_Bottom'],
       },
     },
     [EBodyDepthOption.Thinline]: {
-      [ECutawayOption.None]: {
-        [EArmBevelOption.None]: ['Binding_Top', 'Binding_Bottom'],
-        [EArmBevelOption.Standard]: ['Binding_Top_CW_None_AB_Std', 'Binding_Bottom'],
+      [EBodyCutawayOption.None]: {
+        [EBodyArmBevelOption.None]: ['Binding_Top', 'Binding_Bottom'],
+        [EBodyArmBevelOption.Standard]: ['Binding_Top_CW_None_AB_Std', 'Binding_Bottom'],
       },
-      [ECutawayOption.Venetian]: {
-        [EArmBevelOption.None]: ['Binding_Top_CW_Vene', 'Binding_Bottom_CW_Vene'],
-        [EArmBevelOption.Standard]: ['Binding_Top_CW_Vene_AB_Std', 'Binding_Bottom_CW_Vene'],
+      [EBodyCutawayOption.Venetian]: {
+        [EBodyArmBevelOption.None]: ['Binding_Top_CW_Vene', 'Binding_Bottom_CW_Vene'],
+        [EBodyArmBevelOption.Standard]: ['Binding_Top_CW_Vene_AB_Std', 'Binding_Bottom_CW_Vene'],
       },
-      [ECutawayOption.Florentine]: {
-        [EArmBevelOption.None]: ['Binding_Top_CW_Flor', 'Binding_Bottom_CW_Flor'],
-        [EArmBevelOption.Standard]: ['Binding_Top_CW_Flor_AB_Std', 'Binding_Bottom_CW_Flor'],
+      [EBodyCutawayOption.Florentine]: {
+        [EBodyArmBevelOption.None]: ['Binding_Top_CW_Flor', 'Binding_Bottom_CW_Flor'],
+        [EBodyArmBevelOption.Standard]: ['Binding_Top_CW_Flor_AB_Std', 'Binding_Bottom_CW_Flor'],
       },
-      [ECutawayOption.Scalloped]: {
-        [EArmBevelOption.None]: ['Binding_Top_CW_Flor', 'Binding_Bottom'],
-        [EArmBevelOption.Standard]: ['Binding_Top_CW_Flor_AB_Std', 'Binding_Bottom'],
+      [EBodyCutawayOption.Scalloped]: {
+        [EBodyArmBevelOption.None]: ['Binding_Top_CW_Flor', 'Binding_Bottom'],
+        [EBodyArmBevelOption.Standard]: ['Binding_Top_CW_Flor_AB_Std', 'Binding_Bottom'],
       },
     },
   },
