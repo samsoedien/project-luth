@@ -15,6 +15,11 @@ export enum EGuitarStringsSpacingOption {
 
 /** Body options */
 
+export enum EBaseOrientationOption {
+  RightHanded = 'RightHanded',
+  LeftHanded = 'LeftHanded',
+}
+
 export enum EBodyShapeOption {
   Dreadnought = 'Dreadnought',
   // GrandConcert = 'GrandConcert',
@@ -24,9 +29,9 @@ export enum EBodyShapeOption {
   Parlor = 'Parlor',
 }
 
-export enum EBodyOrientationOption {
-  RightHanded = 'RightHanded',
-  LeftHanded = 'LeftHanded',
+export enum EBodyTypeOption {
+  Fret14 = 'Fret14',
+  Fret12 = 'Fret12',
 }
 
 export enum EBodyDepthOption {
@@ -196,9 +201,13 @@ export enum ETonewoodOption {
   Mahogany = 'Mahogany',
 }
 
+export interface IBaseOptions {
+  orientation: EBaseOrientationOption
+}
+
 export interface IBodyOptions {
-  orientation: EBodyOrientationOption
   bodyShape: EBodyShapeOption
+  bodyType: EBodyTypeOption
   bodyDepth: EBodyDepthOption
   cutaway: EBodyCutawayOption
   armBevel: EBodyArmBevelOption
@@ -207,7 +216,6 @@ export interface IBodyOptions {
 export interface IScaleOptions {
   scaleLength: EScaleLengthOption
   assymetrical: EScaleAssymetrical
-  // fretHeelJoint: EScaleFretHeelJointOption
 }
 
 export interface ISoundboardOptions {

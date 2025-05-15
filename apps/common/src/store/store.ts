@@ -13,7 +13,6 @@ import {
   ERosetteVariantOption,
   EScaleLengthOption,
   ESoundboardSoundHoleOption,
-  EScaleFretHeelJointOption,
   ESidesSoundPortOption,
   EPurflingVariantOption,
   EPickguardShapeOption,
@@ -44,12 +43,14 @@ import {
   EBridgeTypeOption,
   EBracePatternOption,
   EBindingThicknessOption,
-  EBodyOrientationOption,
   INutOptions,
   ISaddleOptions,
   IFretsOptions,
   IEndGraftOptions,
   EHeadstockTypeOption,
+  EBodyTypeOption,
+  IBaseOptions,
+  EBaseOrientationOption,
 } from '~/models/options.model'
 import { getConfiguredComponent } from '~/helpers/meshUtils'
 
@@ -112,6 +113,8 @@ export const createConfigurationSlice: StateCreator<
 
 /** OPTIONS STATE SLICE */
 export interface IOptionsStoreState {
+  baseOptions: IBaseOptions
+  setBaseOptions: (baseOptions: Partial<IBaseOptions>) => void
   bodyOptions: IBodyOptions
   setBodyOptions: (bodyOptions: Partial<IBodyOptions>) => void
   scaleOptions: IScaleOptions
@@ -162,10 +165,18 @@ export const createOptionsSlice: StateCreator<StoreState, [], [], IOptionsStoreS
   set,
   get,
 ) => ({
+  baseOptions: {
+    orientation: EBaseOrientationOption.RightHanded,
+  },
+  setBaseOptions: (baseOptions) => {
+    set((state) => ({
+      baseOptions: { ...state.baseOptions, ...baseOptions },
+    }))
+  },
   /** Level 1 Options: Body & Scale (will delegate changes to a set components) */
   bodyOptions: {
-    orientation: EBodyOrientationOption.RightHanded,
     bodyShape: EBodyShapeOption.Dreadnought,
+    bodyType: EBodyTypeOption.Fret14,
     bodyDepth: EBodyDepthOption.Standard,
     cutaway: EBodyCutawayOption.Venetian,
     armBevel: EBodyArmBevelOption.None,

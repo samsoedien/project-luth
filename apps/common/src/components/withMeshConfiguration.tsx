@@ -25,7 +25,7 @@ import NutMeshes from './fretboard/nut/NutMeshes'
 import SaddleMeshes from './bridge/saddle/SaddleMeshes'
 import FretboardMarkersMeshes from './fretboard/fretboardMarkers/FretboardMarkersMeshes'
 import PickguardMeshes from './pickguard/PickguardMeshes'
-import { EBodyOrientationOption } from '~/models/options.model'
+import { EBaseOrientationOption } from '~/models/options.model'
 import KerflingMeshes from './sides/kerfling/KerflingMeshes'
 
 interface IWithMeshConfigurationProps {
@@ -91,10 +91,10 @@ const withMeshConfiguration = <P extends IWithMeshConfigurationProps>(
       pickguardConfiguration: getConfiguredComponent(configuration, ELuthComponent.Pickguard),
     }
 
-    const { orientation } = useConfigurationStore((state) => state.bodyOptions)
+    const { orientation } = useConfigurationStore((state) => state.baseOptions)
 
     return (
-      <group scale={orientation === EBodyOrientationOption.LeftHanded ? [-1, 1, 1] : [1, 1, 1]}>
+      <group scale={orientation === EBaseOrientationOption.LeftHanded ? [-1, 1, 1] : [1, 1, 1]}>
         {/* <Instances> */}
         {configuration ? (
           <>

@@ -9,6 +9,7 @@ import BackOptions from './options/BackOptions'
 import NeckOptions from './options/NeckOptions'
 import RosetteOptions from './options/RosetteOptions'
 import KerflingOptions from './options/KerflingOptions'
+import BaseOptions from './options/BaseOptions'
 
 export default function Configurator() {
   const scope = useConfigurationStore((state) => state.scope)
@@ -141,6 +142,7 @@ export default function Configurator() {
   return (
     <div className="relatve">
       <Leva />
+      <BaseOptions />
       <BodyOptions />
       <ScaleOptions />
       <SoundboardOptions />

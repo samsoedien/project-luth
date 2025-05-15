@@ -7,6 +7,7 @@ import {
   EBodyCutawayOption,
   EBodyOrientationOption,
   EBodyDepthOption,
+  EBodyTypeOption,
 } from '~/models/options.model'
 
 export default function BodyOptions() {
@@ -16,15 +17,15 @@ export default function BodyOptions() {
   useControls(
     'Body Options', // Store names
     {
-      orientation: {
-        options: Object.values(EBodyOrientationOption) as EBodyOrientationOption[],
-        value: bodyOptions.orientation,
-        onChange: (value) => setBodyOptions({ orientation: value }),
-      },
       bodyShape: {
         options: Object.values(EBodyShapeOption) as EBodyShapeOption[],
         value: bodyOptions.bodyShape,
         onChange: (value) => setBodyOptions({ bodyShape: value }),
+      },
+      bodyType: {
+        options: Object.values(EBodyTypeOption) as EBodyTypeOption[],
+        value: bodyOptions.bodyType,
+        onChange: (value) => setBodyOptions({ bodyType: value }),
       },
       bodyDepth: {
         options: Object.values(EBodyDepthOption) as EBodyDepthOption[],
