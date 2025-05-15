@@ -1,9 +1,6 @@
-import { GLTFResult as LuthBridgeGLTF } from '~/_generated/LuthBridge'
+import { GLTFResult as LuthSaddleGLTF } from '~/_generated/LuthSaddle'
 
 import {
-  EBridgeTypeOption,
-  EGuitarStringsCountOption,
-  EGuitarStringsSpacingOption,
   EScaleAssymetrical,
   EScaleFretHeelJointOption,
   EScaleLengthOption,
@@ -12,13 +9,7 @@ import {
 type SaddleMeshMap = {
   [key in EScaleLengthOption]: {
     [key in EScaleAssymetrical]: {
-      [key in EScaleFretHeelJointOption]: {
-        [key in EGuitarStringsCountOption]: {
-          [key in EGuitarStringsSpacingOption]: {
-            [key in EBridgeTypeOption]: Array<keyof LuthBridgeGLTF['nodes']>
-          }
-        }
-      }
+      [key in EScaleFretHeelJointOption]: Array<keyof LuthSaddleGLTF['nodes']>
     }
   }
 }
@@ -26,24 +17,12 @@ type SaddleMeshMap = {
 export const saddleMeshMap: SaddleMeshMap = {
   [EScaleLengthOption.Standard]: {
     [EScaleAssymetrical.None]: {
-      [EScaleFretHeelJointOption.Fret14]: {
-        [EBridgeTypeOption.Traditional]: ['Body_Saddle'],
-        [EBridgeTypeOption.Tailpiece]: [],
-      },
-      [EScaleFretHeelJointOption.Fret12]: {
-        [EBridgeTypeOption.Traditional]: ['Body_Saddle'],
-        [EBridgeTypeOption.Tailpiece]: [],
-      },
+      [EScaleFretHeelJointOption.Fret14]: ['Body_Saddle'],
+      [EScaleFretHeelJointOption.Fret12]: ['Body_Saddle'],
     },
     [EScaleAssymetrical.Assymetrical]: {
-      [EScaleFretHeelJointOption.Fret14]: {
-        [EBridgeTypeOption.Traditional]: ['Body_Saddle'],
-        [EBridgeTypeOption.Tailpiece]: [],
-      },
-      [EScaleFretHeelJointOption.Fret12]: {
-        [EBridgeTypeOption.Traditional]: ['Body_Saddle'],
-        [EBridgeTypeOption.Tailpiece]: [],
-      },
+      [EScaleFretHeelJointOption.Fret14]: ['Body_Saddle'],
+      [EScaleFretHeelJointOption.Fret12]: ['Body_Saddle'],
     },
   },
 }

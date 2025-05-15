@@ -116,12 +116,12 @@ const withMeshConfiguration = <P extends IWithMeshConfigurationProps>(
             </NeckMeshes>
             <HeadstockMeshes configuration={headstockConfiguration}></HeadstockMeshes>
             <FretboardMeshes configuration={fretboardConfiguration}>
-              {/* <FretsMeshes configuration={fretsConfiguration} />
               <NutMeshes configuration={nutConfiguration} />
-              <FretboardMarkersMeshes configuration={fretboardMarkersConfiguration} /> */}
+              <FretsMeshes configuration={fretsConfiguration} />
+              {/* <FretboardMarkersMeshes configuration={fretboardMarkersConfiguration} /> */}
             </FretboardMeshes>
             <BridgeMeshes configuration={bridgeConfiguration}>
-              {/* <SaddleMeshes configuration={saddleConfiguration} /> */}
+              <SaddleMeshes configuration={saddleConfiguration} />
             </BridgeMeshes>
             <PickguardMeshes configuration={pickguardConfiguration} />
             <StringsMeshes configuration={stringsConfiguration} />

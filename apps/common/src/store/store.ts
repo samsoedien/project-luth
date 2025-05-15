@@ -45,6 +45,9 @@ import {
   EBracePatternOption,
   EBindingThicknessOption,
   EBodyOrientationOption,
+  INutOptions,
+  ISaddleOptions,
+  IFretsOptions,
 } from '~/models/options.model'
 import { getConfiguredComponent } from '~/helpers/meshUtils'
 
@@ -66,6 +69,10 @@ import { pickguardMeshMap } from '~/components/pickguard/pickguardMeshMap'
 import { bridgeMeshMap } from '~/components/bridge/bridgeMeshMap'
 import { kerflingMeshMap } from '~/components/sides/kerfling/kerflingMeshMap'
 import { backStripMeshMap } from '~/components/back/backStrip/backStripMeshMap'
+import { nutMeshMap } from '~/components/fretboard/nut/nutMeshMap'
+import { ISaddleMeshesProps } from '~/components/bridge/saddle/SaddleMeshes'
+import { saddleMeshMap } from '~/components/bridge/saddle/saddleMeshMap'
+import { fretsMeshMap } from '~/components/fretboard/frets/fretsMeshMap'
 
 /** CONFIGURATION STATE SLICE */
 export interface IConfigurationStoreState {
@@ -137,6 +144,12 @@ export interface IOptionsStoreState {
   setHeelTailBlocksOptions: (heelTailBlocksOptions: Partial<IHeelTailBlocksOptions>) => void
   purflingOptions: IPurflingOptions
   setPurflingOptions: (purflingOptions: Partial<IPurflingOptions>) => void
+  fretsOptions: IFretsOptions
+  setFretsOptions: (fretsOptions: Partial<IFretsOptions>) => void
+  nutOptions: INutOptions
+  setNutOptions: (nutOptions: Partial<INutOptions>) => void
+  saddleOptions: ISaddleOptions
+  setSaddleOptions: (saddleOptions: Partial<ISaddleOptions>) => void
 }
 
 export const createOptionsSlice: StateCreator<StoreState, [], [], IOptionsStoreState> = (
@@ -339,16 +352,18 @@ export const createOptionsSlice: StateCreator<StoreState, [], [], IOptionsStoreS
       fretboardOptions: { ...state.fretboardOptions, ...options },
     }))
 
-    const { configuration, scaleOptions, fretboardOptions } = get()
+    const { configuration, scaleOptions, fretboardOptions, fretsOptions } = get()
 
     const fretboardComponent = getConfiguredComponent(configuration, ELuthComponent.Fretboard)
 
-    const selectedFretboardkMeshes =
+    const selectedFretboardMeshes =
       fretboardMeshMap[scaleOptions.scaleLength][scaleOptions.assymetrical][
         scaleOptions.fretHeelJoint
       ][fretboardOptions.extension][fretboardOptions.radius]
 
-    fretboardComponent.meshes = selectedFretboardkMeshes
+    fretboardComponent.meshes = selectedFretboardMeshes
+
+    get().setFretsOptions(fretsOptions)
 
     set({ configuration: { ...configuration } })
   },
@@ -432,9 +447,7 @@ export const createOptionsSlice: StateCreator<StoreState, [], [], IOptionsStoreS
     const bracesComponent = getConfiguredComponent(configuration, ELuthComponent.Braces)
 
     const selectedBracesMeshes =
-      bracesMeshMap[bodyOptions.bodyShape][bodyOptions.cutaway][bodyOptions.armBevel][
-        soundboardOptions.soundHole
-      ]
+      bracesMeshMap[bodyOptions.bodyShape][bodyOptions.cutaway][soundboardOptions.soundHole]
 
     bracesComponent.meshes = selectedBracesMeshes
 
@@ -517,6 +530,57 @@ export const createOptionsSlice: StateCreator<StoreState, [], [], IOptionsStoreS
         bodyOptions.armBevel
       ][purflingOptions.variant]
     purflingComponent.meshes = selectedPurflingMeshes
+
+    set({ configuration: { ...configuration } })
+  },
+  fretsOptions: {},
+  setFretsOptions: (options) => {
+    set((state) => ({
+      fretsOptions: { ...state.fretsOptions, ...options },
+    }))
+
+    const { configuration, scaleOptions, fretboardOptions } = get()
+
+    const fretsComponent = getConfiguredComponent(configuration, ELuthComponent.Frets)
+
+    const selectedFretsMeshes =
+      fretsMeshMap[scaleOptions.scaleLength][scaleOptions.assymetrical][scaleOptions.fretHeelJoint][
+        fretboardOptions.extension
+      ]
+
+    fretsComponent.meshes = selectedFretsMeshes
+
+    set({ configuration: { ...configuration } })
+  },
+  nutOptions: {},
+  setNutOptions: (options) => {
+    set((state) => ({
+      nutOptions: { ...state.nutOptions, ...options },
+    }))
+
+    const { configuration, scaleOptions } = get()
+
+    const nutComponent = getConfiguredComponent(configuration, ELuthComponent.Nut)
+
+    const selectedNutMeshes =
+      nutMeshMap[scaleOptions.scaleLength][scaleOptions.assymetrical][scaleOptions.fretHeelJoint]
+    nutComponent.meshes = selectedNutMeshes
+
+    set({ configuration: { ...configuration } })
+  },
+  saddleOptions: {},
+  setSaddleOptions: (options) => {
+    set((state) => ({
+      saddleOptions: { ...state.saddleOptions, ...options },
+    }))
+
+    const { configuration, scaleOptions } = get()
+
+    const saddleComponent = getConfiguredComponent(configuration, ELuthComponent.Saddle)
+
+    const selectedSaddleMeshes =
+      saddleMeshMap[scaleOptions.scaleLength][scaleOptions.assymetrical][scaleOptions.fretHeelJoint]
+    saddleComponent.meshes = selectedSaddleMeshes
 
     set({ configuration: { ...configuration } })
   },

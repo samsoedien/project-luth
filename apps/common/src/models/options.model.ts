@@ -266,3 +266,9 @@ export interface IHeelTailBlocksOptions {
 export interface IPurflingOptions {
   variant: EPurflingVariantOption
 }
+
+export interface INutOptions {}
+
+export interface ISaddleOptions {}
+
+export interface IFretsOptions {}

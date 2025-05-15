@@ -40,21 +40,23 @@ export const fretboardMeshMap: FretboardMeshMap = {
           [EFretboardRadiusOption.Flat]: ['Body_Fretboard001'],
         },
       },
-      [EScaleFretHeelJointOption.Fret12]: {
-        [EFretboardExtensionOption.Straight]: {
-          [EFretboardRadiusOption.Modern]: ['Body_Fretboard001'],
-          [EFretboardRadiusOption.Vintage]: ['Body_Fretboard001'],
-          [EFretboardRadiusOption.Flat]: ['Body_Fretboard001'],
-        },
-        [EFretboardExtensionOption.Rounded]: {
-          [EFretboardRadiusOption.Modern]: ['Body_Fretboard001'],
-          [EFretboardRadiusOption.Vintage]: ['Body_Fretboard001'],
-          [EFretboardRadiusOption.Flat]: ['Body_Fretboard001'],
-        },
-        [EFretboardExtensionOption.Extended]: {
-          [EFretboardRadiusOption.Modern]: ['Body_Fretboard001'],
-          [EFretboardRadiusOption.Vintage]: ['Body_Fretboard001'],
-          [EFretboardRadiusOption.Flat]: ['Body_Fretboard001'],
+      [EScaleAssymetrical.Assymetrical]: {
+        [EScaleFretHeelJointOption.Fret12]: {
+          [EFretboardExtensionOption.Straight]: {
+            [EFretboardRadiusOption.Modern]: ['Body_Fretboard001'],
+            [EFretboardRadiusOption.Vintage]: ['Body_Fretboard001'],
+            [EFretboardRadiusOption.Flat]: ['Body_Fretboard001'],
+          },
+          [EFretboardExtensionOption.Rounded]: {
+            [EFretboardRadiusOption.Modern]: ['Body_Fretboard001'],
+            [EFretboardRadiusOption.Vintage]: ['Body_Fretboard001'],
+            [EFretboardRadiusOption.Flat]: ['Body_Fretboard001'],
+          },
+          [EFretboardExtensionOption.Extended]: {
+            [EFretboardRadiusOption.Modern]: ['Body_Fretboard001'],
+            [EFretboardRadiusOption.Vintage]: ['Body_Fretboard001'],
+            [EFretboardRadiusOption.Flat]: ['Body_Fretboard001'],
+          },
         },
       },
     },

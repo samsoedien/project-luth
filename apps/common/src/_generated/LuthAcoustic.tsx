@@ -535,267 +535,2395 @@ export default function Model(props: JSX.IntrinsicElements['group']) {
   const { nodes, materials } = useGLTF('/luth-acoustic-transformed.glb') as GLTFResult
   return (
     <group {...props} dispose={null}>
-      <PerspectiveCamera name="active" makeDefault={false} far={1878.367} near={838.397} fov={22.62} position={[0.474, -1.033, -0.543]} rotation={[2.09, 0.368, -3.088]} scale={0.001} userData={{ name: 'active' }} />
-      <PerspectiveCamera name="Active_Camera" makeDefault={false} far={1878.367} near={838.397} fov={22.62} position={[0.474, -1.033, -0.543]} rotation={[2.09, 0.368, -3.088]} scale={0.001} userData={{ name: 'Active Camera' }} />
-      <mesh name="Body_Heel_Block" castShadow receiveShadow geometry={nodes.Body_Heel_Block.geometry} material={materials['Oak - Glossy']} scale={0.001} userData={{ name: 'Body_Heel_Block' }} />
-      <mesh name="Body_Heel_Block_1" castShadow receiveShadow geometry={nodes.Body_Heel_Block_1.geometry} material={materials['Oak - Glossy']} scale={0.001} userData={{ name: 'Body_Heel_Block' }} />
-      <mesh name="Body_Heel_Block_2" castShadow receiveShadow geometry={nodes.Body_Heel_Block_2.geometry} material={materials['Oak - Glossy']} scale={0.001} userData={{ name: 'Body_Heel_Block' }} />
-      <mesh name="Body_Heel_Block_3" castShadow receiveShadow geometry={nodes.Body_Heel_Block_3.geometry} material={materials['Oak - Glossy']} scale={0.001} userData={{ name: 'Body_Heel_Block' }} />
-      <mesh name="Body_Heel_Block_4" castShadow receiveShadow geometry={nodes.Body_Heel_Block_4.geometry} material={materials['Oak - Glossy']} scale={0.001} userData={{ name: 'Body_Heel_Block' }} />
-      <mesh name="Body_Heel_Block_5" castShadow receiveShadow geometry={nodes.Body_Heel_Block_5.geometry} material={materials['Oak - Glossy']} scale={0.001} userData={{ name: 'Body_Heel_Block' }} />
-      <mesh name="Body_Heel_Block_6" castShadow receiveShadow geometry={nodes.Body_Heel_Block_6.geometry} material={materials['Oak - Glossy']} scale={0.001} userData={{ name: 'Body_Heel_Block' }} />
-      <mesh name="Body_Heel_Block_7" castShadow receiveShadow geometry={nodes.Body_Heel_Block_7.geometry} material={materials['Oak - Glossy']} scale={0.001} userData={{ name: 'Body_Heel_Block' }} />
-      <mesh name="Body_Heel_Block_8" castShadow receiveShadow geometry={nodes.Body_Heel_Block_8.geometry} material={materials['Oak - Glossy']} scale={0.001} userData={{ name: 'Body_Heel_Block' }} />
-      <mesh name="Body_Heel_Block_9" castShadow receiveShadow geometry={nodes.Body_Heel_Block_9.geometry} material={materials['Oak - Glossy']} scale={0.001} userData={{ name: 'Body_Heel_Block' }} />
-      <mesh name="Body_Heel_Block_10" castShadow receiveShadow geometry={nodes.Body_Heel_Block_10.geometry} material={materials['Oak - Glossy']} scale={0.001} userData={{ name: 'Body_Heel_Block' }} />
-      <mesh name="Body_Heel_Block_11" castShadow receiveShadow geometry={nodes.Body_Heel_Block_11.geometry} material={materials['Oak - Glossy']} scale={0.001} userData={{ name: 'Body_Heel_Block' }} />
-      <mesh name="Body_Heel_Block_12" castShadow receiveShadow geometry={nodes.Body_Heel_Block_12.geometry} material={materials['Oak - Glossy']} scale={0.001} userData={{ name: 'Body_Heel_Block' }} />
-      <mesh name="Body_Tail_Block" castShadow receiveShadow geometry={nodes.Body_Tail_Block.geometry} material={materials['3D Ash - Unfinished']} scale={0.001} userData={{ name: 'Body_Tail_Block' }} />
-      <mesh name="Body_Tail_Block_1" castShadow receiveShadow geometry={nodes.Body_Tail_Block_1.geometry} material={materials['3D Ash - Unfinished']} scale={0.001} userData={{ name: 'Body_Tail_Block' }} />
-      <mesh name="Body_Tail_Block_2" castShadow receiveShadow geometry={nodes.Body_Tail_Block_2.geometry} material={materials['3D Ash - Unfinished']} scale={0.001} userData={{ name: 'Body_Tail_Block' }} />
-      <mesh name="Body_Tail_Block_3" castShadow receiveShadow geometry={nodes.Body_Tail_Block_3.geometry} material={materials['3D Ash - Unfinished']} scale={0.001} userData={{ name: 'Body_Tail_Block' }} />
-      <mesh name="Body_Tail_Block_4" castShadow receiveShadow geometry={nodes.Body_Tail_Block_4.geometry} material={materials['3D Ash - Unfinished']} scale={0.001} userData={{ name: 'Body_Tail_Block' }} />
-      <mesh name="Body_Tail_Block_5" castShadow receiveShadow geometry={nodes.Body_Tail_Block_5.geometry} material={materials['3D Ash - Unfinished']} scale={0.001} userData={{ name: 'Body_Tail_Block' }} />
-      <mesh name="Body_Lining_Top" castShadow receiveShadow geometry={nodes.Body_Lining_Top.geometry} material={materials['Steel - Satin']} scale={0.001} userData={{ name: 'Body_Lining_Top' }} />
-      <mesh name="Body_Lining_Top_1" castShadow receiveShadow geometry={nodes.Body_Lining_Top_1.geometry} material={materials['Steel - Satin']} scale={0.001} userData={{ name: 'Body_Lining_Top' }} />
-      <mesh name="Body_Lining_Top_2" castShadow receiveShadow geometry={nodes.Body_Lining_Top_2.geometry} material={materials['Steel - Satin']} scale={0.001} userData={{ name: 'Body_Lining_Top' }} />
-      <mesh name="Body_Lining_Top_3" castShadow receiveShadow geometry={nodes.Body_Lining_Top_3.geometry} material={materials['Steel - Satin']} scale={0.001} userData={{ name: 'Body_Lining_Top' }} />
-      <mesh name="Body_Lining_Top_4" castShadow receiveShadow geometry={nodes.Body_Lining_Top_4.geometry} material={materials['Steel - Satin']} scale={0.001} userData={{ name: 'Body_Lining_Top' }} />
-      <mesh name="Body_Lining_Bottom" castShadow receiveShadow geometry={nodes.Body_Lining_Bottom.geometry} material={materials['Steel - Satin']} scale={0.001} userData={{ name: 'Body_Lining_Bottom' }} />
-      <mesh name="Body_Lining_Bottom_1" castShadow receiveShadow geometry={nodes.Body_Lining_Bottom_1.geometry} material={materials['Steel - Satin']} scale={0.001} userData={{ name: 'Body_Lining_Bottom' }} />
-      <mesh name="Body_Lining_Bottom_2" castShadow receiveShadow geometry={nodes.Body_Lining_Bottom_2.geometry} material={materials['Steel - Satin']} scale={0.001} userData={{ name: 'Body_Lining_Bottom' }} />
-      <mesh name="Body_Lining_Bottom_3" castShadow receiveShadow geometry={nodes.Body_Lining_Bottom_3.geometry} material={materials['Steel - Satin']} scale={0.001} userData={{ name: 'Body_Lining_Bottom' }} />
-      <mesh name="Body_Lining_Bottom_4" castShadow receiveShadow geometry={nodes.Body_Lining_Bottom_4.geometry} material={materials['Steel - Satin']} scale={0.001} userData={{ name: 'Body_Lining_Bottom' }} />
-      <mesh name="Body_End_Graft_Wedge" castShadow receiveShadow geometry={nodes.Body_End_Graft_Wedge.geometry} material={materials['3D Ash - Unfinished']} scale={0.001} userData={{ name: 'Body_End_Graft_Wedge' }} />
-      <mesh name="Body_End_Graft_Wedge_1" castShadow receiveShadow geometry={nodes.Body_End_Graft_Wedge_1.geometry} material={materials['3D Ash - Unfinished']} scale={0.001} userData={{ name: 'Body_End_Graft_Wedge' }} />
-      <mesh name="Body_End_Graft_Wedge_2" castShadow receiveShadow geometry={nodes.Body_End_Graft_Wedge_2.geometry} material={materials['3D Ash - Unfinished']} scale={0.001} userData={{ name: 'Body_End_Graft_Wedge' }} />
-      <mesh name="Body_End_Graft_Wedge_3" castShadow receiveShadow geometry={nodes.Body_End_Graft_Wedge_3.geometry} material={materials['3D Ash - Unfinished']} scale={0.001} userData={{ name: 'Body_End_Graft_Wedge' }} />
-      <mesh name="Body_End_Graft_Wedge_4" castShadow receiveShadow geometry={nodes.Body_End_Graft_Wedge_4.geometry} material={materials['3D Ash - Unfinished']} scale={0.001} userData={{ name: 'Body_End_Graft_Wedge' }} />
-      <mesh name="Body_End_Graft_Wedge_5" castShadow receiveShadow geometry={nodes.Body_End_Graft_Wedge_5.geometry} material={materials['3D Ash - Unfinished']} scale={0.001} userData={{ name: 'Body_End_Graft_Wedge' }} />
-      <mesh name="Body_End_Graft_Wedge_6" castShadow receiveShadow geometry={nodes.Body_End_Graft_Wedge_6.geometry} material={materials['3D Ash - Unfinished']} scale={0.001} userData={{ name: 'Body_End_Graft_Wedge' }} />
-      <mesh name="Body_End_Graft_Wedge_7" castShadow receiveShadow geometry={nodes.Body_End_Graft_Wedge_7.geometry} material={materials['3D Ash - Unfinished']} scale={0.001} userData={{ name: 'Body_End_Graft_Wedge' }} />
-      <mesh name="Body_End_Graft_Wedge_8" castShadow receiveShadow geometry={nodes.Body_End_Graft_Wedge_8.geometry} material={materials['3D Ash - Unfinished']} scale={0.001} userData={{ name: 'Body_End_Graft_Wedge' }} />
-      <mesh name="Body_End_Graft_Wedge_9" castShadow receiveShadow geometry={nodes.Body_End_Graft_Wedge_9.geometry} material={materials['3D Ash - Unfinished']} scale={0.001} userData={{ name: 'Body_End_Graft_Wedge' }} />
-      <mesh name="Body_Sides" castShadow receiveShadow geometry={nodes.Body_Sides.geometry} material={materials['Walnut - Semigloss']} scale={0.001} userData={{ name: 'Body_Sides' }} />
-      <mesh name="Body_Sides_1" castShadow receiveShadow geometry={nodes.Body_Sides_1.geometry} material={materials['Walnut - Semigloss']} scale={0.001} userData={{ name: 'Body_Sides' }} />
-      <mesh name="Body_Sides_2" castShadow receiveShadow geometry={nodes.Body_Sides_2.geometry} material={materials['Walnut - Semigloss']} scale={0.001} userData={{ name: 'Body_Sides' }} />
-      <mesh name="Body_Sides_3" castShadow receiveShadow geometry={nodes.Body_Sides_3.geometry} material={materials['Walnut - Semigloss']} scale={0.001} userData={{ name: 'Body_Sides' }} />
-      <mesh name="Body_Sides_4" castShadow receiveShadow geometry={nodes.Body_Sides_4.geometry} material={materials['Walnut - Semigloss']} scale={0.001} userData={{ name: 'Body_Sides' }} />
-      <mesh name="Body_Sides_5" castShadow receiveShadow geometry={nodes.Body_Sides_5.geometry} material={materials['Walnut - Semigloss']} scale={0.001} userData={{ name: 'Body_Sides' }} />
-      <mesh name="Body_Sides_6" castShadow receiveShadow geometry={nodes.Body_Sides_6.geometry} material={materials['Walnut - Semigloss']} scale={0.001} userData={{ name: 'Body_Sides' }} />
-      <mesh name="Body_Sides_7" castShadow receiveShadow geometry={nodes.Body_Sides_7.geometry} material={materials['Walnut - Semigloss']} scale={0.001} userData={{ name: 'Body_Sides' }} />
-      <mesh name="Body_Sides_8" castShadow receiveShadow geometry={nodes.Body_Sides_8.geometry} material={materials['Walnut - Semigloss']} scale={0.001} userData={{ name: 'Body_Sides' }} />
-      <mesh name="Body_Sides_Venetian_Cutaway" castShadow receiveShadow geometry={nodes.Body_Sides_Venetian_Cutaway.geometry} material={materials['Walnut - Semigloss']} scale={0.001} userData={{ name: 'Body_Sides_Venetian_Cutaway' }} />
-      <mesh name="Body_Sides_Venetian_Cutaway_1" castShadow receiveShadow geometry={nodes.Body_Sides_Venetian_Cutaway_1.geometry} material={materials['Walnut - Semigloss']} scale={0.001} userData={{ name: 'Body_Sides_Venetian_Cutaway' }} />
-      <mesh name="Body_Sides_Venetian_Cutaway_2" castShadow receiveShadow geometry={nodes.Body_Sides_Venetian_Cutaway_2.geometry} material={materials['Walnut - Semigloss']} scale={0.001} userData={{ name: 'Body_Sides_Venetian_Cutaway' }} />
-      <mesh name="Body_Sides_Venetian_Cutaway_3" castShadow receiveShadow geometry={nodes.Body_Sides_Venetian_Cutaway_3.geometry} material={materials['Walnut - Semigloss']} scale={0.001} userData={{ name: 'Body_Sides_Venetian_Cutaway' }} />
-      <mesh name="Body_Sides_Venetian_Cutaway_4" castShadow receiveShadow geometry={nodes.Body_Sides_Venetian_Cutaway_4.geometry} material={materials['Walnut - Semigloss']} scale={0.001} userData={{ name: 'Body_Sides_Venetian_Cutaway' }} />
-      <mesh name="Body_Sides_Venetian_Cutaway_5" castShadow receiveShadow geometry={nodes.Body_Sides_Venetian_Cutaway_5.geometry} material={materials['Walnut - Semigloss']} scale={0.001} userData={{ name: 'Body_Sides_Venetian_Cutaway' }} />
-      <mesh name="Body_Sides_Venetian_Cutaway_6" castShadow receiveShadow geometry={nodes.Body_Sides_Venetian_Cutaway_6.geometry} material={materials['Walnut - Semigloss']} scale={0.001} userData={{ name: 'Body_Sides_Venetian_Cutaway' }} />
-      <mesh name="Body_Sides_Venetian_Cutaway_7" castShadow receiveShadow geometry={nodes.Body_Sides_Venetian_Cutaway_7.geometry} material={materials['Walnut - Semigloss']} scale={0.001} userData={{ name: 'Body_Sides_Venetian_Cutaway' }} />
-      <mesh name="Body_Sides_Venetian_Cutaway_8" castShadow receiveShadow geometry={nodes.Body_Sides_Venetian_Cutaway_8.geometry} material={materials['Walnut - Semigloss']} scale={0.001} userData={{ name: 'Body_Sides_Venetian_Cutaway' }} />
-      <mesh name="Body_Sides_Florentine_Cutaway" castShadow receiveShadow geometry={nodes.Body_Sides_Florentine_Cutaway.geometry} material={materials['Walnut - Semigloss']} scale={0.001} userData={{ name: 'Body_Sides_Florentine_Cutaway' }} />
-      <mesh name="Body_Sides_Florentine_Cutaway_1" castShadow receiveShadow geometry={nodes.Body_Sides_Florentine_Cutaway_1.geometry} material={materials['Walnut - Semigloss']} scale={0.001} userData={{ name: 'Body_Sides_Florentine_Cutaway' }} />
-      <mesh name="Body_Sides_Florentine_Cutaway_2" castShadow receiveShadow geometry={nodes.Body_Sides_Florentine_Cutaway_2.geometry} material={materials['Walnut - Semigloss']} scale={0.001} userData={{ name: 'Body_Sides_Florentine_Cutaway' }} />
-      <mesh name="Body_Sides_Florentine_Cutaway_3" castShadow receiveShadow geometry={nodes.Body_Sides_Florentine_Cutaway_3.geometry} material={materials['Walnut - Semigloss']} scale={0.001} userData={{ name: 'Body_Sides_Florentine_Cutaway' }} />
-      <mesh name="Body_Sides_Florentine_Cutaway_4" castShadow receiveShadow geometry={nodes.Body_Sides_Florentine_Cutaway_4.geometry} material={materials['Walnut - Semigloss']} scale={0.001} userData={{ name: 'Body_Sides_Florentine_Cutaway' }} />
-      <mesh name="Body_Sides_Florentine_Cutaway_5" castShadow receiveShadow geometry={nodes.Body_Sides_Florentine_Cutaway_5.geometry} material={materials['Walnut - Semigloss']} scale={0.001} userData={{ name: 'Body_Sides_Florentine_Cutaway' }} />
-      <mesh name="Body_Sides_Florentine_Cutaway_6" castShadow receiveShadow geometry={nodes.Body_Sides_Florentine_Cutaway_6.geometry} material={materials['Walnut - Semigloss']} scale={0.001} userData={{ name: 'Body_Sides_Florentine_Cutaway' }} />
-      <mesh name="Body_Sides_Florentine_Cutaway_7" castShadow receiveShadow geometry={nodes.Body_Sides_Florentine_Cutaway_7.geometry} material={materials['Walnut - Semigloss']} scale={0.001} userData={{ name: 'Body_Sides_Florentine_Cutaway' }} />
-      <mesh name="Body_Sides_Florentine_Cutaway_8" castShadow receiveShadow geometry={nodes.Body_Sides_Florentine_Cutaway_8.geometry} material={materials['Walnut - Semigloss']} scale={0.001} userData={{ name: 'Body_Sides_Florentine_Cutaway' }} />
-      <mesh name="Body_Sides_Scalloped_Cutaway" castShadow receiveShadow geometry={nodes.Body_Sides_Scalloped_Cutaway.geometry} material={materials.Mahogany} scale={0.001} userData={{ name: 'Body_Sides_Scalloped_Cutaway' }} />
-      <mesh name="Body_Sides_Scalloped_Cutaway_1" castShadow receiveShadow geometry={nodes.Body_Sides_Scalloped_Cutaway_1.geometry} material={materials.Mahogany} scale={0.001} userData={{ name: 'Body_Sides_Scalloped_Cutaway' }} />
-      <mesh name="Body_Sides_Scalloped_Cutaway_2" castShadow receiveShadow geometry={nodes.Body_Sides_Scalloped_Cutaway_2.geometry} material={materials.Mahogany} scale={0.001} userData={{ name: 'Body_Sides_Scalloped_Cutaway' }} />
-      <mesh name="Body_Sides_Scalloped_Cutaway_3" castShadow receiveShadow geometry={nodes.Body_Sides_Scalloped_Cutaway_3.geometry} material={materials.Mahogany} scale={0.001} userData={{ name: 'Body_Sides_Scalloped_Cutaway' }} />
-      <mesh name="Body_Sides_Scalloped_Cutaway_4" castShadow receiveShadow geometry={nodes.Body_Sides_Scalloped_Cutaway_4.geometry} material={materials.Mahogany} scale={0.001} userData={{ name: 'Body_Sides_Scalloped_Cutaway' }} />
-      <mesh name="Body_Sides_Scalloped_Cutaway_5" castShadow receiveShadow geometry={nodes.Body_Sides_Scalloped_Cutaway_5.geometry} material={materials.Mahogany} scale={0.001} userData={{ name: 'Body_Sides_Scalloped_Cutaway' }} />
-      <mesh name="Body_Sides_Scalloped_Cutaway_6" castShadow receiveShadow geometry={nodes.Body_Sides_Scalloped_Cutaway_6.geometry} material={materials.Mahogany} scale={0.001} userData={{ name: 'Body_Sides_Scalloped_Cutaway' }} />
-      <mesh name="Body_Sides_Scalloped_Cutaway_7" castShadow receiveShadow geometry={nodes.Body_Sides_Scalloped_Cutaway_7.geometry} material={materials.Mahogany} scale={0.001} userData={{ name: 'Body_Sides_Scalloped_Cutaway' }} />
-      <mesh name="Body_Sides_Scalloped_Cutaway_8" castShadow receiveShadow geometry={nodes.Body_Sides_Scalloped_Cutaway_8.geometry} material={materials.Mahogany} scale={0.001} userData={{ name: 'Body_Sides_Scalloped_Cutaway' }} />
-      <mesh name="Body_Sides_Scalloped_Cutaway_9" castShadow receiveShadow geometry={nodes.Body_Sides_Scalloped_Cutaway_9.geometry} material={materials.Mahogany} scale={0.001} userData={{ name: 'Body_Sides_Scalloped_Cutaway' }} />
-      <mesh name="Body_Sides_Scalloped_Cutaway_10" castShadow receiveShadow geometry={nodes.Body_Sides_Scalloped_Cutaway_10.geometry} material={materials.Mahogany} scale={0.001} userData={{ name: 'Body_Sides_Scalloped_Cutaway' }} />
-      <mesh name="Body_Sides_Arm_Bevel" castShadow receiveShadow geometry={nodes.Body_Sides_Arm_Bevel.geometry} material={materials['Walnut - Semigloss']} scale={0.001} userData={{ name: 'Body_Sides_Arm_Bevel' }} />
-      <mesh name="Body_Sides_Arm_Bevel_1" castShadow receiveShadow geometry={nodes.Body_Sides_Arm_Bevel_1.geometry} material={materials['Walnut - Semigloss']} scale={0.001} userData={{ name: 'Body_Sides_Arm_Bevel' }} />
-      <mesh name="Body_Sides_Arm_Bevel_2" castShadow receiveShadow geometry={nodes.Body_Sides_Arm_Bevel_2.geometry} material={materials['Walnut - Semigloss']} scale={0.001} userData={{ name: 'Body_Sides_Arm_Bevel' }} />
-      <mesh name="Body_Sides_Arm_Bevel_3" castShadow receiveShadow geometry={nodes.Body_Sides_Arm_Bevel_3.geometry} material={materials['Walnut - Semigloss']} scale={0.001} userData={{ name: 'Body_Sides_Arm_Bevel' }} />
-      <mesh name="Body_Sides_Arm_Bevel_4" castShadow receiveShadow geometry={nodes.Body_Sides_Arm_Bevel_4.geometry} material={materials['Walnut - Semigloss']} scale={0.001} userData={{ name: 'Body_Sides_Arm_Bevel' }} />
-      <mesh name="Body_Sides_Arm_Bevel_5" castShadow receiveShadow geometry={nodes.Body_Sides_Arm_Bevel_5.geometry} material={materials['Walnut - Semigloss']} scale={0.001} userData={{ name: 'Body_Sides_Arm_Bevel' }} />
-      <mesh name="Body_Sides_Arm_Bevel_6" castShadow receiveShadow geometry={nodes.Body_Sides_Arm_Bevel_6.geometry} material={materials['Walnut - Semigloss']} scale={0.001} userData={{ name: 'Body_Sides_Arm_Bevel' }} />
-      <mesh name="Body_Sides_Arm_Bevel_7" castShadow receiveShadow geometry={nodes.Body_Sides_Arm_Bevel_7.geometry} material={materials['Walnut - Semigloss']} scale={0.001} userData={{ name: 'Body_Sides_Arm_Bevel' }} />
-      <mesh name="Body_Sides_Arm_Bevel_8" castShadow receiveShadow geometry={nodes.Body_Sides_Arm_Bevel_8.geometry} material={materials['Walnut - Semigloss']} scale={0.001} userData={{ name: 'Body_Sides_Arm_Bevel' }} />
-      <mesh name="Body_Sides_Arm_Bevel_Florentine_Cutaway" castShadow receiveShadow geometry={nodes.Body_Sides_Arm_Bevel_Florentine_Cutaway.geometry} material={materials['Steel - Satin']} scale={0.001} userData={{ name: 'Body_Sides_Arm_Bevel_Florentine_Cutaway' }} />
-      <mesh name="Body_Sides_Arm_Bevel_Florentine_Cutaway_1" castShadow receiveShadow geometry={nodes.Body_Sides_Arm_Bevel_Florentine_Cutaway_1.geometry} material={materials['Steel - Satin']} scale={0.001} userData={{ name: 'Body_Sides_Arm_Bevel_Florentine_Cutaway' }} />
-      <mesh name="Body_Sides_Arm_Bevel_Florentine_Cutaway_2" castShadow receiveShadow geometry={nodes.Body_Sides_Arm_Bevel_Florentine_Cutaway_2.geometry} material={materials['Steel - Satin']} scale={0.001} userData={{ name: 'Body_Sides_Arm_Bevel_Florentine_Cutaway' }} />
-      <mesh name="Body_Sides_Arm_Bevel_Florentine_Cutaway_3" castShadow receiveShadow geometry={nodes.Body_Sides_Arm_Bevel_Florentine_Cutaway_3.geometry} material={materials['Steel - Satin']} scale={0.001} userData={{ name: 'Body_Sides_Arm_Bevel_Florentine_Cutaway' }} />
-      <mesh name="Body_Sides_Arm_Bevel_Florentine_Cutaway_4" castShadow receiveShadow geometry={nodes.Body_Sides_Arm_Bevel_Florentine_Cutaway_4.geometry} material={materials['Steel - Satin']} scale={0.001} userData={{ name: 'Body_Sides_Arm_Bevel_Florentine_Cutaway' }} />
-      <mesh name="Body_Sides_Arm_Bevel_Florentine_Cutaway_5" castShadow receiveShadow geometry={nodes.Body_Sides_Arm_Bevel_Florentine_Cutaway_5.geometry} material={materials['Steel - Satin']} scale={0.001} userData={{ name: 'Body_Sides_Arm_Bevel_Florentine_Cutaway' }} />
-      <mesh name="Body_Sides_Arm_Bevel_Florentine_Cutaway_6" castShadow receiveShadow geometry={nodes.Body_Sides_Arm_Bevel_Florentine_Cutaway_6.geometry} material={materials['Steel - Satin']} scale={0.001} userData={{ name: 'Body_Sides_Arm_Bevel_Florentine_Cutaway' }} />
-      <mesh name="Body_Sides_Arm_Bevel_Florentine_Cutaway_7" castShadow receiveShadow geometry={nodes.Body_Sides_Arm_Bevel_Florentine_Cutaway_7.geometry} material={materials['Steel - Satin']} scale={0.001} userData={{ name: 'Body_Sides_Arm_Bevel_Florentine_Cutaway' }} />
-      <mesh name="Body_Sides_Arm_Bevel_Florentine_Cutaway_8" castShadow receiveShadow geometry={nodes.Body_Sides_Arm_Bevel_Florentine_Cutaway_8.geometry} material={materials['Steel - Satin']} scale={0.001} userData={{ name: 'Body_Sides_Arm_Bevel_Florentine_Cutaway' }} />
-      <mesh name="Body_Sides_Arm_Bevel_Venetian_Cutaway" castShadow receiveShadow geometry={nodes.Body_Sides_Arm_Bevel_Venetian_Cutaway.geometry} material={materials['Walnut - Semigloss']} scale={0.001} userData={{ name: 'Body_Sides_Arm_Bevel_Venetian_Cutaway' }} />
-      <mesh name="Body_Sides_Arm_Bevel_Venetian_Cutaway_1" castShadow receiveShadow geometry={nodes.Body_Sides_Arm_Bevel_Venetian_Cutaway_1.geometry} material={materials['Walnut - Semigloss']} scale={0.001} userData={{ name: 'Body_Sides_Arm_Bevel_Venetian_Cutaway' }} />
-      <mesh name="Body_Sides_Arm_Bevel_Venetian_Cutaway_2" castShadow receiveShadow geometry={nodes.Body_Sides_Arm_Bevel_Venetian_Cutaway_2.geometry} material={materials['Walnut - Semigloss']} scale={0.001} userData={{ name: 'Body_Sides_Arm_Bevel_Venetian_Cutaway' }} />
-      <mesh name="Body_Sides_Arm_Bevel_Venetian_Cutaway_3" castShadow receiveShadow geometry={nodes.Body_Sides_Arm_Bevel_Venetian_Cutaway_3.geometry} material={materials['Walnut - Semigloss']} scale={0.001} userData={{ name: 'Body_Sides_Arm_Bevel_Venetian_Cutaway' }} />
-      <mesh name="Body_Sides_Arm_Bevel_Venetian_Cutaway_4" castShadow receiveShadow geometry={nodes.Body_Sides_Arm_Bevel_Venetian_Cutaway_4.geometry} material={materials['Walnut - Semigloss']} scale={0.001} userData={{ name: 'Body_Sides_Arm_Bevel_Venetian_Cutaway' }} />
-      <mesh name="Body_Sides_Arm_Bevel_Venetian_Cutaway_5" castShadow receiveShadow geometry={nodes.Body_Sides_Arm_Bevel_Venetian_Cutaway_5.geometry} material={materials['Walnut - Semigloss']} scale={0.001} userData={{ name: 'Body_Sides_Arm_Bevel_Venetian_Cutaway' }} />
-      <mesh name="Body_Sides_Arm_Bevel_Venetian_Cutaway_6" castShadow receiveShadow geometry={nodes.Body_Sides_Arm_Bevel_Venetian_Cutaway_6.geometry} material={materials['Walnut - Semigloss']} scale={0.001} userData={{ name: 'Body_Sides_Arm_Bevel_Venetian_Cutaway' }} />
-      <mesh name="Body_Sides_Arm_Bevel_Venetian_Cutaway_7" castShadow receiveShadow geometry={nodes.Body_Sides_Arm_Bevel_Venetian_Cutaway_7.geometry} material={materials['Walnut - Semigloss']} scale={0.001} userData={{ name: 'Body_Sides_Arm_Bevel_Venetian_Cutaway' }} />
-      <mesh name="Body_Sides_Arm_Bevel_Venetian_Cutaway_8" castShadow receiveShadow geometry={nodes.Body_Sides_Arm_Bevel_Venetian_Cutaway_8.geometry} material={materials['Walnut - Semigloss']} scale={0.001} userData={{ name: 'Body_Sides_Arm_Bevel_Venetian_Cutaway' }} />
-      <mesh name="Body_Sides_Arm_Bevel_Scalloped_Cutaway" castShadow receiveShadow geometry={nodes.Body_Sides_Arm_Bevel_Scalloped_Cutaway.geometry} material={materials['Walnut - Semigloss']} scale={0.001} userData={{ name: 'Body_Sides_Arm_Bevel_Scalloped_Cutaway' }} />
-      <mesh name="Body_Sides_Arm_Bevel_Scalloped_Cutaway_1" castShadow receiveShadow geometry={nodes.Body_Sides_Arm_Bevel_Scalloped_Cutaway_1.geometry} material={materials['Walnut - Semigloss']} scale={0.001} userData={{ name: 'Body_Sides_Arm_Bevel_Scalloped_Cutaway' }} />
-      <mesh name="Body_Sides_Arm_Bevel_Scalloped_Cutaway_2" castShadow receiveShadow geometry={nodes.Body_Sides_Arm_Bevel_Scalloped_Cutaway_2.geometry} material={materials['Walnut - Semigloss']} scale={0.001} userData={{ name: 'Body_Sides_Arm_Bevel_Scalloped_Cutaway' }} />
-      <mesh name="Body_Sides_Arm_Bevel_Scalloped_Cutaway_3" castShadow receiveShadow geometry={nodes.Body_Sides_Arm_Bevel_Scalloped_Cutaway_3.geometry} material={materials['Walnut - Semigloss']} scale={0.001} userData={{ name: 'Body_Sides_Arm_Bevel_Scalloped_Cutaway' }} />
-      <mesh name="Body_Sides_Arm_Bevel_Scalloped_Cutaway_4" castShadow receiveShadow geometry={nodes.Body_Sides_Arm_Bevel_Scalloped_Cutaway_4.geometry} material={materials['Walnut - Semigloss']} scale={0.001} userData={{ name: 'Body_Sides_Arm_Bevel_Scalloped_Cutaway' }} />
-      <mesh name="Body_Sides_Arm_Bevel_Scalloped_Cutaway_5" castShadow receiveShadow geometry={nodes.Body_Sides_Arm_Bevel_Scalloped_Cutaway_5.geometry} material={materials['Walnut - Semigloss']} scale={0.001} userData={{ name: 'Body_Sides_Arm_Bevel_Scalloped_Cutaway' }} />
-      <mesh name="Body_Sides_Arm_Bevel_Scalloped_Cutaway_6" castShadow receiveShadow geometry={nodes.Body_Sides_Arm_Bevel_Scalloped_Cutaway_6.geometry} material={materials['Walnut - Semigloss']} scale={0.001} userData={{ name: 'Body_Sides_Arm_Bevel_Scalloped_Cutaway' }} />
-      <mesh name="Body_Sides_Arm_Bevel_Scalloped_Cutaway_7" castShadow receiveShadow geometry={nodes.Body_Sides_Arm_Bevel_Scalloped_Cutaway_7.geometry} material={materials['Walnut - Semigloss']} scale={0.001} userData={{ name: 'Body_Sides_Arm_Bevel_Scalloped_Cutaway' }} />
-      <mesh name="Body_Sides_Arm_Bevel_Scalloped_Cutaway_8" castShadow receiveShadow geometry={nodes.Body_Sides_Arm_Bevel_Scalloped_Cutaway_8.geometry} material={materials['Walnut - Semigloss']} scale={0.001} userData={{ name: 'Body_Sides_Arm_Bevel_Scalloped_Cutaway' }} />
-      <mesh name="Body_Rosette" castShadow receiveShadow geometry={nodes.Body_Rosette.geometry} material={materials['ABS (White)']} scale={0.001} userData={{ name: 'Body_Rosette' }} />
-      <mesh name="Body_Rosette_(1)" castShadow receiveShadow geometry={nodes['Body_Rosette_(1)'].geometry} material={materials['ABS (White)']} scale={0.001} userData={{ name: 'Body_Rosette (1)' }} />
-      <mesh name="Body_Rosette_(2)" castShadow receiveShadow geometry={nodes['Body_Rosette_(2)'].geometry} material={materials['3D Ash - Unfinished']} scale={0.001} userData={{ name: 'Body_Rosette (2)' }} />
-      <mesh name="Body_Rosette_(3)" castShadow receiveShadow geometry={nodes['Body_Rosette_(3)'].geometry} material={materials['3D Ash - Unfinished']} scale={0.001} userData={{ name: 'Body_Rosette (3)' }} />
-      <mesh name="Body_Rosette_(4)" castShadow receiveShadow geometry={nodes['Body_Rosette_(4)'].geometry} material={materials['ABS (White)']} scale={0.001} userData={{ name: 'Body_Rosette (4)' }} />
-      <mesh name="Body_Brace_Fretboard_Reinforcement_Right" castShadow receiveShadow geometry={nodes.Body_Brace_Fretboard_Reinforcement_Right.geometry} material={materials['3D Ash - Unfinished']} scale={0.001} userData={{ name: 'Body_Brace_Fretboard_Reinforcement_Right' }} />
-      <mesh name="Body_Lateral_BraceA" castShadow receiveShadow geometry={nodes.Body_Lateral_BraceA.geometry} material={materials['3D Ash - Unfinished']} scale={0.001} userData={{ name: 'Body_Lateral_BraceA' }} />
-      <mesh name="Body_X_BraceB" castShadow receiveShadow geometry={nodes.Body_X_BraceB.geometry} material={materials['3D Ash - Unfinished']} scale={0.001} userData={{ name: 'Body_X_BraceB' }} />
-      <mesh name="Body_X_BraceC" castShadow receiveShadow geometry={nodes.Body_X_BraceC.geometry} material={materials['3D Ash - Unfinished']} scale={0.001} userData={{ name: 'Body_X_BraceC' }} />
-      <mesh name="Body_BraceD" castShadow receiveShadow geometry={nodes.Body_BraceD.geometry} material={materials['3D Ash - Unfinished']} scale={0.001} userData={{ name: 'Body_BraceD' }} />
-      <mesh name="Body_BraceE" castShadow receiveShadow geometry={nodes.Body_BraceE.geometry} material={materials['3D Ash - Unfinished']} scale={0.001} userData={{ name: 'Body_BraceE' }} />
-      <mesh name="Body_BraceF_Right" castShadow receiveShadow geometry={nodes.Body_BraceF_Right.geometry} material={materials['3D Ash - Unfinished']} scale={0.001} userData={{ name: 'Body_BraceF_Right' }} />
-      <mesh name="Body_BraceG_Right" castShadow receiveShadow geometry={nodes.Body_BraceG_Right.geometry} material={materials['3D Ash - Unfinished']} scale={0.001} userData={{ name: 'Body_BraceG_Right' }} />
-      <mesh name="Body_BraceG_Left" castShadow receiveShadow geometry={nodes.Body_BraceG_Left.geometry} material={materials['3D Ash - Unfinished']} scale={0.001} userData={{ name: 'Body_BraceG_Left' }} />
-      <mesh name="Body_BraceF_Left" castShadow receiveShadow geometry={nodes.Body_BraceF_Left.geometry} material={materials['3D Ash - Unfinished']} scale={0.001} userData={{ name: 'Body_BraceF_Left' }} />
-      <mesh name="Body_BraceH_Left" castShadow receiveShadow geometry={nodes.Body_BraceH_Left.geometry} material={materials['3D Ash - Unfinished']} scale={0.001} userData={{ name: 'Body_BraceH_Left' }} />
-      <mesh name="Body_BraceH_Right" castShadow receiveShadow geometry={nodes.Body_BraceH_Right.geometry} material={materials['3D Ash - Unfinished']} scale={0.001} userData={{ name: 'Body_BraceH_Right' }} />
-      <mesh name="Body_Bridge_Plate" castShadow receiveShadow geometry={nodes.Body_Bridge_Plate.geometry} material={materials['Walnut - Semigloss']} scale={0.001} userData={{ name: 'Body_Bridge_Plate' }} />
-      <mesh name="Body_Soundboard" castShadow receiveShadow geometry={nodes.Body_Soundboard.geometry} material={materials['3D Ash - Unfinished']} scale={0.001} userData={{ name: 'Body_Soundboard' }} />
-      <mesh name="Body_Soundboard_Venetian_Cutaway" castShadow receiveShadow geometry={nodes.Body_Soundboard_Venetian_Cutaway.geometry} material={materials['3D Ash - Unfinished']} scale={0.001} userData={{ name: 'Body_Soundboard_Venetian_Cutaway' }} />
-      <mesh name="Body_Soundboard_Florentine_Cutaway" castShadow receiveShadow geometry={nodes.Body_Soundboard_Florentine_Cutaway.geometry} material={materials['3D Ash - Unfinished']} scale={0.001} userData={{ name: 'Body_Soundboard_Florentine_Cutaway' }} />
-      <mesh name="Body_Soundboard_Arm_Bevel" castShadow receiveShadow geometry={nodes.Body_Soundboard_Arm_Bevel.geometry} material={materials['3D Ash - Unfinished']} scale={0.001} userData={{ name: 'Body_Soundboard_Arm_Bevel' }} />
-      <mesh name="Body_Soundboard_Arm_Bevel_Cutaway_Venetian" castShadow receiveShadow geometry={nodes.Body_Soundboard_Arm_Bevel_Cutaway_Venetian.geometry} material={materials['3D Ash - Unfinished']} scale={0.001} userData={{ name: 'Body_Soundboard_Arm_Bevel_Cutaway_Venetian' }} />
-      <mesh name="Body_Soundboard_Arm_Bevel_Cutaway_Florentine" castShadow receiveShadow geometry={nodes.Body_Soundboard_Arm_Bevel_Cutaway_Florentine.geometry} material={materials['3D Ash - Unfinished']} scale={0.001} userData={{ name: 'Body_Soundboard_Arm_Bevel_Cutaway_Florentine' }} />
-      <mesh name="Body_Saddle" castShadow receiveShadow geometry={nodes.Body_Saddle.geometry} material={materials['ABS (White)']} scale={0.001} userData={{ name: 'Body_Saddle' }} />
-      <mesh name="Body_Bridge_Pin_Inlay" castShadow receiveShadow geometry={nodes.Body_Bridge_Pin_Inlay.geometry} material={materials['Acrylic (Red)']} position={[-0.027, -0.156, 0.008]} scale={0.001} userData={{ name: 'Body_Bridge_Pin_Inlay' }} />
-      <mesh name="Body_Bridge_Pin_Inlay_1" castShadow receiveShadow geometry={nodes.Body_Bridge_Pin_Inlay_1.geometry} material={materials['Acrylic (Red)']} position={[-0.017, -0.156, 0.007]} scale={0.001} userData={{ name: 'Body_Bridge_Pin_Inlay' }} />
-      <mesh name="Body_Bridge_Pin_Inlay_2" castShadow receiveShadow geometry={nodes.Body_Bridge_Pin_Inlay_2.geometry} material={materials['Acrylic (Red)']} position={[-0.006, -0.156, 0.008]} scale={0.001} userData={{ name: 'Body_Bridge_Pin_Inlay' }} />
-      <mesh name="Body_Bridge_Pin_Inlay_3" castShadow receiveShadow geometry={nodes.Body_Bridge_Pin_Inlay_3.geometry} material={materials['Acrylic (Red)']} position={[0.005, -0.156, 0.007]} scale={0.001} userData={{ name: 'Body_Bridge_Pin_Inlay' }} />
-      <mesh name="Body_Bridge_Pin_Inlay_4" castShadow receiveShadow geometry={nodes.Body_Bridge_Pin_Inlay_4.geometry} material={materials['Acrylic (Red)']} position={[0.016, -0.156, 0.007]} scale={0.001} userData={{ name: 'Body_Bridge_Pin_Inlay' }} />
-      <mesh name="Body_Bridge_Pin_Inlay_5" castShadow receiveShadow geometry={nodes.Body_Bridge_Pin_Inlay_5.geometry} material={materials['Acrylic (Red)']} position={[0.027, -0.156, 0.007]} scale={0.001} userData={{ name: 'Body_Bridge_Pin_Inlay' }} />
-      <mesh name="Body_Bridge_Pin" castShadow receiveShadow geometry={nodes.Body_Bridge_Pin.geometry} material={materials['ABS (White)']} position={[-0.027, -0.156, 0.008]} scale={0.001} userData={{ name: 'Body_Bridge_Pin' }} />
-      <mesh name="Body_Bridge_Pin_1" castShadow receiveShadow geometry={nodes.Body_Bridge_Pin_1.geometry} material={materials['ABS (White)']} position={[-0.017, -0.156, 0.007]} scale={0.001} userData={{ name: 'Body_Bridge_Pin' }} />
-      <mesh name="Body_Bridge_Pin_2" castShadow receiveShadow geometry={nodes.Body_Bridge_Pin_2.geometry} material={materials['ABS (White)']} position={[-0.006, -0.156, 0.008]} scale={0.001} userData={{ name: 'Body_Bridge_Pin' }} />
-      <mesh name="Body_Bridge_Pin_3" castShadow receiveShadow geometry={nodes.Body_Bridge_Pin_3.geometry} material={materials['ABS (White)']} position={[0.005, -0.156, 0.007]} scale={0.001} userData={{ name: 'Body_Bridge_Pin' }} />
-      <mesh name="Body_Bridge_Pin_4" castShadow receiveShadow geometry={nodes.Body_Bridge_Pin_4.geometry} material={materials['ABS (White)']} position={[0.016, -0.156, 0.007]} scale={0.001} userData={{ name: 'Body_Bridge_Pin' }} />
-      <mesh name="Body_Bridge_Pin_5" castShadow receiveShadow geometry={nodes.Body_Bridge_Pin_5.geometry} material={materials['ABS (White)']} position={[0.027, -0.156, 0.007]} scale={0.001} userData={{ name: 'Body_Bridge_Pin' }} />
-      <mesh name="Body_Bridge" castShadow receiveShadow geometry={nodes.Body_Bridge.geometry} material={materials['Walnut - Semigloss']} scale={0.001} userData={{ name: 'Body_Bridge' }} />
-      <mesh name="Body_Back_Center_Strip" castShadow receiveShadow geometry={nodes.Body_Back_Center_Strip.geometry} material={materials['Walnut - Semigloss']} scale={0.001} userData={{ name: 'Body_Back_Center_Strip' }} />
-      <mesh name="Body_Back_Double_Strip_Right_(1)" castShadow receiveShadow geometry={nodes['Body_Back_Double_Strip_Right_(1)'].geometry} material={materials['3D Ash - Unfinished']} scale={0.001} userData={{ name: 'Body_Back_Double_Strip_Right (1)' }} />
-      <mesh name="Body_Back_Double_Strip_Left" castShadow receiveShadow geometry={nodes.Body_Back_Double_Strip_Left.geometry} material={materials['3D Ash - Unfinished']} scale={0.001} userData={{ name: 'Body_Back_Double_Strip_Left' }} />
-      <mesh name="Body_Center_Back_Strip" castShadow receiveShadow geometry={nodes.Body_Center_Back_Strip.geometry} material={materials['3D Ash - Unfinished']} scale={0.001} userData={{ name: 'Body_Center_Back_Strip' }} />
-      <mesh name="Body_Double_Back_Strip_Left" castShadow receiveShadow geometry={nodes.Body_Double_Back_Strip_Left.geometry} material={materials['3D Ash - Unfinished']} scale={0.001} userData={{ name: 'Body_Double_Back_Strip_Left' }} />
-      <mesh name="Body_Double_Back_Strip_Right" castShadow receiveShadow geometry={nodes.Body_Double_Back_Strip_Right.geometry} material={materials['3D Ash - Unfinished']} scale={0.001} userData={{ name: 'Body_Double_Back_Strip_Right' }} />
-      <mesh name="Body_Back" castShadow receiveShadow geometry={nodes.Body_Back.geometry} material={materials['Walnut - Semigloss']} scale={0.001} userData={{ name: 'Body_Back' }} />
-      <mesh name="Body_Back_Venetian_Cutaway" castShadow receiveShadow geometry={nodes.Body_Back_Venetian_Cutaway.geometry} material={materials['Walnut - Semigloss']} scale={0.001} userData={{ name: 'Body_Back_Venetian_Cutaway' }} />
-      <mesh name="Body_Back_Florentine_Cutaway" castShadow receiveShadow geometry={nodes.Body_Back_Florentine_Cutaway.geometry} material={materials['Walnut - Semigloss']} scale={0.001} userData={{ name: 'Body_Back_Florentine_Cutaway' }} />
-      <mesh name="Body_Back_Two_Piece_Left" castShadow receiveShadow geometry={nodes.Body_Back_Two_Piece_Left.geometry} material={materials['Walnut - Semigloss']} scale={0.001} userData={{ name: 'Body_Back_Two_Piece_Left' }} />
-      <mesh name="Body_Back_Two_Piece_Venetian_Cutaway_Left" castShadow receiveShadow geometry={nodes.Body_Back_Two_Piece_Venetian_Cutaway_Left.geometry} material={materials['Walnut - Semigloss']} scale={0.001} userData={{ name: 'Body_Back_Two_Piece_Venetian_Cutaway_Left' }} />
-      <mesh name="Body_Back_Two_Piece_Florentine_Cutaway_Left" castShadow receiveShadow geometry={nodes.Body_Back_Two_Piece_Florentine_Cutaway_Left.geometry} material={materials['Walnut - Semigloss']} scale={0.001} userData={{ name: 'Body_Back_Two_Piece_Florentine_Cutaway_Left' }} />
-      <mesh name="Body_Back_Two_Piece_Right" castShadow receiveShadow geometry={nodes.Body_Back_Two_Piece_Right.geometry} material={materials['Walnut - Semigloss']} scale={0.001} userData={{ name: 'Body_Back_Two_Piece_Right' }} />
-      <mesh name="Body_Back_Two_Piece_Venetian_Cutaway_Right" castShadow receiveShadow geometry={nodes.Body_Back_Two_Piece_Venetian_Cutaway_Right.geometry} material={materials['Walnut - Semigloss']} scale={0.001} userData={{ name: 'Body_Back_Two_Piece_Venetian_Cutaway_Right' }} />
-      <mesh name="Body_Back_Two_Piece_Florentine_Cutaway_Right" castShadow receiveShadow geometry={nodes.Body_Back_Two_Piece_Florentine_Cutaway_Right.geometry} material={materials['Walnut - Semigloss']} scale={0.001} userData={{ name: 'Body_Back_Two_Piece_Florentine_Cutaway_Right' }} />
-      <mesh name="Body_Back_Three_Piece_Middle" castShadow receiveShadow geometry={nodes.Body_Back_Three_Piece_Middle.geometry} material={materials['Walnut - Semigloss']} scale={0.001} userData={{ name: 'Body_Back_Three_Piece_Middle' }} />
-      <mesh name="Body_Back_Three_Piece_Venetian_Cutaway_Middle" castShadow receiveShadow geometry={nodes.Body_Back_Three_Piece_Venetian_Cutaway_Middle.geometry} material={materials['Walnut - Semigloss']} scale={0.001} userData={{ name: 'Body_Back_Three_Piece_Venetian_Cutaway_Middle' }} />
-      <mesh name="Body_Back_Three_Piece_Florentine_Cutaway_Middle" castShadow receiveShadow geometry={nodes.Body_Back_Three_Piece_Florentine_Cutaway_Middle.geometry} material={materials['Walnut - Semigloss']} scale={0.001} userData={{ name: 'Body_Back_Three_Piece_Florentine_Cutaway_Middle' }} />
-      <mesh name="Body_Back_Three_Piece_Left" castShadow receiveShadow geometry={nodes.Body_Back_Three_Piece_Left.geometry} material={materials['Walnut - Semigloss']} scale={0.001} userData={{ name: 'Body_Back_Three_Piece_Left' }} />
-      <mesh name="Body_Back_Three_Piece_Venetian_Cutaway_Left" castShadow receiveShadow geometry={nodes.Body_Back_Three_Piece_Venetian_Cutaway_Left.geometry} material={materials['Walnut - Semigloss']} scale={0.001} userData={{ name: 'Body_Back_Three_Piece_Venetian_Cutaway_Left' }} />
-      <mesh name="Body_Back_Three_Piece_Right" castShadow receiveShadow geometry={nodes.Body_Back_Three_Piece_Right.geometry} material={materials['Walnut - Semigloss']} scale={0.001} userData={{ name: 'Body_Back_Three_Piece_Right' }} />
-      <mesh name="Body_Back_Three_Piece_Venetian_Cutaway_Right" castShadow receiveShadow geometry={nodes.Body_Back_Three_Piece_Venetian_Cutaway_Right.geometry} material={materials['Walnut - Semigloss']} scale={0.001} userData={{ name: 'Body_Back_Three_Piece_Venetian_Cutaway_Right' }} />
-      <mesh name="Body_Back_Three_Piece_Florentine_Cutaway_Right" castShadow receiveShadow geometry={nodes.Body_Back_Three_Piece_Florentine_Cutaway_Right.geometry} material={materials['Walnut - Semigloss']} scale={0.001} userData={{ name: 'Body_Back_Three_Piece_Florentine_Cutaway_Right' }} />
-      <mesh name="Body_Back_Three_Piece_Florentine_Cutaway_Left" castShadow receiveShadow geometry={nodes.Body_Back_Three_Piece_Florentine_Cutaway_Left.geometry} material={materials['Walnut - Semigloss']} scale={0.001} userData={{ name: 'Body_Back_Three_Piece_Florentine_Cutaway_Left' }} />
-      <mesh name="Body_Fret1" castShadow receiveShadow geometry={nodes.Body_Fret1.geometry} material={materials['Steel - Satin']} scale={0.001} userData={{ name: 'Body_Fret1' }} />
-      <mesh name="Body_Fret2" castShadow receiveShadow geometry={nodes.Body_Fret2.geometry} material={materials['Steel - Satin']} scale={0.001} userData={{ name: 'Body_Fret2' }} />
-      <mesh name="Body_Fret3" castShadow receiveShadow geometry={nodes.Body_Fret3.geometry} material={materials['Steel - Satin']} scale={0.001} userData={{ name: 'Body_Fret3' }} />
-      <mesh name="Body_Fret4" castShadow receiveShadow geometry={nodes.Body_Fret4.geometry} material={materials['Steel - Satin']} scale={0.001} userData={{ name: 'Body_Fret4' }} />
-      <mesh name="Body_Fret5" castShadow receiveShadow geometry={nodes.Body_Fret5.geometry} material={materials['Steel - Satin']} scale={0.001} userData={{ name: 'Body_Fret5' }} />
-      <mesh name="Body_Fret6" castShadow receiveShadow geometry={nodes.Body_Fret6.geometry} material={materials['Steel - Satin']} scale={0.001} userData={{ name: 'Body_Fret6' }} />
-      <mesh name="Body_Fret7" castShadow receiveShadow geometry={nodes.Body_Fret7.geometry} material={materials['Steel - Satin']} scale={0.001} userData={{ name: 'Body_Fret7' }} />
-      <mesh name="Body_Fret8" castShadow receiveShadow geometry={nodes.Body_Fret8.geometry} material={materials['Steel - Satin']} scale={0.001} userData={{ name: 'Body_Fret8' }} />
-      <mesh name="Body_Fret9" castShadow receiveShadow geometry={nodes.Body_Fret9.geometry} material={materials['Steel - Satin']} scale={0.001} userData={{ name: 'Body_Fret9' }} />
-      <mesh name="Body_Fret10" castShadow receiveShadow geometry={nodes.Body_Fret10.geometry} material={materials['Steel - Satin']} scale={0.001} userData={{ name: 'Body_Fret10' }} />
-      <mesh name="Body_Fret11" castShadow receiveShadow geometry={nodes.Body_Fret11.geometry} material={materials['Steel - Satin']} scale={0.001} userData={{ name: 'Body_Fret11' }} />
-      <mesh name="Body_Fret12" castShadow receiveShadow geometry={nodes.Body_Fret12.geometry} material={materials['Steel - Satin']} scale={0.001} userData={{ name: 'Body_Fret12' }} />
-      <mesh name="Body_Fret13" castShadow receiveShadow geometry={nodes.Body_Fret13.geometry} material={materials['Steel - Satin']} scale={0.001} userData={{ name: 'Body_Fret13' }} />
-      <mesh name="Body_Fret14" castShadow receiveShadow geometry={nodes.Body_Fret14.geometry} material={materials['Steel - Satin']} scale={0.001} userData={{ name: 'Body_Fret14' }} />
-      <mesh name="Body_Fret15" castShadow receiveShadow geometry={nodes.Body_Fret15.geometry} material={materials['Steel - Satin']} scale={0.001} userData={{ name: 'Body_Fret15' }} />
-      <mesh name="Body_Fret16" castShadow receiveShadow geometry={nodes.Body_Fret16.geometry} material={materials['Steel - Satin']} scale={0.001} userData={{ name: 'Body_Fret16' }} />
-      <mesh name="Body_Fret17" castShadow receiveShadow geometry={nodes.Body_Fret17.geometry} material={materials['Steel - Satin']} scale={0.001} userData={{ name: 'Body_Fret17' }} />
-      <mesh name="Body_Fret18" castShadow receiveShadow geometry={nodes.Body_Fret18.geometry} material={materials['Steel - Satin']} scale={0.001} userData={{ name: 'Body_Fret18' }} />
-      <mesh name="Body_Fret19" castShadow receiveShadow geometry={nodes.Body_Fret19.geometry} material={materials['Steel - Satin']} scale={0.001} userData={{ name: 'Body_Fret19' }} />
-      <mesh name="Body_Fret20" castShadow receiveShadow geometry={nodes.Body_Fret20.geometry} material={materials['Steel - Satin']} scale={0.001} userData={{ name: 'Body_Fret20' }} />
-      <mesh name="Body_Nut" castShadow receiveShadow geometry={nodes.Body_Nut.geometry} material={materials['ABS (White)']} scale={0.001} userData={{ name: 'Body_Nut' }} />
-      <mesh name="Body_Fretboard" castShadow receiveShadow geometry={nodes.Body_Fretboard.geometry} material={materials['ABS (White)']} scale={0.001} userData={{ name: 'Body_Fretboard' }} />
-      <mesh name="Body_Fret_Marker_Fret17" castShadow receiveShadow geometry={nodes.Body_Fret_Marker_Fret17.geometry} material={materials['ABS (White)']} scale={0.001} userData={{ name: 'Body_Fret_Marker_Fret17' }} />
-      <mesh name="Body_Fret_Marker_Fret21" castShadow receiveShadow geometry={nodes.Body_Fret_Marker_Fret21.geometry} material={materials['ABS (White)']} scale={0.001} userData={{ name: 'Body_Fret_Marker_Fret21' }} />
-      <mesh name="Body_Fret_Marker_Fret7" castShadow receiveShadow geometry={nodes.Body_Fret_Marker_Fret7.geometry} material={materials['ABS (White)']} scale={0.001} userData={{ name: 'Body_Fret_Marker_Fret7' }} />
-      <mesh name="Body_Fret_Marker_Fret12-2" castShadow receiveShadow geometry={nodes['Body_Fret_Marker_Fret12-2'].geometry} material={materials['ABS (White)']} scale={0.001} userData={{ name: 'Body_Fret_Marker_Fret12-2' }} />
-      <mesh name="Body_Fret_Marker_Fret3" castShadow receiveShadow geometry={nodes.Body_Fret_Marker_Fret3.geometry} material={materials['ABS (White)']} scale={0.001} userData={{ name: 'Body_Fret_Marker_Fret3' }} />
-      <mesh name="Body_Fret_Marker_Fret5" castShadow receiveShadow geometry={nodes.Body_Fret_Marker_Fret5.geometry} material={materials['ABS (White)']} scale={0.001} userData={{ name: 'Body_Fret_Marker_Fret5' }} />
-      <mesh name="Body_Fret_Marker_Fret15" castShadow receiveShadow geometry={nodes.Body_Fret_Marker_Fret15.geometry} material={materials['ABS (White)']} scale={0.001} userData={{ name: 'Body_Fret_Marker_Fret15' }} />
-      <mesh name="Body_Fret_Marker_Fret12-1" castShadow receiveShadow geometry={nodes['Body_Fret_Marker_Fret12-1'].geometry} material={materials['ABS (White)']} scale={0.001} userData={{ name: 'Body_Fret_Marker_Fret12-1' }} />
-      <mesh name="Body_Fret_Marker_Fret9" castShadow receiveShadow geometry={nodes.Body_Fret_Marker_Fret9.geometry} material={materials['ABS (White)']} scale={0.001} userData={{ name: 'Body_Fret_Marker_Fret9' }} />
-      <mesh name="Body_Fretboard_(1)" castShadow receiveShadow geometry={nodes['Body_Fretboard_(1)'].geometry} material={materials['Walnut - Semigloss']} scale={0.001} userData={{ name: 'Body_Fretboard (1)' }} />
-      <mesh name="Body_Fretboard_(1)_(2)" castShadow receiveShadow geometry={nodes['Body_Fretboard_(1)_(2)'].geometry} material={materials['Walnut - Semigloss']} scale={0.001} userData={{ name: 'Body_Fretboard (1) (2)' }} />
-      <mesh name="Body_Fretboard_(1)_(3)" castShadow receiveShadow geometry={nodes['Body_Fretboard_(1)_(3)'].geometry} material={materials['Walnut - Semigloss']} scale={0.001} userData={{ name: 'Body_Fretboard (1) (3)' }} />
-      <mesh name="Body_Side_Fret_Marker_Fret5" castShadow receiveShadow geometry={nodes.Body_Side_Fret_Marker_Fret5.geometry} material={materials['ABS (White)']} scale={0.001} userData={{ name: 'Body_Side_Fret_Marker_Fret5' }} />
-      <mesh name="Body_Side_Fret_Marker_Fret7" castShadow receiveShadow geometry={nodes.Body_Side_Fret_Marker_Fret7.geometry} material={materials['ABS (White)']} scale={0.001} userData={{ name: 'Body_Side_Fret_Marker_Fret7' }} />
-      <mesh name="Body_Side_Fret_Marker_Fret17" castShadow receiveShadow geometry={nodes.Body_Side_Fret_Marker_Fret17.geometry} material={materials['ABS (White)']} scale={0.001} userData={{ name: 'Body_Side_Fret_Marker_Fret17' }} />
-      <mesh name="Body_Side_Fret_Marker_Fret21" castShadow receiveShadow geometry={nodes.Body_Side_Fret_Marker_Fret21.geometry} material={materials['ABS (White)']} scale={0.001} userData={{ name: 'Body_Side_Fret_Marker_Fret21' }} />
-      <mesh name="Body_Side_Fret_Marker_Fret3" castShadow receiveShadow geometry={nodes.Body_Side_Fret_Marker_Fret3.geometry} material={materials['ABS (White)']} scale={0.001} userData={{ name: 'Body_Side_Fret_Marker_Fret3' }} />
-      <mesh name="Body_Side_Fret_Marker_Fret9" castShadow receiveShadow geometry={nodes.Body_Side_Fret_Marker_Fret9.geometry} material={materials['ABS (White)']} scale={0.001} userData={{ name: 'Body_Side_Fret_Marker_Fret9' }} />
-      <mesh name="Body_Fretboard_(1)_(1)" castShadow receiveShadow geometry={nodes['Body_Fretboard_(1)_(1)'].geometry} material={materials['Walnut - Semigloss']} scale={0.001} userData={{ name: 'Body_Fretboard (1) (1)' }} />
-      <mesh name="Body_Fretboard_1" castShadow receiveShadow geometry={nodes.Body_Fretboard_1.geometry} material={materials['Walnut - Semigloss']} scale={0.001} userData={{ name: 'Body_Fretboard' }} />
-      <mesh name="Body_Fretboard_Soundhole_Tangent" castShadow receiveShadow geometry={nodes.Body_Fretboard_Soundhole_Tangent.geometry} material={materials['Walnut - Semigloss']} scale={0.001} userData={{ name: 'Body_Fretboard_Soundhole_Tangent' }} />
-      <mesh name="Surface_Neck_Profile" castShadow receiveShadow geometry={nodes.Surface_Neck_Profile.geometry} material={materials['3D Ash - Unfinished']} scale={0.001} userData={{ name: 'Surface_Neck_Profile' }} />
-      <mesh name="Body_Heel" castShadow receiveShadow geometry={nodes.Body_Heel.geometry} material={materials['3D Ash - Unfinished']} scale={0.001} userData={{ name: 'Body_Heel' }} />
-      <mesh name="Body_Neck" castShadow receiveShadow geometry={nodes.Body_Neck.geometry} material={materials['3D Ash - Unfinished']} scale={0.001} userData={{ name: 'Body_Neck' }} />
-      <mesh name="Body_Pickguard" castShadow receiveShadow geometry={nodes.Body_Pickguard.geometry} material={materials['Plastic - Glossy (Black)']} scale={0.001} userData={{ name: 'Body_Pickguard' }} />
-      <mesh name="Peg_Head" castShadow receiveShadow geometry={nodes.Peg_Head.geometry} material={materials['Steel - Satin']} position={[-0.02, 0.544, -0.02]} rotation={[-0.211, 0, 0]} scale={0.001} userData={{ name: 'Peg_Head' }} />
-      <mesh name="Peg_Head_1" castShadow receiveShadow geometry={nodes.Peg_Head_1.geometry} material={materials['Steel - Satin']} position={[-0.022, 0.583, -0.031]} rotation={[-0.211, 0, 0]} scale={0.001} userData={{ name: 'Peg_Head' }} />
-      <mesh name="Peg_Head_2" castShadow receiveShadow geometry={nodes.Peg_Head_2.geometry} material={materials['Steel - Satin']} position={[-0.024, 0.624, -0.04]} rotation={[-0.211, 0, 0]} scale={0.001} userData={{ name: 'Peg_Head' }} />
-      <mesh name="Peg_Head_3" castShadow receiveShadow geometry={nodes.Peg_Head_3.geometry} material={materials['Steel - Satin']} position={[0.02, 0.543, -0.02]} rotation={[-0.211, 0, 0]} scale={0.001} userData={{ name: 'Peg_Head' }} />
-      <mesh name="Peg_Head_4" castShadow receiveShadow geometry={nodes.Peg_Head_4.geometry} material={materials['Steel - Satin']} position={[0.022, 0.584, -0.028]} rotation={[-0.211, 0, 0]} scale={0.001} userData={{ name: 'Peg_Head' }} />
-      <mesh name="Peg_Head_5" castShadow receiveShadow geometry={nodes.Peg_Head_5.geometry} material={materials['Steel - Satin']} position={[0.024, 0.624, -0.037]} rotation={[-0.211, 0, 0]} scale={0.001} userData={{ name: 'Peg_Head' }} />
-      <mesh name="Peg_Head_Tuner_Right" castShadow receiveShadow geometry={nodes.Peg_Head_Tuner_Right.geometry} material={materials['Steel - Satin']} position={[-0.02, 0.544, -0.02]} rotation={[-0.211, 0, 0]} scale={0.001} userData={{ name: 'Peg_Head_Tuner_Right' }} />
-      <mesh name="Peg_Head_Tuner_Right_1" castShadow receiveShadow geometry={nodes.Peg_Head_Tuner_Right_1.geometry} material={materials['Steel - Satin']} position={[-0.022, 0.583, -0.031]} rotation={[-0.211, 0, 0]} scale={0.001} userData={{ name: 'Peg_Head_Tuner_Right' }} />
-      <mesh name="Peg_Head_Tuner_Right_2" castShadow receiveShadow geometry={nodes.Peg_Head_Tuner_Right_2.geometry} material={materials['Steel - Satin']} position={[-0.024, 0.624, -0.04]} rotation={[-0.211, 0, 0]} scale={0.001} userData={{ name: 'Peg_Head_Tuner_Right' }} />
-      <mesh name="Peg_Head_Tuner_Right_3" castShadow receiveShadow geometry={nodes.Peg_Head_Tuner_Right_3.geometry} material={materials['Steel - Satin']} position={[0.02, 0.543, -0.02]} rotation={[-0.211, 0, 0]} scale={0.001} userData={{ name: 'Peg_Head_Tuner_Right' }} />
-      <mesh name="Peg_Head_Tuner_Right_4" castShadow receiveShadow geometry={nodes.Peg_Head_Tuner_Right_4.geometry} material={materials['Steel - Satin']} position={[0.022, 0.584, -0.028]} rotation={[-0.211, 0, 0]} scale={0.001} userData={{ name: 'Peg_Head_Tuner_Right' }} />
-      <mesh name="Peg_Head_Tuner_Right_5" castShadow receiveShadow geometry={nodes.Peg_Head_Tuner_Right_5.geometry} material={materials['Steel - Satin']} position={[0.024, 0.624, -0.037]} rotation={[-0.211, 0, 0]} scale={0.001} userData={{ name: 'Peg_Head_Tuner_Right' }} />
-      <mesh name="Body_Headstock" castShadow receiveShadow geometry={nodes.Body_Headstock.geometry} material={materials['3D Ash - Unfinished']} scale={0.001} userData={{ name: 'Body_Headstock' }} />
-      <mesh name="Body_Purfling_Top" castShadow receiveShadow geometry={nodes.Body_Purfling_Top.geometry} material={materials['Plastic - Glossy (Black)']} scale={0.001} userData={{ name: 'Body_Purfling_Top' }} />
-      <mesh name="Body_Purfling_Bottom" castShadow receiveShadow geometry={nodes.Body_Purfling_Bottom.geometry} material={materials['Plastic - Glossy (Black)']} scale={0.001} userData={{ name: 'Body_Purfling_Bottom' }} />
-      <mesh name="Body_Purfling_Top_Venetian_Cutaway" castShadow receiveShadow geometry={nodes.Body_Purfling_Top_Venetian_Cutaway.geometry} material={materials['Plastic - Glossy (Black)']} scale={0.001} userData={{ name: 'Body_Purfling_Top_Venetian_Cutaway' }} />
-      <mesh name="Body_Purfling_Bottom_Venetian_Cutaway" castShadow receiveShadow geometry={nodes.Body_Purfling_Bottom_Venetian_Cutaway.geometry} material={materials['Plastic - Glossy (Black)']} scale={0.001} userData={{ name: 'Body_Purfling_Bottom_Venetian_Cutaway' }} />
-      <mesh name="Body_Purfling_Top_Florentine_Cutaway" castShadow receiveShadow geometry={nodes.Body_Purfling_Top_Florentine_Cutaway.geometry} material={materials['Plastic - Glossy (Black)']} scale={0.001} userData={{ name: 'Body_Purfling_Top_Florentine_Cutaway' }} />
-      <mesh name="Body_Purfling_Bottom_Florentine_Cutaway" castShadow receiveShadow geometry={nodes.Body_Purfling_Bottom_Florentine_Cutaway.geometry} material={materials['Plastic - Glossy (Black)']} scale={0.001} userData={{ name: 'Body_Purfling_Bottom_Florentine_Cutaway' }} />
-      <mesh name="Body_Purfling_Top_Arm_Bevel" castShadow receiveShadow geometry={nodes.Body_Purfling_Top_Arm_Bevel.geometry} material={materials['Plastic - Glossy (Black)']} scale={0.001} userData={{ name: 'Body_Purfling_Top_Arm_Bevel' }} />
-      <mesh name="Body_Purfling_Top_Arm_Bevel_Florentine_Cutaway" castShadow receiveShadow geometry={nodes.Body_Purfling_Top_Arm_Bevel_Florentine_Cutaway.geometry} material={materials['Plastic - Glossy (Black)']} scale={0.001} userData={{ name: 'Body_Purfling_Top_Arm_Bevel_Florentine_Cutaway' }} />
-      <mesh name="Body_Purfling_Top_Arm_Bevel_Venetian_Cutaway" castShadow receiveShadow geometry={nodes.Body_Purfling_Top_Arm_Bevel_Venetian_Cutaway.geometry} material={materials['Plastic - Glossy (Black)']} scale={0.001} userData={{ name: 'Body_Purfling_Top_Arm_Bevel_Venetian_Cutaway' }} />
-      <mesh name="Body_Binding_Top" castShadow receiveShadow geometry={nodes.Body_Binding_Top.geometry} material={materials['ABS (White)']} scale={0.001} userData={{ name: 'Body_Binding_Top' }} />
-      <mesh name="Body_Binding_Bottom" castShadow receiveShadow geometry={nodes.Body_Binding_Bottom.geometry} material={materials['ABS (White)']} scale={0.001} userData={{ name: 'Body_Binding_Bottom' }} />
-      <mesh name="Body_Binding_Top_Venetian_Cutaway" castShadow receiveShadow geometry={nodes.Body_Binding_Top_Venetian_Cutaway.geometry} material={materials['ABS (White)']} scale={0.001} userData={{ name: 'Body_Binding_Top_Venetian_Cutaway' }} />
-      <mesh name="Body_Binding_Bottom_Venetian_Cutaway" castShadow receiveShadow geometry={nodes.Body_Binding_Bottom_Venetian_Cutaway.geometry} material={materials['ABS (White)']} scale={0.001} userData={{ name: 'Body_Binding_Bottom_Venetian_Cutaway' }} />
-      <mesh name="Body_Binding_Top_Florentine_Cutaway" castShadow receiveShadow geometry={nodes.Body_Binding_Top_Florentine_Cutaway.geometry} material={materials['ABS (White)']} scale={0.001} userData={{ name: 'Body_Binding_Top_Florentine_Cutaway' }} />
-      <mesh name="Body_Binding_Bottom_Florentine_Cutaway" castShadow receiveShadow geometry={nodes.Body_Binding_Bottom_Florentine_Cutaway.geometry} material={materials['ABS (White)']} scale={0.001} userData={{ name: 'Body_Binding_Bottom_Florentine_Cutaway' }} />
-      <mesh name="Body_Binding_Top_Arm_Bevel" castShadow receiveShadow geometry={nodes.Body_Binding_Top_Arm_Bevel.geometry} material={materials['ABS (White)']} scale={0.001} userData={{ name: 'Body_Binding_Top_Arm_Bevel' }} />
-      <mesh name="Body_Binding_Top_Arm_Bevel_Venetian_Cutaway" castShadow receiveShadow geometry={nodes.Body_Binding_Top_Arm_Bevel_Venetian_Cutaway.geometry} material={materials['ABS (White)']} scale={0.001} userData={{ name: 'Body_Binding_Top_Arm_Bevel_Venetian_Cutaway' }} />
-      <mesh name="Body_Binding_Top_Arm_Bevel_Florentine_Cutaway" castShadow receiveShadow geometry={nodes.Body_Binding_Top_Arm_Bevel_Florentine_Cutaway.geometry} material={materials['ABS (White)']} scale={0.001} userData={{ name: 'Body_Binding_Top_Arm_Bevel_Florentine_Cutaway' }} />
-      <mesh name="Body_String_LowE" castShadow receiveShadow geometry={nodes.Body_String_LowE.geometry} material={materials['Steel - Satin']} scale={0.001} userData={{ name: 'Body_String_LowE' }} />
-      <mesh name="Body_String_A" castShadow receiveShadow geometry={nodes.Body_String_A.geometry} material={materials['Steel - Satin']} scale={0.001} userData={{ name: 'Body_String_A' }} />
-      <mesh name="Body_String_D" castShadow receiveShadow geometry={nodes.Body_String_D.geometry} material={materials['Steel - Satin']} scale={0.001} userData={{ name: 'Body_String_D' }} />
-      <mesh name="Body_String_G" castShadow receiveShadow geometry={nodes.Body_String_G.geometry} material={materials['Steel - Satin']} scale={0.001} userData={{ name: 'Body_String_G' }} />
-      <mesh name="Body_String_B" castShadow receiveShadow geometry={nodes.Body_String_B.geometry} material={materials['Steel - Satin']} scale={0.001} userData={{ name: 'Body_String_B' }} />
-      <mesh name="Body_String_HighE" castShadow receiveShadow geometry={nodes.Body_String_HighE.geometry} material={materials['Steel - Satin']} scale={0.001} userData={{ name: 'Body_String_HighE' }} />
+      <PerspectiveCamera
+        name="active"
+        makeDefault={false}
+        far={1878.367}
+        near={838.397}
+        fov={22.62}
+        position={[0.474, -1.033, -0.543]}
+        rotation={[2.09, 0.368, -3.088]}
+        scale={0.001}
+        userData={{ name: 'active' }}
+      />
+      <PerspectiveCamera
+        name="Active_Camera"
+        makeDefault={false}
+        far={1878.367}
+        near={838.397}
+        fov={22.62}
+        position={[0.474, -1.033, -0.543]}
+        rotation={[2.09, 0.368, -3.088]}
+        scale={0.001}
+        userData={{ name: 'Active Camera' }}
+      />
+      <mesh
+        name="Body_Heel_Block"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Heel_Block.geometry}
+        material={materials['Oak - Glossy']}
+        scale={0.001}
+        userData={{ name: 'Body_Heel_Block' }}
+      />
+      <mesh
+        name="Body_Heel_Block_1"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Heel_Block_1.geometry}
+        material={materials['Oak - Glossy']}
+        scale={0.001}
+        userData={{ name: 'Body_Heel_Block' }}
+      />
+      <mesh
+        name="Body_Heel_Block_2"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Heel_Block_2.geometry}
+        material={materials['Oak - Glossy']}
+        scale={0.001}
+        userData={{ name: 'Body_Heel_Block' }}
+      />
+      <mesh
+        name="Body_Heel_Block_3"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Heel_Block_3.geometry}
+        material={materials['Oak - Glossy']}
+        scale={0.001}
+        userData={{ name: 'Body_Heel_Block' }}
+      />
+      <mesh
+        name="Body_Heel_Block_4"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Heel_Block_4.geometry}
+        material={materials['Oak - Glossy']}
+        scale={0.001}
+        userData={{ name: 'Body_Heel_Block' }}
+      />
+      <mesh
+        name="Body_Heel_Block_5"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Heel_Block_5.geometry}
+        material={materials['Oak - Glossy']}
+        scale={0.001}
+        userData={{ name: 'Body_Heel_Block' }}
+      />
+      <mesh
+        name="Body_Heel_Block_6"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Heel_Block_6.geometry}
+        material={materials['Oak - Glossy']}
+        scale={0.001}
+        userData={{ name: 'Body_Heel_Block' }}
+      />
+      <mesh
+        name="Body_Heel_Block_7"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Heel_Block_7.geometry}
+        material={materials['Oak - Glossy']}
+        scale={0.001}
+        userData={{ name: 'Body_Heel_Block' }}
+      />
+      <mesh
+        name="Body_Heel_Block_8"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Heel_Block_8.geometry}
+        material={materials['Oak - Glossy']}
+        scale={0.001}
+        userData={{ name: 'Body_Heel_Block' }}
+      />
+      <mesh
+        name="Body_Heel_Block_9"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Heel_Block_9.geometry}
+        material={materials['Oak - Glossy']}
+        scale={0.001}
+        userData={{ name: 'Body_Heel_Block' }}
+      />
+      <mesh
+        name="Body_Heel_Block_10"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Heel_Block_10.geometry}
+        material={materials['Oak - Glossy']}
+        scale={0.001}
+        userData={{ name: 'Body_Heel_Block' }}
+      />
+      <mesh
+        name="Body_Heel_Block_11"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Heel_Block_11.geometry}
+        material={materials['Oak - Glossy']}
+        scale={0.001}
+        userData={{ name: 'Body_Heel_Block' }}
+      />
+      <mesh
+        name="Body_Heel_Block_12"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Heel_Block_12.geometry}
+        material={materials['Oak - Glossy']}
+        scale={0.001}
+        userData={{ name: 'Body_Heel_Block' }}
+      />
+      <mesh
+        name="Body_Tail_Block"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Tail_Block.geometry}
+        material={materials['3D Ash - Unfinished']}
+        scale={0.001}
+        userData={{ name: 'Body_Tail_Block' }}
+      />
+      <mesh
+        name="Body_Tail_Block_1"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Tail_Block_1.geometry}
+        material={materials['3D Ash - Unfinished']}
+        scale={0.001}
+        userData={{ name: 'Body_Tail_Block' }}
+      />
+      <mesh
+        name="Body_Tail_Block_2"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Tail_Block_2.geometry}
+        material={materials['3D Ash - Unfinished']}
+        scale={0.001}
+        userData={{ name: 'Body_Tail_Block' }}
+      />
+      <mesh
+        name="Body_Tail_Block_3"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Tail_Block_3.geometry}
+        material={materials['3D Ash - Unfinished']}
+        scale={0.001}
+        userData={{ name: 'Body_Tail_Block' }}
+      />
+      <mesh
+        name="Body_Tail_Block_4"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Tail_Block_4.geometry}
+        material={materials['3D Ash - Unfinished']}
+        scale={0.001}
+        userData={{ name: 'Body_Tail_Block' }}
+      />
+      <mesh
+        name="Body_Tail_Block_5"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Tail_Block_5.geometry}
+        material={materials['3D Ash - Unfinished']}
+        scale={0.001}
+        userData={{ name: 'Body_Tail_Block' }}
+      />
+      <mesh
+        name="Body_Lining_Top"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Lining_Top.geometry}
+        material={materials['Steel - Satin']}
+        scale={0.001}
+        userData={{ name: 'Body_Lining_Top' }}
+      />
+      <mesh
+        name="Body_Lining_Top_1"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Lining_Top_1.geometry}
+        material={materials['Steel - Satin']}
+        scale={0.001}
+        userData={{ name: 'Body_Lining_Top' }}
+      />
+      <mesh
+        name="Body_Lining_Top_2"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Lining_Top_2.geometry}
+        material={materials['Steel - Satin']}
+        scale={0.001}
+        userData={{ name: 'Body_Lining_Top' }}
+      />
+      <mesh
+        name="Body_Lining_Top_3"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Lining_Top_3.geometry}
+        material={materials['Steel - Satin']}
+        scale={0.001}
+        userData={{ name: 'Body_Lining_Top' }}
+      />
+      <mesh
+        name="Body_Lining_Top_4"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Lining_Top_4.geometry}
+        material={materials['Steel - Satin']}
+        scale={0.001}
+        userData={{ name: 'Body_Lining_Top' }}
+      />
+      <mesh
+        name="Body_Lining_Bottom"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Lining_Bottom.geometry}
+        material={materials['Steel - Satin']}
+        scale={0.001}
+        userData={{ name: 'Body_Lining_Bottom' }}
+      />
+      <mesh
+        name="Body_Lining_Bottom_1"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Lining_Bottom_1.geometry}
+        material={materials['Steel - Satin']}
+        scale={0.001}
+        userData={{ name: 'Body_Lining_Bottom' }}
+      />
+      <mesh
+        name="Body_Lining_Bottom_2"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Lining_Bottom_2.geometry}
+        material={materials['Steel - Satin']}
+        scale={0.001}
+        userData={{ name: 'Body_Lining_Bottom' }}
+      />
+      <mesh
+        name="Body_Lining_Bottom_3"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Lining_Bottom_3.geometry}
+        material={materials['Steel - Satin']}
+        scale={0.001}
+        userData={{ name: 'Body_Lining_Bottom' }}
+      />
+      <mesh
+        name="Body_Lining_Bottom_4"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Lining_Bottom_4.geometry}
+        material={materials['Steel - Satin']}
+        scale={0.001}
+        userData={{ name: 'Body_Lining_Bottom' }}
+      />
+      <mesh
+        name="Body_End_Graft_Wedge"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_End_Graft_Wedge.geometry}
+        material={materials['3D Ash - Unfinished']}
+        scale={0.001}
+        userData={{ name: 'Body_End_Graft_Wedge' }}
+      />
+      <mesh
+        name="Body_End_Graft_Wedge_1"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_End_Graft_Wedge_1.geometry}
+        material={materials['3D Ash - Unfinished']}
+        scale={0.001}
+        userData={{ name: 'Body_End_Graft_Wedge' }}
+      />
+      <mesh
+        name="Body_End_Graft_Wedge_2"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_End_Graft_Wedge_2.geometry}
+        material={materials['3D Ash - Unfinished']}
+        scale={0.001}
+        userData={{ name: 'Body_End_Graft_Wedge' }}
+      />
+      <mesh
+        name="Body_End_Graft_Wedge_3"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_End_Graft_Wedge_3.geometry}
+        material={materials['3D Ash - Unfinished']}
+        scale={0.001}
+        userData={{ name: 'Body_End_Graft_Wedge' }}
+      />
+      <mesh
+        name="Body_End_Graft_Wedge_4"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_End_Graft_Wedge_4.geometry}
+        material={materials['3D Ash - Unfinished']}
+        scale={0.001}
+        userData={{ name: 'Body_End_Graft_Wedge' }}
+      />
+      <mesh
+        name="Body_End_Graft_Wedge_5"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_End_Graft_Wedge_5.geometry}
+        material={materials['3D Ash - Unfinished']}
+        scale={0.001}
+        userData={{ name: 'Body_End_Graft_Wedge' }}
+      />
+      <mesh
+        name="Body_End_Graft_Wedge_6"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_End_Graft_Wedge_6.geometry}
+        material={materials['3D Ash - Unfinished']}
+        scale={0.001}
+        userData={{ name: 'Body_End_Graft_Wedge' }}
+      />
+      <mesh
+        name="Body_End_Graft_Wedge_7"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_End_Graft_Wedge_7.geometry}
+        material={materials['3D Ash - Unfinished']}
+        scale={0.001}
+        userData={{ name: 'Body_End_Graft_Wedge' }}
+      />
+      <mesh
+        name="Body_End_Graft_Wedge_8"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_End_Graft_Wedge_8.geometry}
+        material={materials['3D Ash - Unfinished']}
+        scale={0.001}
+        userData={{ name: 'Body_End_Graft_Wedge' }}
+      />
+      <mesh
+        name="Body_End_Graft_Wedge_9"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_End_Graft_Wedge_9.geometry}
+        material={materials['3D Ash - Unfinished']}
+        scale={0.001}
+        userData={{ name: 'Body_End_Graft_Wedge' }}
+      />
+      <mesh
+        name="Body_Sides"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Sides.geometry}
+        material={materials['Walnut - Semigloss']}
+        scale={0.001}
+        userData={{ name: 'Body_Sides' }}
+      />
+      <mesh
+        name="Body_Sides_1"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Sides_1.geometry}
+        material={materials['Walnut - Semigloss']}
+        scale={0.001}
+        userData={{ name: 'Body_Sides' }}
+      />
+      <mesh
+        name="Body_Sides_2"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Sides_2.geometry}
+        material={materials['Walnut - Semigloss']}
+        scale={0.001}
+        userData={{ name: 'Body_Sides' }}
+      />
+      <mesh
+        name="Body_Sides_3"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Sides_3.geometry}
+        material={materials['Walnut - Semigloss']}
+        scale={0.001}
+        userData={{ name: 'Body_Sides' }}
+      />
+      <mesh
+        name="Body_Sides_4"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Sides_4.geometry}
+        material={materials['Walnut - Semigloss']}
+        scale={0.001}
+        userData={{ name: 'Body_Sides' }}
+      />
+      <mesh
+        name="Body_Sides_5"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Sides_5.geometry}
+        material={materials['Walnut - Semigloss']}
+        scale={0.001}
+        userData={{ name: 'Body_Sides' }}
+      />
+      <mesh
+        name="Body_Sides_6"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Sides_6.geometry}
+        material={materials['Walnut - Semigloss']}
+        scale={0.001}
+        userData={{ name: 'Body_Sides' }}
+      />
+      <mesh
+        name="Body_Sides_7"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Sides_7.geometry}
+        material={materials['Walnut - Semigloss']}
+        scale={0.001}
+        userData={{ name: 'Body_Sides' }}
+      />
+      <mesh
+        name="Body_Sides_8"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Sides_8.geometry}
+        material={materials['Walnut - Semigloss']}
+        scale={0.001}
+        userData={{ name: 'Body_Sides' }}
+      />
+      <mesh
+        name="Body_Sides_Venetian_Cutaway"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Sides_Venetian_Cutaway.geometry}
+        material={materials['Walnut - Semigloss']}
+        scale={0.001}
+        userData={{ name: 'Body_Sides_Venetian_Cutaway' }}
+      />
+      <mesh
+        name="Body_Sides_Venetian_Cutaway_1"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Sides_Venetian_Cutaway_1.geometry}
+        material={materials['Walnut - Semigloss']}
+        scale={0.001}
+        userData={{ name: 'Body_Sides_Venetian_Cutaway' }}
+      />
+      <mesh
+        name="Body_Sides_Venetian_Cutaway_2"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Sides_Venetian_Cutaway_2.geometry}
+        material={materials['Walnut - Semigloss']}
+        scale={0.001}
+        userData={{ name: 'Body_Sides_Venetian_Cutaway' }}
+      />
+      <mesh
+        name="Body_Sides_Venetian_Cutaway_3"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Sides_Venetian_Cutaway_3.geometry}
+        material={materials['Walnut - Semigloss']}
+        scale={0.001}
+        userData={{ name: 'Body_Sides_Venetian_Cutaway' }}
+      />
+      <mesh
+        name="Body_Sides_Venetian_Cutaway_4"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Sides_Venetian_Cutaway_4.geometry}
+        material={materials['Walnut - Semigloss']}
+        scale={0.001}
+        userData={{ name: 'Body_Sides_Venetian_Cutaway' }}
+      />
+      <mesh
+        name="Body_Sides_Venetian_Cutaway_5"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Sides_Venetian_Cutaway_5.geometry}
+        material={materials['Walnut - Semigloss']}
+        scale={0.001}
+        userData={{ name: 'Body_Sides_Venetian_Cutaway' }}
+      />
+      <mesh
+        name="Body_Sides_Venetian_Cutaway_6"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Sides_Venetian_Cutaway_6.geometry}
+        material={materials['Walnut - Semigloss']}
+        scale={0.001}
+        userData={{ name: 'Body_Sides_Venetian_Cutaway' }}
+      />
+      <mesh
+        name="Body_Sides_Venetian_Cutaway_7"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Sides_Venetian_Cutaway_7.geometry}
+        material={materials['Walnut - Semigloss']}
+        scale={0.001}
+        userData={{ name: 'Body_Sides_Venetian_Cutaway' }}
+      />
+      <mesh
+        name="Body_Sides_Venetian_Cutaway_8"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Sides_Venetian_Cutaway_8.geometry}
+        material={materials['Walnut - Semigloss']}
+        scale={0.001}
+        userData={{ name: 'Body_Sides_Venetian_Cutaway' }}
+      />
+      <mesh
+        name="Body_Sides_Florentine_Cutaway"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Sides_Florentine_Cutaway.geometry}
+        material={materials['Walnut - Semigloss']}
+        scale={0.001}
+        userData={{ name: 'Body_Sides_Florentine_Cutaway' }}
+      />
+      <mesh
+        name="Body_Sides_Florentine_Cutaway_1"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Sides_Florentine_Cutaway_1.geometry}
+        material={materials['Walnut - Semigloss']}
+        scale={0.001}
+        userData={{ name: 'Body_Sides_Florentine_Cutaway' }}
+      />
+      <mesh
+        name="Body_Sides_Florentine_Cutaway_2"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Sides_Florentine_Cutaway_2.geometry}
+        material={materials['Walnut - Semigloss']}
+        scale={0.001}
+        userData={{ name: 'Body_Sides_Florentine_Cutaway' }}
+      />
+      <mesh
+        name="Body_Sides_Florentine_Cutaway_3"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Sides_Florentine_Cutaway_3.geometry}
+        material={materials['Walnut - Semigloss']}
+        scale={0.001}
+        userData={{ name: 'Body_Sides_Florentine_Cutaway' }}
+      />
+      <mesh
+        name="Body_Sides_Florentine_Cutaway_4"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Sides_Florentine_Cutaway_4.geometry}
+        material={materials['Walnut - Semigloss']}
+        scale={0.001}
+        userData={{ name: 'Body_Sides_Florentine_Cutaway' }}
+      />
+      <mesh
+        name="Body_Sides_Florentine_Cutaway_5"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Sides_Florentine_Cutaway_5.geometry}
+        material={materials['Walnut - Semigloss']}
+        scale={0.001}
+        userData={{ name: 'Body_Sides_Florentine_Cutaway' }}
+      />
+      <mesh
+        name="Body_Sides_Florentine_Cutaway_6"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Sides_Florentine_Cutaway_6.geometry}
+        material={materials['Walnut - Semigloss']}
+        scale={0.001}
+        userData={{ name: 'Body_Sides_Florentine_Cutaway' }}
+      />
+      <mesh
+        name="Body_Sides_Florentine_Cutaway_7"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Sides_Florentine_Cutaway_7.geometry}
+        material={materials['Walnut - Semigloss']}
+        scale={0.001}
+        userData={{ name: 'Body_Sides_Florentine_Cutaway' }}
+      />
+      <mesh
+        name="Body_Sides_Florentine_Cutaway_8"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Sides_Florentine_Cutaway_8.geometry}
+        material={materials['Walnut - Semigloss']}
+        scale={0.001}
+        userData={{ name: 'Body_Sides_Florentine_Cutaway' }}
+      />
+      <mesh
+        name="Body_Sides_Scalloped_Cutaway"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Sides_Scalloped_Cutaway.geometry}
+        material={materials.Mahogany}
+        scale={0.001}
+        userData={{ name: 'Body_Sides_Scalloped_Cutaway' }}
+      />
+      <mesh
+        name="Body_Sides_Scalloped_Cutaway_1"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Sides_Scalloped_Cutaway_1.geometry}
+        material={materials.Mahogany}
+        scale={0.001}
+        userData={{ name: 'Body_Sides_Scalloped_Cutaway' }}
+      />
+      <mesh
+        name="Body_Sides_Scalloped_Cutaway_2"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Sides_Scalloped_Cutaway_2.geometry}
+        material={materials.Mahogany}
+        scale={0.001}
+        userData={{ name: 'Body_Sides_Scalloped_Cutaway' }}
+      />
+      <mesh
+        name="Body_Sides_Scalloped_Cutaway_3"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Sides_Scalloped_Cutaway_3.geometry}
+        material={materials.Mahogany}
+        scale={0.001}
+        userData={{ name: 'Body_Sides_Scalloped_Cutaway' }}
+      />
+      <mesh
+        name="Body_Sides_Scalloped_Cutaway_4"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Sides_Scalloped_Cutaway_4.geometry}
+        material={materials.Mahogany}
+        scale={0.001}
+        userData={{ name: 'Body_Sides_Scalloped_Cutaway' }}
+      />
+      <mesh
+        name="Body_Sides_Scalloped_Cutaway_5"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Sides_Scalloped_Cutaway_5.geometry}
+        material={materials.Mahogany}
+        scale={0.001}
+        userData={{ name: 'Body_Sides_Scalloped_Cutaway' }}
+      />
+      <mesh
+        name="Body_Sides_Scalloped_Cutaway_6"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Sides_Scalloped_Cutaway_6.geometry}
+        material={materials.Mahogany}
+        scale={0.001}
+        userData={{ name: 'Body_Sides_Scalloped_Cutaway' }}
+      />
+      <mesh
+        name="Body_Sides_Scalloped_Cutaway_7"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Sides_Scalloped_Cutaway_7.geometry}
+        material={materials.Mahogany}
+        scale={0.001}
+        userData={{ name: 'Body_Sides_Scalloped_Cutaway' }}
+      />
+      <mesh
+        name="Body_Sides_Scalloped_Cutaway_8"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Sides_Scalloped_Cutaway_8.geometry}
+        material={materials.Mahogany}
+        scale={0.001}
+        userData={{ name: 'Body_Sides_Scalloped_Cutaway' }}
+      />
+      <mesh
+        name="Body_Sides_Scalloped_Cutaway_9"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Sides_Scalloped_Cutaway_9.geometry}
+        material={materials.Mahogany}
+        scale={0.001}
+        userData={{ name: 'Body_Sides_Scalloped_Cutaway' }}
+      />
+      <mesh
+        name="Body_Sides_Scalloped_Cutaway_10"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Sides_Scalloped_Cutaway_10.geometry}
+        material={materials.Mahogany}
+        scale={0.001}
+        userData={{ name: 'Body_Sides_Scalloped_Cutaway' }}
+      />
+      <mesh
+        name="Body_Sides_Arm_Bevel"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Sides_Arm_Bevel.geometry}
+        material={materials['Walnut - Semigloss']}
+        scale={0.001}
+        userData={{ name: 'Body_Sides_Arm_Bevel' }}
+      />
+      <mesh
+        name="Body_Sides_Arm_Bevel_1"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Sides_Arm_Bevel_1.geometry}
+        material={materials['Walnut - Semigloss']}
+        scale={0.001}
+        userData={{ name: 'Body_Sides_Arm_Bevel' }}
+      />
+      <mesh
+        name="Body_Sides_Arm_Bevel_2"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Sides_Arm_Bevel_2.geometry}
+        material={materials['Walnut - Semigloss']}
+        scale={0.001}
+        userData={{ name: 'Body_Sides_Arm_Bevel' }}
+      />
+      <mesh
+        name="Body_Sides_Arm_Bevel_3"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Sides_Arm_Bevel_3.geometry}
+        material={materials['Walnut - Semigloss']}
+        scale={0.001}
+        userData={{ name: 'Body_Sides_Arm_Bevel' }}
+      />
+      <mesh
+        name="Body_Sides_Arm_Bevel_4"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Sides_Arm_Bevel_4.geometry}
+        material={materials['Walnut - Semigloss']}
+        scale={0.001}
+        userData={{ name: 'Body_Sides_Arm_Bevel' }}
+      />
+      <mesh
+        name="Body_Sides_Arm_Bevel_5"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Sides_Arm_Bevel_5.geometry}
+        material={materials['Walnut - Semigloss']}
+        scale={0.001}
+        userData={{ name: 'Body_Sides_Arm_Bevel' }}
+      />
+      <mesh
+        name="Body_Sides_Arm_Bevel_6"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Sides_Arm_Bevel_6.geometry}
+        material={materials['Walnut - Semigloss']}
+        scale={0.001}
+        userData={{ name: 'Body_Sides_Arm_Bevel' }}
+      />
+      <mesh
+        name="Body_Sides_Arm_Bevel_7"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Sides_Arm_Bevel_7.geometry}
+        material={materials['Walnut - Semigloss']}
+        scale={0.001}
+        userData={{ name: 'Body_Sides_Arm_Bevel' }}
+      />
+      <mesh
+        name="Body_Sides_Arm_Bevel_8"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Sides_Arm_Bevel_8.geometry}
+        material={materials['Walnut - Semigloss']}
+        scale={0.001}
+        userData={{ name: 'Body_Sides_Arm_Bevel' }}
+      />
+      <mesh
+        name="Body_Sides_Arm_Bevel_Florentine_Cutaway"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Sides_Arm_Bevel_Florentine_Cutaway.geometry}
+        material={materials['Steel - Satin']}
+        scale={0.001}
+        userData={{ name: 'Body_Sides_Arm_Bevel_Florentine_Cutaway' }}
+      />
+      <mesh
+        name="Body_Sides_Arm_Bevel_Florentine_Cutaway_1"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Sides_Arm_Bevel_Florentine_Cutaway_1.geometry}
+        material={materials['Steel - Satin']}
+        scale={0.001}
+        userData={{ name: 'Body_Sides_Arm_Bevel_Florentine_Cutaway' }}
+      />
+      <mesh
+        name="Body_Sides_Arm_Bevel_Florentine_Cutaway_2"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Sides_Arm_Bevel_Florentine_Cutaway_2.geometry}
+        material={materials['Steel - Satin']}
+        scale={0.001}
+        userData={{ name: 'Body_Sides_Arm_Bevel_Florentine_Cutaway' }}
+      />
+      <mesh
+        name="Body_Sides_Arm_Bevel_Florentine_Cutaway_3"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Sides_Arm_Bevel_Florentine_Cutaway_3.geometry}
+        material={materials['Steel - Satin']}
+        scale={0.001}
+        userData={{ name: 'Body_Sides_Arm_Bevel_Florentine_Cutaway' }}
+      />
+      <mesh
+        name="Body_Sides_Arm_Bevel_Florentine_Cutaway_4"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Sides_Arm_Bevel_Florentine_Cutaway_4.geometry}
+        material={materials['Steel - Satin']}
+        scale={0.001}
+        userData={{ name: 'Body_Sides_Arm_Bevel_Florentine_Cutaway' }}
+      />
+      <mesh
+        name="Body_Sides_Arm_Bevel_Florentine_Cutaway_5"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Sides_Arm_Bevel_Florentine_Cutaway_5.geometry}
+        material={materials['Steel - Satin']}
+        scale={0.001}
+        userData={{ name: 'Body_Sides_Arm_Bevel_Florentine_Cutaway' }}
+      />
+      <mesh
+        name="Body_Sides_Arm_Bevel_Florentine_Cutaway_6"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Sides_Arm_Bevel_Florentine_Cutaway_6.geometry}
+        material={materials['Steel - Satin']}
+        scale={0.001}
+        userData={{ name: 'Body_Sides_Arm_Bevel_Florentine_Cutaway' }}
+      />
+      <mesh
+        name="Body_Sides_Arm_Bevel_Florentine_Cutaway_7"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Sides_Arm_Bevel_Florentine_Cutaway_7.geometry}
+        material={materials['Steel - Satin']}
+        scale={0.001}
+        userData={{ name: 'Body_Sides_Arm_Bevel_Florentine_Cutaway' }}
+      />
+      <mesh
+        name="Body_Sides_Arm_Bevel_Florentine_Cutaway_8"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Sides_Arm_Bevel_Florentine_Cutaway_8.geometry}
+        material={materials['Steel - Satin']}
+        scale={0.001}
+        userData={{ name: 'Body_Sides_Arm_Bevel_Florentine_Cutaway' }}
+      />
+      <mesh
+        name="Body_Sides_Arm_Bevel_Venetian_Cutaway"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Sides_Arm_Bevel_Venetian_Cutaway.geometry}
+        material={materials['Walnut - Semigloss']}
+        scale={0.001}
+        userData={{ name: 'Body_Sides_Arm_Bevel_Venetian_Cutaway' }}
+      />
+      <mesh
+        name="Body_Sides_Arm_Bevel_Venetian_Cutaway_1"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Sides_Arm_Bevel_Venetian_Cutaway_1.geometry}
+        material={materials['Walnut - Semigloss']}
+        scale={0.001}
+        userData={{ name: 'Body_Sides_Arm_Bevel_Venetian_Cutaway' }}
+      />
+      <mesh
+        name="Body_Sides_Arm_Bevel_Venetian_Cutaway_2"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Sides_Arm_Bevel_Venetian_Cutaway_2.geometry}
+        material={materials['Walnut - Semigloss']}
+        scale={0.001}
+        userData={{ name: 'Body_Sides_Arm_Bevel_Venetian_Cutaway' }}
+      />
+      <mesh
+        name="Body_Sides_Arm_Bevel_Venetian_Cutaway_3"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Sides_Arm_Bevel_Venetian_Cutaway_3.geometry}
+        material={materials['Walnut - Semigloss']}
+        scale={0.001}
+        userData={{ name: 'Body_Sides_Arm_Bevel_Venetian_Cutaway' }}
+      />
+      <mesh
+        name="Body_Sides_Arm_Bevel_Venetian_Cutaway_4"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Sides_Arm_Bevel_Venetian_Cutaway_4.geometry}
+        material={materials['Walnut - Semigloss']}
+        scale={0.001}
+        userData={{ name: 'Body_Sides_Arm_Bevel_Venetian_Cutaway' }}
+      />
+      <mesh
+        name="Body_Sides_Arm_Bevel_Venetian_Cutaway_5"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Sides_Arm_Bevel_Venetian_Cutaway_5.geometry}
+        material={materials['Walnut - Semigloss']}
+        scale={0.001}
+        userData={{ name: 'Body_Sides_Arm_Bevel_Venetian_Cutaway' }}
+      />
+      <mesh
+        name="Body_Sides_Arm_Bevel_Venetian_Cutaway_6"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Sides_Arm_Bevel_Venetian_Cutaway_6.geometry}
+        material={materials['Walnut - Semigloss']}
+        scale={0.001}
+        userData={{ name: 'Body_Sides_Arm_Bevel_Venetian_Cutaway' }}
+      />
+      <mesh
+        name="Body_Sides_Arm_Bevel_Venetian_Cutaway_7"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Sides_Arm_Bevel_Venetian_Cutaway_7.geometry}
+        material={materials['Walnut - Semigloss']}
+        scale={0.001}
+        userData={{ name: 'Body_Sides_Arm_Bevel_Venetian_Cutaway' }}
+      />
+      <mesh
+        name="Body_Sides_Arm_Bevel_Venetian_Cutaway_8"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Sides_Arm_Bevel_Venetian_Cutaway_8.geometry}
+        material={materials['Walnut - Semigloss']}
+        scale={0.001}
+        userData={{ name: 'Body_Sides_Arm_Bevel_Venetian_Cutaway' }}
+      />
+      <mesh
+        name="Body_Sides_Arm_Bevel_Scalloped_Cutaway"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Sides_Arm_Bevel_Scalloped_Cutaway.geometry}
+        material={materials['Walnut - Semigloss']}
+        scale={0.001}
+        userData={{ name: 'Body_Sides_Arm_Bevel_Scalloped_Cutaway' }}
+      />
+      <mesh
+        name="Body_Sides_Arm_Bevel_Scalloped_Cutaway_1"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Sides_Arm_Bevel_Scalloped_Cutaway_1.geometry}
+        material={materials['Walnut - Semigloss']}
+        scale={0.001}
+        userData={{ name: 'Body_Sides_Arm_Bevel_Scalloped_Cutaway' }}
+      />
+      <mesh
+        name="Body_Sides_Arm_Bevel_Scalloped_Cutaway_2"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Sides_Arm_Bevel_Scalloped_Cutaway_2.geometry}
+        material={materials['Walnut - Semigloss']}
+        scale={0.001}
+        userData={{ name: 'Body_Sides_Arm_Bevel_Scalloped_Cutaway' }}
+      />
+      <mesh
+        name="Body_Sides_Arm_Bevel_Scalloped_Cutaway_3"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Sides_Arm_Bevel_Scalloped_Cutaway_3.geometry}
+        material={materials['Walnut - Semigloss']}
+        scale={0.001}
+        userData={{ name: 'Body_Sides_Arm_Bevel_Scalloped_Cutaway' }}
+      />
+      <mesh
+        name="Body_Sides_Arm_Bevel_Scalloped_Cutaway_4"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Sides_Arm_Bevel_Scalloped_Cutaway_4.geometry}
+        material={materials['Walnut - Semigloss']}
+        scale={0.001}
+        userData={{ name: 'Body_Sides_Arm_Bevel_Scalloped_Cutaway' }}
+      />
+      <mesh
+        name="Body_Sides_Arm_Bevel_Scalloped_Cutaway_5"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Sides_Arm_Bevel_Scalloped_Cutaway_5.geometry}
+        material={materials['Walnut - Semigloss']}
+        scale={0.001}
+        userData={{ name: 'Body_Sides_Arm_Bevel_Scalloped_Cutaway' }}
+      />
+      <mesh
+        name="Body_Sides_Arm_Bevel_Scalloped_Cutaway_6"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Sides_Arm_Bevel_Scalloped_Cutaway_6.geometry}
+        material={materials['Walnut - Semigloss']}
+        scale={0.001}
+        userData={{ name: 'Body_Sides_Arm_Bevel_Scalloped_Cutaway' }}
+      />
+      <mesh
+        name="Body_Sides_Arm_Bevel_Scalloped_Cutaway_7"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Sides_Arm_Bevel_Scalloped_Cutaway_7.geometry}
+        material={materials['Walnut - Semigloss']}
+        scale={0.001}
+        userData={{ name: 'Body_Sides_Arm_Bevel_Scalloped_Cutaway' }}
+      />
+      <mesh
+        name="Body_Sides_Arm_Bevel_Scalloped_Cutaway_8"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Sides_Arm_Bevel_Scalloped_Cutaway_8.geometry}
+        material={materials['Walnut - Semigloss']}
+        scale={0.001}
+        userData={{ name: 'Body_Sides_Arm_Bevel_Scalloped_Cutaway' }}
+      />
+      <mesh
+        name="Body_Rosette"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Rosette.geometry}
+        material={materials['ABS (White)']}
+        scale={0.001}
+        userData={{ name: 'Body_Rosette' }}
+      />
+      <mesh
+        name="Body_Rosette_(1)"
+        castShadow
+        receiveShadow
+        geometry={nodes['Body_Rosette_(1)'].geometry}
+        material={materials['ABS (White)']}
+        scale={0.001}
+        userData={{ name: 'Body_Rosette (1)' }}
+      />
+      <mesh
+        name="Body_Rosette_(2)"
+        castShadow
+        receiveShadow
+        geometry={nodes['Body_Rosette_(2)'].geometry}
+        material={materials['3D Ash - Unfinished']}
+        scale={0.001}
+        userData={{ name: 'Body_Rosette (2)' }}
+      />
+      <mesh
+        name="Body_Rosette_(3)"
+        castShadow
+        receiveShadow
+        geometry={nodes['Body_Rosette_(3)'].geometry}
+        material={materials['3D Ash - Unfinished']}
+        scale={0.001}
+        userData={{ name: 'Body_Rosette (3)' }}
+      />
+      <mesh
+        name="Body_Rosette_(4)"
+        castShadow
+        receiveShadow
+        geometry={nodes['Body_Rosette_(4)'].geometry}
+        material={materials['ABS (White)']}
+        scale={0.001}
+        userData={{ name: 'Body_Rosette (4)' }}
+      />
+      <mesh
+        name="Body_Brace_Fretboard_Reinforcement_Right"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Brace_Fretboard_Reinforcement_Right.geometry}
+        material={materials['3D Ash - Unfinished']}
+        scale={0.001}
+        userData={{ name: 'Body_Brace_Fretboard_Reinforcement_Right' }}
+      />
+      <mesh
+        name="Body_Lateral_BraceA"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Lateral_BraceA.geometry}
+        material={materials['3D Ash - Unfinished']}
+        scale={0.001}
+        userData={{ name: 'Body_Lateral_BraceA' }}
+      />
+      <mesh
+        name="Body_X_BraceB"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_X_BraceB.geometry}
+        material={materials['3D Ash - Unfinished']}
+        scale={0.001}
+        userData={{ name: 'Body_X_BraceB' }}
+      />
+      <mesh
+        name="Body_X_BraceC"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_X_BraceC.geometry}
+        material={materials['3D Ash - Unfinished']}
+        scale={0.001}
+        userData={{ name: 'Body_X_BraceC' }}
+      />
+      <mesh
+        name="Body_BraceD"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_BraceD.geometry}
+        material={materials['3D Ash - Unfinished']}
+        scale={0.001}
+        userData={{ name: 'Body_BraceD' }}
+      />
+      <mesh
+        name="Body_BraceE"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_BraceE.geometry}
+        material={materials['3D Ash - Unfinished']}
+        scale={0.001}
+        userData={{ name: 'Body_BraceE' }}
+      />
+      <mesh
+        name="Body_BraceF_Right"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_BraceF_Right.geometry}
+        material={materials['3D Ash - Unfinished']}
+        scale={0.001}
+        userData={{ name: 'Body_BraceF_Right' }}
+      />
+      <mesh
+        name="Body_BraceG_Right"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_BraceG_Right.geometry}
+        material={materials['3D Ash - Unfinished']}
+        scale={0.001}
+        userData={{ name: 'Body_BraceG_Right' }}
+      />
+      <mesh
+        name="Body_BraceG_Left"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_BraceG_Left.geometry}
+        material={materials['3D Ash - Unfinished']}
+        scale={0.001}
+        userData={{ name: 'Body_BraceG_Left' }}
+      />
+      <mesh
+        name="Body_BraceF_Left"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_BraceF_Left.geometry}
+        material={materials['3D Ash - Unfinished']}
+        scale={0.001}
+        userData={{ name: 'Body_BraceF_Left' }}
+      />
+      <mesh
+        name="Body_BraceH_Left"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_BraceH_Left.geometry}
+        material={materials['3D Ash - Unfinished']}
+        scale={0.001}
+        userData={{ name: 'Body_BraceH_Left' }}
+      />
+      <mesh
+        name="Body_BraceH_Right"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_BraceH_Right.geometry}
+        material={materials['3D Ash - Unfinished']}
+        scale={0.001}
+        userData={{ name: 'Body_BraceH_Right' }}
+      />
+      <mesh
+        name="Body_Bridge_Plate"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Bridge_Plate.geometry}
+        material={materials['Walnut - Semigloss']}
+        scale={0.001}
+        userData={{ name: 'Body_Bridge_Plate' }}
+      />
+      <mesh
+        name="Body_Soundboard"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Soundboard.geometry}
+        material={materials['3D Ash - Unfinished']}
+        scale={0.001}
+        userData={{ name: 'Body_Soundboard' }}
+      />
+      <mesh
+        name="Body_Soundboard_Venetian_Cutaway"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Soundboard_Venetian_Cutaway.geometry}
+        material={materials['3D Ash - Unfinished']}
+        scale={0.001}
+        userData={{ name: 'Body_Soundboard_Venetian_Cutaway' }}
+      />
+      <mesh
+        name="Body_Soundboard_Florentine_Cutaway"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Soundboard_Florentine_Cutaway.geometry}
+        material={materials['3D Ash - Unfinished']}
+        scale={0.001}
+        userData={{ name: 'Body_Soundboard_Florentine_Cutaway' }}
+      />
+      <mesh
+        name="Body_Soundboard_Arm_Bevel"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Soundboard_Arm_Bevel.geometry}
+        material={materials['3D Ash - Unfinished']}
+        scale={0.001}
+        userData={{ name: 'Body_Soundboard_Arm_Bevel' }}
+      />
+      <mesh
+        name="Body_Soundboard_Arm_Bevel_Cutaway_Venetian"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Soundboard_Arm_Bevel_Cutaway_Venetian.geometry}
+        material={materials['3D Ash - Unfinished']}
+        scale={0.001}
+        userData={{ name: 'Body_Soundboard_Arm_Bevel_Cutaway_Venetian' }}
+      />
+      <mesh
+        name="Body_Soundboard_Arm_Bevel_Cutaway_Florentine"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Soundboard_Arm_Bevel_Cutaway_Florentine.geometry}
+        material={materials['3D Ash - Unfinished']}
+        scale={0.001}
+        userData={{ name: 'Body_Soundboard_Arm_Bevel_Cutaway_Florentine' }}
+      />
+      <mesh
+        name="Body_Saddle"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Saddle.geometry}
+        material={materials['ABS (White)']}
+        scale={0.001}
+        userData={{ name: 'Body_Saddle' }}
+      />
+      <mesh
+        name="Body_Bridge_Pin_Inlay"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Bridge_Pin_Inlay.geometry}
+        material={materials['Acrylic (Red)']}
+        position={[-0.027, -0.156, 0.008]}
+        scale={0.001}
+        userData={{ name: 'Body_Bridge_Pin_Inlay' }}
+      />
+      <mesh
+        name="Body_Bridge_Pin_Inlay_1"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Bridge_Pin_Inlay_1.geometry}
+        material={materials['Acrylic (Red)']}
+        position={[-0.017, -0.156, 0.007]}
+        scale={0.001}
+        userData={{ name: 'Body_Bridge_Pin_Inlay' }}
+      />
+      <mesh
+        name="Body_Bridge_Pin_Inlay_2"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Bridge_Pin_Inlay_2.geometry}
+        material={materials['Acrylic (Red)']}
+        position={[-0.006, -0.156, 0.008]}
+        scale={0.001}
+        userData={{ name: 'Body_Bridge_Pin_Inlay' }}
+      />
+      <mesh
+        name="Body_Bridge_Pin_Inlay_3"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Bridge_Pin_Inlay_3.geometry}
+        material={materials['Acrylic (Red)']}
+        position={[0.005, -0.156, 0.007]}
+        scale={0.001}
+        userData={{ name: 'Body_Bridge_Pin_Inlay' }}
+      />
+      <mesh
+        name="Body_Bridge_Pin_Inlay_4"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Bridge_Pin_Inlay_4.geometry}
+        material={materials['Acrylic (Red)']}
+        position={[0.016, -0.156, 0.007]}
+        scale={0.001}
+        userData={{ name: 'Body_Bridge_Pin_Inlay' }}
+      />
+      <mesh
+        name="Body_Bridge_Pin_Inlay_5"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Bridge_Pin_Inlay_5.geometry}
+        material={materials['Acrylic (Red)']}
+        position={[0.027, -0.156, 0.007]}
+        scale={0.001}
+        userData={{ name: 'Body_Bridge_Pin_Inlay' }}
+      />
+      <mesh
+        name="Body_Bridge_Pin"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Bridge_Pin.geometry}
+        material={materials['ABS (White)']}
+        position={[-0.027, -0.156, 0.008]}
+        scale={0.001}
+        userData={{ name: 'Body_Bridge_Pin' }}
+      />
+      <mesh
+        name="Body_Bridge_Pin_1"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Bridge_Pin_1.geometry}
+        material={materials['ABS (White)']}
+        position={[-0.017, -0.156, 0.007]}
+        scale={0.001}
+        userData={{ name: 'Body_Bridge_Pin' }}
+      />
+      <mesh
+        name="Body_Bridge_Pin_2"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Bridge_Pin_2.geometry}
+        material={materials['ABS (White)']}
+        position={[-0.006, -0.156, 0.008]}
+        scale={0.001}
+        userData={{ name: 'Body_Bridge_Pin' }}
+      />
+      <mesh
+        name="Body_Bridge_Pin_3"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Bridge_Pin_3.geometry}
+        material={materials['ABS (White)']}
+        position={[0.005, -0.156, 0.007]}
+        scale={0.001}
+        userData={{ name: 'Body_Bridge_Pin' }}
+      />
+      <mesh
+        name="Body_Bridge_Pin_4"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Bridge_Pin_4.geometry}
+        material={materials['ABS (White)']}
+        position={[0.016, -0.156, 0.007]}
+        scale={0.001}
+        userData={{ name: 'Body_Bridge_Pin' }}
+      />
+      <mesh
+        name="Body_Bridge_Pin_5"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Bridge_Pin_5.geometry}
+        material={materials['ABS (White)']}
+        position={[0.027, -0.156, 0.007]}
+        scale={0.001}
+        userData={{ name: 'Body_Bridge_Pin' }}
+      />
+      <mesh
+        name="Body_Bridge"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Bridge.geometry}
+        material={materials['Walnut - Semigloss']}
+        scale={0.001}
+        userData={{ name: 'Body_Bridge' }}
+      />
+      <mesh
+        name="Body_Back_Center_Strip"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Back_Center_Strip.geometry}
+        material={materials['Walnut - Semigloss']}
+        scale={0.001}
+        userData={{ name: 'Body_Back_Center_Strip' }}
+      />
+      <mesh
+        name="Body_Back_Double_Strip_Right_(1)"
+        castShadow
+        receiveShadow
+        geometry={nodes['Body_Back_Double_Strip_Right_(1)'].geometry}
+        material={materials['3D Ash - Unfinished']}
+        scale={0.001}
+        userData={{ name: 'Body_Back_Double_Strip_Right (1)' }}
+      />
+      <mesh
+        name="Body_Back_Double_Strip_Left"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Back_Double_Strip_Left.geometry}
+        material={materials['3D Ash - Unfinished']}
+        scale={0.001}
+        userData={{ name: 'Body_Back_Double_Strip_Left' }}
+      />
+      <mesh
+        name="Body_Center_Back_Strip"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Center_Back_Strip.geometry}
+        material={materials['3D Ash - Unfinished']}
+        scale={0.001}
+        userData={{ name: 'Body_Center_Back_Strip' }}
+      />
+      <mesh
+        name="Body_Double_Back_Strip_Left"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Double_Back_Strip_Left.geometry}
+        material={materials['3D Ash - Unfinished']}
+        scale={0.001}
+        userData={{ name: 'Body_Double_Back_Strip_Left' }}
+      />
+      <mesh
+        name="Body_Double_Back_Strip_Right"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Double_Back_Strip_Right.geometry}
+        material={materials['3D Ash - Unfinished']}
+        scale={0.001}
+        userData={{ name: 'Body_Double_Back_Strip_Right' }}
+      />
+      <mesh
+        name="Body_Back"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Back.geometry}
+        material={materials['Walnut - Semigloss']}
+        scale={0.001}
+        userData={{ name: 'Body_Back' }}
+      />
+      <mesh
+        name="Body_Back_Venetian_Cutaway"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Back_Venetian_Cutaway.geometry}
+        material={materials['Walnut - Semigloss']}
+        scale={0.001}
+        userData={{ name: 'Body_Back_Venetian_Cutaway' }}
+      />
+      <mesh
+        name="Body_Back_Florentine_Cutaway"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Back_Florentine_Cutaway.geometry}
+        material={materials['Walnut - Semigloss']}
+        scale={0.001}
+        userData={{ name: 'Body_Back_Florentine_Cutaway' }}
+      />
+      <mesh
+        name="Body_Back_Two_Piece_Left"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Back_Two_Piece_Left.geometry}
+        material={materials['Walnut - Semigloss']}
+        scale={0.001}
+        userData={{ name: 'Body_Back_Two_Piece_Left' }}
+      />
+      <mesh
+        name="Body_Back_Two_Piece_Venetian_Cutaway_Left"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Back_Two_Piece_Venetian_Cutaway_Left.geometry}
+        material={materials['Walnut - Semigloss']}
+        scale={0.001}
+        userData={{ name: 'Body_Back_Two_Piece_Venetian_Cutaway_Left' }}
+      />
+      <mesh
+        name="Body_Back_Two_Piece_Florentine_Cutaway_Left"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Back_Two_Piece_Florentine_Cutaway_Left.geometry}
+        material={materials['Walnut - Semigloss']}
+        scale={0.001}
+        userData={{ name: 'Body_Back_Two_Piece_Florentine_Cutaway_Left' }}
+      />
+      <mesh
+        name="Body_Back_Two_Piece_Right"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Back_Two_Piece_Right.geometry}
+        material={materials['Walnut - Semigloss']}
+        scale={0.001}
+        userData={{ name: 'Body_Back_Two_Piece_Right' }}
+      />
+      <mesh
+        name="Body_Back_Two_Piece_Venetian_Cutaway_Right"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Back_Two_Piece_Venetian_Cutaway_Right.geometry}
+        material={materials['Walnut - Semigloss']}
+        scale={0.001}
+        userData={{ name: 'Body_Back_Two_Piece_Venetian_Cutaway_Right' }}
+      />
+      <mesh
+        name="Body_Back_Two_Piece_Florentine_Cutaway_Right"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Back_Two_Piece_Florentine_Cutaway_Right.geometry}
+        material={materials['Walnut - Semigloss']}
+        scale={0.001}
+        userData={{ name: 'Body_Back_Two_Piece_Florentine_Cutaway_Right' }}
+      />
+      <mesh
+        name="Body_Back_Three_Piece_Middle"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Back_Three_Piece_Middle.geometry}
+        material={materials['Walnut - Semigloss']}
+        scale={0.001}
+        userData={{ name: 'Body_Back_Three_Piece_Middle' }}
+      />
+      <mesh
+        name="Body_Back_Three_Piece_Venetian_Cutaway_Middle"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Back_Three_Piece_Venetian_Cutaway_Middle.geometry}
+        material={materials['Walnut - Semigloss']}
+        scale={0.001}
+        userData={{ name: 'Body_Back_Three_Piece_Venetian_Cutaway_Middle' }}
+      />
+      <mesh
+        name="Body_Back_Three_Piece_Florentine_Cutaway_Middle"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Back_Three_Piece_Florentine_Cutaway_Middle.geometry}
+        material={materials['Walnut - Semigloss']}
+        scale={0.001}
+        userData={{ name: 'Body_Back_Three_Piece_Florentine_Cutaway_Middle' }}
+      />
+      <mesh
+        name="Body_Back_Three_Piece_Left"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Back_Three_Piece_Left.geometry}
+        material={materials['Walnut - Semigloss']}
+        scale={0.001}
+        userData={{ name: 'Body_Back_Three_Piece_Left' }}
+      />
+      <mesh
+        name="Body_Back_Three_Piece_Venetian_Cutaway_Left"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Back_Three_Piece_Venetian_Cutaway_Left.geometry}
+        material={materials['Walnut - Semigloss']}
+        scale={0.001}
+        userData={{ name: 'Body_Back_Three_Piece_Venetian_Cutaway_Left' }}
+      />
+      <mesh
+        name="Body_Back_Three_Piece_Right"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Back_Three_Piece_Right.geometry}
+        material={materials['Walnut - Semigloss']}
+        scale={0.001}
+        userData={{ name: 'Body_Back_Three_Piece_Right' }}
+      />
+      <mesh
+        name="Body_Back_Three_Piece_Venetian_Cutaway_Right"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Back_Three_Piece_Venetian_Cutaway_Right.geometry}
+        material={materials['Walnut - Semigloss']}
+        scale={0.001}
+        userData={{ name: 'Body_Back_Three_Piece_Venetian_Cutaway_Right' }}
+      />
+      <mesh
+        name="Body_Back_Three_Piece_Florentine_Cutaway_Right"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Back_Three_Piece_Florentine_Cutaway_Right.geometry}
+        material={materials['Walnut - Semigloss']}
+        scale={0.001}
+        userData={{ name: 'Body_Back_Three_Piece_Florentine_Cutaway_Right' }}
+      />
+      <mesh
+        name="Body_Back_Three_Piece_Florentine_Cutaway_Left"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Back_Three_Piece_Florentine_Cutaway_Left.geometry}
+        material={materials['Walnut - Semigloss']}
+        scale={0.001}
+        userData={{ name: 'Body_Back_Three_Piece_Florentine_Cutaway_Left' }}
+      />
+      <mesh
+        name="Body_Fret1"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Fret1.geometry}
+        material={materials['Steel - Satin']}
+        scale={0.001}
+        userData={{ name: 'Body_Fret1' }}
+      />
+      <mesh
+        name="Body_Fret2"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Fret2.geometry}
+        material={materials['Steel - Satin']}
+        scale={0.001}
+        userData={{ name: 'Body_Fret2' }}
+      />
+      <mesh
+        name="Body_Fret3"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Fret3.geometry}
+        material={materials['Steel - Satin']}
+        scale={0.001}
+        userData={{ name: 'Body_Fret3' }}
+      />
+      <mesh
+        name="Body_Fret4"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Fret4.geometry}
+        material={materials['Steel - Satin']}
+        scale={0.001}
+        userData={{ name: 'Body_Fret4' }}
+      />
+      <mesh
+        name="Body_Fret5"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Fret5.geometry}
+        material={materials['Steel - Satin']}
+        scale={0.001}
+        userData={{ name: 'Body_Fret5' }}
+      />
+      <mesh
+        name="Body_Fret6"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Fret6.geometry}
+        material={materials['Steel - Satin']}
+        scale={0.001}
+        userData={{ name: 'Body_Fret6' }}
+      />
+      <mesh
+        name="Body_Fret7"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Fret7.geometry}
+        material={materials['Steel - Satin']}
+        scale={0.001}
+        userData={{ name: 'Body_Fret7' }}
+      />
+      <mesh
+        name="Body_Fret8"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Fret8.geometry}
+        material={materials['Steel - Satin']}
+        scale={0.001}
+        userData={{ name: 'Body_Fret8' }}
+      />
+      <mesh
+        name="Body_Fret9"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Fret9.geometry}
+        material={materials['Steel - Satin']}
+        scale={0.001}
+        userData={{ name: 'Body_Fret9' }}
+      />
+      <mesh
+        name="Body_Fret10"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Fret10.geometry}
+        material={materials['Steel - Satin']}
+        scale={0.001}
+        userData={{ name: 'Body_Fret10' }}
+      />
+      <mesh
+        name="Body_Fret11"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Fret11.geometry}
+        material={materials['Steel - Satin']}
+        scale={0.001}
+        userData={{ name: 'Body_Fret11' }}
+      />
+      <mesh
+        name="Body_Fret12"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Fret12.geometry}
+        material={materials['Steel - Satin']}
+        scale={0.001}
+        userData={{ name: 'Body_Fret12' }}
+      />
+      <mesh
+        name="Body_Fret13"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Fret13.geometry}
+        material={materials['Steel - Satin']}
+        scale={0.001}
+        userData={{ name: 'Body_Fret13' }}
+      />
+      <mesh
+        name="Body_Fret14"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Fret14.geometry}
+        material={materials['Steel - Satin']}
+        scale={0.001}
+        userData={{ name: 'Body_Fret14' }}
+      />
+      <mesh
+        name="Body_Fret15"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Fret15.geometry}
+        material={materials['Steel - Satin']}
+        scale={0.001}
+        userData={{ name: 'Body_Fret15' }}
+      />
+      <mesh
+        name="Body_Fret16"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Fret16.geometry}
+        material={materials['Steel - Satin']}
+        scale={0.001}
+        userData={{ name: 'Body_Fret16' }}
+      />
+      <mesh
+        name="Body_Fret17"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Fret17.geometry}
+        material={materials['Steel - Satin']}
+        scale={0.001}
+        userData={{ name: 'Body_Fret17' }}
+      />
+      <mesh
+        name="Body_Fret18"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Fret18.geometry}
+        material={materials['Steel - Satin']}
+        scale={0.001}
+        userData={{ name: 'Body_Fret18' }}
+      />
+      <mesh
+        name="Body_Fret19"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Fret19.geometry}
+        material={materials['Steel - Satin']}
+        scale={0.001}
+        userData={{ name: 'Body_Fret19' }}
+      />
+      <mesh
+        name="Body_Fret20"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Fret20.geometry}
+        material={materials['Steel - Satin']}
+        scale={0.001}
+        userData={{ name: 'Body_Fret20' }}
+      />
+      <mesh
+        name="Body_Nut"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Nut.geometry}
+        material={materials['ABS (White)']}
+        scale={0.001}
+        userData={{ name: 'Body_Nut' }}
+      />
+      <mesh
+        name="Body_Fretboard"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Fretboard.geometry}
+        material={materials['ABS (White)']}
+        scale={0.001}
+        userData={{ name: 'Body_Fretboard' }}
+      />
+      <mesh
+        name="Body_Fret_Marker_Fret17"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Fret_Marker_Fret17.geometry}
+        material={materials['ABS (White)']}
+        scale={0.001}
+        userData={{ name: 'Body_Fret_Marker_Fret17' }}
+      />
+      <mesh
+        name="Body_Fret_Marker_Fret21"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Fret_Marker_Fret21.geometry}
+        material={materials['ABS (White)']}
+        scale={0.001}
+        userData={{ name: 'Body_Fret_Marker_Fret21' }}
+      />
+      <mesh
+        name="Body_Fret_Marker_Fret7"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Fret_Marker_Fret7.geometry}
+        material={materials['ABS (White)']}
+        scale={0.001}
+        userData={{ name: 'Body_Fret_Marker_Fret7' }}
+      />
+      <mesh
+        name="Body_Fret_Marker_Fret12-2"
+        castShadow
+        receiveShadow
+        geometry={nodes['Body_Fret_Marker_Fret12-2'].geometry}
+        material={materials['ABS (White)']}
+        scale={0.001}
+        userData={{ name: 'Body_Fret_Marker_Fret12-2' }}
+      />
+      <mesh
+        name="Body_Fret_Marker_Fret3"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Fret_Marker_Fret3.geometry}
+        material={materials['ABS (White)']}
+        scale={0.001}
+        userData={{ name: 'Body_Fret_Marker_Fret3' }}
+      />
+      <mesh
+        name="Body_Fret_Marker_Fret5"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Fret_Marker_Fret5.geometry}
+        material={materials['ABS (White)']}
+        scale={0.001}
+        userData={{ name: 'Body_Fret_Marker_Fret5' }}
+      />
+      <mesh
+        name="Body_Fret_Marker_Fret15"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Fret_Marker_Fret15.geometry}
+        material={materials['ABS (White)']}
+        scale={0.001}
+        userData={{ name: 'Body_Fret_Marker_Fret15' }}
+      />
+      <mesh
+        name="Body_Fret_Marker_Fret12-1"
+        castShadow
+        receiveShadow
+        geometry={nodes['Body_Fret_Marker_Fret12-1'].geometry}
+        material={materials['ABS (White)']}
+        scale={0.001}
+        userData={{ name: 'Body_Fret_Marker_Fret12-1' }}
+      />
+      <mesh
+        name="Body_Fret_Marker_Fret9"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Fret_Marker_Fret9.geometry}
+        material={materials['ABS (White)']}
+        scale={0.001}
+        userData={{ name: 'Body_Fret_Marker_Fret9' }}
+      />
+      <mesh
+        name="Body_Fretboard_(1)"
+        castShadow
+        receiveShadow
+        geometry={nodes['Body_Fretboard_(1)'].geometry}
+        material={materials['Walnut - Semigloss']}
+        scale={0.001}
+        userData={{ name: 'Body_Fretboard (1)' }}
+      />
+      <mesh
+        name="Body_Fretboard_(1)_(2)"
+        castShadow
+        receiveShadow
+        geometry={nodes['Body_Fretboard_(1)_(2)'].geometry}
+        material={materials['Walnut - Semigloss']}
+        scale={0.001}
+        userData={{ name: 'Body_Fretboard (1) (2)' }}
+      />
+      <mesh
+        name="Body_Fretboard_(1)_(3)"
+        castShadow
+        receiveShadow
+        geometry={nodes['Body_Fretboard_(1)_(3)'].geometry}
+        material={materials['Walnut - Semigloss']}
+        scale={0.001}
+        userData={{ name: 'Body_Fretboard (1) (3)' }}
+      />
+      <mesh
+        name="Body_Side_Fret_Marker_Fret5"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Side_Fret_Marker_Fret5.geometry}
+        material={materials['ABS (White)']}
+        scale={0.001}
+        userData={{ name: 'Body_Side_Fret_Marker_Fret5' }}
+      />
+      <mesh
+        name="Body_Side_Fret_Marker_Fret7"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Side_Fret_Marker_Fret7.geometry}
+        material={materials['ABS (White)']}
+        scale={0.001}
+        userData={{ name: 'Body_Side_Fret_Marker_Fret7' }}
+      />
+      <mesh
+        name="Body_Side_Fret_Marker_Fret17"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Side_Fret_Marker_Fret17.geometry}
+        material={materials['ABS (White)']}
+        scale={0.001}
+        userData={{ name: 'Body_Side_Fret_Marker_Fret17' }}
+      />
+      <mesh
+        name="Body_Side_Fret_Marker_Fret21"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Side_Fret_Marker_Fret21.geometry}
+        material={materials['ABS (White)']}
+        scale={0.001}
+        userData={{ name: 'Body_Side_Fret_Marker_Fret21' }}
+      />
+      <mesh
+        name="Body_Side_Fret_Marker_Fret3"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Side_Fret_Marker_Fret3.geometry}
+        material={materials['ABS (White)']}
+        scale={0.001}
+        userData={{ name: 'Body_Side_Fret_Marker_Fret3' }}
+      />
+      <mesh
+        name="Body_Side_Fret_Marker_Fret9"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Side_Fret_Marker_Fret9.geometry}
+        material={materials['ABS (White)']}
+        scale={0.001}
+        userData={{ name: 'Body_Side_Fret_Marker_Fret9' }}
+      />
+      <mesh
+        name="Body_Fretboard_(1)_(1)"
+        castShadow
+        receiveShadow
+        geometry={nodes['Body_Fretboard_(1)_(1)'].geometry}
+        material={materials['Walnut - Semigloss']}
+        scale={0.001}
+        userData={{ name: 'Body_Fretboard (1) (1)' }}
+      />
+      <mesh
+        name="Body_Fretboard_1"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Fretboard_1.geometry}
+        material={materials['Walnut - Semigloss']}
+        scale={0.001}
+        userData={{ name: 'Body_Fretboard' }}
+      />
+      <mesh
+        name="Body_Fretboard_Soundhole_Tangent"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Fretboard_Soundhole_Tangent.geometry}
+        material={materials['Walnut - Semigloss']}
+        scale={0.001}
+        userData={{ name: 'Body_Fretboard_Soundhole_Tangent' }}
+      />
+      <mesh
+        name="Surface_Neck_Profile"
+        castShadow
+        receiveShadow
+        geometry={nodes.Surface_Neck_Profile.geometry}
+        material={materials['3D Ash - Unfinished']}
+        scale={0.001}
+        userData={{ name: 'Surface_Neck_Profile' }}
+      />
+      <mesh
+        name="Body_Heel"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Heel.geometry}
+        material={materials['3D Ash - Unfinished']}
+        scale={0.001}
+        userData={{ name: 'Body_Heel' }}
+      />
+      <mesh
+        name="Body_Neck"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Neck.geometry}
+        material={materials['3D Ash - Unfinished']}
+        scale={0.001}
+        userData={{ name: 'Body_Neck' }}
+      />
+      <mesh
+        name="Body_Pickguard"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Pickguard.geometry}
+        material={materials['Plastic - Glossy (Black)']}
+        scale={0.001}
+        userData={{ name: 'Body_Pickguard' }}
+      />
+      <mesh
+        name="Peg_Head"
+        castShadow
+        receiveShadow
+        geometry={nodes.Peg_Head.geometry}
+        material={materials['Steel - Satin']}
+        position={[-0.02, 0.544, -0.02]}
+        rotation={[-0.211, 0, 0]}
+        scale={0.001}
+        userData={{ name: 'Peg_Head' }}
+      />
+      <mesh
+        name="Peg_Head_1"
+        castShadow
+        receiveShadow
+        geometry={nodes.Peg_Head_1.geometry}
+        material={materials['Steel - Satin']}
+        position={[-0.022, 0.583, -0.031]}
+        rotation={[-0.211, 0, 0]}
+        scale={0.001}
+        userData={{ name: 'Peg_Head' }}
+      />
+      <mesh
+        name="Peg_Head_2"
+        castShadow
+        receiveShadow
+        geometry={nodes.Peg_Head_2.geometry}
+        material={materials['Steel - Satin']}
+        position={[-0.024, 0.624, -0.04]}
+        rotation={[-0.211, 0, 0]}
+        scale={0.001}
+        userData={{ name: 'Peg_Head' }}
+      />
+      <mesh
+        name="Peg_Head_3"
+        castShadow
+        receiveShadow
+        geometry={nodes.Peg_Head_3.geometry}
+        material={materials['Steel - Satin']}
+        position={[0.02, 0.543, -0.02]}
+        rotation={[-0.211, 0, 0]}
+        scale={0.001}
+        userData={{ name: 'Peg_Head' }}
+      />
+      <mesh
+        name="Peg_Head_4"
+        castShadow
+        receiveShadow
+        geometry={nodes.Peg_Head_4.geometry}
+        material={materials['Steel - Satin']}
+        position={[0.022, 0.584, -0.028]}
+        rotation={[-0.211, 0, 0]}
+        scale={0.001}
+        userData={{ name: 'Peg_Head' }}
+      />
+      <mesh
+        name="Peg_Head_5"
+        castShadow
+        receiveShadow
+        geometry={nodes.Peg_Head_5.geometry}
+        material={materials['Steel - Satin']}
+        position={[0.024, 0.624, -0.037]}
+        rotation={[-0.211, 0, 0]}
+        scale={0.001}
+        userData={{ name: 'Peg_Head' }}
+      />
+      <mesh
+        name="Peg_Head_Tuner_Right"
+        castShadow
+        receiveShadow
+        geometry={nodes.Peg_Head_Tuner_Right.geometry}
+        material={materials['Steel - Satin']}
+        position={[-0.02, 0.544, -0.02]}
+        rotation={[-0.211, 0, 0]}
+        scale={0.001}
+        userData={{ name: 'Peg_Head_Tuner_Right' }}
+      />
+      <mesh
+        name="Peg_Head_Tuner_Right_1"
+        castShadow
+        receiveShadow
+        geometry={nodes.Peg_Head_Tuner_Right_1.geometry}
+        material={materials['Steel - Satin']}
+        position={[-0.022, 0.583, -0.031]}
+        rotation={[-0.211, 0, 0]}
+        scale={0.001}
+        userData={{ name: 'Peg_Head_Tuner_Right' }}
+      />
+      <mesh
+        name="Peg_Head_Tuner_Right_2"
+        castShadow
+        receiveShadow
+        geometry={nodes.Peg_Head_Tuner_Right_2.geometry}
+        material={materials['Steel - Satin']}
+        position={[-0.024, 0.624, -0.04]}
+        rotation={[-0.211, 0, 0]}
+        scale={0.001}
+        userData={{ name: 'Peg_Head_Tuner_Right' }}
+      />
+      <mesh
+        name="Peg_Head_Tuner_Right_3"
+        castShadow
+        receiveShadow
+        geometry={nodes.Peg_Head_Tuner_Right_3.geometry}
+        material={materials['Steel - Satin']}
+        position={[0.02, 0.543, -0.02]}
+        rotation={[-0.211, 0, 0]}
+        scale={0.001}
+        userData={{ name: 'Peg_Head_Tuner_Right' }}
+      />
+      <mesh
+        name="Peg_Head_Tuner_Right_4"
+        castShadow
+        receiveShadow
+        geometry={nodes.Peg_Head_Tuner_Right_4.geometry}
+        material={materials['Steel - Satin']}
+        position={[0.022, 0.584, -0.028]}
+        rotation={[-0.211, 0, 0]}
+        scale={0.001}
+        userData={{ name: 'Peg_Head_Tuner_Right' }}
+      />
+      <mesh
+        name="Peg_Head_Tuner_Right_5"
+        castShadow
+        receiveShadow
+        geometry={nodes.Peg_Head_Tuner_Right_5.geometry}
+        material={materials['Steel - Satin']}
+        position={[0.024, 0.624, -0.037]}
+        rotation={[-0.211, 0, 0]}
+        scale={0.001}
+        userData={{ name: 'Peg_Head_Tuner_Right' }}
+      />
+      <mesh
+        name="Body_Headstock"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Headstock.geometry}
+        material={materials['3D Ash - Unfinished']}
+        scale={0.001}
+        userData={{ name: 'Body_Headstock' }}
+      />
+      <mesh
+        name="Body_Purfling_Top"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Purfling_Top.geometry}
+        material={materials['Plastic - Glossy (Black)']}
+        scale={0.001}
+        userData={{ name: 'Body_Purfling_Top' }}
+      />
+      <mesh
+        name="Body_Purfling_Bottom"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Purfling_Bottom.geometry}
+        material={materials['Plastic - Glossy (Black)']}
+        scale={0.001}
+        userData={{ name: 'Body_Purfling_Bottom' }}
+      />
+      <mesh
+        name="Body_Purfling_Top_Venetian_Cutaway"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Purfling_Top_Venetian_Cutaway.geometry}
+        material={materials['Plastic - Glossy (Black)']}
+        scale={0.001}
+        userData={{ name: 'Body_Purfling_Top_Venetian_Cutaway' }}
+      />
+      <mesh
+        name="Body_Purfling_Bottom_Venetian_Cutaway"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Purfling_Bottom_Venetian_Cutaway.geometry}
+        material={materials['Plastic - Glossy (Black)']}
+        scale={0.001}
+        userData={{ name: 'Body_Purfling_Bottom_Venetian_Cutaway' }}
+      />
+      <mesh
+        name="Body_Purfling_Top_Florentine_Cutaway"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Purfling_Top_Florentine_Cutaway.geometry}
+        material={materials['Plastic - Glossy (Black)']}
+        scale={0.001}
+        userData={{ name: 'Body_Purfling_Top_Florentine_Cutaway' }}
+      />
+      <mesh
+        name="Body_Purfling_Bottom_Florentine_Cutaway"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Purfling_Bottom_Florentine_Cutaway.geometry}
+        material={materials['Plastic - Glossy (Black)']}
+        scale={0.001}
+        userData={{ name: 'Body_Purfling_Bottom_Florentine_Cutaway' }}
+      />
+      <mesh
+        name="Body_Purfling_Top_Arm_Bevel"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Purfling_Top_Arm_Bevel.geometry}
+        material={materials['Plastic - Glossy (Black)']}
+        scale={0.001}
+        userData={{ name: 'Body_Purfling_Top_Arm_Bevel' }}
+      />
+      <mesh
+        name="Body_Purfling_Top_Arm_Bevel_Florentine_Cutaway"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Purfling_Top_Arm_Bevel_Florentine_Cutaway.geometry}
+        material={materials['Plastic - Glossy (Black)']}
+        scale={0.001}
+        userData={{ name: 'Body_Purfling_Top_Arm_Bevel_Florentine_Cutaway' }}
+      />
+      <mesh
+        name="Body_Purfling_Top_Arm_Bevel_Venetian_Cutaway"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Purfling_Top_Arm_Bevel_Venetian_Cutaway.geometry}
+        material={materials['Plastic - Glossy (Black)']}
+        scale={0.001}
+        userData={{ name: 'Body_Purfling_Top_Arm_Bevel_Venetian_Cutaway' }}
+      />
+      <mesh
+        name="Body_Binding_Top"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Binding_Top.geometry}
+        material={materials['ABS (White)']}
+        scale={0.001}
+        userData={{ name: 'Body_Binding_Top' }}
+      />
+      <mesh
+        name="Body_Binding_Bottom"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Binding_Bottom.geometry}
+        material={materials['ABS (White)']}
+        scale={0.001}
+        userData={{ name: 'Body_Binding_Bottom' }}
+      />
+      <mesh
+        name="Body_Binding_Top_Venetian_Cutaway"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Binding_Top_Venetian_Cutaway.geometry}
+        material={materials['ABS (White)']}
+        scale={0.001}
+        userData={{ name: 'Body_Binding_Top_Venetian_Cutaway' }}
+      />
+      <mesh
+        name="Body_Binding_Bottom_Venetian_Cutaway"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Binding_Bottom_Venetian_Cutaway.geometry}
+        material={materials['ABS (White)']}
+        scale={0.001}
+        userData={{ name: 'Body_Binding_Bottom_Venetian_Cutaway' }}
+      />
+      <mesh
+        name="Body_Binding_Top_Florentine_Cutaway"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Binding_Top_Florentine_Cutaway.geometry}
+        material={materials['ABS (White)']}
+        scale={0.001}
+        userData={{ name: 'Body_Binding_Top_Florentine_Cutaway' }}
+      />
+      <mesh
+        name="Body_Binding_Bottom_Florentine_Cutaway"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Binding_Bottom_Florentine_Cutaway.geometry}
+        material={materials['ABS (White)']}
+        scale={0.001}
+        userData={{ name: 'Body_Binding_Bottom_Florentine_Cutaway' }}
+      />
+      <mesh
+        name="Body_Binding_Top_Arm_Bevel"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Binding_Top_Arm_Bevel.geometry}
+        material={materials['ABS (White)']}
+        scale={0.001}
+        userData={{ name: 'Body_Binding_Top_Arm_Bevel' }}
+      />
+      <mesh
+        name="Body_Binding_Top_Arm_Bevel_Venetian_Cutaway"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Binding_Top_Arm_Bevel_Venetian_Cutaway.geometry}
+        material={materials['ABS (White)']}
+        scale={0.001}
+        userData={{ name: 'Body_Binding_Top_Arm_Bevel_Venetian_Cutaway' }}
+      />
+      <mesh
+        name="Body_Binding_Top_Arm_Bevel_Florentine_Cutaway"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_Binding_Top_Arm_Bevel_Florentine_Cutaway.geometry}
+        material={materials['ABS (White)']}
+        scale={0.001}
+        userData={{ name: 'Body_Binding_Top_Arm_Bevel_Florentine_Cutaway' }}
+      />
+      <mesh
+        name="Body_String_LowE"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_String_LowE.geometry}
+        material={materials['Steel - Satin']}
+        scale={0.001}
+        userData={{ name: 'Body_String_LowE' }}
+      />
+      <mesh
+        name="Body_String_A"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_String_A.geometry}
+        material={materials['Steel - Satin']}
+        scale={0.001}
+        userData={{ name: 'Body_String_A' }}
+      />
+      <mesh
+        name="Body_String_D"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_String_D.geometry}
+        material={materials['Steel - Satin']}
+        scale={0.001}
+        userData={{ name: 'Body_String_D' }}
+      />
+      <mesh
+        name="Body_String_G"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_String_G.geometry}
+        material={materials['Steel - Satin']}
+        scale={0.001}
+        userData={{ name: 'Body_String_G' }}
+      />
+      <mesh
+        name="Body_String_B"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_String_B.geometry}
+        material={materials['Steel - Satin']}
+        scale={0.001}
+        userData={{ name: 'Body_String_B' }}
+      />
+      <mesh
+        name="Body_String_HighE"
+        castShadow
+        receiveShadow
+        geometry={nodes.Body_String_HighE.geometry}
+        material={materials['Steel - Satin']}
+        scale={0.001}
+        userData={{ name: 'Body_String_HighE' }}
+      />
     </group>
   )
 }

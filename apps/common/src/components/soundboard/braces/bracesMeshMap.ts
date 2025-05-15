@@ -1,7 +1,5 @@
-// import { GLTFResult } from '~/_generated/LuthAcoustic'
-import { LuthGLTFResultCombined } from '~/models/gltfjsx.model'
+import { GLTFResult } from '~/_generated/LuthBraces'
 import {
-  EBodyArmBevelOption,
   EBodyShapeOption,
   EBodyCutawayOption,
   ESoundboardSoundHoleOption,
@@ -10,118 +8,144 @@ import {
 type BracesMeshMap = {
   [key in EBodyShapeOption]: {
     [key in EBodyCutawayOption]: {
-      [key in EBodyArmBevelOption]: {
-        [key in ESoundboardSoundHoleOption]: Array<keyof LuthGLTFResultCombined['nodes']>
-      }
+      [key in ESoundboardSoundHoleOption]: Array<keyof GLTFResult['nodes']>
     }
   }
 }
 
+const bracesXPatternMeshes: Array<keyof GLTFResult['nodes']> = [
+  'Body_Lateral_BraceA',
+  'Body_X_BraceB',
+  'Body_X_BraceC',
+  'Body_BraceD',
+  'Body_BraceE',
+  'Body_BraceF_Left',
+  'Body_BraceF_Right',
+  'Body_BraceG_Left',
+  'Body_BraceG_Right',
+  'Body_Bridge_Plate',
+]
+
 export const bracesMeshMap: BracesMeshMap = {
   [EBodyShapeOption.Dreadnought]: {
     [EBodyCutawayOption.None]: {
-      [EBodyArmBevelOption.None]: {
-        [ESoundboardSoundHoleOption.None]: ['Body_X_BraceB', 'Body_X_BraceC'],
-        [ESoundboardSoundHoleOption.Standard]: ['Body_X_BraceB', 'Body_X_BraceC'],
-        [ESoundboardSoundHoleOption.FHole]: ['Body_X_BraceB', 'Body_X_BraceC'],
-      },
-      [EBodyArmBevelOption.Standard]: {
-        [ESoundboardSoundHoleOption.None]: [],
-        [ESoundboardSoundHoleOption.Standard]: [],
-        [ESoundboardSoundHoleOption.FHole]: [],
-      },
+      [ESoundboardSoundHoleOption.None]: [
+        ...bracesXPatternMeshes,
+        'Body_Brace_Fretboard_Reinforcement_Left',
+        'Body_Brace_Fretboard_Reinforcement_Right',
+      ],
+      [ESoundboardSoundHoleOption.Standard]: [
+        ...bracesXPatternMeshes,
+
+        'Body_Brace_Fretboard_Reinforcement_Left',
+        'Body_Brace_Fretboard_Reinforcement_Right',
+      ],
+      [ESoundboardSoundHoleOption.FHole]: [
+        ...bracesXPatternMeshes,
+
+        'Body_Brace_Fretboard_Reinforcement_Left',
+        'Body_Brace_Fretboard_Reinforcement_Right',
+      ],
+      [ESoundboardSoundHoleOption.Oval]: [
+        ...bracesXPatternMeshes,
+
+        'Body_Brace_Fretboard_Reinforcement_Left',
+        'Body_Brace_Fretboard_Reinforcement_Right',
+      ],
     },
     [EBodyCutawayOption.Venetian]: {
-      [EBodyArmBevelOption.None]: {
-        [ESoundboardSoundHoleOption.None]: [],
-        [ESoundboardSoundHoleOption.Standard]: [],
-        [ESoundboardSoundHoleOption.FHole]: [],
-      },
-
-      [EBodyArmBevelOption.Standard]: {
-        [ESoundboardSoundHoleOption.None]: [],
-        [ESoundboardSoundHoleOption.Standard]: [],
-        [ESoundboardSoundHoleOption.FHole]: [],
-      },
+      [ESoundboardSoundHoleOption.None]: [
+        ...bracesXPatternMeshes,
+        'Body_Brace_Fretboard_Reinforcement_Right',
+      ],
+      [ESoundboardSoundHoleOption.Standard]: [
+        ...bracesXPatternMeshes,
+        'Body_Brace_Fretboard_Reinforcement_Right',
+      ],
+      [ESoundboardSoundHoleOption.FHole]: [
+        ...bracesXPatternMeshes,
+        'Body_Brace_Fretboard_Reinforcement_Right',
+      ],
+      [ESoundboardSoundHoleOption.Oval]: [
+        ...bracesXPatternMeshes,
+        'Body_Brace_Fretboard_Reinforcement_Right',
+      ],
     },
-    [EBodyCutawayOption.Florentine]: {
-      [EBodyArmBevelOption.None]: {
-        [ESoundboardSoundHoleOption.None]: [],
-        [ESoundboardSoundHoleOption.Standard]: [],
-        [ESoundboardSoundHoleOption.FHole]: [],
-      },
 
-      [EBodyArmBevelOption.Standard]: {
-        [ESoundboardSoundHoleOption.None]: [],
-        [ESoundboardSoundHoleOption.Standard]: [],
-        [ESoundboardSoundHoleOption.FHole]: [],
-      },
+    [EBodyCutawayOption.Florentine]: {
+      [ESoundboardSoundHoleOption.None]: [
+        ...bracesXPatternMeshes,
+        'Body_Brace_Fretboard_Reinforcement_Right',
+      ],
+      [ESoundboardSoundHoleOption.Standard]: [
+        ...bracesXPatternMeshes,
+        'Body_Brace_Fretboard_Reinforcement_Right',
+      ],
+      [ESoundboardSoundHoleOption.FHole]: [
+        ...bracesXPatternMeshes,
+        'Body_Brace_Fretboard_Reinforcement_Right',
+      ],
+      [ESoundboardSoundHoleOption.Oval]: [
+        ...bracesXPatternMeshes,
+        'Body_Brace_Fretboard_Reinforcement_Right',
+      ],
     },
     [EBodyCutawayOption.Scalloped]: {
-      [EBodyArmBevelOption.None]: {
-        [ESoundboardSoundHoleOption.None]: [],
-        [ESoundboardSoundHoleOption.Standard]: [],
-        [ESoundboardSoundHoleOption.FHole]: [],
-      },
-
-      [EBodyArmBevelOption.Standard]: {
-        [ESoundboardSoundHoleOption.None]: [],
-        [ESoundboardSoundHoleOption.Standard]: [],
-        [ESoundboardSoundHoleOption.FHole]: [],
-      },
+      [ESoundboardSoundHoleOption.None]: [
+        ...bracesXPatternMeshes,
+        'Body_Brace_Fretboard_Reinforcement_Right',
+      ],
+      [ESoundboardSoundHoleOption.Standard]: [
+        ...bracesXPatternMeshes,
+        'Body_Brace_Fretboard_Reinforcement_Right',
+      ],
+      [ESoundboardSoundHoleOption.FHole]: [
+        ...bracesXPatternMeshes,
+        'Body_Brace_Fretboard_Reinforcement_Right',
+      ],
+      [ESoundboardSoundHoleOption.Oval]: [
+        ...bracesXPatternMeshes,
+        'Body_Brace_Fretboard_Reinforcement_Right',
+      ],
     },
   },
   [EBodyShapeOption.Parlor]: {
     [EBodyCutawayOption.None]: {
-      [EBodyArmBevelOption.None]: {
-        [ESoundboardSoundHoleOption.None]: [],
-        [ESoundboardSoundHoleOption.Standard]: [],
-        [ESoundboardSoundHoleOption.FHole]: [],
-      },
-      [EBodyArmBevelOption.Standard]: {
-        [ESoundboardSoundHoleOption.None]: [],
-        [ESoundboardSoundHoleOption.Standard]: [],
-        [ESoundboardSoundHoleOption.FHole]: [],
-      },
+      [ESoundboardSoundHoleOption.None]: [
+        ...bracesXPatternMeshes,
+        'Body_Brace_Fretboard_Reinforcement_Left',
+        'Body_Brace_Fretboard_Reinforcement_Right',
+      ],
+      [ESoundboardSoundHoleOption.Standard]: [
+        ...bracesXPatternMeshes,
+        'Body_Brace_Fretboard_Reinforcement_Left',
+        'Body_Brace_Fretboard_Reinforcement_Right',
+      ],
+      [ESoundboardSoundHoleOption.FHole]: [
+        ...bracesXPatternMeshes,
+        'Body_Brace_Fretboard_Reinforcement_Left',
+        'Body_Brace_Fretboard_Reinforcement_Right',
+      ],
+      [ESoundboardSoundHoleOption.Oval]: [],
     },
     [EBodyCutawayOption.Venetian]: {
-      [EBodyArmBevelOption.None]: {
-        [ESoundboardSoundHoleOption.None]: [],
-        [ESoundboardSoundHoleOption.Standard]: [],
-        [ESoundboardSoundHoleOption.FHole]: [],
-      },
-
-      [EBodyArmBevelOption.Standard]: {
-        [ESoundboardSoundHoleOption.None]: [],
-        [ESoundboardSoundHoleOption.Standard]: [],
-        [ESoundboardSoundHoleOption.FHole]: [],
-      },
+      [ESoundboardSoundHoleOption.None]: [],
+      [ESoundboardSoundHoleOption.Standard]: [],
+      [ESoundboardSoundHoleOption.FHole]: [],
+      [ESoundboardSoundHoleOption.Oval]: [],
     },
-    [EBodyCutawayOption.Florentine]: {
-      [EBodyArmBevelOption.None]: {
-        [ESoundboardSoundHoleOption.None]: [],
-        [ESoundboardSoundHoleOption.Standard]: [],
-        [ESoundboardSoundHoleOption.FHole]: [],
-      },
 
-      [EBodyArmBevelOption.Standard]: {
-        [ESoundboardSoundHoleOption.None]: [],
-        [ESoundboardSoundHoleOption.Standard]: [],
-        [ESoundboardSoundHoleOption.FHole]: [],
-      },
+    [EBodyCutawayOption.Florentine]: {
+      [ESoundboardSoundHoleOption.None]: [],
+      [ESoundboardSoundHoleOption.Standard]: [],
+      [ESoundboardSoundHoleOption.FHole]: [],
+      [ESoundboardSoundHoleOption.Oval]: [],
     },
     [EBodyCutawayOption.Scalloped]: {
-      [EBodyArmBevelOption.None]: {
-        [ESoundboardSoundHoleOption.None]: [],
-        [ESoundboardSoundHoleOption.Standard]: [],
-        [ESoundboardSoundHoleOption.FHole]: [],
-      },
-
-      [EBodyArmBevelOption.Standard]: {
-        [ESoundboardSoundHoleOption.None]: [],
-        [ESoundboardSoundHoleOption.Standard]: [],
-        [ESoundboardSoundHoleOption.FHole]: [],
-      },
+      [ESoundboardSoundHoleOption.None]: [],
+      [ESoundboardSoundHoleOption.Standard]: [],
+      [ESoundboardSoundHoleOption.FHole]: [],
+      [ESoundboardSoundHoleOption.Oval]: [],
     },
   },
 }
