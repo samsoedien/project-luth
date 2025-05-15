@@ -3,16 +3,13 @@ import { GLTFResult as LuthFretsGLTF } from '~/_generated/LuthFrets'
 import {
   EFretboardExtensionOption,
   EScaleAssymetrical,
-  EScaleFretHeelJointOption,
   EScaleLengthOption,
 } from '~/models/options.model'
 
 type FretsMeshMap = {
   [key in EScaleLengthOption]: {
     [key in EScaleAssymetrical]: {
-      [key in EScaleFretHeelJointOption]: {
-        [key in EFretboardExtensionOption]: Array<keyof LuthFretsGLTF['nodes']>
-      }
+      [key in EFretboardExtensionOption]: Array<keyof LuthFretsGLTF['nodes']>
     }
   }
 }
@@ -43,52 +40,15 @@ const standardFretsMeshes: Array<keyof LuthFretsGLTF['nodes']> = [
 export const fretsMeshMap: FretsMeshMap = {
   [EScaleLengthOption.Standard]: {
     [EScaleAssymetrical.None]: {
-      [EScaleFretHeelJointOption.Fret14]: {
-        [EFretboardExtensionOption.Straight]: [...standardFretsMeshes],
-        [EFretboardExtensionOption.Rounded]: [...standardFretsMeshes, 'Body_Fret21'],
-        [EFretboardExtensionOption.Extended]: [
-          ...standardFretsMeshes,
-          'Body_Fret21',
-          'Body_Fret22',
-          'Body_Fret23',
-          'Body_Fret24',
-        ],
-      },
-      [EScaleFretHeelJointOption.Fret12]: {
-        [EFretboardExtensionOption.Straight]: [...standardFretsMeshes],
-        [EFretboardExtensionOption.Rounded]: [...standardFretsMeshes, 'Body_Fret21'],
-        [EFretboardExtensionOption.Extended]: [
-          ...standardFretsMeshes,
-          'Body_Fret21',
-          'Body_Fret22',
-          'Body_Fret23',
-          'Body_Fret24',
-        ],
-      },
-    },
-    [EScaleAssymetrical.Assymetrical]: {
-      [EScaleFretHeelJointOption.Fret14]: {
-        [EFretboardExtensionOption.Straight]: [...standardFretsMeshes],
-        [EFretboardExtensionOption.Rounded]: [...standardFretsMeshes, 'Body_Fret21'],
-        [EFretboardExtensionOption.Extended]: [
-          ...standardFretsMeshes,
-          'Body_Fret21',
-          'Body_Fret22',
-          'Body_Fret23',
-          'Body_Fret24',
-        ],
-      },
-      [EScaleFretHeelJointOption.Fret12]: {
-        [EFretboardExtensionOption.Straight]: [...standardFretsMeshes],
-        [EFretboardExtensionOption.Rounded]: [...standardFretsMeshes, 'Body_Fret21'],
-        [EFretboardExtensionOption.Extended]: [
-          ...standardFretsMeshes,
-          'Body_Fret21',
-          'Body_Fret22',
-          'Body_Fret23',
-          'Body_Fret24',
-        ],
-      },
+      [EFretboardExtensionOption.Straight]: [...standardFretsMeshes],
+      [EFretboardExtensionOption.Rounded]: [...standardFretsMeshes, 'Body_Fret21'],
+      [EFretboardExtensionOption.Extended]: [
+        ...standardFretsMeshes,
+        'Body_Fret21',
+        'Body_Fret22',
+        'Body_Fret23',
+        'Body_Fret24',
+      ],
     },
   },
 }

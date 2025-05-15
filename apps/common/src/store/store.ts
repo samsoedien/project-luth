@@ -185,7 +185,6 @@ export const createOptionsSlice: StateCreator<StoreState, [], [], IOptionsStoreS
   scaleOptions: {
     scaleLength: EScaleLengthOption.Standard,
     assymetrical: EScaleAssymetrical.None,
-    fretHeelJoint: EScaleFretHeelJointOption.Fret14,
   },
   setScaleOptions: (scaleOptions) => {
     set((state) => ({
@@ -345,8 +344,8 @@ export const createOptionsSlice: StateCreator<StoreState, [], [], IOptionsStoreS
 
     headstockComponent.meshes =
       headstockMeshMap[scaleOptions.scaleLength][scaleOptions.assymetrical][
-        scaleOptions.fretHeelJoint
-      ][headstockOptions.headstockShape]
+        headstockOptions.headstockShape
+      ]
 
     set({ configuration: { ...configuration } })
   },
@@ -365,8 +364,8 @@ export const createOptionsSlice: StateCreator<StoreState, [], [], IOptionsStoreS
 
     fretboardComponent.meshes =
       fretboardMeshMap[scaleOptions.scaleLength][scaleOptions.assymetrical][
-        scaleOptions.fretHeelJoint
-      ][fretboardOptions.extension][fretboardOptions.radius]
+        fretboardOptions.extension
+      ][fretboardOptions.radius]
 
     get().setFretsOptions(fretsOptions)
     get().setNutOptions(nutOptions)
@@ -384,9 +383,7 @@ export const createOptionsSlice: StateCreator<StoreState, [], [], IOptionsStoreS
     const bridgeComponent = getConfiguredComponent(configuration, ELuthComponent.Bridge)
 
     bridgeComponent.meshes =
-      bridgeMeshMap[scaleOptions.scaleLength][scaleOptions.assymetrical][
-        scaleOptions.fretHeelJoint
-      ][bridgeOptions.variant]
+      bridgeMeshMap[scaleOptions.scaleLength][scaleOptions.assymetrical][bridgeOptions.variant]
 
     set({ configuration: { ...configuration } })
   },
@@ -559,9 +556,7 @@ export const createOptionsSlice: StateCreator<StoreState, [], [], IOptionsStoreS
     const fretsComponent = getConfiguredComponent(configuration, ELuthComponent.Frets)
 
     const selectedFretsMeshes =
-      fretsMeshMap[scaleOptions.scaleLength][scaleOptions.assymetrical][scaleOptions.fretHeelJoint][
-        fretboardOptions.extension
-      ]
+      fretsMeshMap[scaleOptions.scaleLength][scaleOptions.assymetrical][fretboardOptions.extension]
 
     fretsComponent.meshes = selectedFretsMeshes
 
@@ -577,8 +572,7 @@ export const createOptionsSlice: StateCreator<StoreState, [], [], IOptionsStoreS
 
     const nutComponent = getConfiguredComponent(configuration, ELuthComponent.Nut)
 
-    const selectedNutMeshes =
-      nutMeshMap[scaleOptions.scaleLength][scaleOptions.assymetrical][scaleOptions.fretHeelJoint]
+    const selectedNutMeshes = nutMeshMap[scaleOptions.scaleLength][scaleOptions.assymetrical]
     nutComponent.meshes = selectedNutMeshes
 
     set({ configuration: { ...configuration } })
@@ -593,8 +587,7 @@ export const createOptionsSlice: StateCreator<StoreState, [], [], IOptionsStoreS
 
     const saddleComponent = getConfiguredComponent(configuration, ELuthComponent.Saddle)
 
-    const selectedSaddleMeshes =
-      saddleMeshMap[scaleOptions.scaleLength][scaleOptions.assymetrical][scaleOptions.fretHeelJoint]
+    const selectedSaddleMeshes = saddleMeshMap[scaleOptions.scaleLength][scaleOptions.assymetrical]
     saddleComponent.meshes = selectedSaddleMeshes
 
     set({ configuration: { ...configuration } })

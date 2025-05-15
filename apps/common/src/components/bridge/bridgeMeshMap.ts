@@ -1,18 +1,11 @@
 import { GLTFResult as LuthBridgeGLTF } from '~/_generated/LuthBridge'
 
-import {
-  EBridgeTypeOption,
-  EScaleAssymetrical,
-  EScaleFretHeelJointOption,
-  EScaleLengthOption,
-} from '~/models/options.model'
+import { EBridgeTypeOption, EScaleAssymetrical, EScaleLengthOption } from '~/models/options.model'
 
 type BridgeMeshMap = {
   [key in EScaleLengthOption]: {
     [key in EScaleAssymetrical]: {
-      [key in EScaleFretHeelJointOption]: {
-        [key in EBridgeTypeOption]: Array<keyof LuthBridgeGLTF['nodes']>
-      }
+      [key in EBridgeTypeOption]: Array<keyof LuthBridgeGLTF['nodes']>
     }
   }
 }
@@ -20,24 +13,9 @@ type BridgeMeshMap = {
 export const bridgeMeshMap: BridgeMeshMap = {
   [EScaleLengthOption.Standard]: {
     [EScaleAssymetrical.None]: {
-      [EScaleFretHeelJointOption.Fret14]: {
-        [EBridgeTypeOption.Traditional]: ['Body_Bridge'],
-        [EBridgeTypeOption.Tailpiece]: [],
-      },
-      [EScaleFretHeelJointOption.Fret12]: {
-        [EBridgeTypeOption.Traditional]: ['Body_Bridge'],
-        [EBridgeTypeOption.Tailpiece]: [],
-      },
-    },
-    [EScaleAssymetrical.Assymetrical]: {
-      [EScaleFretHeelJointOption.Fret14]: {
-        [EBridgeTypeOption.Traditional]: ['Body_Bridge'],
-        [EBridgeTypeOption.Tailpiece]: [],
-      },
-      [EScaleFretHeelJointOption.Fret12]: {
-        [EBridgeTypeOption.Traditional]: ['Body_Bridge'],
-        [EBridgeTypeOption.Tailpiece]: [],
-      },
+      [EBridgeTypeOption.Traditional]: ['Body_Bridge'],
+      [EBridgeTypeOption.Tailpiece]: [],
+      [EBridgeTypeOption.BellyUp]: [],
     },
   },
 }

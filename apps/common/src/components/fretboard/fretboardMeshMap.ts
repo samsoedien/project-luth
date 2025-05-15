@@ -4,17 +4,14 @@ import {
   EFretboardExtensionOption,
   EFretboardRadiusOption,
   EScaleAssymetrical,
-  EScaleFretHeelJointOption,
   EScaleLengthOption,
 } from '~/models/options.model'
 
 type FretboardMeshMap = {
   [key in EScaleLengthOption]: {
     [key in EScaleAssymetrical]: {
-      [key in EScaleFretHeelJointOption]: {
-        [key in EFretboardExtensionOption]: {
-          [key in EFretboardRadiusOption]: Array<keyof LuthFretboardGLTF['nodes']>
-        }
+      [key in EFretboardExtensionOption]: {
+        [key in EFretboardRadiusOption]: Array<keyof LuthFretboardGLTF['nodes']>
       }
     }
   }
@@ -23,41 +20,20 @@ type FretboardMeshMap = {
 export const fretboardMeshMap: FretboardMeshMap = {
   [EScaleLengthOption.Standard]: {
     [EScaleAssymetrical.None]: {
-      [EScaleFretHeelJointOption.Fret14]: {
-        [EFretboardExtensionOption.Straight]: {
-          [EFretboardRadiusOption.Modern]: ['Body_Fretboard001'],
-          [EFretboardRadiusOption.Vintage]: ['Body_Fretboard001'],
-          [EFretboardRadiusOption.Flat]: ['Body_Fretboard001'],
-        },
-        [EFretboardExtensionOption.Rounded]: {
-          [EFretboardRadiusOption.Modern]: ['Body_Fretboard_Soundhole_Tangent'],
-          [EFretboardRadiusOption.Vintage]: ['Body_Fretboard_Soundhole_Tangent'],
-          [EFretboardRadiusOption.Flat]: ['Body_Fretboard_Soundhole_Tangent'],
-        },
-        [EFretboardExtensionOption.Extended]: {
-          [EFretboardRadiusOption.Modern]: ['Body_Fretboard001'],
-          [EFretboardRadiusOption.Vintage]: ['Body_Fretboard001'],
-          [EFretboardRadiusOption.Flat]: ['Body_Fretboard001'],
-        },
+      [EFretboardExtensionOption.Straight]: {
+        [EFretboardRadiusOption.Modern]: ['Body_Fretboard001'],
+        [EFretboardRadiusOption.Vintage]: ['Body_Fretboard001'],
+        [EFretboardRadiusOption.Flat]: ['Body_Fretboard001'],
       },
-      [EScaleAssymetrical.Assymetrical]: {
-        [EScaleFretHeelJointOption.Fret12]: {
-          [EFretboardExtensionOption.Straight]: {
-            [EFretboardRadiusOption.Modern]: ['Body_Fretboard001'],
-            [EFretboardRadiusOption.Vintage]: ['Body_Fretboard001'],
-            [EFretboardRadiusOption.Flat]: ['Body_Fretboard001'],
-          },
-          [EFretboardExtensionOption.Rounded]: {
-            [EFretboardRadiusOption.Modern]: ['Body_Fretboard_Soundhole_Tangent'],
-            [EFretboardRadiusOption.Vintage]: ['Body_Fretboard_Soundhole_Tangent'],
-            [EFretboardRadiusOption.Flat]: ['Body_Fretboard_Soundhole_Tangent'],
-          },
-          [EFretboardExtensionOption.Extended]: {
-            [EFretboardRadiusOption.Modern]: ['Body_Fretboard001'],
-            [EFretboardRadiusOption.Vintage]: ['Body_Fretboard001'],
-            [EFretboardRadiusOption.Flat]: ['Body_Fretboard001'],
-          },
-        },
+      [EFretboardExtensionOption.Rounded]: {
+        [EFretboardRadiusOption.Modern]: ['Body_Fretboard_Soundhole_Tangent'],
+        [EFretboardRadiusOption.Vintage]: ['Body_Fretboard_Soundhole_Tangent'],
+        [EFretboardRadiusOption.Flat]: ['Body_Fretboard_Soundhole_Tangent'],
+      },
+      [EFretboardExtensionOption.Extended]: {
+        [EFretboardRadiusOption.Modern]: ['Body_Fretboard001'],
+        [EFretboardRadiusOption.Vintage]: ['Body_Fretboard001'],
+        [EFretboardRadiusOption.Flat]: ['Body_Fretboard001'],
       },
     },
   },

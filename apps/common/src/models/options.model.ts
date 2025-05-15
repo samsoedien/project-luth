@@ -58,10 +58,10 @@ export enum EScaleAssymetrical {
   // Assymetrical = 'Assymetrical',
 }
 
-export enum EScaleFretHeelJointOption {
-  Fret14 = 'Fret14',
-  Fret12 = 'Fret12',
-}
+// export enum EScaleFretHeelJointOption {
+//   Fret14 = 'Fret14',
+//   Fret12 = 'Fret12',
+// }
 
 /** Soundboard options */
 
@@ -207,7 +207,7 @@ export interface IBodyOptions {
 export interface IScaleOptions {
   scaleLength: EScaleLengthOption
   assymetrical: EScaleAssymetrical
-  fretHeelJoint: EScaleFretHeelJointOption
+  // fretHeelJoint: EScaleFretHeelJointOption
 }
 
 export interface ISoundboardOptions {
