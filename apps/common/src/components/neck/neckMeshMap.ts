@@ -3,17 +3,15 @@ import { GLTFResult as LuthNeckGLTF } from '~/_generated/LuthNeck'
 import {
   ENeckShapeOption,
   ENeckAssymmetricalOption,
-  EScaleFretHeelJointOption,
   EScaleLengthOption,
+  EScaleAssymetrical,
 } from '~/models/options.model'
 
 type NeckMeshMap = {
   [key in EScaleLengthOption]: {
-    [key in ENeckAssymmetricalOption]: {
-      [key in EScaleFretHeelJointOption]: {
-        [key in ENeckShapeOption]: {
-          [key in ENeckAssymmetricalOption]: Array<keyof LuthNeckGLTF['nodes']>
-        }
+    [key in EScaleAssymetrical]: {
+      [key in ENeckShapeOption]: {
+        [key in ENeckAssymmetricalOption]: Array<keyof LuthNeckGLTF['nodes']>
       }
     }
   }
@@ -21,48 +19,14 @@ type NeckMeshMap = {
 
 export const neckMeshMap: NeckMeshMap = {
   [EScaleLengthOption.Standard]: {
-    [ENeckAssymmetricalOption.None]: {
-      [EScaleFretHeelJointOption.Fret14]: {
-        [ENeckShapeOption.CShape]: {
-          [ENeckAssymmetricalOption.None]: ['Body_Neck', 'Body_Heel'],
-          [ENeckAssymmetricalOption.Asymmetrical]: ['Body_Neck', 'Body_Heel'],
-        },
-        [ENeckShapeOption.VShape]: {
-          [ENeckAssymmetricalOption.None]: ['Body_Neck', 'Body_Heel'],
-          [ENeckAssymmetricalOption.Asymmetrical]: ['Body_Neck', 'Body_Heel'],
-        },
+    [EScaleAssymetrical.None]: {
+      [ENeckShapeOption.CShape]: {
+        [ENeckAssymmetricalOption.None]: ['Body_Neck', 'Body_Heel'],
+        [ENeckAssymmetricalOption.Asymmetrical]: ['Body_Neck', 'Body_Heel'],
       },
-      [EScaleFretHeelJointOption.Fret12]: {
-        [ENeckShapeOption.CShape]: {
-          [ENeckAssymmetricalOption.None]: ['Body_Neck', 'Body_Heel'],
-          [ENeckAssymmetricalOption.Asymmetrical]: ['Body_Neck', 'Body_Heel'],
-        },
-        [ENeckShapeOption.VShape]: {
-          [ENeckAssymmetricalOption.None]: ['Body_Neck', 'Body_Heel'],
-          [ENeckAssymmetricalOption.Asymmetrical]: ['Body_Neck', 'Body_Heel'],
-        },
-      },
-    },
-    [ENeckAssymmetricalOption.Asymmetrical]: {
-      [EScaleFretHeelJointOption.Fret14]: {
-        [ENeckShapeOption.CShape]: {
-          [ENeckAssymmetricalOption.None]: ['Body_Neck', 'Body_Heel'],
-          [ENeckAssymmetricalOption.Asymmetrical]: ['Body_Neck', 'Body_Heel'],
-        },
-        [ENeckShapeOption.VShape]: {
-          [ENeckAssymmetricalOption.None]: ['Body_Neck', 'Body_Heel'],
-          [ENeckAssymmetricalOption.Asymmetrical]: ['Body_Neck', 'Body_Heel'],
-        },
-      },
-      [EScaleFretHeelJointOption.Fret12]: {
-        [ENeckShapeOption.CShape]: {
-          [ENeckAssymmetricalOption.None]: ['Body_Neck', 'Body_Heel'],
-          [ENeckAssymmetricalOption.Asymmetrical]: ['Body_Neck', 'Body_Heel'],
-        },
-        [ENeckShapeOption.VShape]: {
-          [ENeckAssymmetricalOption.None]: ['Body_Neck', 'Body_Heel'],
-          [ENeckAssymmetricalOption.Asymmetrical]: ['Body_Neck', 'Body_Heel'],
-        },
+      [ENeckShapeOption.VShape]: {
+        [ENeckAssymmetricalOption.None]: ['Body_Neck', 'Body_Heel'],
+        [ENeckAssymmetricalOption.Asymmetrical]: ['Body_Neck', 'Body_Heel'],
       },
     },
   },

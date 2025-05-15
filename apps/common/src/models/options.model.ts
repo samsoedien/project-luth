@@ -55,7 +55,7 @@ export enum EScaleLengthOption {
 
 export enum EScaleAssymetrical {
   None = 'None',
-  Assymetrical = 'Assymetrical',
+  // Assymetrical = 'Assymetrical',
 }
 
 export enum EScaleFretHeelJointOption {
@@ -115,6 +115,11 @@ export enum EHeadstockShapeOption {
   // Reverse = 'Reverse',
   // Telecaster = 'Telecaster',
   // Stratocaster = 'Stratocaster',
+}
+
+export enum EHeadstockTypeOption {
+  Solid = 'Solid',
+  Slotted = 'Slotted',
 }
 
 /** Fretboard options */
@@ -228,6 +233,7 @@ export interface INeckOptions {
 
 export interface IHeadstockOptions {
   headstockShape: EHeadstockShapeOption
+  type: EHeadstockTypeOption
 }
 
 export interface IFretboardOptions {

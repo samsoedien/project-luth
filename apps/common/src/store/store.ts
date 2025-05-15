@@ -49,6 +49,7 @@ import {
   ISaddleOptions,
   IFretsOptions,
   IEndGraftOptions,
+  EHeadstockTypeOption,
 } from '~/models/options.model'
 import { getConfiguredComponent } from '~/helpers/meshUtils'
 
@@ -323,14 +324,15 @@ export const createOptionsSlice: StateCreator<StoreState, [], [], IOptionsStoreS
     const neckComponent = getConfiguredComponent(configuration, ELuthComponent.Neck)
 
     neckComponent.meshes =
-      neckMeshMap[scaleOptions.scaleLength][scaleOptions.assymetrical][scaleOptions.fretHeelJoint][
-        neckOptions.profileShape
-      ][neckOptions.assymetrical]
+      neckMeshMap[scaleOptions.scaleLength][scaleOptions.assymetrical][neckOptions.profileShape][
+        neckOptions.assymetrical
+      ]
 
     set({ configuration: { ...configuration } })
   },
   headstockOptions: {
     headstockShape: EHeadstockShapeOption.Standard,
+    type: EHeadstockTypeOption.Solid,
   },
   setHeadstockOptions: (options) => {
     set((state) => ({
@@ -357,7 +359,7 @@ export const createOptionsSlice: StateCreator<StoreState, [], [], IOptionsStoreS
       fretboardOptions: { ...state.fretboardOptions, ...options },
     }))
 
-    const { configuration, scaleOptions, fretboardOptions, fretsOptions } = get()
+    const { configuration, scaleOptions, fretboardOptions, fretsOptions, nutOptions } = get()
 
     const fretboardComponent = getConfiguredComponent(configuration, ELuthComponent.Fretboard)
 
@@ -367,6 +369,7 @@ export const createOptionsSlice: StateCreator<StoreState, [], [], IOptionsStoreS
       ][fretboardOptions.extension][fretboardOptions.radius]
 
     get().setFretsOptions(fretsOptions)
+    get().setNutOptions(nutOptions)
 
     set({ configuration: { ...configuration } })
   },
