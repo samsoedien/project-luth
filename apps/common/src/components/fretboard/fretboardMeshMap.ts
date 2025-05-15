@@ -30,9 +30,9 @@ export const fretboardMeshMap: FretboardMeshMap = {
           [EFretboardRadiusOption.Flat]: ['Body_Fretboard001'],
         },
         [EFretboardExtensionOption.Rounded]: {
-          [EFretboardRadiusOption.Modern]: ['Body_Fretboard001'],
-          [EFretboardRadiusOption.Vintage]: ['Body_Fretboard001'],
-          [EFretboardRadiusOption.Flat]: ['Body_Fretboard001'],
+          [EFretboardRadiusOption.Modern]: ['Body_Fretboard_Soundhole_Tangent'],
+          [EFretboardRadiusOption.Vintage]: ['Body_Fretboard_Soundhole_Tangent'],
+          [EFretboardRadiusOption.Flat]: ['Body_Fretboard_Soundhole_Tangent'],
         },
         [EFretboardExtensionOption.Extended]: {
           [EFretboardRadiusOption.Modern]: ['Body_Fretboard001'],
@@ -48,9 +48,9 @@ export const fretboardMeshMap: FretboardMeshMap = {
             [EFretboardRadiusOption.Flat]: ['Body_Fretboard001'],
           },
           [EFretboardExtensionOption.Rounded]: {
-            [EFretboardRadiusOption.Modern]: ['Body_Fretboard001'],
-            [EFretboardRadiusOption.Vintage]: ['Body_Fretboard001'],
-            [EFretboardRadiusOption.Flat]: ['Body_Fretboard001'],
+            [EFretboardRadiusOption.Modern]: ['Body_Fretboard_Soundhole_Tangent'],
+            [EFretboardRadiusOption.Vintage]: ['Body_Fretboard_Soundhole_Tangent'],
+            [EFretboardRadiusOption.Flat]: ['Body_Fretboard_Soundhole_Tangent'],
           },
           [EFretboardExtensionOption.Extended]: {
             [EFretboardRadiusOption.Modern]: ['Body_Fretboard001'],

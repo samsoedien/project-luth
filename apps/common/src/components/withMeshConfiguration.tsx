@@ -103,12 +103,12 @@ const withMeshConfiguration = <P extends IWithMeshConfigurationProps>(
               <BracesMeshes configuration={bracesConfiguration} />
             </SoundboardMeshes>
             <BackMeshes configuration={backConfiguration}>
-              {/* <BackStripMeshes configuration={backStripConfiguration} /> */}
+              <BackStripMeshes configuration={backStripConfiguration} />
             </BackMeshes>
             <SidesMeshes configuration={sidesConfiguration}>
               <HeelTailBlockMeshes configuration={heelTailBlockConfiguration} />
               <KerflingMeshes configuration={kerflingConfiguration} />
-              {/*     <EndGraftMeshes configuration={endGraftConfiguration} />*/}
+              <EndGraftMeshes configuration={endGraftConfiguration} />
             </SidesMeshes>
             <BindingMeshes configuration={bindingConfiguration}>
               <PurflingMeshes configuration={purflingConfiguration} />

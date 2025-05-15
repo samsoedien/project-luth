@@ -48,6 +48,7 @@ import {
   INutOptions,
   ISaddleOptions,
   IFretsOptions,
+  IEndGraftOptions,
 } from '~/models/options.model'
 import { getConfiguredComponent } from '~/helpers/meshUtils'
 
@@ -73,6 +74,8 @@ import { nutMeshMap } from '~/components/fretboard/nut/nutMeshMap'
 import { ISaddleMeshesProps } from '~/components/bridge/saddle/SaddleMeshes'
 import { saddleMeshMap } from '~/components/bridge/saddle/saddleMeshMap'
 import { fretsMeshMap } from '~/components/fretboard/frets/fretsMeshMap'
+import EndGraftMeshes from '~/components/sides/endGraft/EndGraftMeshes'
+import { endGraftMeshMap } from '~/components/sides/endGraft/endGraftMeshMap'
 
 /** CONFIGURATION STATE SLICE */
 export interface IConfigurationStoreState {
@@ -142,6 +145,8 @@ export interface IOptionsStoreState {
   setKerflingOptions: (kerflingOptions: Partial<IKerflingOtions>) => void
   heelTailBlocksOptions: IHeelTailBlocksOptions
   setHeelTailBlocksOptions: (heelTailBlocksOptions: Partial<IHeelTailBlocksOptions>) => void
+  endGraftOptions: IEndGraftOptions
+  setEndGraftOptions: (endGraftOptions: Partial<IEndGraftOptions>) => void
   purflingOptions: IPurflingOptions
   setPurflingOptions: (purflingOptions: Partial<IPurflingOptions>) => void
   fretsOptions: IFretsOptions
@@ -261,8 +266,14 @@ export const createOptionsSlice: StateCreator<StoreState, [], [], IOptionsStoreS
       sidesOptions: { ...state.sidesOptions, ...options },
     }))
 
-    const { bodyOptions, sidesOptions, heelTailBlocksOptions, kerflingOptions, configuration } =
-      get()
+    const {
+      bodyOptions,
+      sidesOptions,
+      heelTailBlocksOptions,
+      kerflingOptions,
+      endGraftOptions,
+      configuration,
+    } = get()
 
     const sidesComponent = getConfiguredComponent(configuration, ELuthComponent.Sides)
 
@@ -273,6 +284,7 @@ export const createOptionsSlice: StateCreator<StoreState, [], [], IOptionsStoreS
 
     get().setHeelTailBlocksOptions(heelTailBlocksOptions)
     get().setKerflingOptions(kerflingOptions)
+    get().setEndGraftOptions(endGraftOptions)
 
     set({ configuration: { ...configuration } })
   },
@@ -495,6 +507,21 @@ export const createOptionsSlice: StateCreator<StoreState, [], [], IOptionsStoreS
       ]
 
     heelTailBlocksComponent.meshes = selectedHeelTailBlocksMeshes
+
+    set({ configuration: { ...configuration } })
+  },
+  endGraftOptions: {},
+  setEndGraftOptions: (options) => {
+    set((state) => ({
+      endGraftOptions: { ...state.endGraftOptions, ...options },
+    }))
+
+    const { configuration, bodyOptions } = get()
+
+    const endGraftComponent = getConfiguredComponent(configuration, ELuthComponent.EndGraft)
+
+    const selectedEndGraftMeshes = endGraftMeshMap[bodyOptions.bodyShape][bodyOptions.bodyDepth]
+    endGraftComponent.meshes = selectedEndGraftMeshes
 
     set({ configuration: { ...configuration } })
   },

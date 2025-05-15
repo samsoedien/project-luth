@@ -48,22 +48,10 @@ export default function Model(props: JSX.IntrinsicElements['group']) {
   const instances = React.useContext(context)
   return (
     <group {...props} dispose={null}>
-      <instances.BodyKerflingBottom
-        name="Body_Kerfling_Bottom"
-        userData={{ name: 'Body_Kerfling_Bottom' }}
-      />
-      <instances.BodyKerflingTop
-        name="Body_Kerfling_Top"
-        userData={{ name: 'Body_Kerfling_Top' }}
-      />
-      <instances.BodyLiningBottom
-        name="Body_Lining_Bottom004"
-        userData={{ name: 'Body_Lining_Bottom.004' }}
-      />
-      <instances.BodyLiningTop
-        name="Body_Lining_Top004"
-        userData={{ name: 'Body_Lining_Top.004' }}
-      />
+      <instances.BodyKerflingBottom name="Body_Kerfling_Bottom" userData={{ name: 'Body_Kerfling_Bottom' }} />
+      <instances.BodyKerflingTop name="Body_Kerfling_Top" userData={{ name: 'Body_Kerfling_Top' }} />
+      <instances.BodyLiningBottom name="Body_Lining_Bottom004" userData={{ name: 'Body_Lining_Bottom.004' }} />
+      <instances.BodyLiningTop name="Body_Lining_Top004" userData={{ name: 'Body_Lining_Top.004' }} />
     </group>
   )
 }

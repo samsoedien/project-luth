@@ -1,16 +1,7 @@
-import { useContext, useRef } from 'react'
-import { context as GLTFJSXContext } from '../../_generated/LuthAcoustic'
-import { GLTFJSXInstances } from '~/models/gltfjsx.model'
 import { IConfiguration } from '~/models/configuration.model'
 import { useInstanceGeometry } from '~/hooks/useInstanceGeometry'
-import { useTexture } from '@react-three/drei'
-import { MeshNormalMaterial } from 'three'
 
-import LuthBack, {
-  // context as GLTFJSXContext,
-  // LuthSoundboardInstances as Instances,
-  Instances,
-} from '../../_generated/LuthBack'
+import LuthBack, { Instances } from '../../_generated/LuthBack'
 
 export interface IBackMeshesProps {
   configuration: IConfiguration

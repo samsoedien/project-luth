@@ -272,3 +272,5 @@ export interface INutOptions {}
 export interface ISaddleOptions {}
 
 export interface IFretsOptions {}
+
+export interface IEndGraftOptions {}

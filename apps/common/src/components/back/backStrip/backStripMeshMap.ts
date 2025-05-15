@@ -1,10 +1,10 @@
-import { LuthGLTFResultCombined } from '~/models/gltfjsx.model'
+import { GLTFResult as LuthBackStripsGLTF } from '~/_generated/LuthBackStrips'
 import { EBodyShapeOption, EBackMultiPieceOption, EBodyDepthOption } from '~/models/options.model'
 
 type BackStripMeshMap = {
   [key in EBodyShapeOption]: {
     [key in EBodyDepthOption]: {
-      [key in EBackMultiPieceOption]: Array<keyof LuthGLTFResultCombined['nodes']>
+      [key in EBackMultiPieceOption]: Array<keyof LuthBackStripsGLTF['nodes']>
     }
   }
 }
@@ -16,7 +16,7 @@ export const backStripMeshMap: BackStripMeshMap = {
       [EBackMultiPieceOption.TwoPiece]: ['Body_Back_Center_Strip'],
       [EBackMultiPieceOption.ThreePiece]: [
         'Body_Back_Double_Strip_Left',
-        'Body_Back_Double_Strip_Right_(1)',
+        'Body_Back_Double_Strip_Right__1_',
       ],
     },
     [EBodyDepthOption.Thinline]: {
@@ -24,7 +24,7 @@ export const backStripMeshMap: BackStripMeshMap = {
       [EBackMultiPieceOption.TwoPiece]: ['Body_Back_Center_Strip'],
       [EBackMultiPieceOption.ThreePiece]: [
         'Body_Back_Double_Strip_Left',
-        'Body_Back_Double_Strip_Right_(1)',
+        'Body_Back_Double_Strip_Right__1_',
       ],
     },
   },
@@ -34,7 +34,7 @@ export const backStripMeshMap: BackStripMeshMap = {
       [EBackMultiPieceOption.TwoPiece]: ['Body_Back_Center_Strip'],
       [EBackMultiPieceOption.ThreePiece]: [
         'Body_Back_Double_Strip_Left',
-        'Body_Back_Double_Strip_Right_(1)',
+        'Body_Back_Double_Strip_Right__1_',
       ],
     },
     [EBodyDepthOption.Thinline]: {
@@ -42,7 +42,7 @@ export const backStripMeshMap: BackStripMeshMap = {
       [EBackMultiPieceOption.TwoPiece]: ['Body_Back_Center_Strip'],
       [EBackMultiPieceOption.ThreePiece]: [
         'Body_Back_Double_Strip_Left',
-        'Body_Back_Double_Strip_Right_(1)',
+        'Body_Back_Double_Strip_Right__1_',
       ],
     },
   },

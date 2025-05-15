@@ -16,6 +16,8 @@ import { GLTFResult as LuthNutGLTF } from '~/_generated/LuthNut'
 import { GLTFResult as LuthSaddleGLTF } from '~/_generated/LuthSaddle'
 import { GLTFResult as LuthBracesGLTF } from '~/_generated/LuthBraces'
 import { GLTFResult as LuthKerflingGLTF } from '~/_generated/LuthKerfling'
+import { GLTFResult as LuthEndGraftGLTF } from '~/_generated/LuthEndGraft'
+import { GLTFResult as LuthBackStripsGLTF } from '~/_generated/LuthBackStrips'
 
 export type LuthGLTFResultCombined = LuthSidesGLTF &
   LuthSoundboardGLTF &
@@ -34,7 +36,9 @@ export type LuthGLTFResultCombined = LuthSidesGLTF &
   LuthNutGLTF &
   LuthBracesGLTF &
   LuthSaddleGLTF &
-  LuthKerflingGLTF
+  LuthKerflingGLTF &
+  LuthEndGraftGLTF &
+  LuthBackStripsGLTF
 
 export type GLTFJSXInstances = Record<
   string,

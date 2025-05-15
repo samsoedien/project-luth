@@ -45,7 +45,7 @@ export const fretsMeshMap: FretsMeshMap = {
     [EScaleAssymetrical.None]: {
       [EScaleFretHeelJointOption.Fret14]: {
         [EFretboardExtensionOption.Straight]: [...standardFretsMeshes],
-        [EFretboardExtensionOption.Rounded]: [...standardFretsMeshes],
+        [EFretboardExtensionOption.Rounded]: [...standardFretsMeshes, 'Body_Fret21'],
         [EFretboardExtensionOption.Extended]: [
           ...standardFretsMeshes,
           'Body_Fret21',
@@ -56,7 +56,7 @@ export const fretsMeshMap: FretsMeshMap = {
       },
       [EScaleFretHeelJointOption.Fret12]: {
         [EFretboardExtensionOption.Straight]: [...standardFretsMeshes],
-        [EFretboardExtensionOption.Rounded]: [...standardFretsMeshes],
+        [EFretboardExtensionOption.Rounded]: [...standardFretsMeshes, 'Body_Fret21'],
         [EFretboardExtensionOption.Extended]: [
           ...standardFretsMeshes,
           'Body_Fret21',
@@ -69,7 +69,7 @@ export const fretsMeshMap: FretsMeshMap = {
     [EScaleAssymetrical.Assymetrical]: {
       [EScaleFretHeelJointOption.Fret14]: {
         [EFretboardExtensionOption.Straight]: [...standardFretsMeshes],
-        [EFretboardExtensionOption.Rounded]: [...standardFretsMeshes],
+        [EFretboardExtensionOption.Rounded]: [...standardFretsMeshes, 'Body_Fret21'],
         [EFretboardExtensionOption.Extended]: [
           ...standardFretsMeshes,
           'Body_Fret21',
@@ -80,7 +80,7 @@ export const fretsMeshMap: FretsMeshMap = {
       },
       [EScaleFretHeelJointOption.Fret12]: {
         [EFretboardExtensionOption.Straight]: [...standardFretsMeshes],
-        [EFretboardExtensionOption.Rounded]: [...standardFretsMeshes],
+        [EFretboardExtensionOption.Rounded]: [...standardFretsMeshes, 'Body_Fret21'],
         [EFretboardExtensionOption.Extended]: [
           ...standardFretsMeshes,
           'Body_Fret21',

@@ -106,7 +106,7 @@ export default function Configurator() {
       case ELuthComponent.Neck:
         setControls({
           rotation: [0, -Math.PI / 3, -Math.PI / 5],
-          zoom: 0.5,
+          zoom: 0.7,
           polar: [-Math.PI / 3, Math.PI / 3],
           azimuth: [-Math.PI / 4, Math.PI / 4],
           snap: true,

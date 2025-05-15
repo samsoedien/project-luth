@@ -26,7 +26,7 @@ export default function Scene({ children, isDebug }: ISceneProps) {
               {/* <Preload all /> */}
             </Suspense>
           </PresentationControls>
-          <PerspectiveCamera makeDefault position={[0, 0, 1.2]} fov={35} />
+          <PerspectiveCamera makeDefault position={[0, 0, 1.5]} fov={35} />
         </Stage>
       </Canvas>
       <Loader />

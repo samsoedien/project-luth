@@ -11,7 +11,7 @@
     "preview": "vite preview --port 8000 --strictPort --host",
     "gltf": "node ./scripts/gltf-pipeline.cjs",
     "gltf:normalize": "node ./scripts/gltf-normalize-uvs.cjs",
-    "model": "yarn model:soundboard && yarn model:back && yarn model:sides && yarn model:binding && yarn model:neck && yarn model:headstock && yarn model:fretboard && yarn model:bridge && yarn model:pickguard && yarn model:strings && yarn model:rosette && yarn model:braces && yarn model:heeltailblocks && yarn model:kerfling && yarn model:purfling && yarn model:nut && yarn model:saddle && yarn model:frets && yarn model:codemod",
+    "model": "yarn model:soundboard && yarn model:back && yarn model:sides && yarn model:binding && yarn model:neck && yarn model:headstock && yarn model:fretboard && yarn model:bridge && yarn model:pickguard && yarn model:strings && yarn model:rosette && yarn model:braces && yarn model:heeltailblocks && yarn model:kerfling && yarn model:purfling && yarn model:nut && yarn model:saddle && yarn model:frets && yarn model:endgraft && yarn model:backstrips && yarn model:codemod",
     "model:luth": "npx @rosskevin/gltfjsx ./public/luth-acoustic.glb --types --transform --instanceall --keepnames --keepmeshes --draco --meta --shadows --exportdefault --output ./src/_generated/LuthAcoustic.tsx",
     "model:soundboard": "npx gltfjsx ./public/Soundboard_Collection.glb --types --transform --instanceall --keepmeshes --keepmaterials --keepattributes --keepnames --draco --meta --shadows --exportdefault --output ./src/_generated/LuthSoundboard.tsx",
     "model:back": "npx gltfjsx ./public/Back_Collection.glb --types --transform --instanceall --keepmeshes --keepmaterials --keepattributes --keepnames --draco --meta --shadows --exportdefault --output ./src/_generated/LuthBack.tsx",
@@ -31,6 +31,8 @@
     "model:nut": "npx gltfjsx ./public/Nut_Collection.glb --types --transform --instanceall --keepmeshes --keepmaterials --keepattributes --keepnames --draco --meta --shadows --exportdefault --output  ./src/_generated/LuthNut.tsx",
     "model:saddle": "npx gltfjsx ./public/Saddle_Collection.glb --types --transform --instanceall --keepmeshes --keepmaterials --keepattributes --keepnames --draco --meta --shadows --exportdefault --output  ./src/_generated/LuthSaddle.tsx",
     "model:frets": "npx gltfjsx ./public/Frets_Collection.glb --types --transform --instanceall --keepmeshes --keepmaterials --keepattributes --keepnames --draco --meta --shadows --exportdefault --output  ./src/_generated/LuthFrets.tsx",
+    "model:endgraft": "npx gltfjsx ./public/End_Graft_Collection.glb --types --transform --instanceall --keepmeshes --keepmaterials --keepattributes --keepnames --draco --meta --shadows --exportdefault --output  ./src/_generated/LuthEndGraft.tsx",
+    "model:backstrips": "npx gltfjsx ./public/Back_Strips_Collection.glb --types --transform --instanceall --keepmeshes --keepmaterials --keepattributes --keepnames --draco --meta --shadows --exportdefault --output  ./src/_generated/LuthBackStrips.tsx",
     "model:codemod": "npx tsx scripts/export-gltfresult-codemod.js --dir ./src/_generated"
   },
   "dependencies": {
