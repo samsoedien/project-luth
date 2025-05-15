@@ -8,6 +8,7 @@ import ScaleOptions from './options/ScaleOptions'
 import BackOptions from './options/BackOptions'
 import NeckOptions from './options/NeckOptions'
 import RosetteOptions from './options/RosetteOptions'
+import KerflingOptions from './options/KerflingOptions'
 
 export default function Configurator() {
   const scope = useConfigurationStore((state) => state.scope)
@@ -102,6 +103,17 @@ export default function Configurator() {
           // config: { mass: 1, tension: 80 },
         })
         break
+      case ELuthComponent.Neck:
+        setControls({
+          rotation: [0, -Math.PI / 3, -Math.PI / 5],
+          zoom: 0.5,
+          polar: [-Math.PI / 3, Math.PI / 3],
+          azimuth: [-Math.PI / 4, Math.PI / 4],
+          snap: true,
+          // snap: { mass: 5, tension: 140 },
+          // config: { mass: 1, tension: 80 },
+        })
+        break
     }
   }
 
@@ -135,6 +147,7 @@ export default function Configurator() {
       <RosetteOptions />
       <BackOptions />
       <NeckOptions />
+      <KerflingOptions />
 
       <div
         style={{

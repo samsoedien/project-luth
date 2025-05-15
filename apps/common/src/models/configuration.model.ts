@@ -36,6 +36,7 @@ export enum ELuthComponent {
   Braces = 'Braces',
   BackStrip = 'BackStrip',
   HeelTailBlocks = 'HeelTailBlocks',
+  Kerfling = 'Kerfling',
   Purfling = 'Purfling',
   Rosette = 'Rosette',
   Frets = 'Frets',
@@ -43,7 +44,6 @@ export enum ELuthComponent {
   Nut = 'Nut',
   Saddle = 'Saddle',
   FretboardMarkers = 'FretboardMarkers',
-  Kerfling = 'Kerfling',
 }
 
 export interface IConfiguration {

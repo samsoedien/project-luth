@@ -26,6 +26,7 @@ import SaddleMeshes from './bridge/saddle/SaddleMeshes'
 import FretboardMarkersMeshes from './fretboard/fretboardMarkers/FretboardMarkersMeshes'
 import PickguardMeshes from './pickguard/PickguardMeshes'
 import { EBodyOrientationOption } from '~/models/options.model'
+import KerflingMeshes from './sides/kerfling/KerflingMeshes'
 
 interface IWithMeshConfigurationProps {
   position: [number, number, number]
@@ -46,6 +47,7 @@ const withMeshConfiguration = <P extends IWithMeshConfigurationProps>(
       backStripConfiguration,
       sidesConfiguration,
       heelTailBlockConfiguration,
+      kerflingConfiguration,
       bindingConfiguration,
       purflingConfiguration,
       neckConfiguration,
@@ -70,6 +72,7 @@ const withMeshConfiguration = <P extends IWithMeshConfigurationProps>(
         configuration,
         ELuthComponent.HeelTailBlocks,
       ),
+      kerflingConfiguration: getConfiguredComponent(configuration, ELuthComponent.Kerfling),
       bindingConfiguration: getConfiguredComponent(configuration, ELuthComponent.Binding),
       purflingConfiguration: getConfiguredComponent(configuration, ELuthComponent.Purfling),
       neckConfiguration: getConfiguredComponent(configuration, ELuthComponent.Neck),
@@ -104,6 +107,7 @@ const withMeshConfiguration = <P extends IWithMeshConfigurationProps>(
             </BackMeshes>
             <SidesMeshes configuration={sidesConfiguration}>
               <HeelTailBlockMeshes configuration={heelTailBlockConfiguration} />
+              <KerflingMeshes configuration={kerflingConfiguration} />
               {/*     <EndGraftMeshes configuration={endGraftConfiguration} />*/}
             </SidesMeshes>
             <BindingMeshes configuration={bindingConfiguration}>

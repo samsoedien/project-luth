@@ -1,13 +1,11 @@
-import LuthSides, { Instances } from '~/_generated/LuthSides'
-
+import LuthKerfling, { Instances } from '~/_generated/LuthKerfling'
 import { useInstanceGeometry } from '~/hooks/useInstanceGeometry'
 import { IConfiguration } from '~/models/configuration.model'
 
-export interface ISidesMeshesProps {
+export interface IKerflingMeshesProps {
   configuration: IConfiguration
-  children: React.ReactNode
 }
-export default function SidesMeshes({ configuration, children }: ISidesMeshesProps) {
+export default function KerflingMeshes({ configuration, children }: IKerflingMeshesProps) {
   const { instanceGeometry, instanceGroupRef } = useInstanceGeometry(configuration)
   return (
     <group name={configuration.name} dispose={null}>
@@ -26,10 +24,9 @@ export default function SidesMeshes({ configuration, children }: ISidesMeshesPro
         ))}
       <group ref={instanceGroupRef} visible={false}>
         <Instances frustumCulled={true}>
-          <LuthSides />
+          <LuthKerfling />
         </Instances>
       </group>
-      {children}
     </group>
   )
 }

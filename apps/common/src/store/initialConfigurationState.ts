@@ -72,6 +72,10 @@ export const initialConfigurationState: IConfiguration = {
           name: ELuthComponent.EndGraft,
           meshes: ['Body_End_Graft_Wedge'],
         },
+        {
+          name: ELuthComponent.Kerfling,
+          meshes: ['Body_End_Graft_Wedge'],
+        },
       ],
     },
     {

@@ -218,7 +218,6 @@ export const createOptionsSlice: StateCreator<StoreState, [], [], IOptionsStoreS
 
     get().setRosetteOptions(rosetteOptions)
     get().setBracesOptions(bracesOptions)
-
     get().setPickguardOptions(pickguardOptions)
 
     // Create the new configuration with updated meshes //TODO: verify if this implementation can be applied to other setOptions
@@ -245,11 +244,10 @@ export const createOptionsSlice: StateCreator<StoreState, [], [], IOptionsStoreS
 
     const backComponent = getConfiguredComponent(configuration, ELuthComponent.Back)
 
-    const selectedBackMeshes =
+    backComponent.meshes =
       backMeshMap[bodyOptions.bodyShape][bodyOptions.bodyDepth][bodyOptions.cutaway][
         backOptions.backMultiPiece
       ]
-    backComponent.meshes = selectedBackMeshes
 
     get().setBackStripOptions(backStripOptions)
 
@@ -263,18 +261,18 @@ export const createOptionsSlice: StateCreator<StoreState, [], [], IOptionsStoreS
       sidesOptions: { ...state.sidesOptions, ...options },
     }))
 
-    const { bodyOptions, sidesOptions, heelTailBlocksOptions, configuration } = get()
+    const { bodyOptions, sidesOptions, heelTailBlocksOptions, kerflingOptions, configuration } =
+      get()
 
     const sidesComponent = getConfiguredComponent(configuration, ELuthComponent.Sides)
 
-    const selectedSidesMeshes =
+    sidesComponent.meshes =
       sidesMeshMap[bodyOptions.bodyShape][bodyOptions.bodyDepth][bodyOptions.cutaway][
         bodyOptions.armBevel
       ][sidesOptions.soundPort]
 
-    sidesComponent.meshes = selectedSidesMeshes
-
     get().setHeelTailBlocksOptions(heelTailBlocksOptions)
+    get().setKerflingOptions(kerflingOptions)
 
     set({ configuration: { ...configuration } })
   },
@@ -290,11 +288,10 @@ export const createOptionsSlice: StateCreator<StoreState, [], [], IOptionsStoreS
 
     const bindingComponent = getConfiguredComponent(configuration, ELuthComponent.Binding)
 
-    const selectedBindingMeshes =
+    bindingComponent.meshes =
       bindingMeshMap[bodyOptions.bodyShape][bodyOptions.bodyDepth][bodyOptions.cutaway][
         bodyOptions.armBevel
       ]
-    bindingComponent.meshes = selectedBindingMeshes
 
     get().setPurflingOptions(purflingOptions)
 
@@ -313,12 +310,10 @@ export const createOptionsSlice: StateCreator<StoreState, [], [], IOptionsStoreS
 
     const neckComponent = getConfiguredComponent(configuration, ELuthComponent.Neck)
 
-    const selectedneckMeshes =
+    neckComponent.meshes =
       neckMeshMap[scaleOptions.scaleLength][scaleOptions.assymetrical][scaleOptions.fretHeelJoint][
         neckOptions.profileShape
       ][neckOptions.assymetrical]
-
-    neckComponent.meshes = selectedneckMeshes
 
     set({ configuration: { ...configuration } })
   },
@@ -334,12 +329,10 @@ export const createOptionsSlice: StateCreator<StoreState, [], [], IOptionsStoreS
 
     const headstockComponent = getConfiguredComponent(configuration, ELuthComponent.Headstock)
 
-    const selectedHeadstockMeshes =
+    headstockComponent.meshes =
       headstockMeshMap[scaleOptions.scaleLength][scaleOptions.assymetrical][
         scaleOptions.fretHeelJoint
       ][headstockOptions.headstockShape]
-
-    headstockComponent.meshes = selectedHeadstockMeshes
 
     set({ configuration: { ...configuration } })
   },
@@ -356,12 +349,10 @@ export const createOptionsSlice: StateCreator<StoreState, [], [], IOptionsStoreS
 
     const fretboardComponent = getConfiguredComponent(configuration, ELuthComponent.Fretboard)
 
-    const selectedFretboardMeshes =
+    fretboardComponent.meshes =
       fretboardMeshMap[scaleOptions.scaleLength][scaleOptions.assymetrical][
         scaleOptions.fretHeelJoint
       ][fretboardOptions.extension][fretboardOptions.radius]
-
-    fretboardComponent.meshes = selectedFretboardMeshes
 
     get().setFretsOptions(fretsOptions)
 
@@ -377,12 +368,10 @@ export const createOptionsSlice: StateCreator<StoreState, [], [], IOptionsStoreS
 
     const bridgeComponent = getConfiguredComponent(configuration, ELuthComponent.Bridge)
 
-    const selectedBridgekMeshes =
+    bridgeComponent.meshes =
       bridgeMeshMap[scaleOptions.scaleLength][scaleOptions.assymetrical][
         scaleOptions.fretHeelJoint
       ][bridgeOptions.variant]
-
-    bridgeComponent.meshes = selectedBridgekMeshes
 
     set({ configuration: { ...configuration } })
   },
@@ -396,10 +385,8 @@ export const createOptionsSlice: StateCreator<StoreState, [], [], IOptionsStoreS
 
     const pickguardComponent = getConfiguredComponent(configuration, ELuthComponent.Pickguard)
 
-    const selectedPickguardMeshes =
+    pickguardComponent.meshes =
       pickguardMeshMap[soundboardOptions.soundHole][pickguardOptions.shape]
-
-    pickguardComponent.meshes = selectedPickguardMeshes
 
     set({ configuration: { ...configuration } })
   },
@@ -413,9 +400,7 @@ export const createOptionsSlice: StateCreator<StoreState, [], [], IOptionsStoreS
 
     const stringsComponent = getConfiguredComponent(configuration, ELuthComponent.Strings)
 
-    const selectedStringsMeshes = stringsMeshMap[scaleOptions.scaleLength]
-
-    stringsComponent.meshes = selectedStringsMeshes
+    stringsComponent.meshes = stringsMeshMap[scaleOptions.scaleLength]
 
     set({ configuration: { ...configuration } })
   },
