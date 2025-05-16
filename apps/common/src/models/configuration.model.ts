@@ -1,10 +1,23 @@
 import { Material } from 'three'
-import { GLTFResult } from '~/_generated/LuthAcoustic'
+import { LuthGLTFResultCombined } from './gltfjsx.model'
 
 export enum ELuthModel {
   Acoustic = 'Acoustic',
   Electric = 'Electric',
-  Ukelele = 'Ukelele',
+  ElectricAcoustic = 'ElectricAcoustic',
+  Classical = 'Classical',
+  Travel = 'Travel',
+  Mini = 'Mini',
+  Bass = 'Bass',
+  SemiHollow = 'SemiHollow',
+  HollowBody = 'HollowBody',
+  Resonator = 'Resonator',
+  Baritone = 'Baritone',
+  Guitalele = 'Guitalele',
+  Ukulele = 'Ukulele',
+  Mandolin = 'Mandolin',
+  Banjo = 'Banjo',
+  Other = 'Other',
 }
 
 export enum ELuthComponent {
@@ -19,20 +32,22 @@ export enum ELuthComponent {
   Bridge = 'Bridge',
   Pickguard = 'Pickguard',
   Strings = 'Strings',
+  Rosette = 'Rosette',
   Braces = 'Braces',
   BackStrip = 'BackStrip',
-  HeelTailBlocks = 'HeelTailBlocks',
-  Purfling = 'Purfling',
-  Rosette = 'Rosette',
-  Frets = 'Frets',
   EndGraft = 'EndGraft',
+  HeelTailBlocks = 'HeelTailBlocks',
+  Kerfling = 'Kerfling',
+  Purfling = 'Purfling',
+  Frets = 'Frets',
+  FretboardMarkers = 'FretboardMarkers',
   Nut = 'Nut',
   Saddle = 'Saddle',
 }
 
 export interface IConfiguration {
   name: ELuthComponent
-  meshes: Array<keyof GLTFResult['nodes']>
+  meshes: Array<keyof LuthGLTFResultCombined['nodes']>
   material?: Material
   texture?: string
   components?: IConfiguration[]

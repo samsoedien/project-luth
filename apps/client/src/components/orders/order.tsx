@@ -158,7 +158,7 @@ export function Dashboard() {
             </nav>
           </aside>
           <div className="flex flex-col sm:gap-4 sm:py-4 sm:pl-14">
-            <header className="z-5 bg-background sticky top-0 flex h-14 items-center gap-4 border-b px-4 sm:static sm:h-auto sm:border-0 sm:bg-transparent sm:px-6">
+            <header className="bg-background sticky top-0 z-5 flex h-14 items-center gap-4 border-b px-4 sm:static sm:h-auto sm:border-0 sm:bg-transparent sm:px-6">
               <Sheet>
                 <SheetTrigger asChild>
                   <Button size="icon" variant="outline" className="sm:hidden">
@@ -230,7 +230,7 @@ export function Dashboard() {
                 </BreadcrumbList>
               </Breadcrumb>
               <div className="relative ml-auto flex-1 md:grow-0">
-                <Search className="text-muted-foreground absolute left-2.5 top-2.5 h-4 w-4" />
+                <Search className="text-muted-foreground absolute top-2.5 left-2.5 h-4 w-4" />
                 <Input
                   type="search"
                   placeholder="Search..."
@@ -265,7 +265,7 @@ export function Dashboard() {
                   <Card className="sm:col-span-2">
                     <CardHeader className="pb-3">
                       <CardTitle>Your Orders</CardTitle>
-                      <CardDescription className="max-w-lg text-balance leading-relaxed">
+                      <CardDescription className="max-w-lg leading-relaxed text-balance">
                         Introducing Our Dynamic Orders Dashboard for Seamless Management and
                         Insightful Analysis.
                       </CardDescription>
@@ -613,7 +613,7 @@ export function Dashboard() {
                     <div className="text-muted-foreground text-xs">
                       Updated <time dateTime="2023-11-23">November 23, 2023</time>
                     </div>
-                    <Pagination className="ml-auto mr-0 w-auto">
+                    <Pagination className="mr-0 ml-auto w-auto">
                       <PaginationContent>
                         <PaginationItem>
                           <Button size="icon" variant="outline" className="h-6 w-6">

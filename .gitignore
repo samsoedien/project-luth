@@ -133,3 +133,4 @@ dist
 lib
 
 vite.config.ts.timestamp-*.mjs
+__pycache__

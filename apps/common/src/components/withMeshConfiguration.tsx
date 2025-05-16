@@ -1,5 +1,6 @@
-import React from 'react'
-import { Instances } from '~/_generated/LuthAcoustic'
+import React, { useMemo } from 'react'
+// import { LuthSoundboardInstances as Instances } from '~/_generated/LuthSoundboard'
+import { Instances } from '~/_generated/LuthSides'
 
 import SoundboardMeshes from '~/components/soundboard/SoundboardMeshes'
 import BracesMeshes from '~/components/soundboard/braces/BracesMeshes'
@@ -22,6 +23,10 @@ import BridgeMeshes from './bridge/BridgeMeshes'
 import StringsMeshes from './strings/StringsMeshes'
 import NutMeshes from './fretboard/nut/NutMeshes'
 import SaddleMeshes from './bridge/saddle/SaddleMeshes'
+import FretboardMarkersMeshes from './fretboard/fretboardMarkers/FretboardMarkersMeshes'
+import PickguardMeshes from './pickguard/PickguardMeshes'
+import { EBaseOrientationOption } from '~/models/options.model'
+import KerflingMeshes from './sides/kerfling/KerflingMeshes'
 
 interface IWithMeshConfigurationProps {
   position: [number, number, number]
@@ -32,7 +37,7 @@ const withMeshConfiguration = <P extends IWithMeshConfigurationProps>(
   GLTFJSXComponent: React.ComponentType<P>,
   // configuration: IConfiguration,
 ) => {
-  return (props: P) => {
+  const WrappedComponent = (props: P) => {
     const configuration = useConfigurationStore((state) => state.configuration)
     const {
       soundboardConfiguration,
@@ -42,6 +47,7 @@ const withMeshConfiguration = <P extends IWithMeshConfigurationProps>(
       backStripConfiguration,
       sidesConfiguration,
       heelTailBlockConfiguration,
+      kerflingConfiguration,
       bindingConfiguration,
       purflingConfiguration,
       neckConfiguration,
@@ -53,6 +59,8 @@ const withMeshConfiguration = <P extends IWithMeshConfigurationProps>(
       stringsConfiguration,
       nutConfiguration,
       saddleConfiguration,
+      fretboardMarkersConfiguration,
+      pickguardConfiguration,
     } = {
       soundboardConfiguration: getConfiguredComponent(configuration, ELuthComponent.Soundboard),
       backStripConfiguration: getConfiguredComponent(configuration, ELuthComponent.BackStrip),
@@ -64,6 +72,7 @@ const withMeshConfiguration = <P extends IWithMeshConfigurationProps>(
         configuration,
         ELuthComponent.HeelTailBlocks,
       ),
+      kerflingConfiguration: getConfiguredComponent(configuration, ELuthComponent.Kerfling),
       bindingConfiguration: getConfiguredComponent(configuration, ELuthComponent.Binding),
       purflingConfiguration: getConfiguredComponent(configuration, ELuthComponent.Purfling),
       neckConfiguration: getConfiguredComponent(configuration, ELuthComponent.Neck),
@@ -75,75 +84,63 @@ const withMeshConfiguration = <P extends IWithMeshConfigurationProps>(
       stringsConfiguration: getConfiguredComponent(configuration, ELuthComponent.Strings),
       nutConfiguration: getConfiguredComponent(configuration, ELuthComponent.Nut),
       saddleConfiguration: getConfiguredComponent(configuration, ELuthComponent.Saddle),
+      fretboardMarkersConfiguration: getConfiguredComponent(
+        configuration,
+        ELuthComponent.FretboardMarkers,
+      ),
+      pickguardConfiguration: getConfiguredComponent(configuration, ELuthComponent.Pickguard),
     }
 
-    if (
-      !soundboardConfiguration ||
-      !rosetteConfiguration ||
-      !bracesConfiguration ||
-      !backConfiguration ||
-      !backStripConfiguration ||
-      !sidesConfiguration ||
-      !heelTailBlockConfiguration ||
-      !bindingConfiguration ||
-      !purflingConfiguration ||
-      !neckConfiguration ||
-      !fretboardConfiguration ||
-      !fretsConfiguration ||
-      !headstockConfiguration ||
-      !endGraftConfiguration ||
-      !bridgeConfiguration ||
-      !stringsConfiguration ||
-      !nutConfiguration ||
-      !saddleConfiguration
-    )
-      return
+    const { orientation } = useConfigurationStore((state) => state.baseOptions)
 
     return (
-      <group scale={0.001}>
-        <Instances>
-          {configuration ? (
-            <>
-              <SoundboardMeshes configuration={soundboardConfiguration}>
-                <RosetteMeshes configuration={rosetteConfiguration} />
-                <BracesMeshes configuration={bracesConfiguration} />
-              </SoundboardMeshes>
-              <BackMeshes configuration={backConfiguration}>
-                <BackStripMeshes configuration={backStripConfiguration} />
-              </BackMeshes>
-              <SidesMeshes configuration={sidesConfiguration}>
-                <HeelTailBlockMeshes configuration={heelTailBlockConfiguration} />
-                <EndGraftMeshes configuration={endGraftConfiguration} />
-              </SidesMeshes>
-              <BindingMeshes configuration={bindingConfiguration}>
-                <PurflingMeshes configuration={purflingConfiguration} />
-              </BindingMeshes>
-              <NeckMeshes configuration={neckConfiguration}>
-                <mesh>
-                  <boxGeometry />
-                </mesh>
-              </NeckMeshes>
-              <HeadstockMeshes configuration={headstockConfiguration}>
-                <mesh>
-                  <boxGeometry />
-                </mesh>
-              </HeadstockMeshes>
-              <FretboardMeshes configuration={fretboardConfiguration}>
-                <FretsMeshes configuration={fretsConfiguration} />
-                <NutMeshes configuration={nutConfiguration} />
-              </FretboardMeshes>
-              <BridgeMeshes configuration={bridgeConfiguration}>
-                <SaddleMeshes configuration={saddleConfiguration} />
-              </BridgeMeshes>
-              <StringsMeshes configuration={stringsConfiguration} />
-            </>
-          ) : (
-            <GLTFJSXComponent {...props} position={[0, 0, 0]} visible={false} />
-          )}
-        </Instances>
+      <group scale={orientation === EBaseOrientationOption.LeftHanded ? [-1, 1, 1] : [1, 1, 1]}>
+        {/* <Instances> */}
+        {configuration ? (
+          <>
+            <SoundboardMeshes configuration={soundboardConfiguration}>
+              <RosetteMeshes configuration={rosetteConfiguration} />
+              <BracesMeshes configuration={bracesConfiguration} />
+            </SoundboardMeshes>
+            <BackMeshes configuration={backConfiguration}>
+              <BackStripMeshes configuration={backStripConfiguration} />
+            </BackMeshes>
+            <SidesMeshes configuration={sidesConfiguration}>
+              <HeelTailBlockMeshes configuration={heelTailBlockConfiguration} />
+              <KerflingMeshes configuration={kerflingConfiguration} />
+              <EndGraftMeshes configuration={endGraftConfiguration} />
+            </SidesMeshes>
+            <BindingMeshes configuration={bindingConfiguration}>
+              <PurflingMeshes configuration={purflingConfiguration} />
+            </BindingMeshes>
+            <NeckMeshes configuration={neckConfiguration}>
+              {/* <mesh>
+                <boxGeometry />
+              </mesh> */}
+            </NeckMeshes>
+            <HeadstockMeshes configuration={headstockConfiguration}></HeadstockMeshes>
+            <FretboardMeshes configuration={fretboardConfiguration}>
+              <NutMeshes configuration={nutConfiguration} />
+              {/* <FretsMeshes configuration={fretsConfiguration} /> */}
+              {/* <FretboardMarkersMeshes configuration={fretboardMarkersConfiguration} /> */}
+            </FretboardMeshes>
+            <BridgeMeshes configuration={bridgeConfiguration}>
+              <SaddleMeshes configuration={saddleConfiguration} />
+            </BridgeMeshes>
+            <PickguardMeshes configuration={pickguardConfiguration} />
+            <StringsMeshes configuration={stringsConfiguration} />
+          </>
+        ) : (
+          <GLTFJSXComponent {...props} position={[0, 0, 0]} />
+        )}
+        {/* </Instances> */}
       </group>
     )
   }
+
+  WrappedComponent.displayName = `withMeshConfiguration(${GLTFJSXComponent.displayName || GLTFJSXComponent.name || 'Component'})`
+
+  return WrappedComponent
 }
 
 export default withMeshConfiguration

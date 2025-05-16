@@ -5,7 +5,7 @@
   "keywords": [],
   "author": "Nathan Samsoedien <contact@samsoedien.com> (https://samsoedien.com)",
   "main": "dist/index.js",
-  "repository": "https://github.com/samsoedien/project-luth/tree/master/apps/server",
+  "repository": "https://github.com/samsoedien/project-luth/tree/main/apps/server",
   "license": "MIT",
   "scripts": {
     "dev": "nodemon",

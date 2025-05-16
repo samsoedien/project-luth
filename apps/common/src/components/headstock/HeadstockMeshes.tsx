@@ -1,8 +1,7 @@
-import { useContext } from 'react'
-import { context as GLTFJSXContext } from '../../_generated/LuthAcoustic'
-import { GLTFJSXInstances } from '~/models/gltfjsx.model'
 import { IConfiguration } from '~/models/configuration.model'
 import { useInstanceGeometry } from '~/hooks/useInstanceGeometry'
+
+import LuthHeadstock, { Instances } from '../../_generated/LuthHeadstock'
 
 export interface IHeadstockMeshesProps {
   configuration: IConfiguration
@@ -10,7 +9,6 @@ export interface IHeadstockMeshesProps {
 }
 
 export default function HeadstockMeshes({ configuration, children }: IHeadstockMeshesProps) {
-  const instances = useContext(GLTFJSXContext) as GLTFJSXInstances
   const { instanceGeometry, instanceGroupRef } = useInstanceGeometry(configuration)
 
   return (
@@ -21,8 +19,10 @@ export default function HeadstockMeshes({ configuration, children }: IHeadstockM
             <meshNormalMaterial />
           </mesh>
         ))}
-      <group ref={instanceGroupRef} scale={0}>
-        <instances.BodyHeadstock name="Body_Headstock" />
+      <group ref={instanceGroupRef} visible={false}>
+        <Instances>
+          <LuthHeadstock />
+        </Instances>
       </group>
 
       {children}

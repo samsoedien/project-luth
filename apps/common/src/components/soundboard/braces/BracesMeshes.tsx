@@ -1,6 +1,4 @@
-import { useContext } from 'react'
-import { context as GLTFJSXContext } from '../../../_generated/LuthAcoustic'
-import { GLTFJSXInstances } from '~/models/gltfjsx.model'
+import LuthBraces, { Instances } from '~/_generated/LuthBraces'
 import { useInstanceGeometry } from '~/hooks/useInstanceGeometry'
 import { IConfiguration } from '~/models/configuration.model'
 
@@ -9,7 +7,6 @@ export interface IBracesMeshesProps {
 }
 
 export default function BracesMeshes({ configuration }: IBracesMeshesProps) {
-  const instances = useContext(GLTFJSXContext) as GLTFJSXInstances
   const { instanceGeometry, instanceGroupRef } = useInstanceGeometry(configuration)
 
   return (
@@ -20,18 +17,10 @@ export default function BracesMeshes({ configuration }: IBracesMeshesProps) {
             <meshNormalMaterial />
           </mesh>
         ))}
-      <group ref={instanceGroupRef} scale={0}>
-        <instances.BodyXBraceB name="Body_X_BraceB" />
-        <instances.BodyXBraceC name="Body_X_BraceC" />
-        <instances.BodyBraceD name="Body_BraceD" />
-        <instances.BodyBraceE name="Body_BraceE" />
-        <instances.BodyBraceFRight name="Body_BraceF_Right" />
-        <instances.BodyBraceFLeft name="Body_BraceF_Left" />
-        <instances.BodyBraceGRight name="Body_BraceG_Right" />
-        <instances.BodyBraceGLeft name="Body_BraceG_Left" />
-        <instances.BodyBraceHRight name="Body_BraceH_Right" />
-        <instances.BodyBraceHLeft name="Body_BraceH_Left" />
-        <instances.BodyLateralBraceA name="Body_Lateral_BraceA" />
+      <group ref={instanceGroupRef} visible={false}>
+        <Instances>
+          <LuthBraces />
+        </Instances>
       </group>
     </group>
   )

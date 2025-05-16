@@ -1,11 +1,11 @@
-import { useContext, useEffect, useRef } from 'react'
-import { context as GLTFJSXContext } from '../../_generated/LuthAcoustic'
+import { memo, useRef } from 'react'
+import LuthSoundboard, { Instances } from '../../_generated/LuthSoundboard'
 import { useInstanceGeometry } from '~/hooks/useInstanceGeometry'
-import { Mesh, MirroredRepeatWrapping } from 'three'
-import { useTexture } from '@react-three/drei'
+import { Helper, useTexture } from '@react-three/drei'
 import { IConfiguration } from '~/models/configuration.model'
 
-import { GLTFJSXInstances } from '~/models/gltfjsx.model'
+import { BoxHelper, Mesh } from 'three'
+import { DimensionedMesh } from './DimensionedMesh'
 
 export interface ISoundboardMeshesProps {
   configuration: IConfiguration
@@ -13,45 +13,45 @@ export interface ISoundboardMeshesProps {
 }
 
 export default function SoundboardMeshes({ configuration, children }: ISoundboardMeshesProps) {
-  const instances = useContext(GLTFJSXContext) as GLTFJSXInstances
   const { instanceGeometry, instanceGroupRef } = useInstanceGeometry(configuration)
 
-  const meshRef = useRef<Mesh>(null)
-
-  useEffect(() => {
-    console.log('meshRef', meshRef.current)
-  }, [configuration])
-
-  const soundboardTexture = useTexture('sitka-spruce.jpg')
-
-  soundboardTexture.repeat.x = 2
-  soundboardTexture.wrapS = MirroredRepeatWrapping
+  const BaseColorMap = useTexture('Body_Sides_Venetian_Cutaway_Batch001_PBR_Diffuse.png')
+  const NormalMap = useTexture('Body_Sides_Venetian_Cutaway_Batch001_PBR_Normal.png')
+  const ORMMap = useTexture('Body_Sides_Venetian_Cutaway_Batch001_PBR_ORM_Textures.png')
 
   return (
     <group name={configuration.name} dispose={null}>
       {instanceGeometry.length > 0 &&
         instanceGeometry.map((child) => {
           return (
-            <mesh
-              ref={meshRef}
-              key={child.uuid}
-              name={child.name}
-              geometry={child.geometry}
-              castShadow
-              receiveShadow
-              onClick={(e) => console.log('click', configuration)}
-            >
-              <meshStandardMaterial map={soundboardTexture} />;
-            </mesh>
+            <DimensionedMesh key={child.uuid} name={child.name} geometry={child.geometry} />
+
+            // <mesh
+            //   key={child.uuid}
+            //   name={child.name}
+            //   geometry={child.geometry}
+            //   castShadow
+            //   receiveShadow
+            //   ref={meshRef}
+            // >
+            //   <meshNormalMaterial />
+            //   {/* <meshStandardMaterial
+            //     color="white"
+            //     // map={BaseColorMap}
+            //     // normalMap={NormalMap}
+            //     // displacementMap={spruceHeightMap}
+            //     // roughnessMap={ORMMap}
+            //     // metalnessMap={ORMMap}
+            //     // aoMap={ORMMap}
+            //   /> */}
+            //   <Helper type={BoxHelper} args={['red']} />
+            // </mesh>
           )
         })}
-      <group ref={instanceGroupRef} scale={0}>
-        <instances.BodySoundboard name="Body_Soundboard" />
-        <instances.BodySoundboardVenetianCutaway name="Body_Soundboard_Venetian_Cutaway" />
-        <instances.BodySoundboardFlorentineCutaway name="Body_Soundboard_Florentine_Cutaway" />
-        <instances.BodySoundboardArmBevel name="Body_Soundboard_Arm_Bevel" />
-        <instances.BodySoundboardArmBevelCutawayVenetian name="Body_Soundboard_Arm_Bevel_Cutaway_Venetian" />
-        <instances.BodySoundboardArmBevelCutawayFlorentine name="Body_Soundboard_Arm_Bevel_Cutaway_Florentine" />
+      <group ref={instanceGroupRef} visible={false}>
+        <Instances>
+          <LuthSoundboard />
+        </Instances>
       </group>
       {children}
     </group>
