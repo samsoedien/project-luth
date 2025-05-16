@@ -176,8 +176,8 @@ export const createOptionsSlice: StateCreator<StoreState, [], [], IOptionsStoreS
   /** Level 1 Options: Body & Scale (will delegate changes to a set components) */
   bodyOptions: {
     bodyShape: EBodyShapeOption.Dreadnought,
-    bodyType: EBodyTypeOption.Fret14,
     bodyDepth: EBodyDepthOption.Standard,
+    bodyType: EBodyTypeOption.Fret14,
     cutaway: EBodyCutawayOption.Venetian,
     armBevel: EBodyArmBevelOption.None,
   },
@@ -341,8 +341,8 @@ export const createOptionsSlice: StateCreator<StoreState, [], [], IOptionsStoreS
     set({ configuration: { ...configuration } })
   },
   headstockOptions: {
-    headstockShape: EHeadstockShapeOption.Standard,
     type: EHeadstockTypeOption.Solid,
+    headstockShape: EHeadstockShapeOption.Standard,
   },
   setHeadstockOptions: (options) => {
     set((state) => ({
@@ -354,7 +354,7 @@ export const createOptionsSlice: StateCreator<StoreState, [], [], IOptionsStoreS
     const headstockComponent = getConfiguredComponent(configuration, ELuthComponent.Headstock)
 
     headstockComponent.meshes =
-      headstockMeshMap[scaleOptions.scaleLength][scaleOptions.assymetrical][
+      headstockMeshMap[scaleOptions.scaleLength][scaleOptions.assymetrical][headstockOptions.type][
         headstockOptions.headstockShape
       ]
 

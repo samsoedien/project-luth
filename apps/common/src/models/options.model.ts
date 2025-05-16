@@ -240,8 +240,8 @@ export interface INeckOptions {
 }
 
 export interface IHeadstockOptions {
-  headstockShape: EHeadstockShapeOption
   type: EHeadstockTypeOption
+  headstockShape: EHeadstockShapeOption
 }
 
 export interface IFretboardOptions {
