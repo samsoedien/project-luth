@@ -1,4 +1,5 @@
 import { create, StateCreator } from 'zustand'
+import { devtools } from 'zustand/middleware'
 
 import { ELuthComponent, IConfiguration } from '~/models/configuration.model'
 import { initialConfigurationState } from './initialConfigurationState'
@@ -89,7 +90,7 @@ export interface IConfigurationStoreState {
 
 export const createConfigurationSlice: StateCreator<
   StoreState,
-  [],
+  [['zustand/devtools', never]],
   [],
   IConfigurationStoreState
 > = (set, get) => ({
@@ -665,9 +666,18 @@ export type StoreState = IConfigurationStoreState &
   IUIControlsStoreState &
   IHistoryStoreState
 
-export const useConfigurationStore = create<StoreState>()((set, get, store) => ({
-  ...createConfigurationSlice(set, get, store),
-  ...createOptionsSlice(set, get, store),
-  ...createUIControlsSlice(set, get, store),
-  ...createHistorySlice(set, get, store),
-}))
+// export const useConfigurationStore = create<StoreState>()((set, get, store) => ({
+//   ...createConfigurationSlice(set, get, store),
+//   ...createOptionsSlice(set, get, store),
+//   ...createUIControlsSlice(set, get, store),
+//   ...createHistorySlice(set, get, store),
+// }))
+
+export const useConfigurationStore = create<StoreState>()(
+  devtools((set, get, store) => ({
+    ...createConfigurationSlice(set, get, store),
+    ...createOptionsSlice(set, get, store),
+    ...createUIControlsSlice(set, get, store),
+    ...createHistorySlice(set, get, store),
+  })),
+)

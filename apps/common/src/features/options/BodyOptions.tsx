@@ -14,6 +14,8 @@ export default function BodyOptions() {
   const bodyOptions = useConfigurationStore((state) => state.bodyOptions)
   const setBodyOptions = useConfigurationStore((state) => state.setBodyOptions)
 
+  const record = useConfigurationStore((state) => state.record)
+
   useControls(
     'Body Options', // Store names
     {
