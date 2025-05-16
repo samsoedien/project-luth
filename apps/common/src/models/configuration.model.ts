@@ -1,5 +1,4 @@
 import { Material } from 'three'
-// import { GLTFResult } from '~/_generated/LuthAcoustic'
 import { LuthGLTFResultCombined } from './gltfjsx.model'
 
 export enum ELuthModel {
@@ -33,17 +32,17 @@ export enum ELuthComponent {
   Bridge = 'Bridge',
   Pickguard = 'Pickguard',
   Strings = 'Strings',
+  Rosette = 'Rosette',
   Braces = 'Braces',
   BackStrip = 'BackStrip',
+  EndGraft = 'EndGraft',
   HeelTailBlocks = 'HeelTailBlocks',
   Kerfling = 'Kerfling',
   Purfling = 'Purfling',
-  Rosette = 'Rosette',
   Frets = 'Frets',
-  EndGraft = 'EndGraft',
+  FretboardMarkers = 'FretboardMarkers',
   Nut = 'Nut',
   Saddle = 'Saddle',
-  FretboardMarkers = 'FretboardMarkers',
 }
 
 export interface IConfiguration {

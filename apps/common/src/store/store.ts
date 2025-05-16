@@ -290,9 +290,9 @@ export const createOptionsSlice: StateCreator<StoreState, [], [], IOptionsStoreS
     const sidesComponent = getConfiguredComponent(configuration, ELuthComponent.Sides)
 
     sidesComponent.meshes =
-      sidesMeshMap[bodyOptions.bodyShape][bodyOptions.bodyDepth][bodyOptions.cutaway][
-        bodyOptions.armBevel
-      ][sidesOptions.soundPort]
+      sidesMeshMap[bodyOptions.bodyShape][bodyOptions.bodyDepth][bodyOptions.bodyType][
+        bodyOptions.cutaway
+      ][bodyOptions.armBevel][sidesOptions.soundPort]
 
     get().setHeelTailBlocksOptions(heelTailBlocksOptions)
     get().setKerflingOptions(kerflingOptions)
@@ -655,8 +655,33 @@ export const createHistorySlice: StateCreator<StoreState, [], [], IHistoryStoreS
 ) => ({
   history: [],
   future: [],
-  undo: () => {},
-  redo: () => {},
+  undo: () => {
+    const { history, future, ...currentState } = get()
+    if (history.length === 0) return
+
+    const previous = history[history.length - 1]
+    const newHistory = history.slice(0, -1)
+
+    set({
+      ...previous,
+      history: newHistory,
+      future: [currentState as IOptionsStoreState, ...future],
+    })
+  },
+
+  redo: () => {
+    const { history, future, ...currentState } = get()
+    if (future.length === 0) return
+
+    const next = future[0]
+    const newFuture = future.slice(1)
+
+    set({
+      ...next,
+      history: [...history, currentState as IOptionsStoreState],
+      future: newFuture,
+    })
+  },
 })
 
 /** COMBINED STORE SLICES */

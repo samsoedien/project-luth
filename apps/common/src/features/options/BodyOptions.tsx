@@ -1,11 +1,9 @@
-import React from 'react'
-import { Leva, useControls, useCreateStore } from 'leva'
+import { Leva, useControls } from 'leva'
 import { useConfigurationStore } from '../../store/store'
 import {
   EBodyArmBevelOption,
   EBodyShapeOption,
   EBodyCutawayOption,
-  EBodyOrientationOption,
   EBodyDepthOption,
   EBodyTypeOption,
 } from '~/models/options.model'
@@ -14,7 +12,28 @@ export default function BodyOptions() {
   const bodyOptions = useConfigurationStore((state) => state.bodyOptions)
   const setBodyOptions = useConfigurationStore((state) => state.setBodyOptions)
 
-  const record = useConfigurationStore((state) => state.record)
+  // const config = {
+  //   component: 'Soundboard',
+  //   bodyShape: 'Dread',
+  //   depth: 'Thinline',
+  //   fretAccess: 'Fret14',
+  //   cutaway: 'CWVen',
+  //   bracing: 'ABStd',
+  //   type: 'Mesh',
+  // }
+
+  // const meshName = Object.values(config).join('__')
+
+  const configuration = {
+    component: 'Soundboard',
+    fusionConfig: 'Dread_Thinline_Fret14',
+    meshVariants: 'CWVen_ABStd',
+    type: 'Mesh',
+  }
+
+  const meshName1 = Object.values(configuration).join('__')
+
+  console.log(meshName1)
 
   useControls(
     'Body Options', // Store names
