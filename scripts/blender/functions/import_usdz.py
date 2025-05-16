@@ -1,18 +1,13 @@
 import bpy
 import os
 
-default_keywords = ["Soundboard", "Back", "Sides", "Binding", "Neck", "Headstock", "Fretboard", "Bridge", "Pickguard", "Strings", "Rosette", "Purfling"]
+default_keywords = [
+    "Soundboard", "Back", "Sides", "Binding", "Neck",
+    "Headstock", "Fretboard", "Bridge", "Pickguard",
+    "Strings", "Rosette", "Purfling"
+]
 
 def import_usdz_files(base_path, keywords=default_keywords, import_scale=1.0):
-    """
-    Imports .usdz files from a base path into collections based on matching keywords.
-    
-    Args:
-        base_path (str): Path to the directory containing subfolders with .usdz files.
-        keywords (list[str]): Keywords to match in filenames (e.g., ["Soundboard", "Sides"]).
-        import_scale (float): Scale to apply during import.
-    """
-
     # Create or retrieve top-level collections for each keyword
     keyword_collections = {}
     for keyword in keywords:
@@ -42,6 +37,12 @@ def import_usdz_files(base_path, keywords=default_keywords, import_scale=1.0):
 
             collection = keyword_collections[matching_keyword]
             file_path = os.path.join(config_path, file_name)
+            file_base = os.path.splitext(file_name)[0]
+
+            # Remove the keyword prefix if present
+            prefix = matching_keyword + "_"
+            if file_base.startswith(prefix):
+                file_base = file_base[len(prefix):]
 
             print(f"📦 Importing '{file_name}' to '{collection.name}'")
 
@@ -56,13 +57,23 @@ def import_usdz_files(base_path, keywords=default_keywords, import_scale=1.0):
             new_objs = list(after_objs - before_objs)
 
             for obj in new_objs:
-                # Make name unique
-                base_name = obj.name
+                original_name = obj.name
+
+                # Remove redundant keyword prefix from mesh name
+                mesh_name = original_name
+                mesh_prefix = matching_keyword + "_"
+                if mesh_name.startswith(mesh_prefix):
+                    mesh_name = mesh_name[len(mesh_prefix):]
+
+                new_name = f"{matching_keyword}__{file_base}__{mesh_name}__Mesh"
+
+                # Ensure uniqueness
                 counter = 1
-                while base_name in bpy.data.objects and bpy.data.objects[base_name] != obj:
-                    base_name = f"{obj.name}_{counter}"
+                final_name = new_name
+                while final_name in bpy.data.objects and bpy.data.objects[final_name] != obj:
+                    final_name = f"{new_name}_{counter}"
                     counter += 1
-                obj.name = base_name
+                obj.name = final_name
 
                 # Apply scale
                 if obj.type == 'MESH':
@@ -75,4 +86,3 @@ def import_usdz_files(base_path, keywords=default_keywords, import_scale=1.0):
                     bpy.context.scene.collection.objects.unlink(obj)
 
             print(f"✅ Imported {len(new_objs)} objects from '{file_name}'")
-

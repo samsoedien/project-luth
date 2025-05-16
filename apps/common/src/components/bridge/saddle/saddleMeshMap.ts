@@ -12,4 +12,7 @@ export const saddleMeshMap: SaddleMeshMap = {
   [EScaleLengthOption.Standard]: {
     [EScaleAssymetrical.None]: ['Body_Saddle'],
   },
+  [EScaleLengthOption.Shorter]: {
+    [EScaleAssymetrical.None]: ['Body_Saddle'],
+  },
 }

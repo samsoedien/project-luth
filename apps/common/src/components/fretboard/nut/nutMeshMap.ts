@@ -12,4 +12,7 @@ export const nutMeshMap: NutMeshMap = {
   [EScaleLengthOption.Standard]: {
     [EScaleAssymetrical.None]: ['Body_Nut001'],
   },
+  [EScaleLengthOption.Shorter]: {
+    [EScaleAssymetrical.None]: ['Body_Nut001'],
+  },
 }

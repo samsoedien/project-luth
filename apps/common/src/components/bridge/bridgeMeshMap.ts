@@ -18,4 +18,11 @@ export const bridgeMeshMap: BridgeMeshMap = {
       [EBridgeTypeOption.BellyUp]: [],
     },
   },
+  [EScaleLengthOption.Shorter]: {
+    [EScaleAssymetrical.None]: {
+      [EBridgeTypeOption.Traditional]: ['Body_Bridge'],
+      [EBridgeTypeOption.Tailpiece]: [],
+      [EBridgeTypeOption.BellyUp]: [],
+    },
+  },
 }

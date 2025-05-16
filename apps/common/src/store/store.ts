@@ -49,9 +49,9 @@ import {
   IFretsOptions,
   IEndGraftOptions,
   EHeadstockTypeOption,
-  EBodyTypeOption,
   IBaseOptions,
   EBaseOrientationOption,
+  EBaseTypeOption,
 } from '~/models/options.model'
 import { getConfiguredComponent } from '~/helpers/meshUtils'
 
@@ -79,6 +79,8 @@ import { saddleMeshMap } from '~/components/bridge/saddle/saddleMeshMap'
 import { fretsMeshMap } from '~/components/fretboard/frets/fretsMeshMap'
 import EndGraftMeshes from '~/components/sides/endGraft/EndGraftMeshes'
 import { endGraftMeshMap } from '~/components/sides/endGraft/endGraftMeshMap'
+import BaseOptions from '~/features/options/BaseOptions'
+import BodyOptions from '~/features/options/BodyOptions'
 
 /** CONFIGURATION STATE SLICE */
 export interface IConfigurationStoreState {
@@ -168,17 +170,22 @@ export const createOptionsSlice: StateCreator<StoreState, [], [], IOptionsStoreS
 ) => ({
   baseOptions: {
     orientation: EBaseOrientationOption.RightHanded,
+    fretJoint: EBaseTypeOption.Fret14,
   },
   setBaseOptions: (baseOptions) => {
     set((state) => ({
       baseOptions: { ...state.baseOptions, ...baseOptions },
     }))
+
+    const { bodyOptions, scaleOptions } = get()
+
+    get().setBodyOptions(bodyOptions)
+    get().setScaleOptions(scaleOptions)
   },
   /** Level 1 Options: Body & Scale (will delegate changes to a set components) */
   bodyOptions: {
     bodyShape: EBodyShapeOption.Dreadnought,
     bodyDepth: EBodyDepthOption.Standard,
-    bodyType: EBodyTypeOption.Fret14,
     cutaway: EBodyCutawayOption.Venetian,
     armBevel: EBodyArmBevelOption.None,
   },
@@ -187,12 +194,14 @@ export const createOptionsSlice: StateCreator<StoreState, [], [], IOptionsStoreS
       bodyOptions: { ...state.bodyOptions, ...bodyOptions },
     }))
 
-    const { soundboardOptions, backOptions, sidesOptions, bindingOptions } = get()
+    const { soundboardOptions, backOptions, sidesOptions, bindingOptions, fretboardOptions } = get()
 
     get().setSoundboardOptions(soundboardOptions)
     get().setBackOptions(backOptions)
     get().setSidesOptions(sidesOptions)
     get().setBindingOptions(bindingOptions)
+
+    get().setFretboardOptions(fretboardOptions)
   },
   scaleOptions: {
     scaleLength: EScaleLengthOption.Standard,
@@ -284,13 +293,14 @@ export const createOptionsSlice: StateCreator<StoreState, [], [], IOptionsStoreS
       heelTailBlocksOptions,
       kerflingOptions,
       endGraftOptions,
+      baseOptions,
       configuration,
     } = get()
 
     const sidesComponent = getConfiguredComponent(configuration, ELuthComponent.Sides)
 
     sidesComponent.meshes =
-      sidesMeshMap[bodyOptions.bodyShape][bodyOptions.bodyDepth][bodyOptions.bodyType][
+      sidesMeshMap[bodyOptions.bodyShape][bodyOptions.bodyDepth][baseOptions.fretJoint][
         bodyOptions.cutaway
       ][bodyOptions.armBevel][sidesOptions.soundPort]
 
@@ -370,14 +380,13 @@ export const createOptionsSlice: StateCreator<StoreState, [], [], IOptionsStoreS
       fretboardOptions: { ...state.fretboardOptions, ...options },
     }))
 
-    const { configuration, scaleOptions, fretboardOptions, fretsOptions, nutOptions } = get()
+    const { configuration, scaleOptions, fretboardOptions, fretsOptions, nutOptions, baseOptions } =
+      get()
 
     const fretboardComponent = getConfiguredComponent(configuration, ELuthComponent.Fretboard)
 
     fretboardComponent.meshes =
-      fretboardMeshMap[scaleOptions.scaleLength][scaleOptions.assymetrical][
-        fretboardOptions.extension
-      ][fretboardOptions.radius]
+      fretboardMeshMap[scaleOptions.scaleLength][baseOptions.fretJoint][fretboardOptions.extension]
 
     get().setFretsOptions(fretsOptions)
     get().setNutOptions(nutOptions)

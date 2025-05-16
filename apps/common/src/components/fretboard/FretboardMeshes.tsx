@@ -10,7 +10,7 @@ export interface IFretboardMeshesProps {
 
 export default function FretboardMeshes({ configuration, children }: IFretboardMeshesProps) {
   const { instanceGeometry, instanceGroupRef } = useInstanceGeometry(configuration)
-
+  console.log('FretboardMeshes', instanceGeometry, instanceGroupRef)
   return (
     <group name={configuration.name} dispose={null} visible={configuration?.groupVisibility}>
       {instanceGeometry.length > 0 &&

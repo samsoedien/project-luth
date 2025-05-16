@@ -5,7 +5,6 @@ import {
   EBodyShapeOption,
   EBodyCutawayOption,
   EBodyDepthOption,
-  EBodyTypeOption,
 } from '~/models/options.model'
 
 export default function BodyOptions() {
@@ -42,11 +41,6 @@ export default function BodyOptions() {
         options: Object.values(EBodyShapeOption) as EBodyShapeOption[],
         value: bodyOptions.bodyShape,
         onChange: (value) => setBodyOptions({ bodyShape: value }),
-      },
-      bodyType: {
-        options: Object.values(EBodyTypeOption) as EBodyTypeOption[],
-        value: bodyOptions.bodyType,
-        onChange: (value) => setBodyOptions({ bodyType: value }),
       },
       bodyDepth: {
         options: Object.values(EBodyDepthOption) as EBodyDepthOption[],

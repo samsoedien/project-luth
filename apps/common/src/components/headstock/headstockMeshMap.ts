@@ -28,4 +28,14 @@ export const headstockMeshMap: HeadstockMeshMap = {
       },
     },
   },
+  [EScaleLengthOption.Shorter]: {
+    [EScaleAssymetrical.None]: {
+      [EHeadstockTypeOption.Solid]: {
+        [EHeadstockShapeOption.Standard]: ['Body_Headstock'],
+      },
+      [EHeadstockTypeOption.Slotted]: {
+        [EHeadstockShapeOption.Standard]: ['Body_Headstock'],
+      },
+    },
+  },
 }

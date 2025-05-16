@@ -30,4 +30,16 @@ export const neckMeshMap: NeckMeshMap = {
       },
     },
   },
+  [EScaleLengthOption.Shorter]: {
+    [EScaleAssymetrical.None]: {
+      [ENeckShapeOption.CShape]: {
+        [ENeckAssymmetricalOption.None]: ['Body_Neck', 'Body_Heel'],
+        [ENeckAssymmetricalOption.Asymmetrical]: ['Body_Neck', 'Body_Heel'],
+      },
+      [ENeckShapeOption.VShape]: {
+        [ENeckAssymmetricalOption.None]: ['Body_Neck', 'Body_Heel'],
+        [ENeckAssymmetricalOption.Asymmetrical]: ['Body_Neck', 'Body_Heel'],
+      },
+    },
+  },
 }

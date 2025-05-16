@@ -51,4 +51,17 @@ export const fretsMeshMap: FretsMeshMap = {
       ],
     },
   },
+  [EScaleLengthOption.Shorter]: {
+    [EScaleAssymetrical.None]: {
+      [EFretboardExtensionOption.Straight]: [...standardFretsMeshes],
+      [EFretboardExtensionOption.Rounded]: [...standardFretsMeshes, 'Body_Fret21'],
+      [EFretboardExtensionOption.Extended]: [
+        ...standardFretsMeshes,
+        'Body_Fret21',
+        'Body_Fret22',
+        'Body_Fret23',
+        'Body_Fret24',
+      ],
+    },
+  },
 }

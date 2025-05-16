@@ -6,13 +6,13 @@ import {
   EBodyCutawayOption,
   EBodyDepthOption,
   ESidesSoundPortOption,
-  EBodyTypeOption,
+  EBaseTypeOption,
 } from '~/models/options.model'
 
 type SidesboardMeshMap = {
   [key in EBodyShapeOption]: {
     [key in EBodyDepthOption]: {
-      [key in EBodyTypeOption]: {
+      [key in EBaseTypeOption]: {
         [key in EBodyCutawayOption]: {
           [key in EBodyArmBevelOption]: {
             [key in ESidesSoundPortOption]: Array<keyof LuthSidesGLTF['nodes']>
@@ -26,7 +26,7 @@ type SidesboardMeshMap = {
 export const sidesMeshMap: SidesboardMeshMap = {
   [EBodyShapeOption.Dreadnought]: {
     [EBodyDepthOption.Standard]: {
-      [EBodyTypeOption.Fret14]: {
+      [EBaseTypeOption.Fret14]: {
         [EBodyCutawayOption.None]: {
           [EBodyArmBevelOption.None]: {
             [ESidesSoundPortOption.None]: ['Sides__Dread_Standard_Fret14__CWNone'],
@@ -68,7 +68,7 @@ export const sidesMeshMap: SidesboardMeshMap = {
           },
         },
       },
-      [EBodyTypeOption.Fret12]: {
+      [EBaseTypeOption.Fret12]: {
         [EBodyCutawayOption.None]: {
           [EBodyArmBevelOption.None]: {
             [ESidesSoundPortOption.None]: ['Sides__Dread_Standard_Fret12__CWNone'],
@@ -112,7 +112,7 @@ export const sidesMeshMap: SidesboardMeshMap = {
       },
     },
     [EBodyDepthOption.Thinline]: {
-      [EBodyTypeOption.Fret14]: {
+      [EBaseTypeOption.Fret14]: {
         [EBodyCutawayOption.None]: {
           [EBodyArmBevelOption.None]: {
             [ESidesSoundPortOption.None]: ['Sides__Dread_Thinline_Fret14__CWNone'],
@@ -154,7 +154,7 @@ export const sidesMeshMap: SidesboardMeshMap = {
           },
         },
       },
-      [EBodyTypeOption.Fret12]: {
+      [EBaseTypeOption.Fret12]: {
         [EBodyCutawayOption.None]: {
           [EBodyArmBevelOption.None]: {
             [ESidesSoundPortOption.None]: ['Sides__Dread_Thinline_Fret12__CWNone'],
@@ -200,7 +200,7 @@ export const sidesMeshMap: SidesboardMeshMap = {
   },
   [EBodyShapeOption.Parlor]: {
     [EBodyDepthOption.Standard]: {
-      [EBodyTypeOption.Fret14]: {
+      [EBaseTypeOption.Fret14]: {
         [EBodyCutawayOption.None]: {
           [EBodyArmBevelOption.None]: {
             [ESidesSoundPortOption.None]: ['Sides__Parl_Standard_Fret14__CWNone'],
@@ -242,7 +242,7 @@ export const sidesMeshMap: SidesboardMeshMap = {
           },
         },
       },
-      [EBodyTypeOption.Fret12]: {
+      [EBaseTypeOption.Fret12]: {
         [EBodyCutawayOption.None]: {
           [EBodyArmBevelOption.None]: {
             [ESidesSoundPortOption.None]: ['Sides__Parl_Standard_Fret12__CWNone'],
@@ -286,7 +286,7 @@ export const sidesMeshMap: SidesboardMeshMap = {
       },
     },
     [EBodyDepthOption.Thinline]: {
-      [EBodyTypeOption.Fret14]: {
+      [EBaseTypeOption.Fret14]: {
         [EBodyCutawayOption.None]: {
           [EBodyArmBevelOption.None]: {
             [ESidesSoundPortOption.None]: ['Sides__Parl_Thinline_Fret14__CWNone'],
@@ -328,7 +328,7 @@ export const sidesMeshMap: SidesboardMeshMap = {
           },
         },
       },
-      [EBodyTypeOption.Fret12]: {
+      [EBaseTypeOption.Fret12]: {
         [EBodyCutawayOption.None]: {
           [EBodyArmBevelOption.None]: {
             [ESidesSoundPortOption.None]: ['Sides__Parl_Thinline_Fret12__CWNone'],

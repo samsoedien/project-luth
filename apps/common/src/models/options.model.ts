@@ -20,6 +20,11 @@ export enum EBaseOrientationOption {
   LeftHanded = 'LeftHanded',
 }
 
+export enum EBaseTypeOption {
+  Fret14 = 'Fret14',
+  Fret12 = 'Fret12',
+}
+
 export enum EBodyShapeOption {
   Dreadnought = 'Dreadnought',
   // GrandConcert = 'GrandConcert',
@@ -27,11 +32,6 @@ export enum EBodyShapeOption {
   // Jumbo = 'Jumbo',
   // OM = 'OM',
   Parlor = 'Parlor',
-}
-
-export enum EBodyTypeOption {
-  Fret14 = 'Fret14',
-  Fret12 = 'Fret12',
 }
 
 export enum EBodyDepthOption {
@@ -55,7 +55,7 @@ export enum EBodyArmBevelOption {
 
 export enum EScaleLengthOption {
   Standard = 'Standard',
-  // '24-7/8' = '24-7/8',
+  Shorter = 'Shorter',
 }
 
 export enum EScaleAssymetrical {
@@ -203,11 +203,11 @@ export enum ETonewoodOption {
 
 export interface IBaseOptions {
   orientation: EBaseOrientationOption
+  fretJoint: EBaseTypeOption
 }
 
 export interface IBodyOptions {
   bodyShape: EBodyShapeOption
-  bodyType: EBodyTypeOption
   bodyDepth: EBodyDepthOption
   cutaway: EBodyCutawayOption
   armBevel: EBodyArmBevelOption
