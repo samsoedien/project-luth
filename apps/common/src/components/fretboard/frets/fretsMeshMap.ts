@@ -2,13 +2,13 @@ import { GLTFResult as LuthFretsGLTF } from '~/_generated/LuthFrets'
 
 import {
   EFretboardExtensionOption,
-  EScaleAssymetrical,
+  EScaleAsymmetricalOption,
   EScaleLengthOption,
 } from '~/models/options.model'
 
 type FretsMeshMap = {
   [key in EScaleLengthOption]: {
-    [key in EScaleAssymetrical]: {
+    [key in EScaleAsymmetricalOption]: {
       [key in EFretboardExtensionOption]: Array<keyof LuthFretsGLTF['nodes']>
     }
   }
@@ -39,7 +39,7 @@ const standardFretsMeshes: Array<keyof LuthFretsGLTF['nodes']> = [
 
 export const fretsMeshMap: FretsMeshMap = {
   [EScaleLengthOption.Standard]: {
-    [EScaleAssymetrical.None]: {
+    [EScaleAsymmetricalOption.None]: {
       [EFretboardExtensionOption.Straight]: [...standardFretsMeshes],
       [EFretboardExtensionOption.Rounded]: [...standardFretsMeshes, 'Body_Fret21'],
       [EFretboardExtensionOption.Extended]: [
@@ -52,7 +52,7 @@ export const fretsMeshMap: FretsMeshMap = {
     },
   },
   [EScaleLengthOption.Shorter]: {
-    [EScaleAssymetrical.None]: {
+    [EScaleAsymmetricalOption.None]: {
       [EFretboardExtensionOption.Straight]: [...standardFretsMeshes],
       [EFretboardExtensionOption.Rounded]: [...standardFretsMeshes, 'Body_Fret21'],
       [EFretboardExtensionOption.Extended]: [

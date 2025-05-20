@@ -1,7 +1,7 @@
 import React from 'react'
 import { Leva, useControls, useCreateStore } from 'leva'
 import { useConfigurationStore } from '../../store/store'
-import { EScaleAssymetrical, EScaleLengthOption } from '~/models/options.model'
+import { EScaleAsymmetricalOption, EScaleLengthOption } from '~/models/options.model'
 
 export default function ScaleOptions() {
   const scaleOptions = useConfigurationStore((state) => state.scaleOptions)
@@ -16,7 +16,7 @@ export default function ScaleOptions() {
         onChange: (value) => setScaleOptions({ scaleLength: value }),
       },
       assymetrical: {
-        options: Object.values(EScaleAssymetrical) as EScaleAssymetrical[],
+        options: Object.values(EScaleAsymmetricalOption) as EScaleAsymmetricalOption[],
         value: scaleOptions.assymetrical,
         onChange: (value) => setScaleOptions({ assymetrical: value }),
       },

@@ -1,6 +1,6 @@
 import { Group, Mesh, MeshStandardMaterial, Material, TextureLoader } from 'three'
-import { GLTFResult } from '../_generated/LuthAcousticParlor'
-import { ELuthComponent, IConfiguration } from '~/models/configuration.model'
+
+import { ELuthComponent, IConfiguration, IMeshConfiguration } from '~/models/configuration.model'
 
 // Function to apply visibility to meshes based on configuration
 // export const applyMeshVisibility = (group: Group, configuration: IConfiguration) => {
@@ -175,32 +175,90 @@ export function hasUniqueComponentNames(components: IConfiguration[]): boolean {
   return new Set(names).size === names.length
 }
 
+// export const getConfiguredComponent = (
+//   configuration: IConfiguration,
+//   name: ELuthComponent,
+// ): IConfiguration => {
+//   const findComponent = (
+//     components: IConfiguration[],
+//     name: ELuthComponent,
+//   ): IConfiguration | undefined => {
+//     for (const component of components) {
+//       if (component.name === name) return component
+//       if (component.components?.length) {
+//         const matched = findComponent(component.components, name)
+//         if (matched) return matched
+//       }
+//     }
+//     return undefined
+//   }
+
+//   if (!configuration.config.components) {
+//     throw new Error(`No components found in configuration.`)
+//   }
+
+//   const matchedComponent = findComponent(configuration.config, name)
+//   if (!matchedComponent) {
+//     throw new Error(`Component '${name}' not found in configuration.`)
+//   }
+
+//   return matchedComponent
+// }
+
+// export const getConfiguredComponent = (
+//   meshConfiguration: IMeshConfiguration<ELuthComponent>,
+//   name: ELuthComponent,
+// ): IMeshConfiguration<ELuthComponent> => {
+//   const findComponent = (
+//     component: IMeshConfiguration<ELuthComponent>,
+//     name: ELuthComponent,
+//   ): IMeshConfiguration<ELuthComponent> | undefined => {
+//     if (component.name === name) return component
+
+//     if (component.components) {
+//       for (const child of component.components) {
+//         const matched = findComponent(child as IMeshConfiguration<ELuthComponent>, name)
+//         if (matched) return matched
+//       }
+//     }
+
+//     return undefined
+//   }
+
+//   const matched = findComponent(meshConfiguration, name)
+
+//   if (!matched) {
+//     throw new Error(`Component '${name}' not found in configuration.`)
+//   }
+
+//   return matched
+// }
+
 export const getConfiguredComponent = (
   configuration: IConfiguration,
   name: ELuthComponent,
-): IConfiguration => {
+): IMeshConfiguration<ELuthComponent> => {
   const findComponent = (
-    components: IConfiguration[],
+    component: IMeshConfiguration<ELuthComponent>,
     name: ELuthComponent,
-  ): IConfiguration | undefined => {
-    for (const component of components) {
-      if (component.name === name) return component
-      if (component.components?.length) {
-        const matched = findComponent(component.components, name)
+  ): IMeshConfiguration<ELuthComponent> | undefined => {
+    if (component.name === name) return component
+
+    if (component.components) {
+      for (const child of component.components) {
+        const matched = findComponent(child as IMeshConfiguration<ELuthComponent>, name)
         if (matched) return matched
       }
     }
+
     return undefined
   }
 
-  if (!configuration.components) {
-    throw new Error(`No components found in configuration.`)
-  }
+  const matched = findComponent(configuration.config, name)
 
-  const matchedComponent = findComponent(configuration.components, name)
-  if (!matchedComponent) {
+  if (!matched) {
     throw new Error(`Component '${name}' not found in configuration.`)
   }
 
-  return matchedComponent
+  return matched
 }

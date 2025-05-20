@@ -1,7 +1,7 @@
 import React from 'react'
 import { Leva, useControls, useCreateStore } from 'leva'
 import { useConfigurationStore } from '../../store/store'
-import { EBaseOrientationOption, EBaseTypeOption } from '~/models/options.model'
+import { EBaseOrientationOption, EBaseFretJointOption } from '~/models/options.model'
 
 export default function BaseOptions() {
   const baseOptions = useConfigurationStore((state) => state.baseOptions)
@@ -16,7 +16,7 @@ export default function BaseOptions() {
         onChange: (value) => setBaseOptions({ orientation: value }),
       },
       fretJoint: {
-        options: Object.values(EBaseTypeOption) as EBaseTypeOption[],
+        options: Object.values(EBaseFretJointOption) as EBaseFretJointOption[],
         value: baseOptions.fretJoint,
         onChange: (value) => setBaseOptions({ fretJoint: value }),
       },

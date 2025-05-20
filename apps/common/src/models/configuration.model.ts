@@ -1,27 +1,11 @@
-import { Material } from 'three'
 import { LuthGLTFResultCombined } from './gltfjsx.model'
 
-export enum ELuthModel {
-  Acoustic = 'Acoustic',
-  Electric = 'Electric',
-  ElectricAcoustic = 'ElectricAcoustic',
-  Classical = 'Classical',
-  Travel = 'Travel',
-  Mini = 'Mini',
-  Bass = 'Bass',
-  SemiHollow = 'SemiHollow',
-  HollowBody = 'HollowBody',
-  Resonator = 'Resonator',
-  Baritone = 'Baritone',
-  Guitalele = 'Guitalele',
-  Ukulele = 'Ukulele',
-  Mandolin = 'Mandolin',
-  Banjo = 'Banjo',
-  Other = 'Other',
-}
-
 export enum ELuthComponent {
+  // Base Components
   Base = 'Base',
+  Body = 'Body',
+  Scale = 'Scale',
+  // Main Component
   Soundboard = 'Soundboard',
   Back = 'Back',
   Sides = 'Sides',
@@ -31,7 +15,9 @@ export enum ELuthComponent {
   Fretboard = 'Fretboard',
   Bridge = 'Bridge',
   Pickguard = 'Pickguard',
+  Electronics = 'Electronics',
   Strings = 'Strings',
+  // Sub Components
   Rosette = 'Rosette',
   Braces = 'Braces',
   BackStrip = 'BackStrip',
@@ -45,11 +31,151 @@ export enum ELuthComponent {
   Saddle = 'Saddle',
 }
 
+export const luthBodyDeps = [
+  ELuthComponent.Soundboard,
+  ELuthComponent.Back,
+  ELuthComponent.Sides,
+  ELuthComponent.Binding,
+  ELuthComponent.Pickguard,
+] as const
+
+export const luthScaleDeps = [
+  ELuthComponent.Neck,
+  ELuthComponent.Headstock,
+  ELuthComponent.Fretboard,
+  ELuthComponent.Bridge,
+] as const
+
+export type LuthComponentDepsMap = {
+  [ELuthComponent.Base]: [ELuthComponent.Body, ELuthComponent.Scale]
+  [ELuthComponent.Body]: typeof luthBodyDeps
+  [ELuthComponent.Scale]: typeof luthScaleDeps
+  [ELuthComponent.Soundboard]: [ELuthComponent.Rosette, ELuthComponent.Braces]
+  [ELuthComponent.Back]: [ELuthComponent.BackStrip]
+  [ELuthComponent.Sides]: [
+    ELuthComponent.HeelTailBlocks,
+    ELuthComponent.EndGraft,
+    ELuthComponent.Kerfling,
+  ]
+  [ELuthComponent.Binding]: [ELuthComponent.Purfling]
+  [ELuthComponent.Fretboard]: [
+    ELuthComponent.Frets,
+    ELuthComponent.Nut,
+    ELuthComponent.FretboardMarkers,
+  ]
+  [ELuthComponent.Bridge]: [ELuthComponent.Saddle]
+}
+
+// const LuthComponentDepsMap = {
+//   [ELuthComponent.Base]: [
+//     ELuthComponent.Soundboard,
+//     ELuthComponent.Back,
+//     ELuthComponent.Sides,
+//     ELuthComponent.Binding,
+//     ELuthComponent.Neck,
+//     ELuthComponent.Headstock,
+//     ELuthComponent.Fretboard,
+//     ELuthComponent.Bridge,
+//     ELuthComponent.Pickguard,
+//     ELuthComponent.Strings,
+//   ],
+//   [ELuthComponent.Soundboard]: [ELuthComponent.Rosette, ELuthComponent.Braces],
+//   [ELuthComponent.Back]: [ELuthComponent.BackStrip],
+//   [ELuthComponent.Sides]: [
+//     ELuthComponent.HeelTailBlocks,
+//     ELuthComponent.EndGraft,
+//     ELuthComponent.Kerfling,
+//   ],
+//   [ELuthComponent.Binding]: [ELuthComponent.Purfling],
+//   [ELuthComponent.Fretboard]: [
+//     ELuthComponent.Frets,
+//     ELuthComponent.FretboardMarkers,
+//     ELuthComponent.Nut,
+//   ],
+//   [ELuthComponent.Bridge]: [ELuthComponent.Saddle],
+//   [ELuthComponent.Neck]: [],
+//   [ELuthComponent.Headstock]: [],
+//   [ELuthComponent.BackStrip]: [],
+//   [ELuthComponent.HeelTailBlocks]: [],
+//   [ELuthComponent.EndGraft]: [],
+//   [ELuthComponent.Kerfling]: [],
+//   [ELuthComponent.Purfling]: [],
+//   [ELuthComponent.Frets]: [],
+//   [ELuthComponent.FretboardMarkers]: [],
+//   [ELuthComponent.Nut]: [],
+//   [ELuthComponent.Saddle]: [],
+//   [ELuthComponent.Pickguard]: [],
+//   [ELuthComponent.Strings]: [],
+//   [ELuthComponent.Rosette]: [],
+//   [ELuthComponent.Braces]: [],
+// } as const satisfies Record<ELuthComponent, readonly ELuthComponent[]>
+
+type LuthDeps<T extends ELuthComponent> = T extends keyof LuthComponentDepsMap
+  ? IMeshConfiguration<LuthComponentDepsMap[T][number]>[]
+  : []
+
 export interface IConfiguration {
-  name: ELuthComponent
+  id: number | string
+  name: string
+  author: string
+  version: string
+  description: string
+  config: IMeshConfiguration<ELuthComponent>
+}
+
+export type IMeshConfiguration<T extends ELuthComponent> = {
+  name: T
   meshes: Array<keyof LuthGLTFResultCombined['nodes']>
-  material?: Material
-  texture?: string
-  components?: IConfiguration[]
+  materials?: Array<keyof LuthGLTFResultCombined['materials']>
   groupVisibility?: boolean
+  options?: Record<string, unknown>
+  dimensions?: number
+  comments?: string[]
+  components?: LuthDeps<T>
+}
+
+export const configuration: IConfiguration = {
+  id: 1,
+  name: 'Luth',
+  author: 'Nathan',
+  version: '0.0.1',
+  description: 'Luth configuration',
+  config: {
+    name: ELuthComponent.Base,
+    meshes: [],
+    components: [
+      {
+        name: ELuthComponent.Body,
+        meshes: [],
+        groupVisibility: true,
+        components: [
+          {
+            name: ELuthComponent.Soundboard,
+            meshes: [],
+            components: [],
+          },
+          {
+            name: ELuthComponent.Back,
+            meshes: [],
+            components: [
+              {
+                name: ELuthComponent.BackStrip,
+                meshes: [],
+              },
+            ],
+          },
+        ],
+      },
+      {
+        name: ELuthComponent.Scale,
+        meshes: [],
+        components: [
+          {
+            name: ELuthComponent.Bridge,
+            meshes: [],
+          },
+        ],
+      },
+    ],
+  },
 }

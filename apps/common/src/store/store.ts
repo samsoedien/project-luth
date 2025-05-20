@@ -2,6 +2,7 @@ import { create, StateCreator } from 'zustand'
 import { devtools } from 'zustand/middleware'
 
 import { ELuthComponent, IConfiguration } from '~/models/configuration.model'
+
 import { initialConfigurationState } from './initialConfigurationState'
 import {
   EBodyArmBevelOption,
@@ -20,7 +21,6 @@ import {
   EKerflingVariant,
   EFretboardRadiusOption,
   EFretboardExtensionOption,
-  EScaleAssymetrical,
   ENeckAssymmetricalOption,
   IBackOptions,
   IBackStripOptions,
@@ -42,7 +42,6 @@ import {
   IStringsOptions,
   EHeadstockShapeOption,
   EBridgeTypeOption,
-  EBracePatternOption,
   EBindingThicknessOption,
   INutOptions,
   ISaddleOptions,
@@ -51,7 +50,11 @@ import {
   EHeadstockTypeOption,
   IBaseOptions,
   EBaseOrientationOption,
-  EBaseTypeOption,
+  EBaseFretJointOption,
+  EBaseStringCountOption,
+  EBaseStringsSpacingOption,
+  EScaleAsymmetricalOption,
+  EBracingPatternOption,
 } from '~/models/options.model'
 import { getConfiguredComponent } from '~/helpers/meshUtils'
 
@@ -170,7 +173,10 @@ export const createOptionsSlice: StateCreator<StoreState, [], [], IOptionsStoreS
 ) => ({
   baseOptions: {
     orientation: EBaseOrientationOption.RightHanded,
-    fretJoint: EBaseTypeOption.Fret14,
+    fretJoint: EBaseFretJointOption.Fret14,
+    stringCount: EBaseStringCountOption.Six,
+    // is12String??
+    stringSpacing: EBaseStringsSpacingOption.Standard,
   },
   setBaseOptions: (baseOptions) => {
     set((state) => ({
@@ -200,12 +206,13 @@ export const createOptionsSlice: StateCreator<StoreState, [], [], IOptionsStoreS
     get().setBackOptions(backOptions)
     get().setSidesOptions(sidesOptions)
     get().setBindingOptions(bindingOptions)
-
-    get().setFretboardOptions(fretboardOptions)
   },
   scaleOptions: {
     scaleLength: EScaleLengthOption.Standard,
-    assymetrical: EScaleAssymetrical.None,
+    assymetrical: EScaleAsymmetricalOption.None,
+    // scaleLengthHi:
+    // scaleLengthLow:
+    // scaleLengthVerticalFret:
   },
   setScaleOptions: (scaleOptions) => {
     set((state) => ({
@@ -249,14 +256,19 @@ export const createOptionsSlice: StateCreator<StoreState, [], [], IOptionsStoreS
     // Create the new configuration with updated meshes //TODO: verify if this implementation can be applied to other setOptions
     set({
       configuration: {
-        ...configuration, // ensure new reference
-        components: configuration.components?.map((component) =>
-          component.name === ELuthComponent.Soundboard
-            ? { ...component, meshes: [...selectedSoundboardMeshes] } // ensure new reference for `meshes`
-            : component,
-        ),
+        ...configuration,
+        config: {
+          ...configuration.config,
+          components: configuration.config.components?.map((component) =>
+            component.name === ELuthComponent.Soundboard
+              ? { ...component, meshes: [...selectedSoundboardMeshes] }
+              : component,
+          ),
+        },
       },
     })
+
+    console.log('configuration', configuration)
   },
   backOptions: {
     backMultiPiece: EBackMultiPieceOption.OnePiece,
@@ -454,7 +466,7 @@ export const createOptionsSlice: StateCreator<StoreState, [], [], IOptionsStoreS
 
     set({ configuration: { ...configuration } })
   },
-  bracesOptions: { bracePattern: EBracePatternOption.X },
+  bracesOptions: { bracePattern: EBracingPatternOption.X },
   setBracesOptions: (options) => {
     set((state) => ({
       bracesOptions: { ...state.bracesOptions, ...options },

@@ -4,12 +4,12 @@ import {
   ENeckShapeOption,
   ENeckAssymmetricalOption,
   EScaleLengthOption,
-  EScaleAssymetrical,
+  EScaleAsymmetricalOption,
 } from '~/models/options.model'
 
 type NeckMeshMap = {
   [key in EScaleLengthOption]: {
-    [key in EScaleAssymetrical]: {
+    [key in EScaleAsymmetricalOption]: {
       [key in ENeckShapeOption]: {
         [key in ENeckAssymmetricalOption]: Array<keyof LuthNeckGLTF['nodes']>
       }
@@ -19,7 +19,7 @@ type NeckMeshMap = {
 
 export const neckMeshMap: NeckMeshMap = {
   [EScaleLengthOption.Standard]: {
-    [EScaleAssymetrical.None]: {
+    [EScaleAsymmetricalOption.None]: {
       [ENeckShapeOption.CShape]: {
         [ENeckAssymmetricalOption.None]: ['Body_Neck', 'Body_Heel'],
         [ENeckAssymmetricalOption.Asymmetrical]: ['Body_Neck', 'Body_Heel'],
@@ -31,7 +31,7 @@ export const neckMeshMap: NeckMeshMap = {
     },
   },
   [EScaleLengthOption.Shorter]: {
-    [EScaleAssymetrical.None]: {
+    [EScaleAsymmetricalOption.None]: {
       [ENeckShapeOption.CShape]: {
         [ENeckAssymmetricalOption.None]: ['Body_Neck', 'Body_Heel'],
         [ENeckAssymmetricalOption.Asymmetrical]: ['Body_Neck', 'Body_Heel'],

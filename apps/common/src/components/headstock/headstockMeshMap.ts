@@ -3,13 +3,13 @@ import { GLTFResult as LuthHeadstockGLTF } from '~/_generated/LuthHeadstock'
 import {
   EHeadstockShapeOption,
   EHeadstockTypeOption,
-  EScaleAssymetrical,
+  EScaleAsymmetricalOption,
   EScaleLengthOption,
 } from '~/models/options.model'
 
 type HeadstockMeshMap = {
   [key in EScaleLengthOption]: {
-    [key in EScaleAssymetrical]: {
+    [key in EScaleAsymmetricalOption]: {
       [key in EHeadstockTypeOption]: {
         [key in EHeadstockShapeOption]: Array<keyof LuthHeadstockGLTF['nodes']>
       }
@@ -19,7 +19,7 @@ type HeadstockMeshMap = {
 
 export const headstockMeshMap: HeadstockMeshMap = {
   [EScaleLengthOption.Standard]: {
-    [EScaleAssymetrical.None]: {
+    [EScaleAsymmetricalOption.None]: {
       [EHeadstockTypeOption.Solid]: {
         [EHeadstockShapeOption.Standard]: ['Body_Headstock'],
       },
@@ -29,7 +29,7 @@ export const headstockMeshMap: HeadstockMeshMap = {
     },
   },
   [EScaleLengthOption.Shorter]: {
-    [EScaleAssymetrical.None]: {
+    [EScaleAsymmetricalOption.None]: {
       [EHeadstockTypeOption.Solid]: {
         [EHeadstockShapeOption.Standard]: ['Body_Headstock'],
       },
