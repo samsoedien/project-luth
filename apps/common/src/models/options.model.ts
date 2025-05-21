@@ -122,7 +122,7 @@ export enum EBackMultiPieceOption {
 export enum ESidesSoundPortOption {
   None = 'None',
   Oval = 'Oval',
-  Scalloped = 'Scalloped',
+  // Scalloped = 'Scalloped',
 }
 
 /** Binding options */

@@ -20,5 +20,5 @@ export default function FretboardOptions() {
     },
   })
 
-  return <Leva />
+  return null
 }

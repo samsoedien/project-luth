@@ -39,13 +39,14 @@
     "@react-three/drei": "^10.0.8",
     "@react-three/fiber": "^9.1.2",
     "@react-three/postprocessing": "^3.0.4",
+    "immer": "^10.1.1",
     "leva": "^0.10.0",
     "node-three-gltf": "^2.0.2",
     "postprocessing": "^6.37.3",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "three": "^0.166.1",
-    "zustand": "^5.0.4"
+    "zustand": "^5.0.5"
   },
   "devDependencies": {
     "@babel/core": "^7.27.1",

@@ -23,5 +23,5 @@ export default function ScaleOptions() {
     },
   )
 
-  return <Leva />
+  return null
 }

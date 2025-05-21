@@ -4,7 +4,7 @@ export default function ConfiguratorContext() {
   const context = useConfigurationStore((state) => state.context.hoveredMesh)
 
   return (
-    <div className="relatve">
+    <div className="relative">
       <div
         style={{
           position: 'absolute',

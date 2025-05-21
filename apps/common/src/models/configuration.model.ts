@@ -44,6 +44,7 @@ export const luthScaleDeps = [
   ELuthComponent.Headstock,
   ELuthComponent.Fretboard,
   ELuthComponent.Bridge,
+  ELuthComponent.Strings,
 ] as const
 
 export type LuthComponentDepsMap = {

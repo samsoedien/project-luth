@@ -23,5 +23,5 @@ export default function BaseOptions() {
     },
   )
 
-  return <Leva />
+  return null
 }

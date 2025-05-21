@@ -20,5 +20,5 @@ export default function SoundboardOptions() {
     },
   )
 
-  return <Leva />
+  return null
 }

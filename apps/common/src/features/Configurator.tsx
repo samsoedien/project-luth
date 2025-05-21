@@ -11,6 +11,7 @@ import RosetteOptions from './options/RosetteOptions'
 import KerflingOptions from './options/KerflingOptions'
 import BaseOptions from './options/BaseOptions'
 import ConfiguratorContext from './ConfiguratorContext'
+import ConfiguratorScope from './ConfiguratorScope'
 
 export default function Configurator() {
   const scope = useConfigurationStore((state) => state.scope)
@@ -144,7 +145,7 @@ export default function Configurator() {
   }
 
   return (
-    <div className="relatve">
+    <div className="relative">
       <Leva />
       <BaseOptions />
       <BodyOptions />
@@ -176,6 +177,7 @@ export default function Configurator() {
           <button onClick={redo}>Redo Action</button>
         </div>
       </div>
+      <ConfiguratorScope />
       <ConfiguratorContext />
     </div>
   )

@@ -20,5 +20,5 @@ export default function KerflingOptions() {
     },
   )
 
-  return <Leva />
+  return null
 }

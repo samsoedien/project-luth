@@ -27,5 +27,5 @@ export default function BackOptions() {
     },
   )
 
-  return <Leva />
+  return null
 }

@@ -62,5 +62,5 @@ export default function BodyOptions() {
     },
   )
 
-  return <Leva />
+  return null
 }

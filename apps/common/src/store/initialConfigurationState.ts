@@ -129,11 +129,11 @@ export const initialConfigurationState: IConfiguration = {
               },
             ],
           },
+          {
+            name: ELuthComponent.Strings,
+            meshes: [],
+          },
         ],
-      },
-      {
-        name: ELuthComponent.Strings,
-        meshes: [],
       },
     ],
   },

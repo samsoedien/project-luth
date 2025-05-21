@@ -1,5 +1,5 @@
-import { create, StateCreator } from 'zustand'
-// import { create } from 'zustand/react'
+import { StateCreator } from 'zustand'
+import { create } from 'zustand/react'
 import { devtools } from 'zustand/middleware'
 
 import { ELuthComponent, IConfiguration } from '~/models/configuration.model'
@@ -86,6 +86,7 @@ import EndGraftMeshes from '~/components/sides/endGraft/EndGraftMeshes'
 import { endGraftMeshMap } from '~/components/sides/endGraft/endGraftMeshMap'
 import BaseOptions from '~/features/options/BaseOptions'
 import BodyOptions from '~/features/options/BodyOptions'
+import { immer } from 'zustand/middleware/immer'
 
 /** CONFIGURATION STATE SLICE */
 export interface IConfigurationStoreState {
@@ -98,26 +99,25 @@ export interface IConfigurationStoreState {
 export const createConfigurationSlice: StateCreator<
   StoreState,
   [['zustand/devtools', never]],
-  [],
+  [['zustand/immer', never]],
   IConfigurationStoreState
-> = (set, get) => ({
+> = immer((set, get) => ({
   configuration: initialConfigurationState,
-  setConfiguration: (config) => {
-    set((state) => ({
-      configuration: {
-        ...state.configuration,
-        ...config,
-      },
-    }))
+  setConfiguration: (configuration) => {
+    set((state) => {
+      state.configuration = { ...state.configuration, ...configuration }
+    })
   },
   saveConfiguration: () => {
     const config = get().configuration
     localStorage.setItem('guitar-config', JSON.stringify(config))
   },
   loadConfiguration: (config) => {
-    set({ configuration: config })
+    set((state) => {
+      state.configuration = config
+    })
   },
-})
+}))
 
 /** OPTIONS STATE SLICE */
 export interface IOptionsStoreState {
@@ -169,10 +169,12 @@ export interface IOptionsStoreState {
   setSaddleOptions: (saddleOptions: Partial<ISaddleOptions>) => void
 }
 
-export const createOptionsSlice: StateCreator<StoreState, [], [], IOptionsStoreState> = (
-  set,
-  get,
-) => ({
+export const createOptionsSlice: StateCreator<
+  StoreState,
+  [['zustand/devtools', never]],
+  [],
+  IOptionsStoreState
+> = (set, get) => ({
   baseOptions: {
     orientation: EBaseOrientationOption.RightHanded,
     fretJoint: EBaseFretJointOption.Fret14,
