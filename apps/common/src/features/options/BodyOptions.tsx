@@ -30,9 +30,9 @@ export default function BodyOptions() {
     type: 'Mesh',
   }
 
-  const meshName1 = Object.values(configuration).join('__')
+  // const meshName1 = Object.values(configuration).join('__')
 
-  console.log(meshName1)
+  // console.log(meshName1)
 
   useControls(
     'Body Options', // Store names

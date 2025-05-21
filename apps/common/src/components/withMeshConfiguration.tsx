@@ -31,6 +31,7 @@ import { useHoverLogger } from '~/helpers/hoverUtil'
 import { Group } from 'three'
 import BodyGroup from './body/BodyGroup'
 import BaseGroup from './base/BaseGroup'
+import ScaleGroup from './scale/ScaleGroup'
 
 interface IWithMeshConfigurationProps {
   position: [number, number, number]
@@ -46,6 +47,7 @@ const withMeshConfiguration = <P extends IWithMeshConfigurationProps>(
     const {
       baseConfiguration,
       bodyConfiguration,
+      scaleConfiguration,
       soundboardConfiguration,
       rosetteConfiguration,
       bracesConfiguration,
@@ -70,6 +72,7 @@ const withMeshConfiguration = <P extends IWithMeshConfigurationProps>(
     } = {
       baseConfiguration: getConfiguredComponent(configuration, ELuthComponent.Base),
       bodyConfiguration: getConfiguredComponent(configuration, ELuthComponent.Body),
+      scaleConfiguration: getConfiguredComponent(configuration, ELuthComponent.Scale),
       soundboardConfiguration: getConfiguredComponent(configuration, ELuthComponent.Soundboard),
       backStripConfiguration: getConfiguredComponent(configuration, ELuthComponent.BackStrip),
       rosetteConfiguration: getConfiguredComponent(configuration, ELuthComponent.Rosette),
@@ -124,18 +127,20 @@ const withMeshConfiguration = <P extends IWithMeshConfigurationProps>(
                 <PurflingMeshes meshConfig={purflingConfiguration} />
               </BindingMeshes>
             </BodyGroup>
-            <NeckMeshes meshConfig={neckConfiguration}></NeckMeshes>
-            <HeadstockMeshes meshConfig={headstockConfiguration}></HeadstockMeshes>
-            <FretboardMeshes meshConfig={fretboardConfiguration}>
-              <NutMeshes meshConfig={nutConfiguration} />
-              <FretsMeshes meshConfig={fretsConfiguration} />
-              {/* <FretboardMarkersMeshes configuration={fretboardMarkersConfiguration} />  */}
-            </FretboardMeshes>
-            <BridgeMeshes meshConfig={bridgeConfiguration}>
-              <SaddleMeshes meshConfig={saddleConfiguration} />
-            </BridgeMeshes>
-            <PickguardMeshes meshConfig={pickguardConfiguration} />
-            {/* <StringsMeshes configuration={stringsConfiguration} />  */}
+            <ScaleGroup meshConfig={scaleConfiguration}>
+              <NeckMeshes meshConfig={neckConfiguration}></NeckMeshes>
+              <HeadstockMeshes meshConfig={headstockConfiguration}></HeadstockMeshes>
+              <FretboardMeshes meshConfig={fretboardConfiguration}>
+                <NutMeshes meshConfig={nutConfiguration} />
+                <FretsMeshes meshConfig={fretsConfiguration} />
+                {/* <FretboardMarkersMeshes configuration={fretboardMarkersConfiguration} />  */}
+              </FretboardMeshes>
+              <BridgeMeshes meshConfig={bridgeConfiguration}>
+                <SaddleMeshes meshConfig={saddleConfiguration} />
+              </BridgeMeshes>
+              <PickguardMeshes meshConfig={pickguardConfiguration} />
+              <StringsMeshes meshConfig={stringsConfiguration} />
+            </ScaleGroup>
           </BaseGroup>
         ) : (
           <GLTFJSXComponent {...props} position={[0, 0, 0]} />

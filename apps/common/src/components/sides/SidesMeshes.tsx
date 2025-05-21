@@ -14,6 +14,9 @@ export default function SidesMeshes({ meshConfig, children }: ISidesMeshesProps)
   const componentVisbility = useConfigurationStore((state) => state.componentVisibility)
   const isVisible = componentVisbility.includes(meshConfig.name)
 
+  console.log('SidesMeshes rerender')
+  console.log('SidesMeshes', meshConfig)
+
   return (
     <group name={meshConfig.name} dispose={null} visible={isVisible}>
       {instanceGeometry.length > 0 &&

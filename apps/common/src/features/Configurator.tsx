@@ -1,4 +1,4 @@
-import { Leva, useControls, useCreateStore } from 'leva'
+import { Leva, useControls } from 'leva'
 import { useConfigurationStore } from '../store/store'
 
 import { ELuthComponent } from '~/models/configuration.model'
@@ -10,6 +10,7 @@ import NeckOptions from './options/NeckOptions'
 import RosetteOptions from './options/RosetteOptions'
 import KerflingOptions from './options/KerflingOptions'
 import BaseOptions from './options/BaseOptions'
+import ConfiguratorContext from './ConfiguratorContext'
 
 export default function Configurator() {
   const scope = useConfigurationStore((state) => state.scope)
@@ -24,8 +25,6 @@ export default function Configurator() {
 
   const saveConfiguration = useConfigurationStore((state) => state.saveConfiguration)
   const loadConfiguration = useConfigurationStore((state) => state.loadConfiguration)
-
-  const context = useConfigurationStore((state) => state.context.hoveredMesh)
 
   const history = useConfigurationStore((state) => state.history)
   console.log('History:', history)
@@ -177,16 +176,7 @@ export default function Configurator() {
           <button onClick={redo}>Redo Action</button>
         </div>
       </div>
-      <div
-        style={{
-          position: 'absolute',
-          bottom: '48px',
-          right: '48px',
-          fontSize: '12px',
-        }}
-      >
-        {context}
-      </div>
+      <ConfiguratorContext />
     </div>
   )
 }

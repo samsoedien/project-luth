@@ -1,17 +1,21 @@
-import { IConfiguration } from '../../models/configuration.model'
+import {
+  ELuthComponent,
+  IConfiguration,
+  IMeshConfiguration,
+} from '../../models/configuration.model'
 import { useInstanceGeometry } from '~/hooks/useInstanceGeometry'
 
 import LuthStrings, { Instances } from '../../_generated/LuthStrings'
 
 export interface IStringsMeshesProps {
-  configuration: IConfiguration
+  meshConfig: IMeshConfiguration<ELuthComponent>
 }
 
-export default function StringsMeshes({ configuration }: IStringsMeshesProps) {
-  const { instanceGeometry, instanceGroupRef } = useInstanceGeometry(configuration)
+export default function StringsMeshes({ meshConfig }: IStringsMeshesProps) {
+  const { instanceGeometry, instanceGroupRef } = useInstanceGeometry(meshConfig)
 
   return (
-    <group name={configuration.name} dispose={null}>
+    <group name={meshConfig.name} dispose={null}>
       {instanceGeometry.length > 0 &&
         instanceGeometry.map((child) => (
           <mesh key={child.uuid} name={child.name} geometry={child.geometry}>
