@@ -1,16 +1,16 @@
-import { IConfiguration } from '~/models/configuration.model'
+import { ELuthComponent, IMeshConfiguration } from '~/models/configuration.model'
 import { useInstanceGeometry } from '~/hooks/useInstanceGeometry'
 import LuthFrets, { Instances } from '~/_generated/LuthFrets'
 
 export interface IFretsMeshesProps {
-  configuration: IConfiguration
+  meshConfig: IMeshConfiguration<ELuthComponent>
 }
 
-export default function FretsMeshes({ configuration }: IFretsMeshesProps) {
-  const { instanceGeometry, instanceGroupRef } = useInstanceGeometry(configuration)
+export default function FretsMeshes({ meshConfig }: IFretsMeshesProps) {
+  const { instanceGeometry, instanceGroupRef } = useInstanceGeometry(meshConfig)
 
   return (
-    <group name={configuration.name} dispose={null} visible={configuration.groupVisibility}>
+    <group name={meshConfig.name} dispose={null} visible={true}>
       {instanceGeometry.length > 0 &&
         instanceGeometry.map((child) => (
           <mesh key={child.uuid} name={child.name} geometry={child.geometry}>

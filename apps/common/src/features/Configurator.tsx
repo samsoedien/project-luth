@@ -17,6 +17,8 @@ export default function Configurator() {
 
   const setControls = useConfigurationStore((state) => state.setControls)
 
+  const setComponentVisibility = useConfigurationStore((state) => state.setComponentVisibility)
+
   const undo = useConfigurationStore((state) => state.undo)
   const redo = useConfigurationStore((state) => state.redo)
 
@@ -34,6 +36,7 @@ export default function Configurator() {
       value: scope,
       onChange: (value: ELuthComponent) => {
         setScope(value)
+        // setComponentVisibility([value])
 
         setControlsFromScope(value)
       },

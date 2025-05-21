@@ -105,47 +105,41 @@ const withMeshConfiguration = <P extends IWithMeshConfigurationProps>(
 
     return (
       <group ref={modelRef}>
-        {/* <Instances> */}
         {configuration ? (
           <BaseGroup meshConfig={baseConfiguration}>
             <BodyGroup meshConfig={bodyConfiguration}>
-              {/* <SoundboardMeshes configuration={soundboardConfiguration}>
-              <RosetteMeshes configuration={rosetteConfiguration} />
-              <BracesMeshes configuration={bracesConfiguration} />
-            </SoundboardMeshes>
-            <BackMeshes configuration={backConfiguration}>
-              <BackStripMeshes configuration={backStripConfiguration} />
-            </BackMeshes> */}
+              <SoundboardMeshes meshConfig={soundboardConfiguration}>
+                <RosetteMeshes meshConfig={rosetteConfiguration} />
+                <BracesMeshes meshConfig={bracesConfiguration} />
+              </SoundboardMeshes>{' '}
+              <BackMeshes meshConfig={backConfiguration}>
+                <BackStripMeshes meshConfig={backStripConfiguration} />
+              </BackMeshes>
               <SidesMeshes meshConfig={sidesConfiguration}>
                 <HeelTailBlockMeshes meshConfig={heelTailBlockConfiguration} />
-                {/*  <KerflingMeshes configuration={kerflingConfiguration} />
-              <EndGraftMeshes configuration={endGraftConfiguration} /> */}
+                <KerflingMeshes meshConfig={kerflingConfiguration} />
+                <EndGraftMeshes meshConfig={endGraftConfiguration} />
               </SidesMeshes>
-              {/* <BindingMeshes configuration={bindingConfiguration}>
-              <PurflingMeshes configuration={purflingConfiguration} />
-            </BindingMeshes>*/}
+              <BindingMeshes meshConfig={bindingConfiguration}>
+                <PurflingMeshes meshConfig={purflingConfiguration} />
+              </BindingMeshes>
             </BodyGroup>
-            {/* <NeckMeshes configuration={neckConfiguration}> 
-           <mesh>
-                <boxGeometry />
-              </mesh> */}
-            {/* </NeckMeshes>
-            <HeadstockMeshes configuration={headstockConfiguration}></HeadstockMeshes>
-            <FretboardMeshes configuration={fretboardConfiguration}>
-              <NutMeshes configuration={nutConfiguration} /> */}
-            {/* <FretsMeshes configuration={fretsConfiguration} /> */}
-            {/* <FretboardMarkersMeshes configuration={fretboardMarkersConfiguration} /> */}
-            {/* </FretboardMeshes>
-            <BridgeMeshes configuration={bridgeConfiguration}>
-              <SaddleMeshes configuration={saddleConfiguration} />
+            <NeckMeshes meshConfig={neckConfiguration}></NeckMeshes>
+            <HeadstockMeshes meshConfig={headstockConfiguration}></HeadstockMeshes>
+            <FretboardMeshes meshConfig={fretboardConfiguration}>
+              <NutMeshes meshConfig={nutConfiguration} />
+              <FretsMeshes meshConfig={fretsConfiguration} />
+              {/* <FretboardMarkersMeshes configuration={fretboardMarkersConfiguration} />  */}
+            </FretboardMeshes>
+            <BridgeMeshes meshConfig={bridgeConfiguration}>
+              <SaddleMeshes meshConfig={saddleConfiguration} />
             </BridgeMeshes>
-            <PickguardMeshes configuration={pickguardConfiguration} />
-            <StringsMeshes configuration={stringsConfiguration} /> */}
+            <PickguardMeshes meshConfig={pickguardConfiguration} />
+            {/* <StringsMeshes configuration={stringsConfiguration} />  */}
           </BaseGroup>
         ) : (
           <GLTFJSXComponent {...props} position={[0, 0, 0]} />
         )}
-        {/* </Instances> */}
       </group>
     )
   }

@@ -3,18 +3,17 @@ import { GradientTexture, GradientType } from '@react-three/drei'
 import LuthRosette, { Instances as LuthRosetteInstances } from '../../../_generated/LuthRosette'
 
 import { useInstanceGeometry } from '~/hooks/useInstanceGeometry'
-import { IConfiguration } from '~/models/configuration.model'
-import { memo } from 'react'
+import { ELuthComponent, IMeshConfiguration } from '~/models/configuration.model'
 
 export interface IRosetteMeshesProps {
-  configuration: IConfiguration
+  meshConfig: IMeshConfiguration<ELuthComponent>
 }
 
-export default function RosetteMeshes({ configuration }: IRosetteMeshesProps) {
-  const { instanceGeometry, instanceGroupRef } = useInstanceGeometry(configuration)
+export default function RosetteMeshes({ meshConfig }: IRosetteMeshesProps) {
+  const { instanceGeometry, instanceGroupRef } = useInstanceGeometry(meshConfig)
 
   return (
-    <group name={configuration.name} dispose={null}>
+    <group name={meshConfig.name} dispose={null}>
       {instanceGeometry.length > 0 &&
         instanceGeometry.map((child) => (
           <mesh

@@ -1,14 +1,14 @@
 import LuthKerfling, { Instances } from '~/_generated/LuthKerfling'
 import { useInstanceGeometry } from '~/hooks/useInstanceGeometry'
-import { IConfiguration } from '~/models/configuration.model'
+import { ELuthComponent, IMeshConfiguration } from '~/models/configuration.model'
 
 export interface IKerflingMeshesProps {
-  configuration: IConfiguration
+  meshConfig: IMeshConfiguration<ELuthComponent>
 }
-export default function KerflingMeshes({ configuration, children }: IKerflingMeshesProps) {
-  const { instanceGeometry, instanceGroupRef } = useInstanceGeometry(configuration)
+export default function KerflingMeshes({ meshConfig }: IKerflingMeshesProps) {
+  const { instanceGeometry, instanceGroupRef } = useInstanceGeometry(meshConfig)
   return (
-    <group name={configuration.name} dispose={null}>
+    <group name={meshConfig.name} dispose={null}>
       {instanceGeometry.length > 0 &&
         instanceGeometry.map((child) => (
           <mesh

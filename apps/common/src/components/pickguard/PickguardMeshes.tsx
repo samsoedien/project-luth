@@ -1,16 +1,16 @@
 import { useInstanceGeometry } from '~/hooks/useInstanceGeometry'
-import { IConfiguration } from '~/models/configuration.model'
+import { ELuthComponent, IConfiguration, IMeshConfiguration } from '~/models/configuration.model'
 
 import LuthPickguard, { Instances } from '../../_generated/LuthPickguard'
 
 export interface IPickguardMeshesProps {
-  configuration: IConfiguration
+  meshConfig: IMeshConfiguration<ELuthComponent>
 }
 
-export default function PickguardMeshes({ configuration }: IPickguardMeshesProps) {
-  const { instanceGeometry, instanceGroupRef } = useInstanceGeometry(configuration)
+export default function PickguardMeshes({ meshConfig }: IPickguardMeshesProps) {
+  const { instanceGeometry, instanceGroupRef } = useInstanceGeometry(meshConfig)
   return (
-    <group name={configuration.name} dispose={null}>
+    <group name={meshConfig.name} dispose={null}>
       {instanceGeometry.length > 0 &&
         instanceGeometry.map((child) => (
           <mesh

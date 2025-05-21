@@ -1,18 +1,17 @@
-import { IConfiguration } from '~/models/configuration.model'
+import { ELuthComponent, IMeshConfiguration } from '~/models/configuration.model'
 import { useInstanceGeometry } from '~/hooks/useInstanceGeometry'
 
 import LuthFretboard, { Instances } from '../../_generated/LuthFretboard'
 
 export interface IFretboardMeshesProps {
-  configuration: IConfiguration
+  meshConfig: IMeshConfiguration<ELuthComponent>
   children: React.ReactNode
 }
 
-export default function FretboardMeshes({ configuration, children }: IFretboardMeshesProps) {
-  const { instanceGeometry, instanceGroupRef } = useInstanceGeometry(configuration)
-  console.log('FretboardMeshes', instanceGeometry, instanceGroupRef)
+export default function FretboardMeshes({ meshConfig, children }: IFretboardMeshesProps) {
+  const { instanceGeometry, instanceGroupRef } = useInstanceGeometry(meshConfig)
   return (
-    <group name={configuration.name} dispose={null} visible={configuration?.groupVisibility}>
+    <group name={meshConfig.name} dispose={null} visible={true}>
       {instanceGeometry.length > 0 &&
         instanceGeometry.map((child) => (
           <mesh key={child.uuid} name={child.name} geometry={child.geometry}>

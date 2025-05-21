@@ -2,6 +2,7 @@ import LuthSides, { Instances } from '~/_generated/LuthSides'
 
 import { useInstanceGeometry } from '~/hooks/useInstanceGeometry'
 import { ELuthComponent, IConfiguration, IMeshConfiguration } from '~/models/configuration.model'
+import { useConfigurationStore } from '~/store/store'
 
 export interface ISidesMeshesProps {
   meshConfig: IMeshConfiguration<ELuthComponent>
@@ -9,8 +10,12 @@ export interface ISidesMeshesProps {
 }
 export default function SidesMeshes({ meshConfig, children }: ISidesMeshesProps) {
   const { instanceGeometry, instanceGroupRef } = useInstanceGeometry(meshConfig)
+
+  const componentVisbility = useConfigurationStore((state) => state.componentVisibility)
+  const isVisible = componentVisbility.includes(meshConfig.name)
+
   return (
-    <group name={meshConfig.name} dispose={null}>
+    <group name={meshConfig.name} dispose={null} visible={isVisible}>
       {instanceGeometry.length > 0 &&
         instanceGeometry.map((child) => (
           <mesh

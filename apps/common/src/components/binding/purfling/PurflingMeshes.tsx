@@ -1,16 +1,16 @@
 import LuthPurfling, { Instances as PurflingInstances } from '../../../_generated/LuthPurfling'
 import { useInstanceGeometry } from '~/hooks/useInstanceGeometry'
-import { IConfiguration } from '~/models/configuration.model'
+import { ELuthComponent, IMeshConfiguration } from '~/models/configuration.model'
 
 export interface IPurflingMeshesProps {
-  configuration: IConfiguration
+  meshConfig: IMeshConfiguration<ELuthComponent>
 }
 
-export default function PurflingMeshes({ configuration }: IPurflingMeshesProps) {
-  const { instanceGeometry, instanceGroupRef } = useInstanceGeometry(configuration)
+export default function PurflingMeshes({ meshConfig }: IPurflingMeshesProps) {
+  const { instanceGeometry, instanceGroupRef } = useInstanceGeometry(meshConfig)
 
   return (
-    <group name={configuration.name} dispose={null}>
+    <group name={meshConfig.name} dispose={null}>
       {instanceGeometry.length > 0 &&
         instanceGeometry.map((child) => (
           <mesh key={child.uuid} name={child.name} geometry={child.geometry}>

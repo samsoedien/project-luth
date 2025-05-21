@@ -1,17 +1,17 @@
 import LuthBinding, { Instances as BindingInstances } from '../../_generated/LuthBinding'
 
-import { IConfiguration } from '../../models/configuration.model'
+import { ELuthComponent, IMeshConfiguration } from '../../models/configuration.model'
 import { useInstanceGeometry } from '~/hooks/useInstanceGeometry'
 
 export interface IBindingMeshesProps {
-  configuration: IConfiguration
+  meshConfig: IMeshConfiguration<ELuthComponent>
   children: React.ReactNode
 }
 
-export default function BindingMeshes({ configuration, children }: IBindingMeshesProps) {
-  const { instanceGeometry, instanceGroupRef } = useInstanceGeometry(configuration)
+export default function BindingMeshes({ meshConfig, children }: IBindingMeshesProps) {
+  const { instanceGeometry, instanceGroupRef } = useInstanceGeometry(meshConfig)
   return (
-    <group name={configuration.name} dispose={null}>
+    <group name={meshConfig.name} dispose={null}>
       {instanceGeometry.length > 0 &&
         instanceGeometry.map((child) => (
           <mesh

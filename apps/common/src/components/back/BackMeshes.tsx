@@ -1,21 +1,21 @@
-import { IConfiguration } from '~/models/configuration.model'
+import { ELuthComponent, IConfiguration, IMeshConfiguration } from '~/models/configuration.model'
 import { useInstanceGeometry } from '~/hooks/useInstanceGeometry'
 
 import LuthBack, { Instances } from '../../_generated/LuthBack'
 
 export interface IBackMeshesProps {
-  configuration: IConfiguration
+  meshConfig: IMeshConfiguration<ELuthComponent>
   children: React.ReactNode
 }
 
-export default function BackMeshes({ configuration, children }: IBackMeshesProps) {
-  const { instanceGeometry, instanceGroupRef } = useInstanceGeometry(configuration)
+export default function BackMeshes({ meshConfig, children }: IBackMeshesProps) {
+  const { instanceGeometry, instanceGroupRef } = useInstanceGeometry(meshConfig)
 
   // const koaBaseColorMap = useTexture('koa.jpg')
   // const koaBaseColorMap = useTexture('sitka-spruce.jpg')
 
   return (
-    <group name={configuration.name} dispose={null} visible={configuration.groupVisibility}>
+    <group name={meshConfig.name} dispose={null}>
       {instanceGeometry.length > 0 &&
         instanceGeometry.map((child) => (
           <mesh

@@ -646,6 +646,8 @@ export interface IUIControlsStoreState {
   setScope: (scope: ELuthComponent) => void
   controls: PresentationControlProps
   setControls: (controls: Partial<PresentationControlProps>) => void
+  componentVisibility: ELuthComponent[]
+  setComponentVisibility: (components: ELuthComponent[]) => void
 }
 
 export const createUIControlsSlice: StateCreator<StoreState, [], [], IUIControlsStoreState> = (
@@ -674,6 +676,10 @@ export const createUIControlsSlice: StateCreator<StoreState, [], [], IUIControls
   },
   setControls: (controls) => {
     set((state) => ({ controls: { ...state.controls, ...controls } }))
+  },
+  componentVisibility: [ELuthComponent.Soundboard, ELuthComponent.Sides],
+  setComponentVisibility: (components) => {
+    if (components) set(() => ({ componentVisibility: components }))
   },
 })
 

@@ -1,22 +1,26 @@
 import { useContext } from 'react'
-import { IConfiguration } from '../../models/configuration.model'
+import {
+  ELuthComponent,
+  IConfiguration,
+  IMeshConfiguration,
+} from '../../models/configuration.model'
 import { GLTFJSXInstances } from '~/models/gltfjsx.model'
 import { useInstanceGeometry } from '~/hooks/useInstanceGeometry'
 
 import LuthBridge, { Instances } from '../../_generated/LuthBridge'
 
 export interface IBridgeMeshesProps {
-  configuration: IConfiguration
+  meshConfig: IMeshConfiguration<ELuthComponent>
   children: React.ReactNode
 }
 
-export default function BridgeMeshes({ configuration, children }: IBridgeMeshesProps) {
-  const { instanceGeometry, instanceGroupRef } = useInstanceGeometry(configuration)
+export default function BridgeMeshes({ meshConfig, children }: IBridgeMeshesProps) {
+  const { instanceGeometry, instanceGroupRef } = useInstanceGeometry(meshConfig)
 
   // const bridgeTexture = useTexture('walnut.jpg')
 
   return (
-    <group name={configuration.name} dispose={null}>
+    <group name={meshConfig.name} dispose={null}>
       {instanceGeometry.length > 0 &&
         instanceGeometry.map((child) => (
           <mesh key={child.uuid} name={child.name} geometry={child.geometry}>

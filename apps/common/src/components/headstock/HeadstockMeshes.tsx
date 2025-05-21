@@ -1,18 +1,18 @@
-import { IConfiguration } from '~/models/configuration.model'
+import { ELuthComponent, IMeshConfiguration } from '~/models/configuration.model'
 import { useInstanceGeometry } from '~/hooks/useInstanceGeometry'
 
 import LuthHeadstock, { Instances } from '../../_generated/LuthHeadstock'
 
 export interface IHeadstockMeshesProps {
-  configuration: IConfiguration
+  meshConfig: IMeshConfiguration<ELuthComponent>
   children: React.ReactNode
 }
 
-export default function HeadstockMeshes({ configuration, children }: IHeadstockMeshesProps) {
-  const { instanceGeometry, instanceGroupRef } = useInstanceGeometry(configuration)
+export default function HeadstockMeshes({ meshConfig, children }: IHeadstockMeshesProps) {
+  const { instanceGeometry, instanceGroupRef } = useInstanceGeometry(meshConfig)
 
   return (
-    <group name={configuration.name} dispose={null} visible={configuration.groupVisibility}>
+    <group name={meshConfig.name} dispose={null} visible={true}>
       {instanceGeometry.length > 0 &&
         instanceGeometry.map((child) => (
           <mesh key={child.uuid} name={child.name} geometry={child.geometry}>

@@ -5,14 +5,14 @@ import { useInstanceGeometry } from '~/hooks/useInstanceGeometry'
 import LuthSaddle, { Instances } from '~/_generated/LuthSaddle'
 
 export interface ISaddleMeshesProps {
-  configuration: IConfiguration
+  meshConfig: IMeshConfiguration<ELuthComponent>
 }
 
-export default function SaddleMeshes({ configuration }: ISaddleMeshesProps) {
-  const { instanceGeometry, instanceGroupRef } = useInstanceGeometry(configuration)
+export default function SaddleMeshes({ meshConfig }: ISaddleMeshesProps) {
+  const { instanceGeometry, instanceGroupRef } = useInstanceGeometry(meshConfig)
 
   return (
-    <group name={configuration.name} dispose={null}>
+    <group name={meshConfig.name} dispose={null}>
       {instanceGeometry.length > 0 &&
         instanceGeometry.map((child) => (
           <mesh key={child.uuid} name={child.name} geometry={child.geometry}>
