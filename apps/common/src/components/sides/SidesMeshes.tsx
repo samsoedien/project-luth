@@ -1,16 +1,16 @@
 import LuthSides, { Instances } from '~/_generated/LuthSides'
 
 import { useInstanceGeometry } from '~/hooks/useInstanceGeometry'
-import { IConfiguration } from '~/models/configuration.model'
+import { ELuthComponent, IConfiguration, IMeshConfiguration } from '~/models/configuration.model'
 
 export interface ISidesMeshesProps {
-  configuration: IConfiguration
+  meshConfig: IMeshConfiguration<ELuthComponent>
   children: React.ReactNode
 }
-export default function SidesMeshes({ configuration, children }: ISidesMeshesProps) {
-  const { instanceGeometry, instanceGroupRef } = useInstanceGeometry(configuration)
+export default function SidesMeshes({ meshConfig, children }: ISidesMeshesProps) {
+  const { instanceGeometry, instanceGroupRef } = useInstanceGeometry(meshConfig)
   return (
-    <group name={configuration.name} dispose={null}>
+    <group name={meshConfig.name} dispose={null}>
       {instanceGeometry.length > 0 &&
         instanceGeometry.map((child) => (
           <mesh

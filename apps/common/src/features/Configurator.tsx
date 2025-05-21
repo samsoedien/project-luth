@@ -23,6 +23,8 @@ export default function Configurator() {
   const saveConfiguration = useConfigurationStore((state) => state.saveConfiguration)
   const loadConfiguration = useConfigurationStore((state) => state.loadConfiguration)
 
+  const context = useConfigurationStore((state) => state.context.hoveredMesh)
+
   const history = useConfigurationStore((state) => state.history)
   console.log('History:', history)
 
@@ -171,6 +173,16 @@ export default function Configurator() {
           <button onClick={undo}>Undo Action</button>
           <button onClick={redo}>Redo Action</button>
         </div>
+      </div>
+      <div
+        style={{
+          position: 'absolute',
+          bottom: '48px',
+          right: '48px',
+          fontSize: '12px',
+        }}
+      >
+        {context}
       </div>
     </div>
   )

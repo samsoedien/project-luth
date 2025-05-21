@@ -47,7 +47,7 @@ export const luthScaleDeps = [
 ] as const
 
 export type LuthComponentDepsMap = {
-  [ELuthComponent.Base]: [ELuthComponent.Body, ELuthComponent.Scale]
+  [ELuthComponent.Base]: [ELuthComponent.Body, ELuthComponent.Scale, ELuthComponent.Strings]
   [ELuthComponent.Body]: typeof luthBodyDeps
   [ELuthComponent.Scale]: typeof luthScaleDeps
   [ELuthComponent.Soundboard]: [ELuthComponent.Rosette, ELuthComponent.Braces]
@@ -58,6 +58,8 @@ export type LuthComponentDepsMap = {
     ELuthComponent.Kerfling,
   ]
   [ELuthComponent.Binding]: [ELuthComponent.Purfling]
+  [ELuthComponent.Neck]: []
+  [ELuthComponent.Headstock]: []
   [ELuthComponent.Fretboard]: [
     ELuthComponent.Frets,
     ELuthComponent.Nut,
@@ -120,6 +122,9 @@ export interface IConfiguration {
   author: string
   version: string
   description: string
+  state: 'draft' | 'published'
+  createdAt: Date
+  updatedAt?: Date
   config: IMeshConfiguration<ELuthComponent>
 }
 
@@ -127,55 +132,14 @@ export type IMeshConfiguration<T extends ELuthComponent> = {
   name: T
   meshes: Array<keyof LuthGLTFResultCombined['nodes']>
   materials?: Array<keyof LuthGLTFResultCombined['materials']>
-  groupVisibility?: boolean
-  options?: Record<string, unknown>
-  dimensions?: number
-  comments?: string[]
   components?: LuthDeps<T>
-}
-
-export const configuration: IConfiguration = {
-  id: 1,
-  name: 'Luth',
-  author: 'Nathan',
-  version: '0.0.1',
-  description: 'Luth configuration',
-  config: {
-    name: ELuthComponent.Base,
-    meshes: [],
-    components: [
-      {
-        name: ELuthComponent.Body,
-        meshes: [],
-        groupVisibility: true,
-        components: [
-          {
-            name: ELuthComponent.Soundboard,
-            meshes: [],
-            components: [],
-          },
-          {
-            name: ELuthComponent.Back,
-            meshes: [],
-            components: [
-              {
-                name: ELuthComponent.BackStrip,
-                meshes: [],
-              },
-            ],
-          },
-        ],
-      },
-      {
-        name: ELuthComponent.Scale,
-        meshes: [],
-        components: [
-          {
-            name: ELuthComponent.Bridge,
-            meshes: [],
-          },
-        ],
-      },
-    ],
-  },
+  features?: Record<string, unknown>
+  collaboration?: {
+    comments: string[]
+  }
+  metadata?: {
+    constraints: unknown[]
+    dimensions: unknown[]
+    dependsOn: ELuthComponent[]
+  }
 }

@@ -1,4 +1,5 @@
 import { create, StateCreator } from 'zustand'
+// import { create } from 'zustand/react'
 import { devtools } from 'zustand/middleware'
 
 import { ELuthComponent, IConfiguration } from '~/models/configuration.model'
@@ -55,6 +56,7 @@ import {
   EBaseStringsSpacingOption,
   EScaleAsymmetricalOption,
   EBracingPatternOption,
+  EFretboardScallopedFretsOption,
 } from '~/models/options.model'
 import { getConfiguredComponent } from '~/helpers/meshUtils'
 
@@ -267,8 +269,6 @@ export const createOptionsSlice: StateCreator<StoreState, [], [], IOptionsStoreS
         },
       },
     })
-
-    console.log('configuration', configuration)
   },
   backOptions: {
     backMultiPiece: EBackMultiPieceOption.OnePiece,
@@ -286,6 +286,8 @@ export const createOptionsSlice: StateCreator<StoreState, [], [], IOptionsStoreS
       backMeshMap[bodyOptions.bodyShape][bodyOptions.bodyDepth][bodyOptions.cutaway][
         backOptions.backMultiPiece
       ]
+
+    // backComponent.features = backOptions
 
     get().setBackStripOptions(backStripOptions)
 
@@ -386,6 +388,7 @@ export const createOptionsSlice: StateCreator<StoreState, [], [], IOptionsStoreS
   fretboardOptions: {
     radius: EFretboardRadiusOption.Modern,
     extension: EFretboardExtensionOption.Straight,
+    scallopedFrets: EFretboardScallopedFretsOption.None,
   },
   setFretboardOptions: (options) => {
     set((state) => ({
@@ -635,6 +638,10 @@ export const createOptionsSlice: StateCreator<StoreState, [], [], IOptionsStoreS
 
 export interface IUIControlsStoreState {
   workflow: 'Design' | 'Crafting'
+  context: {
+    hoveredMesh: string
+  }
+  setContext: (context: Partial<IUIControlsStoreState['context']>) => void
   scope: ELuthComponent
   setScope: (scope: ELuthComponent) => void
   controls: PresentationControlProps
@@ -645,6 +652,15 @@ export const createUIControlsSlice: StateCreator<StoreState, [], [], IUIControls
   set,
 ) => ({
   workflow: 'Design',
+  context: {
+    hoveredMesh: '',
+  },
+  setContext: (context) =>
+    set(() => ({
+      context: {
+        hoveredMesh: context.hoveredMesh ?? '',
+      },
+    })),
   scope: ELuthComponent.Base,
   setScope: (scope) => {
     set(() => ({ scope }))

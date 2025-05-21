@@ -1,11 +1,11 @@
 import { useEffect, useRef, useState } from 'react'
 import { BufferGeometry, Group } from 'three'
 import { PositionMesh } from '@react-three/drei'
-import { IConfiguration } from '~/models/configuration.model'
+import { ELuthComponent, IConfiguration, IMeshConfiguration } from '~/models/configuration.model'
 import { LuthGLTFResultCombined } from '~/models/gltfjsx.model'
 
 export const useInstanceGeometry = (
-  configuration: IConfiguration,
+  meshConfig: IMeshConfiguration<ELuthComponent>,
 ): {
   instanceGeometry: PositionMesh[]
   instanceGroupRef: React.RefObject<Group | null>
@@ -25,10 +25,10 @@ export const useInstanceGeometry = (
 
     setInstanceGeometry(
       geometries.filter((child) =>
-        configuration.meshes.includes(child.name as keyof LuthGLTFResultCombined['nodes']),
+        meshConfig.meshes.includes(child.name as keyof LuthGLTFResultCombined['nodes']),
       ),
     )
-  }, [configuration.meshes])
+  }, [meshConfig.meshes])
 
   return { instanceGeometry, instanceGroupRef }
 }

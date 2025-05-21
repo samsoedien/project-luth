@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react'
+import React, { useMemo, useRef } from 'react'
 // import { LuthSoundboardInstances as Instances } from '~/_generated/LuthSoundboard'
 import { Instances } from '~/_generated/LuthSides'
 
@@ -27,6 +27,8 @@ import FretboardMarkersMeshes from './fretboard/fretboardMarkers/FretboardMarker
 import PickguardMeshes from './pickguard/PickguardMeshes'
 import { EBaseOrientationOption } from '~/models/options.model'
 import KerflingMeshes from './sides/kerfling/KerflingMeshes'
+import { useHoverLogger } from '~/helpers/hoverUtil'
+import { Group } from 'three'
 
 interface IWithMeshConfigurationProps {
   position: [number, number, number]
@@ -93,42 +95,49 @@ const withMeshConfiguration = <P extends IWithMeshConfigurationProps>(
 
     const { orientation } = useConfigurationStore((state) => state.baseOptions)
 
+    const modelRef = useRef<Group>(null)
+
+    useHoverLogger(modelRef)
+
     return (
-      <group scale={orientation === EBaseOrientationOption.LeftHanded ? [-1, 1, 1] : [1, 1, 1]}>
+      <group
+        ref={modelRef}
+        scale={orientation === EBaseOrientationOption.LeftHanded ? [-1, 1, 1] : [1, 1, 1]}
+      >
         {/* <Instances> */}
         {configuration ? (
           <>
-            <SoundboardMeshes configuration={soundboardConfiguration}>
+            {/* <SoundboardMeshes configuration={soundboardConfiguration}>
               <RosetteMeshes configuration={rosetteConfiguration} />
               <BracesMeshes configuration={bracesConfiguration} />
             </SoundboardMeshes>
             <BackMeshes configuration={backConfiguration}>
               <BackStripMeshes configuration={backStripConfiguration} />
-            </BackMeshes>
-            <SidesMeshes configuration={sidesConfiguration}>
-              <HeelTailBlockMeshes configuration={heelTailBlockConfiguration} />
-              <KerflingMeshes configuration={kerflingConfiguration} />
-              <EndGraftMeshes configuration={endGraftConfiguration} />
+            </BackMeshes> */}
+            <SidesMeshes meshConfig={sidesConfiguration}>
+              <HeelTailBlockMeshes meshConfig={heelTailBlockConfiguration} />
+              {/*  <KerflingMeshes configuration={kerflingConfiguration} />
+              <EndGraftMeshes configuration={endGraftConfiguration} /> */}
             </SidesMeshes>
-            <BindingMeshes configuration={bindingConfiguration}>
+            {/* <BindingMeshes configuration={bindingConfiguration}>
               <PurflingMeshes configuration={purflingConfiguration} />
             </BindingMeshes>
-            <NeckMeshes configuration={neckConfiguration}>
-              {/* <mesh>
+            <NeckMeshes configuration={neckConfiguration}> */}
+            {/* <mesh>
                 <boxGeometry />
               </mesh> */}
-            </NeckMeshes>
+            {/* </NeckMeshes>
             <HeadstockMeshes configuration={headstockConfiguration}></HeadstockMeshes>
             <FretboardMeshes configuration={fretboardConfiguration}>
-              <NutMeshes configuration={nutConfiguration} />
-              {/* <FretsMeshes configuration={fretsConfiguration} /> */}
-              {/* <FretboardMarkersMeshes configuration={fretboardMarkersConfiguration} /> */}
-            </FretboardMeshes>
+              <NutMeshes configuration={nutConfiguration} /> */}
+            {/* <FretsMeshes configuration={fretsConfiguration} /> */}
+            {/* <FretboardMarkersMeshes configuration={fretboardMarkersConfiguration} /> */}
+            {/* </FretboardMeshes>
             <BridgeMeshes configuration={bridgeConfiguration}>
               <SaddleMeshes configuration={saddleConfiguration} />
             </BridgeMeshes>
             <PickguardMeshes configuration={pickguardConfiguration} />
-            <StringsMeshes configuration={stringsConfiguration} />
+            <StringsMeshes configuration={stringsConfiguration} /> */}
           </>
         ) : (
           <GLTFJSXComponent {...props} position={[0, 0, 0]} />

@@ -184,6 +184,11 @@ export enum EFretboardBindingOption {
   fretboardBinding = 'FretboardBinding',
 }
 
+export enum EFretboardScallopedFretsOption {
+  None = 'None',
+  Scalloped = 'Scalloped',
+}
+
 /** Bridge options */
 
 export enum EBridgeTypeOption {
@@ -312,6 +317,7 @@ export interface IHeadstockOptions {
 export interface IFretboardOptions {
   radius: EFretboardRadiusOption
   extension: EFretboardExtensionOption
+  scallopedFrets: EFretboardScallopedFretsOption
 }
 
 export interface IBridgeOptions {
@@ -362,6 +368,7 @@ export interface IBaseOptionConfig<T> {
   icon: string
   hidden?: boolean
   disabled?: boolean
+  keywords?: string[]
 }
 
 interface IStringSpacing {
@@ -388,6 +395,7 @@ export const baseOptions: Record<EBaseStringsSpacingOption, IBaseOptionConfig<IS
     userProfile: ['fingerstyle'],
     tooltip: 'Standard spacing for most guitars, suitable for fingerstyle and pickstyle playing.',
     icon: 'strings',
+    keywords: ['strings', 'spacing'],
   },
   [EBaseStringsSpacingOption.Narrow]: {
     label: 'String Spacing',
