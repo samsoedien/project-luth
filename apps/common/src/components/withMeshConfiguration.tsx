@@ -29,6 +29,8 @@ import { EBaseOrientationOption } from '~/models/options.model'
 import KerflingMeshes from './sides/kerfling/KerflingMeshes'
 import { useHoverLogger } from '~/helpers/hoverUtil'
 import { Group } from 'three'
+import BodyGroup from './body/BodyGroup'
+import BaseGroup from './base/BaseGroup'
 
 interface IWithMeshConfigurationProps {
   position: [number, number, number]
@@ -42,6 +44,8 @@ const withMeshConfiguration = <P extends IWithMeshConfigurationProps>(
   const WrappedComponent = (props: P) => {
     const configuration = useConfigurationStore((state) => state.configuration)
     const {
+      baseConfiguration,
+      bodyConfiguration,
       soundboardConfiguration,
       rosetteConfiguration,
       bracesConfiguration,
@@ -64,6 +68,8 @@ const withMeshConfiguration = <P extends IWithMeshConfigurationProps>(
       fretboardMarkersConfiguration,
       pickguardConfiguration,
     } = {
+      baseConfiguration: getConfiguredComponent(configuration, ELuthComponent.Base),
+      bodyConfiguration: getConfiguredComponent(configuration, ELuthComponent.Body),
       soundboardConfiguration: getConfiguredComponent(configuration, ELuthComponent.Soundboard),
       backStripConfiguration: getConfiguredComponent(configuration, ELuthComponent.BackStrip),
       rosetteConfiguration: getConfiguredComponent(configuration, ELuthComponent.Rosette),
@@ -93,37 +99,34 @@ const withMeshConfiguration = <P extends IWithMeshConfigurationProps>(
       pickguardConfiguration: getConfiguredComponent(configuration, ELuthComponent.Pickguard),
     }
 
-    const { orientation } = useConfigurationStore((state) => state.baseOptions)
-
     const modelRef = useRef<Group>(null)
 
     useHoverLogger(modelRef)
 
     return (
-      <group
-        ref={modelRef}
-        scale={orientation === EBaseOrientationOption.LeftHanded ? [-1, 1, 1] : [1, 1, 1]}
-      >
+      <group ref={modelRef}>
         {/* <Instances> */}
         {configuration ? (
-          <>
-            {/* <SoundboardMeshes configuration={soundboardConfiguration}>
+          <BaseGroup meshConfig={baseConfiguration}>
+            <BodyGroup meshConfig={bodyConfiguration}>
+              {/* <SoundboardMeshes configuration={soundboardConfiguration}>
               <RosetteMeshes configuration={rosetteConfiguration} />
               <BracesMeshes configuration={bracesConfiguration} />
             </SoundboardMeshes>
             <BackMeshes configuration={backConfiguration}>
               <BackStripMeshes configuration={backStripConfiguration} />
             </BackMeshes> */}
-            <SidesMeshes meshConfig={sidesConfiguration}>
-              <HeelTailBlockMeshes meshConfig={heelTailBlockConfiguration} />
-              {/*  <KerflingMeshes configuration={kerflingConfiguration} />
+              <SidesMeshes meshConfig={sidesConfiguration}>
+                <HeelTailBlockMeshes meshConfig={heelTailBlockConfiguration} />
+                {/*  <KerflingMeshes configuration={kerflingConfiguration} />
               <EndGraftMeshes configuration={endGraftConfiguration} /> */}
-            </SidesMeshes>
-            {/* <BindingMeshes configuration={bindingConfiguration}>
+              </SidesMeshes>
+              {/* <BindingMeshes configuration={bindingConfiguration}>
               <PurflingMeshes configuration={purflingConfiguration} />
-            </BindingMeshes>
-            <NeckMeshes configuration={neckConfiguration}> */}
-            {/* <mesh>
+            </BindingMeshes>*/}
+            </BodyGroup>
+            {/* <NeckMeshes configuration={neckConfiguration}> 
+           <mesh>
                 <boxGeometry />
               </mesh> */}
             {/* </NeckMeshes>
@@ -138,7 +141,7 @@ const withMeshConfiguration = <P extends IWithMeshConfigurationProps>(
             </BridgeMeshes>
             <PickguardMeshes configuration={pickguardConfiguration} />
             <StringsMeshes configuration={stringsConfiguration} /> */}
-          </>
+          </BaseGroup>
         ) : (
           <GLTFJSXComponent {...props} position={[0, 0, 0]} />
         )}
