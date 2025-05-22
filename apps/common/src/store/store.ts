@@ -1,6 +1,6 @@
 import { StateCreator } from 'zustand'
 import { create } from 'zustand/react'
-import { devtools } from 'zustand/middleware'
+import { createJSONStorage, devtools, persist } from 'zustand/middleware'
 
 import { ELuthComponent, IConfiguration } from '~/models/configuration.model'
 
@@ -87,6 +87,8 @@ import { endGraftMeshMap } from '~/components/sides/endGraft/endGraftMeshMap'
 import BaseOptions from '~/features/options/BaseOptions'
 import BodyOptions from '~/features/options/BodyOptions'
 import { immer } from 'zustand/middleware/immer'
+import { IHistoryStoreState, createHistorySlice } from './historySlice'
+import { IUIControlsStoreState, createUIControlsSlice } from './controlSlice'
 
 /** CONFIGURATION STATE SLICE */
 export interface IConfigurationStoreState {
@@ -632,103 +634,6 @@ export const createOptionsSlice: StateCreator<
   },
 })
 
-/** UI CONTROLS STATE SLICE */
-
-// interface IControls extends PresentationControlProps {
-//   rotation: [number, number, number]
-// }
-
-export interface IUIControlsStoreState {
-  workflow: 'Design' | 'Crafting'
-  context: {
-    hoveredMesh: string
-  }
-  setContext: (context: Partial<IUIControlsStoreState['context']>) => void
-  scope: ELuthComponent
-  setScope: (scope: ELuthComponent) => void
-  controls: PresentationControlProps
-  setControls: (controls: Partial<PresentationControlProps>) => void
-  componentVisibility: ELuthComponent[]
-  setComponentVisibility: (components: ELuthComponent[]) => void
-}
-
-export const createUIControlsSlice: StateCreator<StoreState, [], [], IUIControlsStoreState> = (
-  set,
-) => ({
-  workflow: 'Design',
-  context: {
-    hoveredMesh: '',
-  },
-  setContext: (context) =>
-    set(() => ({
-      context: {
-        hoveredMesh: context.hoveredMesh ?? '',
-      },
-    })),
-  scope: ELuthComponent.Base,
-  setScope: (scope) => {
-    set(() => ({ scope }))
-  },
-  controls: {
-    rotation: [0, 0, 0],
-    zoom: 2,
-    polar: [-Math.PI / 3, Math.PI / 3],
-    azimuth: [-Math.PI / 4, Math.PI / 4],
-    snap: false,
-  },
-  setControls: (controls) => {
-    set((state) => ({ controls: { ...state.controls, ...controls } }))
-  },
-  componentVisibility: [ELuthComponent.Soundboard, ELuthComponent.Sides],
-  setComponentVisibility: (components) => {
-    if (components) set(() => ({ componentVisibility: components }))
-  },
-})
-
-/** HISTORY STATE SLICE  */
-
-export interface IHistoryStoreState {
-  history: IOptionsStoreState[]
-  future: IOptionsStoreState[]
-  undo: () => void
-  redo: () => void
-}
-
-export const createHistorySlice: StateCreator<StoreState, [], [], IHistoryStoreState> = (
-  set,
-  get,
-) => ({
-  history: [],
-  future: [],
-  undo: () => {
-    const { history, future, ...currentState } = get()
-    if (history.length === 0) return
-
-    const previous = history[history.length - 1]
-    const newHistory = history.slice(0, -1)
-
-    set({
-      ...previous,
-      history: newHistory,
-      future: [currentState as IOptionsStoreState, ...future],
-    })
-  },
-
-  redo: () => {
-    const { history, future, ...currentState } = get()
-    if (future.length === 0) return
-
-    const next = future[0]
-    const newFuture = future.slice(1)
-
-    set({
-      ...next,
-      history: [...history, currentState as IOptionsStoreState],
-      future: newFuture,
-    })
-  },
-})
-
 /** COMBINED STORE SLICES */
 
 export type StoreState = IConfigurationStoreState &
@@ -744,10 +649,26 @@ export type StoreState = IConfigurationStoreState &
 // }))
 
 export const useConfigurationStore = create<StoreState>()(
-  devtools((set, get, store) => ({
-    ...createConfigurationSlice(set, get, store),
-    ...createOptionsSlice(set, get, store),
-    ...createUIControlsSlice(set, get, store),
-    ...createHistorySlice(set, get, store),
-  })),
+  devtools(
+    persist(
+      (set, get, store) => ({
+        ...createConfigurationSlice(set, get, store),
+        ...createOptionsSlice(set, get, store),
+        ...createUIControlsSlice(set, get, store),
+        ...createHistorySlice(set, get, store),
+      }),
+      {
+        name: 'configuration-store',
+        storage: createJSONStorage(() => localStorage),
+        partialize: (state) => ({
+          configuration: state.configuration,
+        }),
+      },
+    ),
+    {
+      enabled: process.env.NODE_ENV === 'development' ? true : false,
+      name: 'Configuration Store',
+      anonymousActionType: 'CONFIGURATION_ACTION',
+    },
+  ),
 )

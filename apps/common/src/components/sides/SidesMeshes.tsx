@@ -1,3 +1,4 @@
+import { is } from '@react-three/fiber/dist/declarations/src/core/utils'
 import LuthSides, { Instances } from '~/_generated/LuthSides'
 
 import { useInstanceGeometry } from '~/hooks/useInstanceGeometry'

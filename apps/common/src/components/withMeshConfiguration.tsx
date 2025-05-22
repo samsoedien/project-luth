@@ -46,64 +46,64 @@ const withMeshConfiguration = <P extends IWithMeshConfigurationProps>(
   // configuration: IConfiguration,
 ) => {
   const WrappedComponent = (props: P) => {
-    // const configuration = useConfigurationStore((state) => state.configuration)
-    // const {
-    //   baseConfiguration,
-    //   bodyConfiguration,
-    //   scaleConfiguration,
-    //   soundboardConfiguration,
-    //   rosetteConfiguration,
-    //   bracesConfiguration,
-    //   backConfiguration,
-    //   backStripConfiguration,
-    //   // sidesConfiguration,
-    //   heelTailBlockConfiguration,
-    //   kerflingConfiguration,
-    //   bindingConfiguration,
-    //   purflingConfiguration,
-    //   neckConfiguration,
-    //   fretboardConfiguration,
-    //   fretsConfiguration,
-    //   headstockConfiguration,
-    //   endGraftConfiguration,
-    //   bridgeConfiguration,
-    //   stringsConfiguration,
-    //   nutConfiguration,
-    //   saddleConfiguration,
-    //   fretboardMarkersConfiguration,
-    //   pickguardConfiguration,
-    // } = {
-    //   baseConfiguration: getConfiguredComponent(configuration, ELuthComponent.Base),
-    //   bodyConfiguration: getConfiguredComponent(configuration, ELuthComponent.Body),
-    //   scaleConfiguration: getConfiguredComponent(configuration, ELuthComponent.Scale),
-    //   soundboardConfiguration: getConfiguredComponent(configuration, ELuthComponent.Soundboard),
-    //   backStripConfiguration: getConfiguredComponent(configuration, ELuthComponent.BackStrip),
-    //   rosetteConfiguration: getConfiguredComponent(configuration, ELuthComponent.Rosette),
-    //   bracesConfiguration: getConfiguredComponent(configuration, ELuthComponent.Braces),
-    //   backConfiguration: getConfiguredComponent(configuration, ELuthComponent.Back),
-    //   // sidesConfiguration: getConfiguredComponent(configuration, ELuthComponent.Sides),
-    //   heelTailBlockConfiguration: getConfiguredComponent(
-    //     configuration,
-    //     ELuthComponent.HeelTailBlocks,
-    //   ),
-    //   kerflingConfiguration: getConfiguredComponent(configuration, ELuthComponent.Kerfling),
-    //   bindingConfiguration: getConfiguredComponent(configuration, ELuthComponent.Binding),
-    //   purflingConfiguration: getConfiguredComponent(configuration, ELuthComponent.Purfling),
-    //   neckConfiguration: getConfiguredComponent(configuration, ELuthComponent.Neck),
-    //   fretboardConfiguration: getConfiguredComponent(configuration, ELuthComponent.Fretboard),
-    //   fretsConfiguration: getConfiguredComponent(configuration, ELuthComponent.Frets),
-    //   headstockConfiguration: getConfiguredComponent(configuration, ELuthComponent.Headstock),
-    //   endGraftConfiguration: getConfiguredComponent(configuration, ELuthComponent.EndGraft),
-    //   bridgeConfiguration: getConfiguredComponent(configuration, ELuthComponent.Bridge),
-    //   stringsConfiguration: getConfiguredComponent(configuration, ELuthComponent.Strings),
-    //   nutConfiguration: getConfiguredComponent(configuration, ELuthComponent.Nut),
-    //   saddleConfiguration: getConfiguredComponent(configuration, ELuthComponent.Saddle),
-    //   fretboardMarkersConfiguration: getConfiguredComponent(
-    //     configuration,
-    //     ELuthComponent.FretboardMarkers,
-    //   ),
-    //   pickguardConfiguration: getConfiguredComponent(configuration, ELuthComponent.Pickguard),
-    // }
+    const configuration = useConfigurationStore((state) => state.configuration)
+    const {
+      //   baseConfiguration,
+      //   bodyConfiguration,
+      scaleConfiguration,
+      //   soundboardConfiguration,
+      //   rosetteConfiguration,
+      bracesConfiguration,
+      //   backConfiguration,
+      //   backStripConfiguration,
+      //   // sidesConfiguration,
+      //   heelTailBlockConfiguration,
+      //   kerflingConfiguration,
+      //   bindingConfiguration,
+      //   purflingConfiguration,
+      neckConfiguration,
+      //   fretboardConfiguration,
+      //   fretsConfiguration,
+      //   headstockConfiguration,
+      //   endGraftConfiguration,
+      //   bridgeConfiguration,
+      //   stringsConfiguration,
+      //   nutConfiguration,
+      //   saddleConfiguration,
+      //   fretboardMarkersConfiguration,
+      //   pickguardConfiguration,
+    } = {
+      //   baseConfiguration: getConfiguredComponent(configuration, ELuthComponent.Base),
+      //   bodyConfiguration: getConfiguredComponent(configuration, ELuthComponent.Body),
+      scaleConfiguration: getConfiguredComponent(configuration, ELuthComponent.Scale),
+      //   soundboardConfiguration: getConfiguredComponent(configuration, ELuthComponent.Soundboard),
+      //   backStripConfiguration: getConfiguredComponent(configuration, ELuthComponent.BackStrip),
+      //   rosetteConfiguration: getConfiguredComponent(configuration, ELuthComponent.Rosette),
+      bracesConfiguration: getConfiguredComponent(configuration, ELuthComponent.Braces),
+      //   backConfiguration: getConfiguredComponent(configuration, ELuthComponent.Back),
+      //   // sidesConfiguration: getConfiguredComponent(configuration, ELuthComponent.Sides),
+      //   heelTailBlockConfiguration: getConfiguredComponent(
+      //     configuration,
+      //     ELuthComponent.HeelTailBlocks,
+      //   ),
+      //   kerflingConfiguration: getConfiguredComponent(configuration, ELuthComponent.Kerfling),
+      //   bindingConfiguration: getConfiguredComponent(configuration, ELuthComponent.Binding),
+      //   purflingConfiguration: getConfiguredComponent(configuration, ELuthComponent.Purfling),
+      neckConfiguration: getConfiguredComponent(configuration, ELuthComponent.Neck),
+      //   fretboardConfiguration: getConfiguredComponent(configuration, ELuthComponent.Fretboard),
+      //   fretsConfiguration: getConfiguredComponent(configuration, ELuthComponent.Frets),
+      //   headstockConfiguration: getConfiguredComponent(configuration, ELuthComponent.Headstock),
+      //   endGraftConfiguration: getConfiguredComponent(configuration, ELuthComponent.EndGraft),
+      //   bridgeConfiguration: getConfiguredComponent(configuration, ELuthComponent.Bridge),
+      //   stringsConfiguration: getConfiguredComponent(configuration, ELuthComponent.Strings),
+      //   nutConfiguration: getConfiguredComponent(configuration, ELuthComponent.Nut),
+      //   saddleConfiguration: getConfiguredComponent(configuration, ELuthComponent.Saddle),
+      //   fretboardMarkersConfiguration: getConfiguredComponent(
+      //     configuration,
+      //     ELuthComponent.FretboardMarkers,
+      //   ),
+      //   pickguardConfiguration: getConfiguredComponent(configuration, ELuthComponent.Pickguard),
+    }
 
     const soundboardConfiguration = useConfigurationStore((state) =>
       getConfiguredComponent(state.configuration, ELuthComponent.Soundboard),
@@ -133,7 +133,7 @@ const withMeshConfiguration = <P extends IWithMeshConfigurationProps>(
             {/* <BodyGroup meshConfig={bodyConfiguration}> */}
             <SoundboardMeshes meshConfig={soundboardConfiguration}>
               <RosetteMeshes meshConfig={rosetteConfiguration} />
-              {/* <BracesMeshes meshConfig={bracesConfiguration} /> */}
+              <BracesMeshes meshConfig={bracesConfiguration} />
             </SoundboardMeshes>{' '}
             {/* <BackMeshes meshConfig={backConfiguration}>
                 <BackStripMeshes meshConfig={backStripConfiguration} />
@@ -147,9 +147,9 @@ const withMeshConfiguration = <P extends IWithMeshConfigurationProps>(
                 <PurflingMeshes meshConfig={purflingConfiguration} />
               </BindingMeshes> */}
             {/* </BodyGroup> */}
-            {/* <ScaleGroup meshConfig={scaleConfiguration}>
+            <ScaleGroup meshConfig={scaleConfiguration}>
               <NeckMeshes meshConfig={neckConfiguration}></NeckMeshes>
-              <HeadstockMeshes meshConfig={headstockConfiguration}></HeadstockMeshes>
+              {/* <HeadstockMeshes meshConfig={headstockConfiguration}></HeadstockMeshes>
               <FretboardMeshes meshConfig={fretboardConfiguration}>
                 <NutMeshes meshConfig={nutConfiguration} />
                 <FretsMeshes meshConfig={fretsConfiguration} />
@@ -159,8 +159,8 @@ const withMeshConfiguration = <P extends IWithMeshConfigurationProps>(
                 <SaddleMeshes meshConfig={saddleConfiguration} />
               </BridgeMeshes>
               <PickguardMeshes meshConfig={pickguardConfiguration} />
-              <StringsMeshes meshConfig={stringsConfiguration} />
-            </ScaleGroup> */}
+              <StringsMeshes meshConfig={stringsConfiguration} /> */}
+            </ScaleGroup>
           </>
         ) : (
           <GLTFJSXComponent {...props} position={[0, 0, 0]} />

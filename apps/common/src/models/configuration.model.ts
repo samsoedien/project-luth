@@ -47,11 +47,15 @@ export const luthScaleDeps = [
   ELuthComponent.Strings,
 ] as const
 
+export const luthBaseDeps = [...luthScaleDeps, ...luthBodyDeps]
+
+export const luthSoundboardDeps = [ELuthComponent.Rosette, ELuthComponent.Braces]
+
 export type LuthComponentDepsMap = {
   [ELuthComponent.Base]: [ELuthComponent.Body, ELuthComponent.Scale, ELuthComponent.Strings]
   [ELuthComponent.Body]: typeof luthBodyDeps
   [ELuthComponent.Scale]: typeof luthScaleDeps
-  [ELuthComponent.Soundboard]: [ELuthComponent.Rosette, ELuthComponent.Braces]
+  [ELuthComponent.Soundboard]: typeof luthSoundboardDeps
   [ELuthComponent.Back]: [ELuthComponent.BackStrip]
   [ELuthComponent.Sides]: [
     ELuthComponent.HeelTailBlocks,

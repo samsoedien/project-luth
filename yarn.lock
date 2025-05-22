@@ -2847,6 +2847,7 @@ __metadata:
     gl-matrix: "npm:^3.4.3"
     globals: "npm:^16.1.0"
     gltf-pipeline: "npm:^4.1.0"
+    immer: "npm:^10.1.1"
     leva: "npm:^0.10.0"
     node-three-gltf: "npm:^2.0.2"
     postprocessing: "npm:^6.37.3"
@@ -2859,7 +2860,7 @@ __metadata:
     typescript-eslint: "npm:^8.32.1"
     vite: "npm:^6.3.5"
     yargs: "npm:^17.7.2"
-    zustand: "npm:^5.0.4"
+    zustand: "npm:^5.0.5"
   languageName: unknown
   linkType: soft
 
@@ -13124,6 +13125,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"immer@npm:^10.1.1":
+  version: 10.1.1
+  resolution: "immer@npm:10.1.1"
+  checksum: 10c0/b749e10d137ccae91788f41bd57e9387f32ea6d6ea8fd7eb47b23fd7766681575efc7f86ceef7fe24c3bc9d61e38ff5d2f49c2663b2b0c056e280a4510923653
+  languageName: node
+  linkType: hard
+
 "immutable@npm:^4.3.4":
   version: 4.3.7
   resolution: "immutable@npm:4.3.7"
@@ -21865,9 +21873,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"zustand@npm:^5.0.4":
-  version: 5.0.4
-  resolution: "zustand@npm:5.0.4"
+"zustand@npm:^5.0.5":
+  version: 5.0.5
+  resolution: "zustand@npm:5.0.5"
   peerDependencies:
     "@types/react": ">=18.0.0"
     immer: ">=9.0.6"
@@ -21882,7 +21890,7 @@ __metadata:
       optional: true
     use-sync-external-store:
       optional: true
-  checksum: 10c0/5b6220f51b315cef3224a6517fcc00fa553df1af604009a9f02f8091727fe52e0499bc093be3efdd64b9fa4ad9238346aff21f34cdf79355207fcad097031596
+  checksum: 10c0/76228022ad589c8ef29227f184d8852277509f88c80afd537de0506a6ded2e7ecc01d21bb79f426867560e4d59553c526e88d01abc46bd32b133d97ff337e19b
   languageName: node
   linkType: hard
 

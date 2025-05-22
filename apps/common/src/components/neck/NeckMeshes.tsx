@@ -6,6 +6,7 @@ import { useInstanceGeometry } from '~/hooks/useInstanceGeometry'
 import { useTexture } from '@react-three/drei'
 
 import LuthNeck, { Instances } from '../../_generated/LuthNeck'
+import { useConfigurationStore } from '~/store/store'
 
 export interface INeckMeshesProps {
   meshConfig: IMeshConfiguration<ELuthComponent>
@@ -22,6 +23,9 @@ export default function NeckMeshes({ meshConfig, children }: INeckMeshesProps) {
   // const spruceMetalicMap = useTexture('spruce-test_Metallic.jpg')
   // const spruceRoughnessMap = useTexture('spruce-test_Roughness.jpg')
 
+  const componentVisibility = useConfigurationStore((state) => state.componentVisibility)
+  const isVisible = componentVisibility.includes(meshConfig.name)
+
   return (
     <group name={meshConfig.name} dispose={null} visible={true}>
       {instanceGeometry.length > 0 &&
@@ -35,7 +39,7 @@ export default function NeckMeshes({ meshConfig, children }: INeckMeshesProps) {
               normalMap={spruceNormalMap}
               aoMap={spruceAOMap}
             /> */}
-            <meshNormalMaterial />
+            <meshStandardMaterial color="white" />
           </mesh>
         ))}
       <group ref={instanceGroupRef} visible={false}>

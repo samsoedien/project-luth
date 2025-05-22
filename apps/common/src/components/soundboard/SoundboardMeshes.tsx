@@ -1,4 +1,4 @@
-import { memo, useRef } from 'react'
+import { memo, useMemo, useRef } from 'react'
 import LuthSoundboard, { Instances } from '../../_generated/LuthSoundboard'
 import { useInstanceGeometry } from '~/hooks/useInstanceGeometry'
 import { Helper, useTexture } from '@react-three/drei'
@@ -20,36 +20,63 @@ export default function SoundboardMeshes({ meshConfig, children }: ISoundboardMe
   const NormalMap = useTexture('Body_Sides_Venetian_Cutaway_Batch001_PBR_Normal.png')
   const ORMMap = useTexture('Body_Sides_Venetian_Cutaway_Batch001_PBR_ORM_Textures.png')
 
-  const componentVisbility = useConfigurationStore((state) => state.componentVisibility)
-  const isVisible = componentVisbility.includes(meshConfig.name)
+  const componentVisibility = useConfigurationStore((state) => state.componentVisibility)
+  const isVisible = componentVisibility.includes(meshConfig.name)
+
+  const materialProps = useMemo(() => {
+    return !isVisible
+      ? {
+          transparent: true,
+          opacity: 0.2,
+          depthWrite: false,
+          color: 'orange',
+        }
+      : {
+          transparent: false,
+          opacity: 1,
+          depthWrite: true,
+          color: 'white',
+        }
+  }, [isVisible])
 
   return (
-    <group name={meshConfig.name} dispose={null} visible={isVisible}>
+    <group
+      name={meshConfig.name}
+      dispose={null}
+      // visible={isVisible}
+    >
       {instanceGeometry.length > 0 &&
         instanceGeometry.map((child) => {
           return (
-            <DimensionedMesh key={child.uuid} name={child.name} geometry={child.geometry} />
+            // <DimensionedMesh key={child.uuid} name={child.name} geometry={child.geometry} />
 
-            // <mesh
-            //   key={child.uuid}
-            //   name={child.name}
-            //   geometry={child.geometry}
-            //   castShadow
-            //   receiveShadow
-            //   ref={meshRef}
-            // >
-            //   <meshNormalMaterial />
-            //   {/* <meshStandardMaterial
-            //     color="white"
-            //     // map={BaseColorMap}
-            //     // normalMap={NormalMap}
-            //     // displacementMap={spruceHeightMap}
-            //     // roughnessMap={ORMMap}
-            //     // metalnessMap={ORMMap}
-            //     // aoMap={ORMMap}
-            //   /> */}
-            //   <Helper type={BoxHelper} args={['red']} />
-            // </mesh>
+            <mesh
+              key={child.uuid}
+              name={child.name}
+              geometry={child.geometry}
+              castShadow
+              receiveShadow
+            >
+              {/* <meshNormalMaterial /> */}
+              <meshStandardMaterial
+                {...materialProps}
+                attach="material"
+                ref={(material) => {
+                  if (material) material.needsUpdate = true
+                }}
+              />
+
+              {/* <meshStandardMaterial
+                color="white"
+                // map={BaseColorMap}
+                // normalMap={NormalMap}
+                // displacementMap={spruceHeightMap}
+                // roughnessMap={ORMMap}
+                // metalnessMap={ORMMap}
+                // aoMap={ORMMap}
+              /> */}
+              <Helper type={BoxHelper} args={['red']} />
+            </mesh>
           )
         })}
       <group ref={instanceGroupRef} visible={false}>

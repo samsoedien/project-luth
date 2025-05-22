@@ -1,7 +1,12 @@
 import { Leva, useControls } from 'leva'
 import { useConfigurationStore } from '../store/store'
 
-import { ELuthComponent } from '~/models/configuration.model'
+import {
+  ELuthComponent,
+  luthBaseDeps,
+  luthBodyDeps,
+  luthSoundboardDeps,
+} from '~/models/configuration.model'
 import BodyOptions from './options/BodyOptions'
 import SoundboardOptions from './options/SoundboardOptions'
 import ScaleOptions from './options/ScaleOptions'
@@ -26,6 +31,9 @@ export default function Configurator() {
 
   const saveConfiguration = useConfigurationStore((state) => state.saveConfiguration)
   const loadConfiguration = useConfigurationStore((state) => state.loadConfiguration)
+
+  const componentVisibility = useConfigurationStore((state) => state.componentVisibility)
+  console.log('Component Visibility:', componentVisibility)
 
   const history = useConfigurationStore((state) => state.history)
   console.log('History:', history)
@@ -53,6 +61,26 @@ export default function Configurator() {
           azimuth: undefined,
           snap: false,
         })
+        setComponentVisibility([...luthBaseDeps, ...luthSoundboardDeps])
+        break
+      case ELuthComponent.Body:
+        setControls({
+          rotation: [0, -Math.PI / 5, 0],
+          zoom: undefined,
+          polar: undefined,
+          azimuth: undefined,
+          snap: false,
+        })
+        setComponentVisibility([...luthBodyDeps, ...luthSoundboardDeps])
+        break
+      case ELuthComponent.Scale:
+        setControls({
+          rotation: [0, 0, -Math.PI / 2],
+          zoom: undefined,
+          polar: undefined,
+          azimuth: undefined,
+          snap: true,
+        })
         break
       case ELuthComponent.Soundboard:
         setControls({
@@ -61,9 +89,20 @@ export default function Configurator() {
           polar: [-Math.PI / 3, Math.PI / 3],
           azimuth: [-Math.PI / 4, Math.PI / 4],
           snap: true,
-
-          // config: { mass: 1, tension: 80 },
         })
+        setComponentVisibility([scope, ...luthSoundboardDeps])
+
+        break
+      case ELuthComponent.Braces:
+        setControls({
+          rotation: [0, Math.PI, 0],
+          zoom: 2,
+          polar: [-Math.PI / 3, Math.PI / 3],
+          azimuth: [-Math.PI / 4, Math.PI / 4],
+          snap: true,
+        })
+
+        setComponentVisibility([ELuthComponent.Braces])
         break
       case ELuthComponent.Back:
         setControls({
@@ -119,6 +158,8 @@ export default function Configurator() {
           // snap: { mass: 5, tension: 140 },
           // config: { mass: 1, tension: 80 },
         })
+        setComponentVisibility([ELuthComponent.Neck])
+
         break
     }
   }

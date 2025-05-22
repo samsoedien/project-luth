@@ -4,6 +4,7 @@ import LuthRosette, { Instances as LuthRosetteInstances } from '../../../_genera
 
 import { useInstanceGeometry } from '~/hooks/useInstanceGeometry'
 import { ELuthComponent, IMeshConfiguration } from '~/models/configuration.model'
+import { useConfigurationStore } from '~/store/store'
 
 export interface IRosetteMeshesProps {
   meshConfig: IMeshConfiguration<ELuthComponent>
@@ -11,6 +12,9 @@ export interface IRosetteMeshesProps {
 
 export default function RosetteMeshes({ meshConfig }: IRosetteMeshesProps) {
   const { instanceGeometry, instanceGroupRef } = useInstanceGeometry(meshConfig)
+
+  const componentVisibility = useConfigurationStore((state) => state.componentVisibility)
+  const isVisible = componentVisibility.includes(meshConfig.name)
 
   return (
     <group name={meshConfig.name} dispose={null}>
