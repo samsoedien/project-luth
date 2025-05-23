@@ -189,6 +189,9 @@ export default function Configurator() {
       <NeckOptions />
       <KerflingOptions />
 
+      <ConfiguratorScope />
+      <ConfiguratorContext />
+
       <div
         style={{
           position: 'absolute',
@@ -210,8 +213,6 @@ export default function Configurator() {
           <button onClick={redo}>Redo Action</button>
         </div>
       </div>
-      <ConfiguratorScope />
-      <ConfiguratorContext />
     </div>
   )
 }

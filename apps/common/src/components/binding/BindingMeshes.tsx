@@ -1,3 +1,4 @@
+import { useTransparantMaterialProps } from '~/hooks/useTransparentMaterial'
 import LuthBinding, { Instances as BindingInstances } from '../../_generated/LuthBinding'
 
 import { ELuthComponent, IMeshConfiguration } from '../../models/configuration.model'
@@ -10,6 +11,8 @@ export interface IBindingMeshesProps {
 
 export default function BindingMeshes({ meshConfig, children }: IBindingMeshesProps) {
   const { instanceGeometry, instanceGroupRef } = useInstanceGeometry(meshConfig)
+  const materialProps = useTransparantMaterialProps(meshConfig.name)
+
   return (
     <group name={meshConfig.name} dispose={null}>
       {instanceGeometry.length > 0 &&
@@ -21,7 +24,13 @@ export default function BindingMeshes({ meshConfig, children }: IBindingMeshesPr
             castShadow
             receiveShadow
           >
-            <meshStandardMaterial color="white" />
+            <meshStandardMaterial
+              {...materialProps}
+              attach="material"
+              ref={(material) => {
+                if (material) material.needsUpdate = true
+              }}
+            />
           </mesh>
         ))}
       <group ref={instanceGroupRef} visible={false}>

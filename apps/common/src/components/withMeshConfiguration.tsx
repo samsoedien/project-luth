@@ -60,8 +60,8 @@ const withMeshConfiguration = <P extends IWithMeshConfigurationProps>(
       //   // sidesConfiguration,
       heelTailBlockConfiguration,
       kerflingConfiguration,
-      //   bindingConfiguration,
-      //   purflingConfiguration,
+      bindingConfiguration,
+      purflingConfiguration,
       neckConfiguration,
       //   fretboardConfiguration,
       //   fretsConfiguration,
@@ -88,8 +88,8 @@ const withMeshConfiguration = <P extends IWithMeshConfigurationProps>(
         ELuthComponent.HeelTailBlocks,
       ),
       kerflingConfiguration: getConfiguredComponent(configuration, ELuthComponent.Kerfling),
-      //   bindingConfiguration: getConfiguredComponent(configuration, ELuthComponent.Binding),
-      //   purflingConfiguration: getConfiguredComponent(configuration, ELuthComponent.Purfling),
+      bindingConfiguration: getConfiguredComponent(configuration, ELuthComponent.Binding),
+      purflingConfiguration: getConfiguredComponent(configuration, ELuthComponent.Purfling),
       neckConfiguration: getConfiguredComponent(configuration, ELuthComponent.Neck),
       //   fretboardConfiguration: getConfiguredComponent(configuration, ELuthComponent.Fretboard),
       //   fretsConfiguration: getConfiguredComponent(configuration, ELuthComponent.Frets),
@@ -136,7 +136,7 @@ const withMeshConfiguration = <P extends IWithMeshConfigurationProps>(
             {/* <BaseGroup meshConfig={baseConfiguration}> */}
             {/* <BodyGroup meshConfig={bodyConfiguration}> */}
             <SoundboardMeshes meshConfig={soundboardConfiguration}>
-              <RosetteMeshes meshConfig={rosetteConfiguration} />
+              {/* <RosetteMeshes meshConfig={rosetteConfiguration} /> */}
               <BracesMeshes meshConfig={bracesConfiguration} />
             </SoundboardMeshes>{' '}
             {/* <BackMeshes meshConfig={backConfiguration}>
@@ -147,9 +147,9 @@ const withMeshConfiguration = <P extends IWithMeshConfigurationProps>(
               <KerflingMeshes meshConfig={kerflingConfiguration} />
               {/* <EndGraftMeshes meshConfig={endGraftConfiguration} /> */}
             </SidesMeshes>
-            {/* <BindingMeshes meshConfig={bindingConfiguration}>
-                <PurflingMeshes meshConfig={purflingConfiguration} />
-              </BindingMeshes> */}
+            <BindingMeshes meshConfig={bindingConfiguration}>
+              <PurflingMeshes meshConfig={purflingConfiguration} />
+            </BindingMeshes>
             {/* </BodyGroup> */}
             <ScaleGroup meshConfig={scaleConfiguration}>
               <NeckMeshes meshConfig={neckConfiguration}></NeckMeshes>

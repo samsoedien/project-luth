@@ -6,14 +6,7 @@ export default function ConfiguratorContext() {
 
   return (
     <div className="relative">
-      <div
-        style={{
-          position: 'absolute',
-          bottom: '48px',
-          right: '48px',
-          fontSize: '12px',
-        }}
-      >
+      <div className="absolute right-[48px] bottom-[48px] text-[12px]">
         {context}
         <br />
         {[...componentVisibility].join(', ') || 'None'}

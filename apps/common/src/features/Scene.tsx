@@ -17,7 +17,7 @@ export default function Scene({ children, isDebug }: ISceneProps) {
 
   return (
     <>
-      <Canvas>
+      <Canvas className="relative">
         {isDebug && <Perf position="top-left" />}
         <Stage adjustCamera={false} shadows={true}>
           <PresentationControls enabled={true} speed={2} global={true} {...controls}>
