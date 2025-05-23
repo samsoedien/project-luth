@@ -73,6 +73,42 @@ export type LuthComponentDepsMap = {
   [ELuthComponent.Bridge]: [ELuthComponent.Saddle]
 }
 
+// const componentDepsMap = {
+//   [ELuthComponent.Base]: [ELuthComponent.Body, ELuthComponent.Scale],
+//   [ELuthComponent.Body]: [
+//     ELuthComponent.Soundboard,
+//     ELuthComponent.Back,
+//     ELuthComponent.Sides,
+//     ELuthComponent.Binding,
+//   ],
+//   [ELuthComponent.Scale]: [
+//     ELuthComponent.Neck,
+//     ELuthComponent.Headstock,
+//     ELuthComponent.Fretboard,
+//     ELuthComponent.Bridge,
+//     ELuthComponent.Strings,
+//   ],
+//   [ELuthComponent.Soundboard]: [ELuthComponent.Rosette, ELuthComponent.Braces],
+//   [ELuthComponent.Back]: [ELuthComponent.BackStrip],
+//   [ELuthComponent.Sides]: [
+//     ELuthComponent.HeelTailBlocks,
+//     ELuthComponent.Kerfling,
+//     ELuthComponent.EndGraft,
+//   ],
+//   [ELuthComponent.Binding]: [ELuthComponent.Purfling],
+//   [ELuthComponent.Neck]: [],
+//   [ELuthComponent.Headstock]: [],
+//   [ELuthComponent.Fretboard]: [
+//     ELuthComponent.Frets,
+//     ELuthComponent.FretboardMarkers,
+//     ELuthComponent.Nut,
+//   ],
+//   [ELuthComponent.Bridge]: [ELuthComponent.Saddle],
+//   [ELuthComponent.Pickguard]: [],
+//   [ELuthComponent.Electronics]: [],
+//   [ELuthComponent.Strings]: [],
+// } as const satisfies Record<ELuthComponent, readonly ELuthComponent[]>
+
 // const LuthComponentDepsMap = {
 //   [ELuthComponent.Base]: [
 //     ELuthComponent.Soundboard,
@@ -148,3 +184,53 @@ export type IMeshConfiguration<T extends ELuthComponent> = {
     dependsOn: ELuthComponent[]
   }
 }
+
+export const componentDepsMap = {
+  [ELuthComponent.Base]: [ELuthComponent.Body, ELuthComponent.Scale],
+  [ELuthComponent.Body]: [
+    ELuthComponent.Soundboard,
+    ELuthComponent.Back,
+    ELuthComponent.Sides,
+    ELuthComponent.Binding,
+    ELuthComponent.Pickguard,
+  ],
+  [ELuthComponent.Soundboard]: [ELuthComponent.Rosette, ELuthComponent.Braces],
+  [ELuthComponent.Back]: [ELuthComponent.BackStrip],
+  [ELuthComponent.Sides]: [
+    ELuthComponent.HeelTailBlocks,
+    ELuthComponent.Kerfling,
+    ELuthComponent.EndGraft,
+  ],
+  [ELuthComponent.Binding]: [ELuthComponent.Purfling],
+  [ELuthComponent.Scale]: [
+    ELuthComponent.Neck,
+    ELuthComponent.Headstock,
+    ELuthComponent.Fretboard,
+    ELuthComponent.Bridge,
+    ELuthComponent.Strings,
+  ],
+  [ELuthComponent.Fretboard]: [
+    ELuthComponent.Frets,
+    ELuthComponent.FretboardMarkers,
+    ELuthComponent.Nut,
+  ],
+  [ELuthComponent.Bridge]: [ELuthComponent.Saddle],
+
+  // Leaf nodes — no children
+  [ELuthComponent.Neck]: [],
+  [ELuthComponent.Headstock]: [],
+  [ELuthComponent.Strings]: [],
+  [ELuthComponent.Rosette]: [],
+  [ELuthComponent.Braces]: [],
+  [ELuthComponent.BackStrip]: [],
+  [ELuthComponent.HeelTailBlocks]: [],
+  [ELuthComponent.Kerfling]: [],
+  [ELuthComponent.EndGraft]: [],
+  [ELuthComponent.Purfling]: [],
+  [ELuthComponent.Frets]: [],
+  [ELuthComponent.FretboardMarkers]: [],
+  [ELuthComponent.Nut]: [],
+  [ELuthComponent.Saddle]: [],
+  [ELuthComponent.Pickguard]: [],
+  [ELuthComponent.Electronics]: [],
+} as const satisfies Record<ELuthComponent, readonly ELuthComponent[]>

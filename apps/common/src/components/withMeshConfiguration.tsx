@@ -35,6 +35,7 @@ import BodyGroup from './body/BodyGroup'
 import BaseGroup from './base/BaseGroup'
 import ScaleGroup from './scale/ScaleGroup'
 import { useComponentConfigurations } from '~/hooks/useComponentConfiguration'
+import { getComponentScope } from '~/helpers/getComponentScope'
 
 interface IWithMeshConfigurationProps {
   position: [number, number, number]
@@ -57,16 +58,16 @@ const withMeshConfiguration = <P extends IWithMeshConfigurationProps>(
       //   backConfiguration,
       //   backStripConfiguration,
       //   // sidesConfiguration,
-      //   heelTailBlockConfiguration,
-      //   kerflingConfiguration,
+      heelTailBlockConfiguration,
+      kerflingConfiguration,
       //   bindingConfiguration,
       //   purflingConfiguration,
       neckConfiguration,
       //   fretboardConfiguration,
       //   fretsConfiguration,
       //   headstockConfiguration,
-      //   endGraftConfiguration,
-      //   bridgeConfiguration,
+      // endGraftConfiguration,
+      bridgeConfiguration,
       //   stringsConfiguration,
       //   nutConfiguration,
       //   saddleConfiguration,
@@ -82,19 +83,19 @@ const withMeshConfiguration = <P extends IWithMeshConfigurationProps>(
       bracesConfiguration: getConfiguredComponent(configuration, ELuthComponent.Braces),
       //   backConfiguration: getConfiguredComponent(configuration, ELuthComponent.Back),
       //   // sidesConfiguration: getConfiguredComponent(configuration, ELuthComponent.Sides),
-      //   heelTailBlockConfiguration: getConfiguredComponent(
-      //     configuration,
-      //     ELuthComponent.HeelTailBlocks,
-      //   ),
-      //   kerflingConfiguration: getConfiguredComponent(configuration, ELuthComponent.Kerfling),
+      heelTailBlockConfiguration: getConfiguredComponent(
+        configuration,
+        ELuthComponent.HeelTailBlocks,
+      ),
+      kerflingConfiguration: getConfiguredComponent(configuration, ELuthComponent.Kerfling),
       //   bindingConfiguration: getConfiguredComponent(configuration, ELuthComponent.Binding),
       //   purflingConfiguration: getConfiguredComponent(configuration, ELuthComponent.Purfling),
       neckConfiguration: getConfiguredComponent(configuration, ELuthComponent.Neck),
       //   fretboardConfiguration: getConfiguredComponent(configuration, ELuthComponent.Fretboard),
       //   fretsConfiguration: getConfiguredComponent(configuration, ELuthComponent.Frets),
       //   headstockConfiguration: getConfiguredComponent(configuration, ELuthComponent.Headstock),
-      //   endGraftConfiguration: getConfiguredComponent(configuration, ELuthComponent.EndGraft),
-      //   bridgeConfiguration: getConfiguredComponent(configuration, ELuthComponent.Bridge),
+      // endGraftConfiguration: getConfiguredComponent(configuration, ELuthComponent.EndGraft),
+      bridgeConfiguration: getConfiguredComponent(configuration, ELuthComponent.Bridge),
       //   stringsConfiguration: getConfiguredComponent(configuration, ELuthComponent.Strings),
       //   nutConfiguration: getConfiguredComponent(configuration, ELuthComponent.Nut),
       //   saddleConfiguration: getConfiguredComponent(configuration, ELuthComponent.Saddle),
@@ -116,6 +117,9 @@ const withMeshConfiguration = <P extends IWithMeshConfigurationProps>(
     const sidesConfiguration = useConfigurationStore((state) =>
       getConfiguredComponent(state.configuration, ELuthComponent.Sides),
     )
+
+    const scope = getComponentScope(ELuthComponent.Body)
+    console.log('wmconfig scope', scope)
 
     console.log('sidesConfiguration', sidesConfiguration)
 
@@ -139,9 +143,9 @@ const withMeshConfiguration = <P extends IWithMeshConfigurationProps>(
                 <BackStripMeshes meshConfig={backStripConfiguration} />
               </BackMeshes> */}
             <SidesMeshes meshConfig={sidesConfiguration}>
-              {/* <HeelTailBlockMeshes meshConfig={heelTailBlockConfiguration} />
-                <KerflingMeshes meshConfig={kerflingConfiguration} />
-                <EndGraftMeshes meshConfig={endGraftConfiguration} /> */}
+              <HeelTailBlockMeshes meshConfig={heelTailBlockConfiguration} />
+              <KerflingMeshes meshConfig={kerflingConfiguration} />
+              {/* <EndGraftMeshes meshConfig={endGraftConfiguration} /> */}
             </SidesMeshes>
             {/* <BindingMeshes meshConfig={bindingConfiguration}>
                 <PurflingMeshes meshConfig={purflingConfiguration} />
@@ -154,11 +158,11 @@ const withMeshConfiguration = <P extends IWithMeshConfigurationProps>(
                 <NutMeshes meshConfig={nutConfiguration} />
                 <FretsMeshes meshConfig={fretsConfiguration} />
                 <FretboardMarkersMeshes configuration={fretboardMarkersConfiguration} /> 
-              </FretboardMeshes>
+              </FretboardMeshes> */}
               <BridgeMeshes meshConfig={bridgeConfiguration}>
-                <SaddleMeshes meshConfig={saddleConfiguration} />
+                {/* <SaddleMeshes meshConfig={saddleConfiguration} /> */}
               </BridgeMeshes>
-              <PickguardMeshes meshConfig={pickguardConfiguration} />
+              {/* <PickguardMeshes meshConfig={pickguardConfiguration} />
               <StringsMeshes meshConfig={stringsConfiguration} /> */}
             </ScaleGroup>
           </>

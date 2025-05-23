@@ -24,8 +24,6 @@ export default function Configurator() {
 
   const setControls = useConfigurationStore((state) => state.setControls)
 
-  const setComponentVisibility = useConfigurationStore((state) => state.setComponentVisibility)
-
   const undo = useConfigurationStore((state) => state.undo)
   const redo = useConfigurationStore((state) => state.redo)
 
@@ -44,7 +42,6 @@ export default function Configurator() {
       value: scope,
       onChange: (value: ELuthComponent) => {
         setScope(value)
-        // setComponentVisibility([value])
 
         setControlsFromScope(value)
       },
@@ -61,7 +58,6 @@ export default function Configurator() {
           azimuth: undefined,
           snap: false,
         })
-        setComponentVisibility([...luthBaseDeps, ...luthSoundboardDeps])
         break
       case ELuthComponent.Body:
         setControls({
@@ -71,7 +67,6 @@ export default function Configurator() {
           azimuth: undefined,
           snap: false,
         })
-        setComponentVisibility([...luthBodyDeps, ...luthSoundboardDeps])
         break
       case ELuthComponent.Scale:
         setControls({
@@ -90,19 +85,17 @@ export default function Configurator() {
           azimuth: [-Math.PI / 4, Math.PI / 4],
           snap: true,
         })
-        setComponentVisibility([scope, ...luthSoundboardDeps])
 
         break
       case ELuthComponent.Braces:
         setControls({
-          rotation: [0, Math.PI, 0],
+          rotation: [-Math.PI / 3, Math.PI, 0],
           zoom: 2,
           polar: [-Math.PI / 3, Math.PI / 3],
           azimuth: [-Math.PI / 4, Math.PI / 4],
           snap: true,
         })
 
-        setComponentVisibility([ELuthComponent.Braces])
         break
       case ELuthComponent.Back:
         setControls({
@@ -158,7 +151,6 @@ export default function Configurator() {
           // snap: { mass: 5, tension: 140 },
           // config: { mass: 1, tension: 80 },
         })
-        setComponentVisibility([ELuthComponent.Neck])
 
         break
     }

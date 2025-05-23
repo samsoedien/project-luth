@@ -21,15 +21,15 @@ export default function SoundboardMeshes({ meshConfig, children }: ISoundboardMe
   const ORMMap = useTexture('Body_Sides_Venetian_Cutaway_Batch001_PBR_ORM_Textures.png')
 
   const componentVisibility = useConfigurationStore((state) => state.componentVisibility)
-  const isVisible = componentVisibility.includes(meshConfig.name)
+  const isVisible = componentVisibility.has(meshConfig.name)
 
   const materialProps = useMemo(() => {
     return !isVisible
       ? {
           transparent: true,
-          opacity: 0.2,
+          opacity: 0.1,
           depthWrite: false,
-          color: 'orange',
+          color: 'white',
         }
       : {
           transparent: false,

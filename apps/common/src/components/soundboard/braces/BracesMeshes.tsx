@@ -12,7 +12,23 @@ export default function BracesMeshes({ meshConfig }: IBracesMeshesProps) {
   const { instanceGeometry, instanceGroupRef } = useInstanceGeometry(meshConfig)
 
   const componentVisibility = useConfigurationStore((state) => state.componentVisibility)
-  const isVisible = componentVisibility.includes(meshConfig.name)
+  const isVisible = componentVisibility.has(meshConfig.name)
+
+  const materialProps = useMemo(() => {
+    return !isVisible
+      ? {
+          transparent: true,
+          opacity: 0.1,
+          depthWrite: false,
+          color: 'white',
+        }
+      : {
+          transparent: false,
+          opacity: 1,
+          depthWrite: true,
+          color: 'white',
+        }
+  }, [isVisible])
 
   const scope = useConfigurationStore((state) => state.scope)
   console.log('BracesMeshes rerendered', scope)
@@ -23,7 +39,13 @@ export default function BracesMeshes({ meshConfig }: IBracesMeshesProps) {
         instanceGeometry.map((child) => (
           <mesh key={child.uuid} name={child.name} geometry={child.geometry}>
             {/* <meshNormalMaterial /> */}
-            <meshStandardMaterial color="white" />
+            <meshStandardMaterial
+              {...materialProps}
+              attach="material"
+              ref={(material) => {
+                if (material) material.needsUpdate = true
+              }}
+            />{' '}
           </mesh>
         ))}
       <group ref={instanceGroupRef} visible={false}>

@@ -1,4 +1,4 @@
-import { useContext } from 'react'
+import { useContext, useMemo } from 'react'
 import { context as GLTFJSXContext } from '../../_generated/LuthAcoustic'
 import { GLTFJSXInstances } from '~/models/gltfjsx.model'
 import { ELuthComponent, IConfiguration, IMeshConfiguration } from '~/models/configuration.model'
@@ -24,8 +24,23 @@ export default function NeckMeshes({ meshConfig, children }: INeckMeshesProps) {
   // const spruceRoughnessMap = useTexture('spruce-test_Roughness.jpg')
 
   const componentVisibility = useConfigurationStore((state) => state.componentVisibility)
-  const isVisible = componentVisibility.includes(meshConfig.name)
+  const isVisible = componentVisibility.has(meshConfig.name)
 
+  const materialProps = useMemo(() => {
+    return !isVisible
+      ? {
+          transparent: true,
+          opacity: 0.1,
+          depthWrite: false,
+          color: 'white',
+        }
+      : {
+          transparent: false,
+          opacity: 1,
+          depthWrite: true,
+          color: 'white',
+        }
+  }, [isVisible])
   return (
     <group name={meshConfig.name} dispose={null} visible={true}>
       {instanceGeometry.length > 0 &&
@@ -39,7 +54,13 @@ export default function NeckMeshes({ meshConfig, children }: INeckMeshesProps) {
               normalMap={spruceNormalMap}
               aoMap={spruceAOMap}
             /> */}
-            <meshStandardMaterial color="white" />
+            <meshStandardMaterial
+              {...materialProps}
+              attach="material"
+              ref={(material) => {
+                if (material) material.needsUpdate = true
+              }}
+            />
           </mesh>
         ))}
       <group ref={instanceGroupRef} visible={false}>

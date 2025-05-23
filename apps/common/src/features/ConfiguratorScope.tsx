@@ -1,5 +1,6 @@
 import { ELuthComponent } from '~/models/configuration.model'
 import { useConfigurationStore } from '../store/store'
+import { getComponentBreadcrumb } from '~/helpers/getComponentScope'
 
 export default function ConfiguratorContext() {
   const scope = useConfigurationStore((state) => state.scope)
@@ -35,6 +36,7 @@ export default function ConfiguratorContext() {
             >
               Reset
             </button>
+            {getComponentBreadcrumb(scope)}
           </div>
         </div>
       ) : null}

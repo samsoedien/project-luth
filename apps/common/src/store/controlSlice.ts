@@ -6,6 +6,7 @@ import { PresentationControlProps } from '@react-three/drei'
 import { StateCreator } from 'zustand'
 import { ELuthComponent } from '~/models/configuration.model'
 import { StoreState } from './store'
+import { getComponentScope } from '~/helpers/getComponentScope'
 
 export interface IUIControlsStoreState {
   workflow: 'Design' | 'Crafting'
@@ -17,26 +18,29 @@ export interface IUIControlsStoreState {
   setScope: (scope: ELuthComponent) => void
   controls: PresentationControlProps
   setControls: (controls: Partial<PresentationControlProps>) => void
-  componentVisibility: ELuthComponent[]
-  setComponentVisibility: (components: ELuthComponent[]) => void
+  componentVisibility: Set<ELuthComponent>
+  setComponentVisibility: (components: Set<ELuthComponent>) => void
 }
 
 export const createUIControlsSlice: StateCreator<StoreState, [], [], IUIControlsStoreState> = (
   set,
+  get,
 ) => ({
   workflow: 'Design',
   context: {
     hoveredMesh: '',
   },
   setContext: (context) =>
-    set(() => ({
+    set((state) => ({
       context: {
-        hoveredMesh: context.hoveredMesh ?? '',
+        ...state.context,
+        ...context,
       },
     })),
   scope: ELuthComponent.Base,
   setScope: (scope) => {
     set(() => ({ scope }))
+    get().setComponentVisibility(new Set(getComponentScope(scope)))
   },
   controls: {
     rotation: [0, 0, 0],
@@ -48,8 +52,8 @@ export const createUIControlsSlice: StateCreator<StoreState, [], [], IUIControls
   setControls: (controls) => {
     set((state) => ({ controls: { ...state.controls, ...controls } }))
   },
-  componentVisibility: [ELuthComponent.Soundboard, ELuthComponent.Sides],
+  componentVisibility: new Set(getComponentScope(ELuthComponent.Base)),
   setComponentVisibility: (components) => {
-    if (components) set(() => ({ componentVisibility: [...components] }))
+    if (components) set(() => ({ componentVisibility: new Set(components) }))
   },
 })

@@ -23,6 +23,8 @@ const bracesXPatternMeshes: Array<keyof GLTFResult['nodes']> = [
   'Body_BraceF_Right',
   'Body_BraceG_Left',
   'Body_BraceG_Right',
+  'Body_BraceH_Left',
+  'Body_BraceH_Right',
   'Body_Bridge_Plate',
 ]
 

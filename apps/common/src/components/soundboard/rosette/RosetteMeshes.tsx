@@ -14,7 +14,7 @@ export default function RosetteMeshes({ meshConfig }: IRosetteMeshesProps) {
   const { instanceGeometry, instanceGroupRef } = useInstanceGeometry(meshConfig)
 
   const componentVisibility = useConfigurationStore((state) => state.componentVisibility)
-  const isVisible = componentVisibility.includes(meshConfig.name)
+  const isVisible = componentVisibility.has(meshConfig.name)
 
   return (
     <group name={meshConfig.name} dispose={null}>
