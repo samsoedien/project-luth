@@ -7,6 +7,7 @@ import { ELuthComponent, IConfiguration, IMeshConfiguration } from '~/models/con
 import { BoxHelper, Mesh } from 'three'
 import { DimensionedMesh } from './DimensionedMesh'
 import { useConfigurationStore } from '~/store/store'
+import { useTransparantMaterialProps } from '~/hooks/useTransparentMaterial'
 
 export interface ISoundboardMeshesProps {
   meshConfig: IMeshConfiguration<ELuthComponent>
@@ -20,24 +21,7 @@ export default function SoundboardMeshes({ meshConfig, children }: ISoundboardMe
   const NormalMap = useTexture('Body_Sides_Venetian_Cutaway_Batch001_PBR_Normal.png')
   const ORMMap = useTexture('Body_Sides_Venetian_Cutaway_Batch001_PBR_ORM_Textures.png')
 
-  const componentVisibility = useConfigurationStore((state) => state.componentVisibility)
-  const isVisible = componentVisibility.has(meshConfig.name)
-
-  const materialProps = useMemo(() => {
-    return !isVisible
-      ? {
-          transparent: true,
-          opacity: 0.1,
-          depthWrite: false,
-          color: 'white',
-        }
-      : {
-          transparent: false,
-          opacity: 1,
-          depthWrite: true,
-          color: 'white',
-        }
-  }, [isVisible])
+  const materialProps = useTransparantMaterialProps(meshConfig.name)
 
   return (
     <group

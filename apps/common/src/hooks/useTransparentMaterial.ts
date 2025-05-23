@@ -1,7 +1,7 @@
 import { ELuthComponent } from '~/models/configuration.model'
 import { useConfigurationStore } from '~/store/store'
 
-export function useMaterialProps(component: ELuthComponent): MeshStandardMaterialProps {
+export function useTransparantMaterialProps(component: ELuthComponent): MeshStandardMaterialProps {
   const componentVisibility = useConfigurationStore((state) => state.componentVisibility)
   const isActive = componentVisibility.has(component)
 

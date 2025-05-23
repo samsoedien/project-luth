@@ -9,6 +9,7 @@ import { useInstanceGeometry } from '~/hooks/useInstanceGeometry'
 
 import LuthBridge, { Instances } from '../../_generated/LuthBridge'
 import { useConfigurationStore } from '~/store/store'
+import { useTransparantMaterialProps } from '~/hooks/useTransparentMaterial'
 
 export interface IBridgeMeshesProps {
   meshConfig: IMeshConfiguration<ELuthComponent>
@@ -18,24 +19,7 @@ export interface IBridgeMeshesProps {
 export default function BridgeMeshes({ meshConfig, children }: IBridgeMeshesProps) {
   const { instanceGeometry, instanceGroupRef } = useInstanceGeometry(meshConfig)
 
-  const componentVisibility = useConfigurationStore((state) => state.componentVisibility)
-  const isVisible = componentVisibility.has(meshConfig.name)
-
-  const materialProps = useMemo(() => {
-    return !isVisible
-      ? {
-          transparent: true,
-          opacity: 0.1,
-          depthWrite: false,
-          color: 'white',
-        }
-      : {
-          transparent: false,
-          opacity: 1,
-          depthWrite: true,
-          color: 'white',
-        }
-  }, [isVisible])
+  const materialProps = useTransparantMaterialProps(meshConfig.name)
 
   // const bridgeTexture = useTexture('walnut.jpg')
 

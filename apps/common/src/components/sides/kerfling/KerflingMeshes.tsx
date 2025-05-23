@@ -3,6 +3,7 @@ import { useInstanceGeometry } from '~/hooks/useInstanceGeometry'
 import { ELuthComponent, IMeshConfiguration } from '~/models/configuration.model'
 import { useConfigurationStore } from '~/store/store'
 import { useMemo } from 'react'
+import { useTransparantMaterialProps } from '~/hooks/useTransparentMaterial'
 
 export interface IKerflingMeshesProps {
   meshConfig: IMeshConfiguration<ELuthComponent>
@@ -10,24 +11,7 @@ export interface IKerflingMeshesProps {
 export default function KerflingMeshes({ meshConfig }: IKerflingMeshesProps) {
   const { instanceGeometry, instanceGroupRef } = useInstanceGeometry(meshConfig)
 
-  const componentVisibility = useConfigurationStore((state) => state.componentVisibility)
-  const isVisible = componentVisibility.has(meshConfig.name)
-
-  const materialProps = useMemo(() => {
-    return !isVisible
-      ? {
-          transparent: true,
-          opacity: 0.1,
-          depthWrite: false,
-          color: 'white',
-        }
-      : {
-          transparent: false,
-          opacity: 1,
-          depthWrite: true,
-          color: 'white',
-        }
-  }, [isVisible])
+  const materialProps = useTransparantMaterialProps(meshConfig.name)
 
   return (
     <group name={meshConfig.name} dispose={null}>

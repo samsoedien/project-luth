@@ -1,6 +1,7 @@
 import { useMemo } from 'react'
 import LuthBraces, { Instances } from '~/_generated/LuthBraces'
 import { useInstanceGeometry } from '~/hooks/useInstanceGeometry'
+import { useTransparantMaterialProps } from '~/hooks/useTransparentMaterial'
 import { ELuthComponent, IMeshConfiguration } from '~/models/configuration.model'
 import { useConfigurationStore } from '~/store/store'
 
@@ -11,24 +12,7 @@ export interface IBracesMeshesProps {
 export default function BracesMeshes({ meshConfig }: IBracesMeshesProps) {
   const { instanceGeometry, instanceGroupRef } = useInstanceGeometry(meshConfig)
 
-  const componentVisibility = useConfigurationStore((state) => state.componentVisibility)
-  const isVisible = componentVisibility.has(meshConfig.name)
-
-  const materialProps = useMemo(() => {
-    return !isVisible
-      ? {
-          transparent: true,
-          opacity: 0.1,
-          depthWrite: false,
-          color: 'white',
-        }
-      : {
-          transparent: false,
-          opacity: 1,
-          depthWrite: true,
-          color: 'white',
-        }
-  }, [isVisible])
+  const materialProps = useTransparantMaterialProps(meshConfig.name)
 
   const scope = useConfigurationStore((state) => state.scope)
   console.log('BracesMeshes rerendered', scope)

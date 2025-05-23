@@ -7,6 +7,7 @@ import { useTexture } from '@react-three/drei'
 
 import LuthNeck, { Instances } from '../../_generated/LuthNeck'
 import { useConfigurationStore } from '~/store/store'
+import { useTransparantMaterialProps } from '~/hooks/useTransparentMaterial'
 
 export interface INeckMeshesProps {
   meshConfig: IMeshConfiguration<ELuthComponent>
@@ -23,24 +24,8 @@ export default function NeckMeshes({ meshConfig, children }: INeckMeshesProps) {
   // const spruceMetalicMap = useTexture('spruce-test_Metallic.jpg')
   // const spruceRoughnessMap = useTexture('spruce-test_Roughness.jpg')
 
-  const componentVisibility = useConfigurationStore((state) => state.componentVisibility)
-  const isVisible = componentVisibility.has(meshConfig.name)
+  const materialProps = useTransparantMaterialProps(meshConfig.name)
 
-  const materialProps = useMemo(() => {
-    return !isVisible
-      ? {
-          transparent: true,
-          opacity: 0.1,
-          depthWrite: false,
-          color: 'white',
-        }
-      : {
-          transparent: false,
-          opacity: 1,
-          depthWrite: true,
-          color: 'white',
-        }
-  }, [isVisible])
   return (
     <group name={meshConfig.name} dispose={null} visible={true}>
       {instanceGeometry.length > 0 &&

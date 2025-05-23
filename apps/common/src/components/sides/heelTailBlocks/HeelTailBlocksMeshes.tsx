@@ -8,6 +8,7 @@ import { useInstanceGeometry } from '~/hooks/useInstanceGeometry'
 import { ELuthComponent, IConfiguration, IMeshConfiguration } from '~/models/configuration.model'
 import { useMemo } from 'react'
 import { useConfigurationStore } from '~/store/store'
+import { useTransparantMaterialProps } from '~/hooks/useTransparentMaterial'
 
 export interface IHeelTailBlockMeshesProps {
   meshConfig: IMeshConfiguration<ELuthComponent>
@@ -16,24 +17,7 @@ export interface IHeelTailBlockMeshesProps {
 export default function HeelTailBlockMeshes({ meshConfig }: IHeelTailBlockMeshesProps) {
   const { instanceGeometry, instanceGroupRef } = useInstanceGeometry(meshConfig)
 
-  const componentVisibility = useConfigurationStore((state) => state.componentVisibility)
-  const isVisible = componentVisibility.has(meshConfig.name)
-
-  const materialProps = useMemo(() => {
-    return !isVisible
-      ? {
-          transparent: true,
-          opacity: 0.1,
-          depthWrite: false,
-          color: 'white',
-        }
-      : {
-          transparent: false,
-          opacity: 1,
-          depthWrite: true,
-          color: 'white',
-        }
-  }, [isVisible])
+  const materialProps = useTransparantMaterialProps(meshConfig.name)
 
   return (
     <group name={meshConfig.name} dispose={null}>

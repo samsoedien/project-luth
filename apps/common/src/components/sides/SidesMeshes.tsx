@@ -3,7 +3,7 @@ import { useMemo } from 'react'
 import LuthSides, { Instances } from '~/_generated/LuthSides'
 
 import { useInstanceGeometry } from '~/hooks/useInstanceGeometry'
-import { useMaterialProps } from '~/hooks/useTransparentMaterial'
+import { useTransparantMaterialProps } from '~/hooks/useTransparentMaterial'
 import { ELuthComponent, IConfiguration, IMeshConfiguration } from '~/models/configuration.model'
 import { useConfigurationStore } from '~/store/store'
 
@@ -14,7 +14,7 @@ export interface ISidesMeshesProps {
 export default function SidesMeshes({ meshConfig, children }: ISidesMeshesProps) {
   const { instanceGeometry, instanceGroupRef } = useInstanceGeometry(meshConfig)
 
-  const materialProps = useMaterialProps(meshConfig.name)
+  const materialProps = useTransparantMaterialProps(meshConfig.name)
 
   console.log('SidesMeshes rerender')
   console.log('SidesMeshes', meshConfig)
