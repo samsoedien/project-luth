@@ -18,7 +18,7 @@ import { ELuthComponent, componentDepsMap } from '~/models/configuration.model'
  *
  * @example
  * ```ts
- * const scope = getComponentScope(ELuthComponent.Body);
+ * const activeComponent = getComponentScope(ELuthComponent.Body);
  * console.log(scope.has(ELuthComponent.Soundboard)); // true, if Soundboard is a dependency of Body
  * ```
  */

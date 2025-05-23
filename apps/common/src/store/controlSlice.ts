@@ -14,8 +14,8 @@ export interface IUIControlsStoreState {
     hoveredMesh: string
   }
   setContext: (context: Partial<IUIControlsStoreState['context']>) => void
-  scope: ELuthComponent
-  setScope: (scope: ELuthComponent) => void
+  activeComponent: ELuthComponent
+  setActiveComponent: (activeComponent: ELuthComponent) => void
   controls: PresentationControlProps
   setControls: (controls: Partial<PresentationControlProps>) => void
   componentVisibility: Set<ELuthComponent>
@@ -37,10 +37,10 @@ export const createUIControlsSlice: StateCreator<StoreState, [], [], IUIControls
         ...context,
       },
     })),
-  scope: ELuthComponent.Base,
-  setScope: (scope) => {
-    set(() => ({ scope }))
-    get().setComponentVisibility(new Set(getComponentScope(scope)))
+  activeComponent: ELuthComponent.Base,
+  setActiveComponent: (activeComponent) => {
+    set(() => ({ activeComponent }))
+    get().setComponentVisibility(new Set(getComponentScope(activeComponent)))
   },
   controls: {
     rotation: [0, 0, 0],

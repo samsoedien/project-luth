@@ -118,8 +118,8 @@ const withMeshConfiguration = <P extends IWithMeshConfigurationProps>(
       getConfiguredComponent(state.configuration, ELuthComponent.Sides),
     )
 
-    const scope = getComponentScope(ELuthComponent.Body)
-    console.log('wmconfig scope', scope)
+    const activeComponent = getComponentScope(ELuthComponent.Body)
+    console.log('activeComponent', activeComponent)
 
     console.log('sidesConfiguration', sidesConfiguration)
 

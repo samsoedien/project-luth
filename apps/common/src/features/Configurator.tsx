@@ -19,8 +19,8 @@ import ConfiguratorContext from './ConfiguratorContext'
 import ConfiguratorScope from './ConfiguratorScope'
 
 export default function Configurator() {
-  const scope = useConfigurationStore((state) => state.scope)
-  const setScope = useConfigurationStore((state) => state.setScope)
+  const activeComponent = useConfigurationStore((state) => state.activeComponent)
+  const setActiveComponent = useConfigurationStore((state) => state.setActiveComponent)
 
   const setControls = useConfigurationStore((state) => state.setControls)
 
@@ -37,19 +37,19 @@ export default function Configurator() {
   console.log('History:', history)
 
   useControls('Scope', {
-    scope: {
+    activeComponent: {
       options: Object.values(ELuthComponent) as ELuthComponent[],
-      value: scope,
+      value: activeComponent,
       onChange: (value: ELuthComponent) => {
-        setScope(value)
+        setActiveComponent(value)
 
         setControlsFromScope(value)
       },
     },
   })
 
-  const setControlsFromScope = (scope: ELuthComponent) => {
-    switch (scope) {
+  const setControlsFromScope = (activeComponent: ELuthComponent) => {
+    switch (activeComponent) {
       case ELuthComponent.Base:
         setControls({
           rotation: [0, -Math.PI / 5, 0],

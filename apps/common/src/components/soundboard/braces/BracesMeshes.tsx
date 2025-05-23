@@ -14,8 +14,8 @@ export default function BracesMeshes({ meshConfig }: IBracesMeshesProps) {
 
   const materialProps = useTransparantMaterialProps(meshConfig.name)
 
-  const scope = useConfigurationStore((state) => state.scope)
-  console.log('BracesMeshes rerendered', scope)
+  const activeComponent = useConfigurationStore((state) => state.activeComponent)
+  console.log('BracesMeshes rerendered', activeComponent)
 
   return (
     <group name={meshConfig.name} dispose={null}>
