@@ -49,7 +49,8 @@ export function Instances({ children, ...props }: JSX.IntrinsicElements['group']
       BodySoundboardFlorentineCutaway1: nodes.Body_Soundboard_Florentine_Cutaway001,
       BodySoundboardArmBevel1: nodes.Body_Soundboard_Arm_Bevel001,
       BodySoundboardArmBevelCutawayVenetian1: nodes.Body_Soundboard_Arm_Bevel_Cutaway_Venetian001,
-      BodySoundboardArmBevelCutawayFlorentine1: nodes.Body_Soundboard_Arm_Bevel_Cutaway_Florentine001,
+      BodySoundboardArmBevelCutawayFlorentine1:
+        nodes.Body_Soundboard_Arm_Bevel_Cutaway_Florentine001,
     }),
     [nodes],
   )
@@ -65,17 +66,50 @@ export default function Model(props: JSX.IntrinsicElements['group']) {
   return (
     <group {...props} dispose={null}>
       <instances.BodySoundboard name="Body_Soundboard" userData={{ name: 'Body_Soundboard' }} />
-      <instances.BodySoundboardVenetianCutaway name="Body_Soundboard_Venetian_Cutaway" userData={{ name: 'Body_Soundboard_Venetian_Cutaway' }} />
-      <instances.BodySoundboardFlorentineCutaway name="Body_Soundboard_Florentine_Cutaway" userData={{ name: 'Body_Soundboard_Florentine_Cutaway' }} />
-      <instances.BodySoundboardArmBevel name="Body_Soundboard_Arm_Bevel" userData={{ name: 'Body_Soundboard_Arm_Bevel' }} />
-      <instances.BodySoundboardArmBevelCutawayVenetian name="Body_Soundboard_Arm_Bevel_Cutaway_Venetian" userData={{ name: 'Body_Soundboard_Arm_Bevel_Cutaway_Venetian' }} />
-      <instances.BodySoundboardArmBevelCutawayFlorentine name="Body_Soundboard_Arm_Bevel_Cutaway_Florentine" userData={{ name: 'Body_Soundboard_Arm_Bevel_Cutaway_Florentine' }} />
-      <instances.BodySoundboard1 name="Body_Soundboard001" userData={{ name: 'Body_Soundboard.001' }} />
-      <instances.BodySoundboardVenetianCutaway1 name="Body_Soundboard_Venetian_Cutaway001" userData={{ name: 'Body_Soundboard_Venetian_Cutaway.001' }} />
-      <instances.BodySoundboardFlorentineCutaway1 name="Body_Soundboard_Florentine_Cutaway001" userData={{ name: 'Body_Soundboard_Florentine_Cutaway.001' }} />
-      <instances.BodySoundboardArmBevel1 name="Body_Soundboard_Arm_Bevel001" userData={{ name: 'Body_Soundboard_Arm_Bevel.001' }} />
-      <instances.BodySoundboardArmBevelCutawayVenetian1 name="Body_Soundboard_Arm_Bevel_Cutaway_Venetian001" userData={{ name: 'Body_Soundboard_Arm_Bevel_Cutaway_Venetian.001' }} />
-      <instances.BodySoundboardArmBevelCutawayFlorentine1 name="Body_Soundboard_Arm_Bevel_Cutaway_Florentine001" userData={{ name: 'Body_Soundboard_Arm_Bevel_Cutaway_Florentine.001' }} />
+      <instances.BodySoundboardVenetianCutaway
+        name="Body_Soundboard_Venetian_Cutaway"
+        userData={{ name: 'Body_Soundboard_Venetian_Cutaway' }}
+      />
+      <instances.BodySoundboardFlorentineCutaway
+        name="Body_Soundboard_Florentine_Cutaway"
+        userData={{ name: 'Body_Soundboard_Florentine_Cutaway' }}
+      />
+      <instances.BodySoundboardArmBevel
+        name="Body_Soundboard_Arm_Bevel"
+        userData={{ name: 'Body_Soundboard_Arm_Bevel' }}
+      />
+      <instances.BodySoundboardArmBevelCutawayVenetian
+        name="Body_Soundboard_Arm_Bevel_Cutaway_Venetian"
+        userData={{ name: 'Body_Soundboard_Arm_Bevel_Cutaway_Venetian' }}
+      />
+      <instances.BodySoundboardArmBevelCutawayFlorentine
+        name="Body_Soundboard_Arm_Bevel_Cutaway_Florentine"
+        userData={{ name: 'Body_Soundboard_Arm_Bevel_Cutaway_Florentine' }}
+      />
+      <instances.BodySoundboard1
+        name="Body_Soundboard001"
+        userData={{ name: 'Body_Soundboard.001' }}
+      />
+      <instances.BodySoundboardVenetianCutaway1
+        name="Body_Soundboard_Venetian_Cutaway001"
+        userData={{ name: 'Body_Soundboard_Venetian_Cutaway.001' }}
+      />
+      <instances.BodySoundboardFlorentineCutaway1
+        name="Body_Soundboard_Florentine_Cutaway001"
+        userData={{ name: 'Body_Soundboard_Florentine_Cutaway.001' }}
+      />
+      <instances.BodySoundboardArmBevel1
+        name="Body_Soundboard_Arm_Bevel001"
+        userData={{ name: 'Body_Soundboard_Arm_Bevel.001' }}
+      />
+      <instances.BodySoundboardArmBevelCutawayVenetian1
+        name="Body_Soundboard_Arm_Bevel_Cutaway_Venetian001"
+        userData={{ name: 'Body_Soundboard_Arm_Bevel_Cutaway_Venetian.001' }}
+      />
+      <instances.BodySoundboardArmBevelCutawayFlorentine1
+        name="Body_Soundboard_Arm_Bevel_Cutaway_Florentine001"
+        userData={{ name: 'Body_Soundboard_Arm_Bevel_Cutaway_Florentine.001' }}
+      />
     </group>
   )
 }

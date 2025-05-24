@@ -53,13 +53,34 @@ export default function Model(props: JSX.IntrinsicElements['group']) {
   const instances = React.useContext(context)
   return (
     <group {...props} dispose={null}>
-      <instances.BodyBackCenterStrip name="Body_Back_Center_Strip" userData={{ name: 'Body_Back_Center_Strip' }} />
-      <instances.BodyBackCenterStrip name="Body_Back_Center_Strip__1_" userData={{ name: 'Body_Back_Center_Strip__1_' }} />
-      <instances.BodyBackDoubleStripLeft name="Body_Back_Double_Strip_Left" userData={{ name: 'Body_Back_Double_Strip_Left' }} />
-      <instances.BodyBackDoubleStripRight name="Body_Back_Double_Strip_Right__1_" userData={{ name: 'Body_Back_Double_Strip_Right__1_' }} />
-      <instances.BodyCenterBackStrip name="Body_Center_Back_Strip" userData={{ name: 'Body_Center_Back_Strip' }} />
-      <instances.BodyDoubleBackStripLeft name="Body_Double_Back_Strip_Left" userData={{ name: 'Body_Double_Back_Strip_Left' }} />
-      <instances.BodyDoubleBackStripRight name="Body_Double_Back_Strip_Right" userData={{ name: 'Body_Double_Back_Strip_Right' }} />
+      <instances.BodyBackCenterStrip
+        name="Body_Back_Center_Strip"
+        userData={{ name: 'Body_Back_Center_Strip' }}
+      />
+      <instances.BodyBackCenterStrip
+        name="Body_Back_Center_Strip__1_"
+        userData={{ name: 'Body_Back_Center_Strip__1_' }}
+      />
+      <instances.BodyBackDoubleStripLeft
+        name="Body_Back_Double_Strip_Left"
+        userData={{ name: 'Body_Back_Double_Strip_Left' }}
+      />
+      <instances.BodyBackDoubleStripRight
+        name="Body_Back_Double_Strip_Right__1_"
+        userData={{ name: 'Body_Back_Double_Strip_Right__1_' }}
+      />
+      <instances.BodyCenterBackStrip
+        name="Body_Center_Back_Strip"
+        userData={{ name: 'Body_Center_Back_Strip' }}
+      />
+      <instances.BodyDoubleBackStripLeft
+        name="Body_Double_Back_Strip_Left"
+        userData={{ name: 'Body_Double_Back_Strip_Left' }}
+      />
+      <instances.BodyDoubleBackStripRight
+        name="Body_Double_Back_Strip_Right"
+        userData={{ name: 'Body_Double_Back_Strip_Right' }}
+      />
     </group>
   )
 }

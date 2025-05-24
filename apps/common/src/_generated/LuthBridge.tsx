@@ -71,19 +71,52 @@ export default function Model(props: JSX.IntrinsicElements['group']) {
   return (
     <group {...props} dispose={null}>
       <instances.BodySaddle name="Body_Saddle" userData={{ name: 'Body_Saddle' }} />
-      <instances.BodyBridgePinInlay name="Body_Bridge_Pin_Inlay" userData={{ name: 'Body_Bridge_Pin_Inlay' }} />
-      <instances.BodyBridgePin name="Body_Bridge_Pin004" userData={{ name: 'Body_Bridge_Pin.004' }} />
-      <instances.BodyBridgePinInlay1 name="Body_Bridge_Pin_Inlay005" userData={{ name: 'Body_Bridge_Pin_Inlay.005' }} />
-      <instances.BodyBridgePin1 name="Body_Bridge_Pin005" userData={{ name: 'Body_Bridge_Pin.005' }} />
+      <instances.BodyBridgePinInlay
+        name="Body_Bridge_Pin_Inlay"
+        userData={{ name: 'Body_Bridge_Pin_Inlay' }}
+      />
+      <instances.BodyBridgePin
+        name="Body_Bridge_Pin004"
+        userData={{ name: 'Body_Bridge_Pin.004' }}
+      />
+      <instances.BodyBridgePinInlay1
+        name="Body_Bridge_Pin_Inlay005"
+        userData={{ name: 'Body_Bridge_Pin_Inlay.005' }}
+      />
+      <instances.BodyBridgePin1
+        name="Body_Bridge_Pin005"
+        userData={{ name: 'Body_Bridge_Pin.005' }}
+      />
       <instances.BodyBridge name="Body_Bridge" userData={{ name: 'Body_Bridge' }} />
       <instances.BodyBridgePin2 name="Body_Bridge_Pin" userData={{ name: 'Body_Bridge_Pin' }} />
-      <instances.BodyBridgePinInlay2 name="Body_Bridge_Pin_Inlay001" userData={{ name: 'Body_Bridge_Pin_Inlay.001' }} />
-      <instances.BodyBridgePin3 name="Body_Bridge_Pin001" userData={{ name: 'Body_Bridge_Pin.001' }} />
-      <instances.BodyBridgePinInlay3 name="Body_Bridge_Pin_Inlay002" userData={{ name: 'Body_Bridge_Pin_Inlay.002' }} />
-      <instances.BodyBridgePin4 name="Body_Bridge_Pin002" userData={{ name: 'Body_Bridge_Pin.002' }} />
-      <instances.BodyBridgePinInlay4 name="Body_Bridge_Pin_Inlay003" userData={{ name: 'Body_Bridge_Pin_Inlay.003' }} />
-      <instances.BodyBridgePin5 name="Body_Bridge_Pin003" userData={{ name: 'Body_Bridge_Pin.003' }} />
-      <instances.BodyBridgePinInlay5 name="Body_Bridge_Pin_Inlay004" userData={{ name: 'Body_Bridge_Pin_Inlay.004' }} />
+      <instances.BodyBridgePinInlay2
+        name="Body_Bridge_Pin_Inlay001"
+        userData={{ name: 'Body_Bridge_Pin_Inlay.001' }}
+      />
+      <instances.BodyBridgePin3
+        name="Body_Bridge_Pin001"
+        userData={{ name: 'Body_Bridge_Pin.001' }}
+      />
+      <instances.BodyBridgePinInlay3
+        name="Body_Bridge_Pin_Inlay002"
+        userData={{ name: 'Body_Bridge_Pin_Inlay.002' }}
+      />
+      <instances.BodyBridgePin4
+        name="Body_Bridge_Pin002"
+        userData={{ name: 'Body_Bridge_Pin.002' }}
+      />
+      <instances.BodyBridgePinInlay4
+        name="Body_Bridge_Pin_Inlay003"
+        userData={{ name: 'Body_Bridge_Pin_Inlay.003' }}
+      />
+      <instances.BodyBridgePin5
+        name="Body_Bridge_Pin003"
+        userData={{ name: 'Body_Bridge_Pin.003' }}
+      />
+      <instances.BodyBridgePinInlay5
+        name="Body_Bridge_Pin_Inlay004"
+        userData={{ name: 'Body_Bridge_Pin_Inlay.004' }}
+      />
     </group>
   )
 }

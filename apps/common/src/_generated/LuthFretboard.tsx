@@ -89,28 +89,48 @@ export function Instances({ children, ...props }: JSX.IntrinsicElements['group']
       FretboardScaleFretBodyFretMesh9: nodes['Fretboard__Scale25-4_Fret14__Body_Fret20__Mesh'],
       FretboardScaleFretBodyFretMesh10: nodes['Fretboard__Scale25-4_Fret14__Body_Fret2__Mesh'],
       FretboardScaleFretBodyNutMesh: nodes['Fretboard__Scale25-4_Fret14__Body_Nut__Mesh'],
-      FretboardScaleFretBodyFretboardMesh: nodes['Fretboard__Scale25-4_Fret14__Body_Fretboard__Mesh'],
-      FretboardScaleFretBodyFretMarkerFretMesh: nodes['Fretboard__Scale25-4_Fret14__Body_Fret_Marker_Fret17__Mesh'],
-      FretboardScaleFretBodyFretMarkerFretMesh1: nodes['Fretboard__Scale25-4_Fret14__Body_Fret_Marker_Fret21__Mesh'],
-      FretboardScaleFretBodyFretMarkerFretMesh2: nodes['Fretboard__Scale25-4_Fret14__Body_Fret_Marker_Fret7__Mesh'],
-      FretboardScaleFretBodyFretMarkerFretMesh3: nodes['Fretboard__Scale25-4_Fret14__Body_Fret_Marker_Fret12_2__Mesh'],
-      FretboardScaleFretBodyFretMarkerFretMesh4: nodes['Fretboard__Scale25-4_Fret14__Body_Fret_Marker_Fret3__Mesh'],
-      FretboardScaleFretBodyFretMarkerFretMesh5: nodes['Fretboard__Scale25-4_Fret14__Body_Fret_Marker_Fret5__Mesh'],
-      FretboardScaleFretBodyFretMarkerFretMesh6: nodes['Fretboard__Scale25-4_Fret14__Body_Fret_Marker_Fret15__Mesh'],
-      FretboardScaleFretBodyFretMarkerFretMesh7: nodes['Fretboard__Scale25-4_Fret14__Body_Fret_Marker_Fret12_1__Mesh'],
+      FretboardScaleFretBodyFretboardMesh:
+        nodes['Fretboard__Scale25-4_Fret14__Body_Fretboard__Mesh'],
+      FretboardScaleFretBodyFretMarkerFretMesh:
+        nodes['Fretboard__Scale25-4_Fret14__Body_Fret_Marker_Fret17__Mesh'],
+      FretboardScaleFretBodyFretMarkerFretMesh1:
+        nodes['Fretboard__Scale25-4_Fret14__Body_Fret_Marker_Fret21__Mesh'],
+      FretboardScaleFretBodyFretMarkerFretMesh2:
+        nodes['Fretboard__Scale25-4_Fret14__Body_Fret_Marker_Fret7__Mesh'],
+      FretboardScaleFretBodyFretMarkerFretMesh3:
+        nodes['Fretboard__Scale25-4_Fret14__Body_Fret_Marker_Fret12_2__Mesh'],
+      FretboardScaleFretBodyFretMarkerFretMesh4:
+        nodes['Fretboard__Scale25-4_Fret14__Body_Fret_Marker_Fret3__Mesh'],
+      FretboardScaleFretBodyFretMarkerFretMesh5:
+        nodes['Fretboard__Scale25-4_Fret14__Body_Fret_Marker_Fret5__Mesh'],
+      FretboardScaleFretBodyFretMarkerFretMesh6:
+        nodes['Fretboard__Scale25-4_Fret14__Body_Fret_Marker_Fret15__Mesh'],
+      FretboardScaleFretBodyFretMarkerFretMesh7:
+        nodes['Fretboard__Scale25-4_Fret14__Body_Fret_Marker_Fret12_1__Mesh'],
       FretboardScaleFretBodyFretMesh11: nodes['Fretboard__Scale25-4_Fret14__Body_Fret3__Mesh'],
-      FretboardScaleFretBodyFretMarkerFretMesh8: nodes['Fretboard__Scale25-4_Fret14__Body_Fret_Marker_Fret9__Mesh'],
-      FretboardScaleFretBodyFretboardMesh1: nodes['Fretboard__Scale25-4_Fret14__Body_Fretboard__1___Mesh'],
-      FretboardScaleFretBodyFretboardMesh2: nodes['Fretboard__Scale25-4_Fret14__Body_Fretboard__1___2___Mesh'],
-      FretboardScaleFretBodyFretboardMesh3: nodes['Fretboard__Scale25-4_Fret14__Body_Fretboard__1___3___Mesh'],
-      FretboardScaleFretBodySideFretMarkerFretMesh: nodes['Fretboard__Scale25-4_Fret14__Body_Side_Fret_Marker_Fret5__Mesh'],
-      FretboardScaleFretBodySideFretMarkerFretMesh1: nodes['Fretboard__Scale25-4_Fret14__Body_Side_Fret_Marker_Fret7__Mesh'],
-      FretboardScaleFretBodySideFretMarkerFretMesh2: nodes['Fretboard__Scale25-4_Fret14__Body_Side_Fret_Marker_Fret17__Mesh'],
-      FretboardScaleFretBodySideFretMarkerFretMesh3: nodes['Fretboard__Scale25-4_Fret14__Body_Side_Fret_Marker_Fret21__Mesh'],
-      FretboardScaleFretBodySideFretMarkerFretMesh4: nodes['Fretboard__Scale25-4_Fret14__Body_Side_Fret_Marker_Fret3__Mesh'],
-      FretboardScaleFretBodySideFretMarkerFretMesh5: nodes['Fretboard__Scale25-4_Fret14__Body_Side_Fret_Marker_Fret9__Mesh'],
+      FretboardScaleFretBodyFretMarkerFretMesh8:
+        nodes['Fretboard__Scale25-4_Fret14__Body_Fret_Marker_Fret9__Mesh'],
+      FretboardScaleFretBodyFretboardMesh1:
+        nodes['Fretboard__Scale25-4_Fret14__Body_Fretboard__1___Mesh'],
+      FretboardScaleFretBodyFretboardMesh2:
+        nodes['Fretboard__Scale25-4_Fret14__Body_Fretboard__1___2___Mesh'],
+      FretboardScaleFretBodyFretboardMesh3:
+        nodes['Fretboard__Scale25-4_Fret14__Body_Fretboard__1___3___Mesh'],
+      FretboardScaleFretBodySideFretMarkerFretMesh:
+        nodes['Fretboard__Scale25-4_Fret14__Body_Side_Fret_Marker_Fret5__Mesh'],
+      FretboardScaleFretBodySideFretMarkerFretMesh1:
+        nodes['Fretboard__Scale25-4_Fret14__Body_Side_Fret_Marker_Fret7__Mesh'],
+      FretboardScaleFretBodySideFretMarkerFretMesh2:
+        nodes['Fretboard__Scale25-4_Fret14__Body_Side_Fret_Marker_Fret17__Mesh'],
+      FretboardScaleFretBodySideFretMarkerFretMesh3:
+        nodes['Fretboard__Scale25-4_Fret14__Body_Side_Fret_Marker_Fret21__Mesh'],
+      FretboardScaleFretBodySideFretMarkerFretMesh4:
+        nodes['Fretboard__Scale25-4_Fret14__Body_Side_Fret_Marker_Fret3__Mesh'],
+      FretboardScaleFretBodySideFretMarkerFretMesh5:
+        nodes['Fretboard__Scale25-4_Fret14__Body_Side_Fret_Marker_Fret9__Mesh'],
       FretboardScaleFretBodyFretMesh12: nodes['Fretboard__Scale25-4_Fret14__Body_Fret4__Mesh'],
-      FretboardScaleFretBodyFretboardMesh4: nodes['Fretboard__Scale25-4_Fret14__Body_Fretboard__1___1___Mesh'],
+      FretboardScaleFretBodyFretboardMesh4:
+        nodes['Fretboard__Scale25-4_Fret14__Body_Fretboard__1___1___Mesh'],
       FretboardScaleFretExtStdMesh1: nodes['Fretboard__Scale25-4_Fret14__ExtStd__Mesh'],
       FretboardScaleFretExtTanMesh1: nodes['Fretboard__Scale25-4_Fret14__ExtTan__Mesh'],
       FretboardScaleFretBodyFretMesh13: nodes['Fretboard__Scale25-4_Fret14__Body_Fret5__Mesh'],
@@ -138,55 +158,202 @@ export default function Model(props: JSX.IntrinsicElements['group']) {
   const instances = React.useContext(context)
   return (
     <group {...props} dispose={null}>
-      <instances.FretboardScaleFretExtStdMesh name="Fretboard__Scale24_Fret14__ExtStd__Mesh" userData={{ name: 'Fretboard__Scale24_Fret14__ExtStd__Mesh' }} />
-      <instances.FretboardScaleFretExtTanMesh name="Fretboard__Scale24_Fret14__ExtTan__Mesh" userData={{ name: 'Fretboard__Scale24_Fret14__ExtTan__Mesh' }} />
-      <instances.FretboardScaleFretBodyFretMesh name="Fretboard__Scale25-4_Fret14__Body_Fret11__Mesh" userData={{ name: 'Fretboard__Scale25-4_Fret14__Body_Fret11__Mesh' }} />
-      <instances.FretboardScaleFretBodyFretMesh1 name="Fretboard__Scale25-4_Fret14__Body_Fret12__Mesh" userData={{ name: 'Fretboard__Scale25-4_Fret14__Body_Fret12__Mesh' }} />
-      <instances.FretboardScaleFretBodyFretMesh2 name="Fretboard__Scale25-4_Fret14__Body_Fret13__Mesh" userData={{ name: 'Fretboard__Scale25-4_Fret14__Body_Fret13__Mesh' }} />
-      <instances.FretboardScaleFretBodyFretMesh3 name="Fretboard__Scale25-4_Fret14__Body_Fret14__Mesh" userData={{ name: 'Fretboard__Scale25-4_Fret14__Body_Fret14__Mesh' }} />
-      <instances.FretboardScaleFretBodyFretMesh4 name="Fretboard__Scale25-4_Fret14__Body_Fret15__Mesh" userData={{ name: 'Fretboard__Scale25-4_Fret14__Body_Fret15__Mesh' }} />
-      <instances.FretboardScaleFretBodyFretMesh5 name="Fretboard__Scale25-4_Fret14__Body_Fret16__Mesh" userData={{ name: 'Fretboard__Scale25-4_Fret14__Body_Fret16__Mesh' }} />
-      <instances.FretboardScaleFretBodyFretMesh6 name="Fretboard__Scale25-4_Fret14__Body_Fret17__Mesh" userData={{ name: 'Fretboard__Scale25-4_Fret14__Body_Fret17__Mesh' }} />
-      <instances.FretboardScaleFretBodyFretMesh7 name="Fretboard__Scale25-4_Fret14__Body_Fret18__Mesh" userData={{ name: 'Fretboard__Scale25-4_Fret14__Body_Fret18__Mesh' }} />
-      <instances.FretboardScaleFretBodyFretMesh8 name="Fretboard__Scale25-4_Fret14__Body_Fret19__Mesh" userData={{ name: 'Fretboard__Scale25-4_Fret14__Body_Fret19__Mesh' }} />
-      <instances.FretboardScaleFretBodyFretMesh9 name="Fretboard__Scale25-4_Fret14__Body_Fret20__Mesh" userData={{ name: 'Fretboard__Scale25-4_Fret14__Body_Fret20__Mesh' }} />
-      <instances.FretboardScaleFretBodyFretMesh10 name="Fretboard__Scale25-4_Fret14__Body_Fret2__Mesh" userData={{ name: 'Fretboard__Scale25-4_Fret14__Body_Fret2__Mesh' }} />
-      <instances.FretboardScaleFretBodyNutMesh name="Fretboard__Scale25-4_Fret14__Body_Nut__Mesh" userData={{ name: 'Fretboard__Scale25-4_Fret14__Body_Nut__Mesh' }} />
-      <instances.FretboardScaleFretBodyFretboardMesh name="Fretboard__Scale25-4_Fret14__Body_Fretboard__Mesh" userData={{ name: 'Fretboard__Scale25-4_Fret14__Body_Fretboard__Mesh' }} />
-      <instances.FretboardScaleFretBodyFretMarkerFretMesh name="Fretboard__Scale25-4_Fret14__Body_Fret_Marker_Fret17__Mesh" userData={{ name: 'Fretboard__Scale25-4_Fret14__Body_Fret_Marker_Fret17__Mesh' }} />
-      <instances.FretboardScaleFretBodyFretMarkerFretMesh1 name="Fretboard__Scale25-4_Fret14__Body_Fret_Marker_Fret21__Mesh" userData={{ name: 'Fretboard__Scale25-4_Fret14__Body_Fret_Marker_Fret21__Mesh' }} />
-      <instances.FretboardScaleFretBodyFretMarkerFretMesh2 name="Fretboard__Scale25-4_Fret14__Body_Fret_Marker_Fret7__Mesh" userData={{ name: 'Fretboard__Scale25-4_Fret14__Body_Fret_Marker_Fret7__Mesh' }} />
-      <instances.FretboardScaleFretBodyFretMarkerFretMesh3 name="Fretboard__Scale25-4_Fret14__Body_Fret_Marker_Fret12_2__Mesh" userData={{ name: 'Fretboard__Scale25-4_Fret14__Body_Fret_Marker_Fret12_2__Mesh' }} />
-      <instances.FretboardScaleFretBodyFretMarkerFretMesh4 name="Fretboard__Scale25-4_Fret14__Body_Fret_Marker_Fret3__Mesh" userData={{ name: 'Fretboard__Scale25-4_Fret14__Body_Fret_Marker_Fret3__Mesh' }} />
-      <instances.FretboardScaleFretBodyFretMarkerFretMesh5 name="Fretboard__Scale25-4_Fret14__Body_Fret_Marker_Fret5__Mesh" userData={{ name: 'Fretboard__Scale25-4_Fret14__Body_Fret_Marker_Fret5__Mesh' }} />
-      <instances.FretboardScaleFretBodyFretMarkerFretMesh6 name="Fretboard__Scale25-4_Fret14__Body_Fret_Marker_Fret15__Mesh" userData={{ name: 'Fretboard__Scale25-4_Fret14__Body_Fret_Marker_Fret15__Mesh' }} />
-      <instances.FretboardScaleFretBodyFretMarkerFretMesh7 name="Fretboard__Scale25-4_Fret14__Body_Fret_Marker_Fret12_1__Mesh" userData={{ name: 'Fretboard__Scale25-4_Fret14__Body_Fret_Marker_Fret12_1__Mesh' }} />
-      <instances.FretboardScaleFretBodyFretMesh11 name="Fretboard__Scale25-4_Fret14__Body_Fret3__Mesh" userData={{ name: 'Fretboard__Scale25-4_Fret14__Body_Fret3__Mesh' }} />
-      <instances.FretboardScaleFretBodyFretMarkerFretMesh8 name="Fretboard__Scale25-4_Fret14__Body_Fret_Marker_Fret9__Mesh" userData={{ name: 'Fretboard__Scale25-4_Fret14__Body_Fret_Marker_Fret9__Mesh' }} />
-      <instances.FretboardScaleFretBodyFretboardMesh1 name="Fretboard__Scale25-4_Fret14__Body_Fretboard__1___Mesh" userData={{ name: 'Fretboard__Scale25-4_Fret14__Body_Fretboard__1___Mesh' }} />
-      <instances.FretboardScaleFretBodyFretboardMesh2 name="Fretboard__Scale25-4_Fret14__Body_Fretboard__1___2___Mesh" userData={{ name: 'Fretboard__Scale25-4_Fret14__Body_Fretboard__1___2___Mesh' }} />
-      <instances.FretboardScaleFretBodyFretboardMesh3 name="Fretboard__Scale25-4_Fret14__Body_Fretboard__1___3___Mesh" userData={{ name: 'Fretboard__Scale25-4_Fret14__Body_Fretboard__1___3___Mesh' }} />
-      <instances.FretboardScaleFretBodySideFretMarkerFretMesh name="Fretboard__Scale25-4_Fret14__Body_Side_Fret_Marker_Fret5__Mesh" userData={{ name: 'Fretboard__Scale25-4_Fret14__Body_Side_Fret_Marker_Fret5__Mesh' }} />
-      <instances.FretboardScaleFretBodySideFretMarkerFretMesh1 name="Fretboard__Scale25-4_Fret14__Body_Side_Fret_Marker_Fret7__Mesh" userData={{ name: 'Fretboard__Scale25-4_Fret14__Body_Side_Fret_Marker_Fret7__Mesh' }} />
-      <instances.FretboardScaleFretBodySideFretMarkerFretMesh2 name="Fretboard__Scale25-4_Fret14__Body_Side_Fret_Marker_Fret17__Mesh" userData={{ name: 'Fretboard__Scale25-4_Fret14__Body_Side_Fret_Marker_Fret17__Mesh' }} />
-      <instances.FretboardScaleFretBodySideFretMarkerFretMesh3 name="Fretboard__Scale25-4_Fret14__Body_Side_Fret_Marker_Fret21__Mesh" userData={{ name: 'Fretboard__Scale25-4_Fret14__Body_Side_Fret_Marker_Fret21__Mesh' }} />
-      <instances.FretboardScaleFretBodySideFretMarkerFretMesh4 name="Fretboard__Scale25-4_Fret14__Body_Side_Fret_Marker_Fret3__Mesh" userData={{ name: 'Fretboard__Scale25-4_Fret14__Body_Side_Fret_Marker_Fret3__Mesh' }} />
-      <instances.FretboardScaleFretBodySideFretMarkerFretMesh5 name="Fretboard__Scale25-4_Fret14__Body_Side_Fret_Marker_Fret9__Mesh" userData={{ name: 'Fretboard__Scale25-4_Fret14__Body_Side_Fret_Marker_Fret9__Mesh' }} />
-      <instances.FretboardScaleFretBodyFretMesh12 name="Fretboard__Scale25-4_Fret14__Body_Fret4__Mesh" userData={{ name: 'Fretboard__Scale25-4_Fret14__Body_Fret4__Mesh' }} />
-      <instances.FretboardScaleFretBodyFretboardMesh4 name="Fretboard__Scale25-4_Fret14__Body_Fretboard__1___1___Mesh" userData={{ name: 'Fretboard__Scale25-4_Fret14__Body_Fretboard__1___1___Mesh' }} />
-      <instances.FretboardScaleFretExtStdMesh1 name="Fretboard__Scale25-4_Fret14__ExtStd__Mesh" userData={{ name: 'Fretboard__Scale25-4_Fret14__ExtStd__Mesh' }} />
-      <instances.FretboardScaleFretExtTanMesh1 name="Fretboard__Scale25-4_Fret14__ExtTan__Mesh" userData={{ name: 'Fretboard__Scale25-4_Fret14__ExtTan__Mesh' }} />
-      <instances.FretboardScaleFretBodyFretMesh13 name="Fretboard__Scale25-4_Fret14__Body_Fret5__Mesh" userData={{ name: 'Fretboard__Scale25-4_Fret14__Body_Fret5__Mesh' }} />
-      <instances.FretboardScaleFretBodyFretMesh14 name="Fretboard__Scale25-4_Fret14__Body_Fret6__Mesh" userData={{ name: 'Fretboard__Scale25-4_Fret14__Body_Fret6__Mesh' }} />
-      <instances.FretboardScaleFretBodyFretMesh15 name="Fretboard__Scale25-4_Fret14__Body_Fret7__Mesh" userData={{ name: 'Fretboard__Scale25-4_Fret14__Body_Fret7__Mesh' }} />
-      <instances.FretboardScaleFretBodyFretMesh16 name="Fretboard__Scale25-4_Fret14__Body_Fret8__Mesh" userData={{ name: 'Fretboard__Scale25-4_Fret14__Body_Fret8__Mesh' }} />
-      <instances.FretboardScaleFretBodyFretMesh17 name="Fretboard__Scale25-4_Fret14__Body_Fret9__Mesh" userData={{ name: 'Fretboard__Scale25-4_Fret14__Body_Fret9__Mesh' }} />
-      <instances.FretboardScaleFretBodyFretMesh18 name="Fretboard__Scale25-4_Fret14__Body_Fret10__Mesh" userData={{ name: 'Fretboard__Scale25-4_Fret14__Body_Fret10__Mesh' }} />
-      <instances.FretboardScaleFretBodyFretMesh19 name="Fretboard__Scale25-4_Fret14__Body_Fret1__Mesh" userData={{ name: 'Fretboard__Scale25-4_Fret14__Body_Fret1__Mesh' }} />
-      <instances.FretboardScaleFretExtStdMesh2 name="Fretboard__Scale24_Fret12__ExtStd__Mesh" userData={{ name: 'Fretboard__Scale24_Fret12__ExtStd__Mesh' }} />
-      <instances.FretboardScaleFretExtTanMesh2 name="Fretboard__Scale24_Fret12__ExtTan__Mesh" userData={{ name: 'Fretboard__Scale24_Fret12__ExtTan__Mesh' }} />
-      <instances.FretboardScaleFretExtStdMesh3 name="Fretboard__Scale25-4_Fret12__ExtStd__Mesh" userData={{ name: 'Fretboard__Scale25-4_Fret12__ExtStd__Mesh' }} />
-      <instances.FretboardScaleFretExtTanMesh3 name="Fretboard__Scale25-4_Fret12__ExtTan__Mesh" userData={{ name: 'Fretboard__Scale25-4_Fret12__ExtTan__Mesh' }} />
+      <instances.FretboardScaleFretExtStdMesh
+        name="Fretboard__Scale24_Fret14__ExtStd__Mesh"
+        userData={{ name: 'Fretboard__Scale24_Fret14__ExtStd__Mesh' }}
+      />
+      <instances.FretboardScaleFretExtTanMesh
+        name="Fretboard__Scale24_Fret14__ExtTan__Mesh"
+        userData={{ name: 'Fretboard__Scale24_Fret14__ExtTan__Mesh' }}
+      />
+      <instances.FretboardScaleFretBodyFretMesh
+        name="Fretboard__Scale25-4_Fret14__Body_Fret11__Mesh"
+        userData={{ name: 'Fretboard__Scale25-4_Fret14__Body_Fret11__Mesh' }}
+      />
+      <instances.FretboardScaleFretBodyFretMesh1
+        name="Fretboard__Scale25-4_Fret14__Body_Fret12__Mesh"
+        userData={{ name: 'Fretboard__Scale25-4_Fret14__Body_Fret12__Mesh' }}
+      />
+      <instances.FretboardScaleFretBodyFretMesh2
+        name="Fretboard__Scale25-4_Fret14__Body_Fret13__Mesh"
+        userData={{ name: 'Fretboard__Scale25-4_Fret14__Body_Fret13__Mesh' }}
+      />
+      <instances.FretboardScaleFretBodyFretMesh3
+        name="Fretboard__Scale25-4_Fret14__Body_Fret14__Mesh"
+        userData={{ name: 'Fretboard__Scale25-4_Fret14__Body_Fret14__Mesh' }}
+      />
+      <instances.FretboardScaleFretBodyFretMesh4
+        name="Fretboard__Scale25-4_Fret14__Body_Fret15__Mesh"
+        userData={{ name: 'Fretboard__Scale25-4_Fret14__Body_Fret15__Mesh' }}
+      />
+      <instances.FretboardScaleFretBodyFretMesh5
+        name="Fretboard__Scale25-4_Fret14__Body_Fret16__Mesh"
+        userData={{ name: 'Fretboard__Scale25-4_Fret14__Body_Fret16__Mesh' }}
+      />
+      <instances.FretboardScaleFretBodyFretMesh6
+        name="Fretboard__Scale25-4_Fret14__Body_Fret17__Mesh"
+        userData={{ name: 'Fretboard__Scale25-4_Fret14__Body_Fret17__Mesh' }}
+      />
+      <instances.FretboardScaleFretBodyFretMesh7
+        name="Fretboard__Scale25-4_Fret14__Body_Fret18__Mesh"
+        userData={{ name: 'Fretboard__Scale25-4_Fret14__Body_Fret18__Mesh' }}
+      />
+      <instances.FretboardScaleFretBodyFretMesh8
+        name="Fretboard__Scale25-4_Fret14__Body_Fret19__Mesh"
+        userData={{ name: 'Fretboard__Scale25-4_Fret14__Body_Fret19__Mesh' }}
+      />
+      <instances.FretboardScaleFretBodyFretMesh9
+        name="Fretboard__Scale25-4_Fret14__Body_Fret20__Mesh"
+        userData={{ name: 'Fretboard__Scale25-4_Fret14__Body_Fret20__Mesh' }}
+      />
+      <instances.FretboardScaleFretBodyFretMesh10
+        name="Fretboard__Scale25-4_Fret14__Body_Fret2__Mesh"
+        userData={{ name: 'Fretboard__Scale25-4_Fret14__Body_Fret2__Mesh' }}
+      />
+      <instances.FretboardScaleFretBodyNutMesh
+        name="Fretboard__Scale25-4_Fret14__Body_Nut__Mesh"
+        userData={{ name: 'Fretboard__Scale25-4_Fret14__Body_Nut__Mesh' }}
+      />
+      <instances.FretboardScaleFretBodyFretboardMesh
+        name="Fretboard__Scale25-4_Fret14__Body_Fretboard__Mesh"
+        userData={{ name: 'Fretboard__Scale25-4_Fret14__Body_Fretboard__Mesh' }}
+      />
+      <instances.FretboardScaleFretBodyFretMarkerFretMesh
+        name="Fretboard__Scale25-4_Fret14__Body_Fret_Marker_Fret17__Mesh"
+        userData={{ name: 'Fretboard__Scale25-4_Fret14__Body_Fret_Marker_Fret17__Mesh' }}
+      />
+      <instances.FretboardScaleFretBodyFretMarkerFretMesh1
+        name="Fretboard__Scale25-4_Fret14__Body_Fret_Marker_Fret21__Mesh"
+        userData={{ name: 'Fretboard__Scale25-4_Fret14__Body_Fret_Marker_Fret21__Mesh' }}
+      />
+      <instances.FretboardScaleFretBodyFretMarkerFretMesh2
+        name="Fretboard__Scale25-4_Fret14__Body_Fret_Marker_Fret7__Mesh"
+        userData={{ name: 'Fretboard__Scale25-4_Fret14__Body_Fret_Marker_Fret7__Mesh' }}
+      />
+      <instances.FretboardScaleFretBodyFretMarkerFretMesh3
+        name="Fretboard__Scale25-4_Fret14__Body_Fret_Marker_Fret12_2__Mesh"
+        userData={{ name: 'Fretboard__Scale25-4_Fret14__Body_Fret_Marker_Fret12_2__Mesh' }}
+      />
+      <instances.FretboardScaleFretBodyFretMarkerFretMesh4
+        name="Fretboard__Scale25-4_Fret14__Body_Fret_Marker_Fret3__Mesh"
+        userData={{ name: 'Fretboard__Scale25-4_Fret14__Body_Fret_Marker_Fret3__Mesh' }}
+      />
+      <instances.FretboardScaleFretBodyFretMarkerFretMesh5
+        name="Fretboard__Scale25-4_Fret14__Body_Fret_Marker_Fret5__Mesh"
+        userData={{ name: 'Fretboard__Scale25-4_Fret14__Body_Fret_Marker_Fret5__Mesh' }}
+      />
+      <instances.FretboardScaleFretBodyFretMarkerFretMesh6
+        name="Fretboard__Scale25-4_Fret14__Body_Fret_Marker_Fret15__Mesh"
+        userData={{ name: 'Fretboard__Scale25-4_Fret14__Body_Fret_Marker_Fret15__Mesh' }}
+      />
+      <instances.FretboardScaleFretBodyFretMarkerFretMesh7
+        name="Fretboard__Scale25-4_Fret14__Body_Fret_Marker_Fret12_1__Mesh"
+        userData={{ name: 'Fretboard__Scale25-4_Fret14__Body_Fret_Marker_Fret12_1__Mesh' }}
+      />
+      <instances.FretboardScaleFretBodyFretMesh11
+        name="Fretboard__Scale25-4_Fret14__Body_Fret3__Mesh"
+        userData={{ name: 'Fretboard__Scale25-4_Fret14__Body_Fret3__Mesh' }}
+      />
+      <instances.FretboardScaleFretBodyFretMarkerFretMesh8
+        name="Fretboard__Scale25-4_Fret14__Body_Fret_Marker_Fret9__Mesh"
+        userData={{ name: 'Fretboard__Scale25-4_Fret14__Body_Fret_Marker_Fret9__Mesh' }}
+      />
+      <instances.FretboardScaleFretBodyFretboardMesh1
+        name="Fretboard__Scale25-4_Fret14__Body_Fretboard__1___Mesh"
+        userData={{ name: 'Fretboard__Scale25-4_Fret14__Body_Fretboard__1___Mesh' }}
+      />
+      <instances.FretboardScaleFretBodyFretboardMesh2
+        name="Fretboard__Scale25-4_Fret14__Body_Fretboard__1___2___Mesh"
+        userData={{ name: 'Fretboard__Scale25-4_Fret14__Body_Fretboard__1___2___Mesh' }}
+      />
+      <instances.FretboardScaleFretBodyFretboardMesh3
+        name="Fretboard__Scale25-4_Fret14__Body_Fretboard__1___3___Mesh"
+        userData={{ name: 'Fretboard__Scale25-4_Fret14__Body_Fretboard__1___3___Mesh' }}
+      />
+      <instances.FretboardScaleFretBodySideFretMarkerFretMesh
+        name="Fretboard__Scale25-4_Fret14__Body_Side_Fret_Marker_Fret5__Mesh"
+        userData={{ name: 'Fretboard__Scale25-4_Fret14__Body_Side_Fret_Marker_Fret5__Mesh' }}
+      />
+      <instances.FretboardScaleFretBodySideFretMarkerFretMesh1
+        name="Fretboard__Scale25-4_Fret14__Body_Side_Fret_Marker_Fret7__Mesh"
+        userData={{ name: 'Fretboard__Scale25-4_Fret14__Body_Side_Fret_Marker_Fret7__Mesh' }}
+      />
+      <instances.FretboardScaleFretBodySideFretMarkerFretMesh2
+        name="Fretboard__Scale25-4_Fret14__Body_Side_Fret_Marker_Fret17__Mesh"
+        userData={{ name: 'Fretboard__Scale25-4_Fret14__Body_Side_Fret_Marker_Fret17__Mesh' }}
+      />
+      <instances.FretboardScaleFretBodySideFretMarkerFretMesh3
+        name="Fretboard__Scale25-4_Fret14__Body_Side_Fret_Marker_Fret21__Mesh"
+        userData={{ name: 'Fretboard__Scale25-4_Fret14__Body_Side_Fret_Marker_Fret21__Mesh' }}
+      />
+      <instances.FretboardScaleFretBodySideFretMarkerFretMesh4
+        name="Fretboard__Scale25-4_Fret14__Body_Side_Fret_Marker_Fret3__Mesh"
+        userData={{ name: 'Fretboard__Scale25-4_Fret14__Body_Side_Fret_Marker_Fret3__Mesh' }}
+      />
+      <instances.FretboardScaleFretBodySideFretMarkerFretMesh5
+        name="Fretboard__Scale25-4_Fret14__Body_Side_Fret_Marker_Fret9__Mesh"
+        userData={{ name: 'Fretboard__Scale25-4_Fret14__Body_Side_Fret_Marker_Fret9__Mesh' }}
+      />
+      <instances.FretboardScaleFretBodyFretMesh12
+        name="Fretboard__Scale25-4_Fret14__Body_Fret4__Mesh"
+        userData={{ name: 'Fretboard__Scale25-4_Fret14__Body_Fret4__Mesh' }}
+      />
+      <instances.FretboardScaleFretBodyFretboardMesh4
+        name="Fretboard__Scale25-4_Fret14__Body_Fretboard__1___1___Mesh"
+        userData={{ name: 'Fretboard__Scale25-4_Fret14__Body_Fretboard__1___1___Mesh' }}
+      />
+      <instances.FretboardScaleFretExtStdMesh1
+        name="Fretboard__Scale25-4_Fret14__ExtStd__Mesh"
+        userData={{ name: 'Fretboard__Scale25-4_Fret14__ExtStd__Mesh' }}
+      />
+      <instances.FretboardScaleFretExtTanMesh1
+        name="Fretboard__Scale25-4_Fret14__ExtTan__Mesh"
+        userData={{ name: 'Fretboard__Scale25-4_Fret14__ExtTan__Mesh' }}
+      />
+      <instances.FretboardScaleFretBodyFretMesh13
+        name="Fretboard__Scale25-4_Fret14__Body_Fret5__Mesh"
+        userData={{ name: 'Fretboard__Scale25-4_Fret14__Body_Fret5__Mesh' }}
+      />
+      <instances.FretboardScaleFretBodyFretMesh14
+        name="Fretboard__Scale25-4_Fret14__Body_Fret6__Mesh"
+        userData={{ name: 'Fretboard__Scale25-4_Fret14__Body_Fret6__Mesh' }}
+      />
+      <instances.FretboardScaleFretBodyFretMesh15
+        name="Fretboard__Scale25-4_Fret14__Body_Fret7__Mesh"
+        userData={{ name: 'Fretboard__Scale25-4_Fret14__Body_Fret7__Mesh' }}
+      />
+      <instances.FretboardScaleFretBodyFretMesh16
+        name="Fretboard__Scale25-4_Fret14__Body_Fret8__Mesh"
+        userData={{ name: 'Fretboard__Scale25-4_Fret14__Body_Fret8__Mesh' }}
+      />
+      <instances.FretboardScaleFretBodyFretMesh17
+        name="Fretboard__Scale25-4_Fret14__Body_Fret9__Mesh"
+        userData={{ name: 'Fretboard__Scale25-4_Fret14__Body_Fret9__Mesh' }}
+      />
+      <instances.FretboardScaleFretBodyFretMesh18
+        name="Fretboard__Scale25-4_Fret14__Body_Fret10__Mesh"
+        userData={{ name: 'Fretboard__Scale25-4_Fret14__Body_Fret10__Mesh' }}
+      />
+      <instances.FretboardScaleFretBodyFretMesh19
+        name="Fretboard__Scale25-4_Fret14__Body_Fret1__Mesh"
+        userData={{ name: 'Fretboard__Scale25-4_Fret14__Body_Fret1__Mesh' }}
+      />
+      <instances.FretboardScaleFretExtStdMesh2
+        name="Fretboard__Scale24_Fret12__ExtStd__Mesh"
+        userData={{ name: 'Fretboard__Scale24_Fret12__ExtStd__Mesh' }}
+      />
+      <instances.FretboardScaleFretExtTanMesh2
+        name="Fretboard__Scale24_Fret12__ExtTan__Mesh"
+        userData={{ name: 'Fretboard__Scale24_Fret12__ExtTan__Mesh' }}
+      />
+      <instances.FretboardScaleFretExtStdMesh3
+        name="Fretboard__Scale25-4_Fret12__ExtStd__Mesh"
+        userData={{ name: 'Fretboard__Scale25-4_Fret12__ExtStd__Mesh' }}
+      />
+      <instances.FretboardScaleFretExtTanMesh3
+        name="Fretboard__Scale25-4_Fret12__ExtTan__Mesh"
+        userData={{ name: 'Fretboard__Scale25-4_Fret12__ExtTan__Mesh' }}
+      />
     </group>
   )
 }

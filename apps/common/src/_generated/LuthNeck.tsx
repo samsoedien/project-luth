@@ -46,7 +46,10 @@ export default function Model(props: JSX.IntrinsicElements['group']) {
   const instances = React.useContext(context)
   return (
     <group {...props} dispose={null}>
-      <instances.SurfaceNeckProfile name="Surface_Neck_Profile" userData={{ name: 'Surface_Neck_Profile' }} />
+      <instances.SurfaceNeckProfile
+        name="Surface_Neck_Profile"
+        userData={{ name: 'Surface_Neck_Profile' }}
+      />
       <instances.BodyHeel name="Body_Heel" userData={{ name: 'Body_Heel' }} />
       <instances.BodyNeck name="Body_Neck" userData={{ name: 'Body_Neck' }} />
     </group>

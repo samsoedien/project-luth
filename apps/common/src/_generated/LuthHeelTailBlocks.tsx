@@ -48,10 +48,22 @@ export default function Model(props: JSX.IntrinsicElements['group']) {
   const instances = React.useContext(context)
   return (
     <group {...props} dispose={null}>
-      <instances.BodyHeelBlock name="Body_Heel_Block004" userData={{ name: 'Body_Heel_Block.004' }} />
-      <instances.BodyTailBlock name="Body_Tail_Block004" userData={{ name: 'Body_Tail_Block.004' }} />
-      <instances.BodyHeelBlock1 name="Body_Heel_Block005" userData={{ name: 'Body_Heel_Block.005' }} />
-      <instances.BodyTailBlock1 name="Body_Tail_Block005" userData={{ name: 'Body_Tail_Block.005' }} />
+      <instances.BodyHeelBlock
+        name="Body_Heel_Block004"
+        userData={{ name: 'Body_Heel_Block.004' }}
+      />
+      <instances.BodyTailBlock
+        name="Body_Tail_Block004"
+        userData={{ name: 'Body_Tail_Block.004' }}
+      />
+      <instances.BodyHeelBlock1
+        name="Body_Heel_Block005"
+        userData={{ name: 'Body_Heel_Block.005' }}
+      />
+      <instances.BodyTailBlock1
+        name="Body_Tail_Block005"
+        userData={{ name: 'Body_Tail_Block.005' }}
+      />
     </group>
   )
 }

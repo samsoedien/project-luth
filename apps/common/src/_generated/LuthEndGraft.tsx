@@ -42,7 +42,10 @@ export default function Model(props: JSX.IntrinsicElements['group']) {
   const instances = React.useContext(context)
   return (
     <group {...props} dispose={null}>
-      <instances.BodyEndGraftWedge name="Body_End_Graft_Wedge" userData={{ name: 'Body_End_Graft_Wedge' }} />
+      <instances.BodyEndGraftWedge
+        name="Body_End_Graft_Wedge"
+        userData={{ name: 'Body_End_Graft_Wedge' }}
+      />
     </group>
   )
 }

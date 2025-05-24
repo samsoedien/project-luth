@@ -67,18 +67,36 @@ export default function Model(props: JSX.IntrinsicElements['group']) {
   return (
     <group {...props} dispose={null}>
       <instances.PegHead name="Peg_Head" userData={{ name: 'Peg_Head' }} />
-      <instances.PegHeadTunerRight name="Peg_Head_Tuner_Right" userData={{ name: 'Peg_Head_Tuner_Right' }} />
+      <instances.PegHeadTunerRight
+        name="Peg_Head_Tuner_Right"
+        userData={{ name: 'Peg_Head_Tuner_Right' }}
+      />
       <instances.PegHead1 name="Peg_Head005" userData={{ name: 'Peg_Head.005' }} />
-      <instances.PegHeadTunerRight1 name="Peg_Head_Tuner_Right005" userData={{ name: 'Peg_Head_Tuner_Right.005' }} />
+      <instances.PegHeadTunerRight1
+        name="Peg_Head_Tuner_Right005"
+        userData={{ name: 'Peg_Head_Tuner_Right.005' }}
+      />
       <instances.BodyHeadstock name="Body_Headstock" userData={{ name: 'Body_Headstock' }} />
       <instances.PegHead2 name="Peg_Head001" userData={{ name: 'Peg_Head.001' }} />
-      <instances.PegHeadTunerRight2 name="Peg_Head_Tuner_Right001" userData={{ name: 'Peg_Head_Tuner_Right.001' }} />
+      <instances.PegHeadTunerRight2
+        name="Peg_Head_Tuner_Right001"
+        userData={{ name: 'Peg_Head_Tuner_Right.001' }}
+      />
       <instances.PegHead3 name="Peg_Head002" userData={{ name: 'Peg_Head.002' }} />
-      <instances.PegHeadTunerRight3 name="Peg_Head_Tuner_Right002" userData={{ name: 'Peg_Head_Tuner_Right.002' }} />
+      <instances.PegHeadTunerRight3
+        name="Peg_Head_Tuner_Right002"
+        userData={{ name: 'Peg_Head_Tuner_Right.002' }}
+      />
       <instances.PegHead4 name="Peg_Head003" userData={{ name: 'Peg_Head.003' }} />
-      <instances.PegHeadTunerRight4 name="Peg_Head_Tuner_Right003" userData={{ name: 'Peg_Head_Tuner_Right.003' }} />
+      <instances.PegHeadTunerRight4
+        name="Peg_Head_Tuner_Right003"
+        userData={{ name: 'Peg_Head_Tuner_Right.003' }}
+      />
       <instances.PegHead5 name="Peg_Head004" userData={{ name: 'Peg_Head.004' }} />
-      <instances.PegHeadTunerRight5 name="Peg_Head_Tuner_Right004" userData={{ name: 'Peg_Head_Tuner_Right.004' }} />
+      <instances.PegHeadTunerRight5
+        name="Peg_Head_Tuner_Right004"
+        userData={{ name: 'Peg_Head_Tuner_Right.004' }}
+      />
     </group>
   )
 }

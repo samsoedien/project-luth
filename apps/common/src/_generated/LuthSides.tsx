@@ -103,23 +103,31 @@ export function Instances({ children, ...props }: JSX.IntrinsicElements['group']
       SidesParlStandardFretCWVenABStd: nodes.Sides__Parl_Standard_Fret12__CWVen_ABStd,
       SidesParlStandardFretCWScalABStd: nodes.Sides__Parl_Standard_Fret12__CW_Scal_AB_Std,
       SidesDreadThinlineFretCWFlo: nodes.Sides__Dread_Thinline_Fret14__CWFlo,
-      SidesDreadThinlineFretCWFloABNoneSPOval: nodes.Sides__Dread_Thinline_Fret14__CWFlo_ABNone_SPOval__1_,
+      SidesDreadThinlineFretCWFloABNoneSPOval:
+        nodes.Sides__Dread_Thinline_Fret14__CWFlo_ABNone_SPOval__1_,
       SidesDreadThinlineFretCWFloABStd: nodes.Sides__Dread_Thinline_Fret14__CWFlo_ABStd,
       SidesDreadThinlineFretCWNone: nodes.Sides__Dread_Thinline_Fret14__CWNone,
-      SidesDreadThinlineFretCWNoneABNoneSPOval: nodes.Sides__Dread_Thinline_Fret14__CWNone_ABNone_SPOval,
+      SidesDreadThinlineFretCWNoneABNoneSPOval:
+        nodes.Sides__Dread_Thinline_Fret14__CWNone_ABNone_SPOval,
       SidesDreadThinlineFretCWNoneABStd: nodes.Sides__Dread_Thinline_Fret14__CWNone_ABStd,
       SidesDreadThinlineFretCWSca: nodes.Sides__Dread_Thinline_Fret14__CWSca,
-      SidesDreadThinlineFretCWScaABNoneSPOval: nodes.Sides__Dread_Thinline_Fret14__CWSca_ABNone_SPOval,
+      SidesDreadThinlineFretCWScaABNoneSPOval:
+        nodes.Sides__Dread_Thinline_Fret14__CWSca_ABNone_SPOval,
       SidesDreadThinlineFretCWScaABStd: nodes.Sides__Dread_Thinline_Fret14__CWSca_ABStd,
       SidesDreadThinlineFretCWVen: nodes.Sides__Dread_Thinline_Fret14__CWVen,
-      SidesDreadThinlineFretCWVenABNoneSPOval: nodes.Sides__Dread_Thinline_Fret14__CWVen_ABNone_SPOval,
+      SidesDreadThinlineFretCWVenABNoneSPOval:
+        nodes.Sides__Dread_Thinline_Fret14__CWVen_ABNone_SPOval,
       SidesDreadThinlineFretCWVenABStd: nodes.Sides__Dread_Thinline_Fret14__CWVen_ABStd,
-      SidesParlStandardFretCWFloABNoneSPOval: nodes.Sides__Parl_Standard_Fret14__CWFlo_ABNone_SPOval__1_,
+      SidesParlStandardFretCWFloABNoneSPOval:
+        nodes.Sides__Parl_Standard_Fret14__CWFlo_ABNone_SPOval__1_,
       SidesParlStandardFretCWNone1: nodes.Sides__Parl_Standard_Fret14__CWNone,
-      SidesParlStandardFretCWNoneABNoneSPOval: nodes.Sides__Parl_Standard_Fret14__CWNone_ABNone_SPOval,
-      SidesParlStandardFretCWScaABNoneSPOval: nodes.Sides__Parl_Standard_Fret14__CWSca_ABNone_SPOval,
+      SidesParlStandardFretCWNoneABNoneSPOval:
+        nodes.Sides__Parl_Standard_Fret14__CWNone_ABNone_SPOval,
+      SidesParlStandardFretCWScaABNoneSPOval:
+        nodes.Sides__Parl_Standard_Fret14__CWSca_ABNone_SPOval,
       SidesParlStandardFretCWScaABStd: nodes.Sides__Parl_Standard_Fret14__CWSca_ABStd,
-      SidesParlStandardFretCWVenABNoneSPOval: nodes.Sides__Parl_Standard_Fret14__CWVen_ABNone_SPOval,
+      SidesParlStandardFretCWVenABNoneSPOval:
+        nodes.Sides__Parl_Standard_Fret14__CWVen_ABNone_SPOval,
       SidesDreadThinlineFretCWNone1: nodes.Sides__Dread_Thinline_Fret12__CWNone,
       SidesDreadThinlineFretCWVen1: nodes.Sides__Dread_Thinline_Fret12__CWVen,
       SidesDreadThinlineFretCWFlo1: nodes.Sides__Dread_Thinline_Fret12__CWFlo,
@@ -128,12 +136,16 @@ export function Instances({ children, ...props }: JSX.IntrinsicElements['group']
       SidesDreadThinlineFretCWFloABStd1: nodes.Sides__Dread_Thinline_Fret12__CWFlo_ABStd,
       SidesDreadThinlineFretCWVenABStd1: nodes.Sides__Dread_Thinline_Fret12__CWVen_ABStd,
       SidesDreadThinlineFretCWScaABStd1: nodes.Sides__Dread_Thinline_Fret12__CWSca_ABStd,
-      SidesParlThinlineFretCWFloABNoneSPOval: nodes.Sides__Parl_Thinline_Fret14__CWFlo_ABNone_SPOval__1_,
+      SidesParlThinlineFretCWFloABNoneSPOval:
+        nodes.Sides__Parl_Thinline_Fret14__CWFlo_ABNone_SPOval__1_,
       SidesParlThinlineFretCWNone: nodes.Sides__Parl_Thinline_Fret14__CWNone,
-      SidesParlThinlineFretCWNoneABNoneSPOval: nodes.Sides__Parl_Thinline_Fret14__CWNone_ABNone_SPOval,
-      SidesParlThinlineFretCWScaABNoneSPOval: nodes.Sides__Parl_Thinline_Fret14__CWSca_ABNone_SPOval,
+      SidesParlThinlineFretCWNoneABNoneSPOval:
+        nodes.Sides__Parl_Thinline_Fret14__CWNone_ABNone_SPOval,
+      SidesParlThinlineFretCWScaABNoneSPOval:
+        nodes.Sides__Parl_Thinline_Fret14__CWSca_ABNone_SPOval,
       SidesParlThinlineFretCWScaABStd: nodes.Sides__Parl_Thinline_Fret14__CWSca_ABStd,
-      SidesParlThinlineFretCWVenABNoneSPOval: nodes.Sides__Parl_Thinline_Fret14__CWVen_ABNone_SPOval,
+      SidesParlThinlineFretCWVenABNoneSPOval:
+        nodes.Sides__Parl_Thinline_Fret14__CWVen_ABNone_SPOval,
       SidesDreadStandardFretCWNone: nodes.Sides__Dread_Standard_Fret12__CWNone,
       SidesDreadStandardFretCWVen: nodes.Sides__Dread_Standard_Fret12__CWVen,
       SidesDreadStandardFretCWFlo: nodes.Sides__Dread_Standard_Fret12__CWFlo,
@@ -151,16 +163,20 @@ export function Instances({ children, ...props }: JSX.IntrinsicElements['group']
       SidesParlThinlineFretCWVenABStd: nodes.Sides__Parl_Thinline_Fret12__CWVen_ABStd,
       SidesParlThinlineFretCWScalABStd: nodes.Sides__Parl_Thinline_Fret12__CW_Scal_AB_Std,
       SidesDreadStandardFretCWFlo1: nodes.Sides__Dread_Standard_Fret14__CWFlo,
-      SidesDreadStandardFretCWFloABNoneSPOval: nodes.Sides__Dread_Standard_Fret14__CWFlo_ABNone_SPOval__1_,
+      SidesDreadStandardFretCWFloABNoneSPOval:
+        nodes.Sides__Dread_Standard_Fret14__CWFlo_ABNone_SPOval__1_,
       SidesDreadStandardFretCWFloABStd1: nodes.Sides__Dread_Standard_Fret14__CWFlo_ABStd,
       SidesDreadStandardFretCWNone1: nodes.Sides__Dread_Standard_Fret14__CWNone,
-      SidesDreadStandardFretCWNoneABNoneSPOval: nodes.Sides__Dread_Standard_Fret14__CWNone_ABNone_SPOval,
+      SidesDreadStandardFretCWNoneABNoneSPOval:
+        nodes.Sides__Dread_Standard_Fret14__CWNone_ABNone_SPOval,
       SidesDreadStandardFretCWNoneABStd1: nodes.Sides__Dread_Standard_Fret14__CWNone_ABStd,
       SidesDreadStandardFretCWSca: nodes.Sides__Dread_Standard_Fret14__CWSca,
-      SidesDreadStandardFretCWScaABNoneSPOval: nodes.Sides__Dread_Standard_Fret14__CWSca_ABNone_SPOval,
+      SidesDreadStandardFretCWScaABNoneSPOval:
+        nodes.Sides__Dread_Standard_Fret14__CWSca_ABNone_SPOval,
       SidesDreadStandardFretCWScaABStd: nodes.Sides__Dread_Standard_Fret14__CWSca_ABStd,
       SidesDreadStandardFretCWVen1: nodes.Sides__Dread_Standard_Fret14__CWVen,
-      SidesDreadStandardFretCWVenABNoneSPOval: nodes.Sides__Dread_Standard_Fret14__CWVen_ABNone_SPOval,
+      SidesDreadStandardFretCWVenABNoneSPOval:
+        nodes.Sides__Dread_Standard_Fret14__CWVen_ABNone_SPOval,
       SidesDreadStandardFretCWVenABStd1: nodes.Sides__Dread_Standard_Fret14__CWVen_ABStd,
     }),
     [nodes],
@@ -176,74 +192,278 @@ export default function Model(props: JSX.IntrinsicElements['group']) {
   const instances = React.useContext(context)
   return (
     <group {...props} dispose={null}>
-      <instances.SidesParlStandardFretCWNone name="Sides__Parl_Standard_Fret12__CWNone" userData={{ name: 'Sides__Parl_Standard_Fret12__CWNone' }} />
-      <instances.SidesParlStandardFretCWVen name="Sides__Parl_Standard_Fret12__CWVen" userData={{ name: 'Sides__Parl_Standard_Fret12__CWVen' }} />
-      <instances.SidesParlStandardFretCWFlo name="Sides__Parl_Standard_Fret12__CWFlo" userData={{ name: 'Sides__Parl_Standard_Fret12__CWFlo' }} />
-      <instances.SidesParlStandardFretCWScal name="Sides__Parl_Standard_Fret12__CWScal" userData={{ name: 'Sides__Parl_Standard_Fret12__CWScal' }} />
-      <instances.SidesParlStandardFretCWNoneABStd name="Sides__Parl_Standard_Fret12__CWNone_ABStd" userData={{ name: 'Sides__Parl_Standard_Fret12__CWNone_ABStd' }} />
-      <instances.SidesParlStandardFretCWFloABStd name="Sides__Parl_Standard_Fret12__CWFlo_ABStd" userData={{ name: 'Sides__Parl_Standard_Fret12__CWFlo_ABStd' }} />
-      <instances.SidesParlStandardFretCWVenABStd name="Sides__Parl_Standard_Fret12__CWVen_ABStd" userData={{ name: 'Sides__Parl_Standard_Fret12__CWVen_ABStd' }} />
-      <instances.SidesParlStandardFretCWScalABStd name="Sides__Parl_Standard_Fret12__CW_Scal_AB_Std" userData={{ name: 'Sides__Parl_Standard_Fret12__CW_Scal_AB_Std' }} />
-      <instances.SidesDreadThinlineFretCWFlo name="Sides__Dread_Thinline_Fret14__CWFlo" userData={{ name: 'Sides__Dread_Thinline_Fret14__CWFlo' }} />
-      <instances.SidesDreadThinlineFretCWFloABNoneSPOval name="Sides__Dread_Thinline_Fret14__CWFlo_ABNone_SPOval__1_" userData={{ name: 'Sides__Dread_Thinline_Fret14__CWFlo_ABNone_SPOval__1_' }} />
-      <instances.SidesDreadThinlineFretCWFloABStd name="Sides__Dread_Thinline_Fret14__CWFlo_ABStd" userData={{ name: 'Sides__Dread_Thinline_Fret14__CWFlo_ABStd' }} />
-      <instances.SidesDreadThinlineFretCWNone name="Sides__Dread_Thinline_Fret14__CWNone" userData={{ name: 'Sides__Dread_Thinline_Fret14__CWNone' }} />
-      <instances.SidesDreadThinlineFretCWNoneABNoneSPOval name="Sides__Dread_Thinline_Fret14__CWNone_ABNone_SPOval" userData={{ name: 'Sides__Dread_Thinline_Fret14__CWNone_ABNone_SPOval' }} />
-      <instances.SidesDreadThinlineFretCWNoneABStd name="Sides__Dread_Thinline_Fret14__CWNone_ABStd" userData={{ name: 'Sides__Dread_Thinline_Fret14__CWNone_ABStd' }} />
-      <instances.SidesDreadThinlineFretCWSca name="Sides__Dread_Thinline_Fret14__CWSca" userData={{ name: 'Sides__Dread_Thinline_Fret14__CWSca' }} />
-      <instances.SidesDreadThinlineFretCWScaABNoneSPOval name="Sides__Dread_Thinline_Fret14__CWSca_ABNone_SPOval" userData={{ name: 'Sides__Dread_Thinline_Fret14__CWSca_ABNone_SPOval' }} />
-      <instances.SidesDreadThinlineFretCWScaABStd name="Sides__Dread_Thinline_Fret14__CWSca_ABStd" userData={{ name: 'Sides__Dread_Thinline_Fret14__CWSca_ABStd' }} />
-      <instances.SidesDreadThinlineFretCWVen name="Sides__Dread_Thinline_Fret14__CWVen" userData={{ name: 'Sides__Dread_Thinline_Fret14__CWVen' }} />
-      <instances.SidesDreadThinlineFretCWVenABNoneSPOval name="Sides__Dread_Thinline_Fret14__CWVen_ABNone_SPOval" userData={{ name: 'Sides__Dread_Thinline_Fret14__CWVen_ABNone_SPOval' }} />
-      <instances.SidesDreadThinlineFretCWVenABStd name="Sides__Dread_Thinline_Fret14__CWVen_ABStd" userData={{ name: 'Sides__Dread_Thinline_Fret14__CWVen_ABStd' }} />
-      <instances.SidesParlStandardFretCWFloABNoneSPOval name="Sides__Parl_Standard_Fret14__CWFlo_ABNone_SPOval__1_" userData={{ name: 'Sides__Parl_Standard_Fret14__CWFlo_ABNone_SPOval__1_' }} />
-      <instances.SidesParlStandardFretCWNone1 name="Sides__Parl_Standard_Fret14__CWNone" userData={{ name: 'Sides__Parl_Standard_Fret14__CWNone' }} />
-      <instances.SidesParlStandardFretCWNoneABNoneSPOval name="Sides__Parl_Standard_Fret14__CWNone_ABNone_SPOval" userData={{ name: 'Sides__Parl_Standard_Fret14__CWNone_ABNone_SPOval' }} />
-      <instances.SidesParlStandardFretCWScaABNoneSPOval name="Sides__Parl_Standard_Fret14__CWSca_ABNone_SPOval" userData={{ name: 'Sides__Parl_Standard_Fret14__CWSca_ABNone_SPOval' }} />
-      <instances.SidesParlStandardFretCWScaABStd name="Sides__Parl_Standard_Fret14__CWSca_ABStd" userData={{ name: 'Sides__Parl_Standard_Fret14__CWSca_ABStd' }} />
-      <instances.SidesParlStandardFretCWVenABNoneSPOval name="Sides__Parl_Standard_Fret14__CWVen_ABNone_SPOval" userData={{ name: 'Sides__Parl_Standard_Fret14__CWVen_ABNone_SPOval' }} />
-      <instances.SidesDreadThinlineFretCWNone1 name="Sides__Dread_Thinline_Fret12__CWNone" userData={{ name: 'Sides__Dread_Thinline_Fret12__CWNone' }} />
-      <instances.SidesDreadThinlineFretCWVen1 name="Sides__Dread_Thinline_Fret12__CWVen" userData={{ name: 'Sides__Dread_Thinline_Fret12__CWVen' }} />
-      <instances.SidesDreadThinlineFretCWFlo1 name="Sides__Dread_Thinline_Fret12__CWFlo" userData={{ name: 'Sides__Dread_Thinline_Fret12__CWFlo' }} />
-      <instances.SidesDreadThinlineFretCWScal name="Sides__Dread_Thinline_Fret12__CWScal" userData={{ name: 'Sides__Dread_Thinline_Fret12__CWScal' }} />
-      <instances.SidesDreadThinlineFretCWNoneABStd1 name="Sides__Dread_Thinline_Fret12__CWNone_ABStd" userData={{ name: 'Sides__Dread_Thinline_Fret12__CWNone_ABStd' }} />
-      <instances.SidesDreadThinlineFretCWFloABStd1 name="Sides__Dread_Thinline_Fret12__CWFlo_ABStd" userData={{ name: 'Sides__Dread_Thinline_Fret12__CWFlo_ABStd' }} />
-      <instances.SidesDreadThinlineFretCWVenABStd1 name="Sides__Dread_Thinline_Fret12__CWVen_ABStd" userData={{ name: 'Sides__Dread_Thinline_Fret12__CWVen_ABStd' }} />
-      <instances.SidesDreadThinlineFretCWScaABStd1 name="Sides__Dread_Thinline_Fret12__CWSca_ABStd" userData={{ name: 'Sides__Dread_Thinline_Fret12__CWSca_ABStd' }} />
-      <instances.SidesParlThinlineFretCWFloABNoneSPOval name="Sides__Parl_Thinline_Fret14__CWFlo_ABNone_SPOval__1_" userData={{ name: 'Sides__Parl_Thinline_Fret14__CWFlo_ABNone_SPOval__1_' }} />
-      <instances.SidesParlThinlineFretCWNone name="Sides__Parl_Thinline_Fret14__CWNone" userData={{ name: 'Sides__Parl_Thinline_Fret14__CWNone' }} />
-      <instances.SidesParlThinlineFretCWNoneABNoneSPOval name="Sides__Parl_Thinline_Fret14__CWNone_ABNone_SPOval" userData={{ name: 'Sides__Parl_Thinline_Fret14__CWNone_ABNone_SPOval' }} />
-      <instances.SidesParlThinlineFretCWScaABNoneSPOval name="Sides__Parl_Thinline_Fret14__CWSca_ABNone_SPOval" userData={{ name: 'Sides__Parl_Thinline_Fret14__CWSca_ABNone_SPOval' }} />
-      <instances.SidesParlThinlineFretCWScaABStd name="Sides__Parl_Thinline_Fret14__CWSca_ABStd" userData={{ name: 'Sides__Parl_Thinline_Fret14__CWSca_ABStd' }} />
-      <instances.SidesParlThinlineFretCWVenABNoneSPOval name="Sides__Parl_Thinline_Fret14__CWVen_ABNone_SPOval" userData={{ name: 'Sides__Parl_Thinline_Fret14__CWVen_ABNone_SPOval' }} />
-      <instances.SidesDreadStandardFretCWNone name="Sides__Dread_Standard_Fret12__CWNone" userData={{ name: 'Sides__Dread_Standard_Fret12__CWNone' }} />
-      <instances.SidesDreadStandardFretCWVen name="Sides__Dread_Standard_Fret12__CWVen" userData={{ name: 'Sides__Dread_Standard_Fret12__CWVen' }} />
-      <instances.SidesDreadStandardFretCWFlo name="Sides__Dread_Standard_Fret12__CWFlo" userData={{ name: 'Sides__Dread_Standard_Fret12__CWFlo' }} />
-      <instances.SidesDreadStandardFretCWScal name="Sides__Dread_Standard_Fret12__CWScal" userData={{ name: 'Sides__Dread_Standard_Fret12__CWScal' }} />
-      <instances.SidesDreadStandardFretCWNoneABStd name="Sides__Dread_Standard_Fret12__CWNone_ABStd" userData={{ name: 'Sides__Dread_Standard_Fret12__CWNone_ABStd' }} />
-      <instances.SidesDreadStandardFretCWFloABStd name="Sides__Dread_Standard_Fret12__CWFlo_ABStd" userData={{ name: 'Sides__Dread_Standard_Fret12__CWFlo_ABStd' }} />
-      <instances.SidesDreadStandardFretCWVenABStd name="Sides__Dread_Standard_Fret12__CWVen_ABStd" userData={{ name: 'Sides__Dread_Standard_Fret12__CWVen_ABStd' }} />
-      <instances.SidesDreadStandardFretCWScalABStd name="Sides__Dread_Standard_Fret12__CW_Scal_AB_Std" userData={{ name: 'Sides__Dread_Standard_Fret12__CW_Scal_AB_Std' }} />
-      <instances.SidesParlThinlineFretCWNone1 name="Sides__Parl_Thinline_Fret12__CWNone" userData={{ name: 'Sides__Parl_Thinline_Fret12__CWNone' }} />
-      <instances.SidesParlThinlineFretCWVen name="Sides__Parl_Thinline_Fret12__CWVen" userData={{ name: 'Sides__Parl_Thinline_Fret12__CWVen' }} />
-      <instances.SidesParlThinlineFretCWFlo name="Sides__Parl_Thinline_Fret12__CWFlo" userData={{ name: 'Sides__Parl_Thinline_Fret12__CWFlo' }} />
-      <instances.SidesParlThinlineFretCWScal name="Sides__Parl_Thinline_Fret12__CWScal" userData={{ name: 'Sides__Parl_Thinline_Fret12__CWScal' }} />
-      <instances.SidesParlThinlineFretCWNoneABStd name="Sides__Parl_Thinline_Fret12__CWNone_ABStd" userData={{ name: 'Sides__Parl_Thinline_Fret12__CWNone_ABStd' }} />
-      <instances.SidesParlThinlineFretCWFloABStd name="Sides__Parl_Thinline_Fret12__CWFlo_ABStd" userData={{ name: 'Sides__Parl_Thinline_Fret12__CWFlo_ABStd' }} />
-      <instances.SidesParlThinlineFretCWVenABStd name="Sides__Parl_Thinline_Fret12__CWVen_ABStd" userData={{ name: 'Sides__Parl_Thinline_Fret12__CWVen_ABStd' }} />
-      <instances.SidesParlThinlineFretCWScalABStd name="Sides__Parl_Thinline_Fret12__CW_Scal_AB_Std" userData={{ name: 'Sides__Parl_Thinline_Fret12__CW_Scal_AB_Std' }} />
-      <instances.SidesDreadStandardFretCWFlo1 name="Sides__Dread_Standard_Fret14__CWFlo" userData={{ name: 'Sides__Dread_Standard_Fret14__CWFlo' }} />
-      <instances.SidesDreadStandardFretCWFloABNoneSPOval name="Sides__Dread_Standard_Fret14__CWFlo_ABNone_SPOval__1_" userData={{ name: 'Sides__Dread_Standard_Fret14__CWFlo_ABNone_SPOval__1_' }} />
-      <instances.SidesDreadStandardFretCWFloABStd1 name="Sides__Dread_Standard_Fret14__CWFlo_ABStd" userData={{ name: 'Sides__Dread_Standard_Fret14__CWFlo_ABStd' }} />
-      <instances.SidesDreadStandardFretCWNone1 name="Sides__Dread_Standard_Fret14__CWNone" userData={{ name: 'Sides__Dread_Standard_Fret14__CWNone' }} />
-      <instances.SidesDreadStandardFretCWNoneABNoneSPOval name="Sides__Dread_Standard_Fret14__CWNone_ABNone_SPOval" userData={{ name: 'Sides__Dread_Standard_Fret14__CWNone_ABNone_SPOval' }} />
-      <instances.SidesDreadStandardFretCWNoneABStd1 name="Sides__Dread_Standard_Fret14__CWNone_ABStd" userData={{ name: 'Sides__Dread_Standard_Fret14__CWNone_ABStd' }} />
-      <instances.SidesDreadStandardFretCWSca name="Sides__Dread_Standard_Fret14__CWSca" userData={{ name: 'Sides__Dread_Standard_Fret14__CWSca' }} />
-      <instances.SidesDreadStandardFretCWScaABNoneSPOval name="Sides__Dread_Standard_Fret14__CWSca_ABNone_SPOval" userData={{ name: 'Sides__Dread_Standard_Fret14__CWSca_ABNone_SPOval' }} />
-      <instances.SidesDreadStandardFretCWScaABStd name="Sides__Dread_Standard_Fret14__CWSca_ABStd" userData={{ name: 'Sides__Dread_Standard_Fret14__CWSca_ABStd' }} />
-      <instances.SidesDreadStandardFretCWVen1 name="Sides__Dread_Standard_Fret14__CWVen" userData={{ name: 'Sides__Dread_Standard_Fret14__CWVen' }} />
-      <instances.SidesDreadStandardFretCWVenABNoneSPOval name="Sides__Dread_Standard_Fret14__CWVen_ABNone_SPOval" userData={{ name: 'Sides__Dread_Standard_Fret14__CWVen_ABNone_SPOval' }} />
-      <instances.SidesDreadStandardFretCWVenABStd1 name="Sides__Dread_Standard_Fret14__CWVen_ABStd" userData={{ name: 'Sides__Dread_Standard_Fret14__CWVen_ABStd' }} />
+      <instances.SidesParlStandardFretCWNone
+        name="Sides__Parl_Standard_Fret12__CWNone"
+        userData={{ name: 'Sides__Parl_Standard_Fret12__CWNone' }}
+      />
+      <instances.SidesParlStandardFretCWVen
+        name="Sides__Parl_Standard_Fret12__CWVen"
+        userData={{ name: 'Sides__Parl_Standard_Fret12__CWVen' }}
+      />
+      <instances.SidesParlStandardFretCWFlo
+        name="Sides__Parl_Standard_Fret12__CWFlo"
+        userData={{ name: 'Sides__Parl_Standard_Fret12__CWFlo' }}
+      />
+      <instances.SidesParlStandardFretCWScal
+        name="Sides__Parl_Standard_Fret12__CWScal"
+        userData={{ name: 'Sides__Parl_Standard_Fret12__CWScal' }}
+      />
+      <instances.SidesParlStandardFretCWNoneABStd
+        name="Sides__Parl_Standard_Fret12__CWNone_ABStd"
+        userData={{ name: 'Sides__Parl_Standard_Fret12__CWNone_ABStd' }}
+      />
+      <instances.SidesParlStandardFretCWFloABStd
+        name="Sides__Parl_Standard_Fret12__CWFlo_ABStd"
+        userData={{ name: 'Sides__Parl_Standard_Fret12__CWFlo_ABStd' }}
+      />
+      <instances.SidesParlStandardFretCWVenABStd
+        name="Sides__Parl_Standard_Fret12__CWVen_ABStd"
+        userData={{ name: 'Sides__Parl_Standard_Fret12__CWVen_ABStd' }}
+      />
+      <instances.SidesParlStandardFretCWScalABStd
+        name="Sides__Parl_Standard_Fret12__CW_Scal_AB_Std"
+        userData={{ name: 'Sides__Parl_Standard_Fret12__CW_Scal_AB_Std' }}
+      />
+      <instances.SidesDreadThinlineFretCWFlo
+        name="Sides__Dread_Thinline_Fret14__CWFlo"
+        userData={{ name: 'Sides__Dread_Thinline_Fret14__CWFlo' }}
+      />
+      <instances.SidesDreadThinlineFretCWFloABNoneSPOval
+        name="Sides__Dread_Thinline_Fret14__CWFlo_ABNone_SPOval__1_"
+        userData={{ name: 'Sides__Dread_Thinline_Fret14__CWFlo_ABNone_SPOval__1_' }}
+      />
+      <instances.SidesDreadThinlineFretCWFloABStd
+        name="Sides__Dread_Thinline_Fret14__CWFlo_ABStd"
+        userData={{ name: 'Sides__Dread_Thinline_Fret14__CWFlo_ABStd' }}
+      />
+      <instances.SidesDreadThinlineFretCWNone
+        name="Sides__Dread_Thinline_Fret14__CWNone"
+        userData={{ name: 'Sides__Dread_Thinline_Fret14__CWNone' }}
+      />
+      <instances.SidesDreadThinlineFretCWNoneABNoneSPOval
+        name="Sides__Dread_Thinline_Fret14__CWNone_ABNone_SPOval"
+        userData={{ name: 'Sides__Dread_Thinline_Fret14__CWNone_ABNone_SPOval' }}
+      />
+      <instances.SidesDreadThinlineFretCWNoneABStd
+        name="Sides__Dread_Thinline_Fret14__CWNone_ABStd"
+        userData={{ name: 'Sides__Dread_Thinline_Fret14__CWNone_ABStd' }}
+      />
+      <instances.SidesDreadThinlineFretCWSca
+        name="Sides__Dread_Thinline_Fret14__CWSca"
+        userData={{ name: 'Sides__Dread_Thinline_Fret14__CWSca' }}
+      />
+      <instances.SidesDreadThinlineFretCWScaABNoneSPOval
+        name="Sides__Dread_Thinline_Fret14__CWSca_ABNone_SPOval"
+        userData={{ name: 'Sides__Dread_Thinline_Fret14__CWSca_ABNone_SPOval' }}
+      />
+      <instances.SidesDreadThinlineFretCWScaABStd
+        name="Sides__Dread_Thinline_Fret14__CWSca_ABStd"
+        userData={{ name: 'Sides__Dread_Thinline_Fret14__CWSca_ABStd' }}
+      />
+      <instances.SidesDreadThinlineFretCWVen
+        name="Sides__Dread_Thinline_Fret14__CWVen"
+        userData={{ name: 'Sides__Dread_Thinline_Fret14__CWVen' }}
+      />
+      <instances.SidesDreadThinlineFretCWVenABNoneSPOval
+        name="Sides__Dread_Thinline_Fret14__CWVen_ABNone_SPOval"
+        userData={{ name: 'Sides__Dread_Thinline_Fret14__CWVen_ABNone_SPOval' }}
+      />
+      <instances.SidesDreadThinlineFretCWVenABStd
+        name="Sides__Dread_Thinline_Fret14__CWVen_ABStd"
+        userData={{ name: 'Sides__Dread_Thinline_Fret14__CWVen_ABStd' }}
+      />
+      <instances.SidesParlStandardFretCWFloABNoneSPOval
+        name="Sides__Parl_Standard_Fret14__CWFlo_ABNone_SPOval__1_"
+        userData={{ name: 'Sides__Parl_Standard_Fret14__CWFlo_ABNone_SPOval__1_' }}
+      />
+      <instances.SidesParlStandardFretCWNone1
+        name="Sides__Parl_Standard_Fret14__CWNone"
+        userData={{ name: 'Sides__Parl_Standard_Fret14__CWNone' }}
+      />
+      <instances.SidesParlStandardFretCWNoneABNoneSPOval
+        name="Sides__Parl_Standard_Fret14__CWNone_ABNone_SPOval"
+        userData={{ name: 'Sides__Parl_Standard_Fret14__CWNone_ABNone_SPOval' }}
+      />
+      <instances.SidesParlStandardFretCWScaABNoneSPOval
+        name="Sides__Parl_Standard_Fret14__CWSca_ABNone_SPOval"
+        userData={{ name: 'Sides__Parl_Standard_Fret14__CWSca_ABNone_SPOval' }}
+      />
+      <instances.SidesParlStandardFretCWScaABStd
+        name="Sides__Parl_Standard_Fret14__CWSca_ABStd"
+        userData={{ name: 'Sides__Parl_Standard_Fret14__CWSca_ABStd' }}
+      />
+      <instances.SidesParlStandardFretCWVenABNoneSPOval
+        name="Sides__Parl_Standard_Fret14__CWVen_ABNone_SPOval"
+        userData={{ name: 'Sides__Parl_Standard_Fret14__CWVen_ABNone_SPOval' }}
+      />
+      <instances.SidesDreadThinlineFretCWNone1
+        name="Sides__Dread_Thinline_Fret12__CWNone"
+        userData={{ name: 'Sides__Dread_Thinline_Fret12__CWNone' }}
+      />
+      <instances.SidesDreadThinlineFretCWVen1
+        name="Sides__Dread_Thinline_Fret12__CWVen"
+        userData={{ name: 'Sides__Dread_Thinline_Fret12__CWVen' }}
+      />
+      <instances.SidesDreadThinlineFretCWFlo1
+        name="Sides__Dread_Thinline_Fret12__CWFlo"
+        userData={{ name: 'Sides__Dread_Thinline_Fret12__CWFlo' }}
+      />
+      <instances.SidesDreadThinlineFretCWScal
+        name="Sides__Dread_Thinline_Fret12__CWScal"
+        userData={{ name: 'Sides__Dread_Thinline_Fret12__CWScal' }}
+      />
+      <instances.SidesDreadThinlineFretCWNoneABStd1
+        name="Sides__Dread_Thinline_Fret12__CWNone_ABStd"
+        userData={{ name: 'Sides__Dread_Thinline_Fret12__CWNone_ABStd' }}
+      />
+      <instances.SidesDreadThinlineFretCWFloABStd1
+        name="Sides__Dread_Thinline_Fret12__CWFlo_ABStd"
+        userData={{ name: 'Sides__Dread_Thinline_Fret12__CWFlo_ABStd' }}
+      />
+      <instances.SidesDreadThinlineFretCWVenABStd1
+        name="Sides__Dread_Thinline_Fret12__CWVen_ABStd"
+        userData={{ name: 'Sides__Dread_Thinline_Fret12__CWVen_ABStd' }}
+      />
+      <instances.SidesDreadThinlineFretCWScaABStd1
+        name="Sides__Dread_Thinline_Fret12__CWSca_ABStd"
+        userData={{ name: 'Sides__Dread_Thinline_Fret12__CWSca_ABStd' }}
+      />
+      <instances.SidesParlThinlineFretCWFloABNoneSPOval
+        name="Sides__Parl_Thinline_Fret14__CWFlo_ABNone_SPOval__1_"
+        userData={{ name: 'Sides__Parl_Thinline_Fret14__CWFlo_ABNone_SPOval__1_' }}
+      />
+      <instances.SidesParlThinlineFretCWNone
+        name="Sides__Parl_Thinline_Fret14__CWNone"
+        userData={{ name: 'Sides__Parl_Thinline_Fret14__CWNone' }}
+      />
+      <instances.SidesParlThinlineFretCWNoneABNoneSPOval
+        name="Sides__Parl_Thinline_Fret14__CWNone_ABNone_SPOval"
+        userData={{ name: 'Sides__Parl_Thinline_Fret14__CWNone_ABNone_SPOval' }}
+      />
+      <instances.SidesParlThinlineFretCWScaABNoneSPOval
+        name="Sides__Parl_Thinline_Fret14__CWSca_ABNone_SPOval"
+        userData={{ name: 'Sides__Parl_Thinline_Fret14__CWSca_ABNone_SPOval' }}
+      />
+      <instances.SidesParlThinlineFretCWScaABStd
+        name="Sides__Parl_Thinline_Fret14__CWSca_ABStd"
+        userData={{ name: 'Sides__Parl_Thinline_Fret14__CWSca_ABStd' }}
+      />
+      <instances.SidesParlThinlineFretCWVenABNoneSPOval
+        name="Sides__Parl_Thinline_Fret14__CWVen_ABNone_SPOval"
+        userData={{ name: 'Sides__Parl_Thinline_Fret14__CWVen_ABNone_SPOval' }}
+      />
+      <instances.SidesDreadStandardFretCWNone
+        name="Sides__Dread_Standard_Fret12__CWNone"
+        userData={{ name: 'Sides__Dread_Standard_Fret12__CWNone' }}
+      />
+      <instances.SidesDreadStandardFretCWVen
+        name="Sides__Dread_Standard_Fret12__CWVen"
+        userData={{ name: 'Sides__Dread_Standard_Fret12__CWVen' }}
+      />
+      <instances.SidesDreadStandardFretCWFlo
+        name="Sides__Dread_Standard_Fret12__CWFlo"
+        userData={{ name: 'Sides__Dread_Standard_Fret12__CWFlo' }}
+      />
+      <instances.SidesDreadStandardFretCWScal
+        name="Sides__Dread_Standard_Fret12__CWScal"
+        userData={{ name: 'Sides__Dread_Standard_Fret12__CWScal' }}
+      />
+      <instances.SidesDreadStandardFretCWNoneABStd
+        name="Sides__Dread_Standard_Fret12__CWNone_ABStd"
+        userData={{ name: 'Sides__Dread_Standard_Fret12__CWNone_ABStd' }}
+      />
+      <instances.SidesDreadStandardFretCWFloABStd
+        name="Sides__Dread_Standard_Fret12__CWFlo_ABStd"
+        userData={{ name: 'Sides__Dread_Standard_Fret12__CWFlo_ABStd' }}
+      />
+      <instances.SidesDreadStandardFretCWVenABStd
+        name="Sides__Dread_Standard_Fret12__CWVen_ABStd"
+        userData={{ name: 'Sides__Dread_Standard_Fret12__CWVen_ABStd' }}
+      />
+      <instances.SidesDreadStandardFretCWScalABStd
+        name="Sides__Dread_Standard_Fret12__CW_Scal_AB_Std"
+        userData={{ name: 'Sides__Dread_Standard_Fret12__CW_Scal_AB_Std' }}
+      />
+      <instances.SidesParlThinlineFretCWNone1
+        name="Sides__Parl_Thinline_Fret12__CWNone"
+        userData={{ name: 'Sides__Parl_Thinline_Fret12__CWNone' }}
+      />
+      <instances.SidesParlThinlineFretCWVen
+        name="Sides__Parl_Thinline_Fret12__CWVen"
+        userData={{ name: 'Sides__Parl_Thinline_Fret12__CWVen' }}
+      />
+      <instances.SidesParlThinlineFretCWFlo
+        name="Sides__Parl_Thinline_Fret12__CWFlo"
+        userData={{ name: 'Sides__Parl_Thinline_Fret12__CWFlo' }}
+      />
+      <instances.SidesParlThinlineFretCWScal
+        name="Sides__Parl_Thinline_Fret12__CWScal"
+        userData={{ name: 'Sides__Parl_Thinline_Fret12__CWScal' }}
+      />
+      <instances.SidesParlThinlineFretCWNoneABStd
+        name="Sides__Parl_Thinline_Fret12__CWNone_ABStd"
+        userData={{ name: 'Sides__Parl_Thinline_Fret12__CWNone_ABStd' }}
+      />
+      <instances.SidesParlThinlineFretCWFloABStd
+        name="Sides__Parl_Thinline_Fret12__CWFlo_ABStd"
+        userData={{ name: 'Sides__Parl_Thinline_Fret12__CWFlo_ABStd' }}
+      />
+      <instances.SidesParlThinlineFretCWVenABStd
+        name="Sides__Parl_Thinline_Fret12__CWVen_ABStd"
+        userData={{ name: 'Sides__Parl_Thinline_Fret12__CWVen_ABStd' }}
+      />
+      <instances.SidesParlThinlineFretCWScalABStd
+        name="Sides__Parl_Thinline_Fret12__CW_Scal_AB_Std"
+        userData={{ name: 'Sides__Parl_Thinline_Fret12__CW_Scal_AB_Std' }}
+      />
+      <instances.SidesDreadStandardFretCWFlo1
+        name="Sides__Dread_Standard_Fret14__CWFlo"
+        userData={{ name: 'Sides__Dread_Standard_Fret14__CWFlo' }}
+      />
+      <instances.SidesDreadStandardFretCWFloABNoneSPOval
+        name="Sides__Dread_Standard_Fret14__CWFlo_ABNone_SPOval__1_"
+        userData={{ name: 'Sides__Dread_Standard_Fret14__CWFlo_ABNone_SPOval__1_' }}
+      />
+      <instances.SidesDreadStandardFretCWFloABStd1
+        name="Sides__Dread_Standard_Fret14__CWFlo_ABStd"
+        userData={{ name: 'Sides__Dread_Standard_Fret14__CWFlo_ABStd' }}
+      />
+      <instances.SidesDreadStandardFretCWNone1
+        name="Sides__Dread_Standard_Fret14__CWNone"
+        userData={{ name: 'Sides__Dread_Standard_Fret14__CWNone' }}
+      />
+      <instances.SidesDreadStandardFretCWNoneABNoneSPOval
+        name="Sides__Dread_Standard_Fret14__CWNone_ABNone_SPOval"
+        userData={{ name: 'Sides__Dread_Standard_Fret14__CWNone_ABNone_SPOval' }}
+      />
+      <instances.SidesDreadStandardFretCWNoneABStd1
+        name="Sides__Dread_Standard_Fret14__CWNone_ABStd"
+        userData={{ name: 'Sides__Dread_Standard_Fret14__CWNone_ABStd' }}
+      />
+      <instances.SidesDreadStandardFretCWSca
+        name="Sides__Dread_Standard_Fret14__CWSca"
+        userData={{ name: 'Sides__Dread_Standard_Fret14__CWSca' }}
+      />
+      <instances.SidesDreadStandardFretCWScaABNoneSPOval
+        name="Sides__Dread_Standard_Fret14__CWSca_ABNone_SPOval"
+        userData={{ name: 'Sides__Dread_Standard_Fret14__CWSca_ABNone_SPOval' }}
+      />
+      <instances.SidesDreadStandardFretCWScaABStd
+        name="Sides__Dread_Standard_Fret14__CWSca_ABStd"
+        userData={{ name: 'Sides__Dread_Standard_Fret14__CWSca_ABStd' }}
+      />
+      <instances.SidesDreadStandardFretCWVen1
+        name="Sides__Dread_Standard_Fret14__CWVen"
+        userData={{ name: 'Sides__Dread_Standard_Fret14__CWVen' }}
+      />
+      <instances.SidesDreadStandardFretCWVenABNoneSPOval
+        name="Sides__Dread_Standard_Fret14__CWVen_ABNone_SPOval"
+        userData={{ name: 'Sides__Dread_Standard_Fret14__CWVen_ABNone_SPOval' }}
+      />
+      <instances.SidesDreadStandardFretCWVenABStd1
+        name="Sides__Dread_Standard_Fret14__CWVen_ABStd"
+        userData={{ name: 'Sides__Dread_Standard_Fret14__CWVen_ABStd' }}
+      />
     </group>
   )
 }

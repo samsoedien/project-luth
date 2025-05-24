@@ -59,12 +59,14 @@ export function Instances({ children, ...props }: JSX.IntrinsicElements['group']
       BackPieceRightCWFlor: nodes.Back_2Piece_Right_CW_Flor,
       BackPieceMiddle: nodes.Back_3Piece_Middle,
       BodyBackThreePieceVenetianCutawayMiddle: nodes.Body_Back_Three_Piece_Venetian_Cutaway_Middle,
-      BodyBackThreePieceFlorentineCutawayMiddle: nodes.Body_Back_Three_Piece_Florentine_Cutaway_Middle,
+      BodyBackThreePieceFlorentineCutawayMiddle:
+        nodes.Body_Back_Three_Piece_Florentine_Cutaway_Middle,
       BackPieceLeft1: nodes.Back_3Piece_Left,
       BodyBackDoubleStripLeft: nodes.Body_Back_Double_Strip_Left,
       BackPieceRight1: nodes.Back_3Piece_Right,
       BodyBackThreePieceVenetianCutawayRight: nodes.Body_Back_Three_Piece_Venetian_Cutaway_Right,
-      BodyBackThreePieceFlorentineCutawayRight: nodes.Body_Back_Three_Piece_Florentine_Cutaway_Right,
+      BodyBackThreePieceFlorentineCutawayRight:
+        nodes.Body_Back_Three_Piece_Florentine_Cutaway_Right,
       BodyBackThreePieceFlorentineCutawayLeft: nodes.Body_Back_Three_Piece_Florentine_Cutaway_Left,
       BodyCenterBackStrip: nodes.Body_Center_Back_Strip,
       BodyDoubleBackStripLeft: nodes.Body_Double_Back_Strip_Left,
@@ -87,27 +89,81 @@ export default function Model(props: JSX.IntrinsicElements['group']) {
   const instances = React.useContext(context)
   return (
     <group {...props} dispose={null}>
-      <instances.BodyBackCenterStrip name="Body_Back_Center_Strip" userData={{ name: 'Body_Back_Center_Strip' }} />
-      <instances.BodyBackDoubleStripRight name="Body_Back_Double_Strip_Right__1_" userData={{ name: 'Body_Back_Double_Strip_Right__1_' }} />
+      <instances.BodyBackCenterStrip
+        name="Body_Back_Center_Strip"
+        userData={{ name: 'Body_Back_Center_Strip' }}
+      />
+      <instances.BodyBackDoubleStripRight
+        name="Body_Back_Double_Strip_Right__1_"
+        userData={{ name: 'Body_Back_Double_Strip_Right__1_' }}
+      />
       <instances.BackPieceLeft name="Back_2Piece_Left" userData={{ name: 'Back_2Piece_Left' }} />
-      <instances.BackPieceLeft name="Back_2Piece_Left_CW_Vene" userData={{ name: 'Back_2Piece_Left_CW_Vene' }} />
-      <instances.BackPieceLeft name="Back_2Piece_Left_CW_Flor" userData={{ name: 'Back_2Piece_Left_CW_Flor' }} />
+      <instances.BackPieceLeft
+        name="Back_2Piece_Left_CW_Vene"
+        userData={{ name: 'Back_2Piece_Left_CW_Vene' }}
+      />
+      <instances.BackPieceLeft
+        name="Back_2Piece_Left_CW_Flor"
+        userData={{ name: 'Back_2Piece_Left_CW_Flor' }}
+      />
       <instances.BackPieceRight name="Back_2Piece_Right" userData={{ name: 'Back_2Piece_Right' }} />
-      <instances.BackPieceRightCWVene name="Back_2Piece_Right_CW_Vene" userData={{ name: 'Back_2Piece_Right_CW_Vene' }} />
-      <instances.BackPieceRightCWFlor name="Back_2Piece_Right_CW_Flor" userData={{ name: 'Back_2Piece_Right_CW_Flor' }} />
-      <instances.BackPieceMiddle name="Back_3Piece_Middle" userData={{ name: 'Back_3Piece_Middle' }} />
-      <instances.BodyBackThreePieceVenetianCutawayMiddle name="Body_Back_Three_Piece_Venetian_Cutaway_Middle" userData={{ name: 'Body_Back_Three_Piece_Venetian_Cutaway_Middle' }} />
-      <instances.BodyBackThreePieceFlorentineCutawayMiddle name="Body_Back_Three_Piece_Florentine_Cutaway_Middle" userData={{ name: 'Body_Back_Three_Piece_Florentine_Cutaway_Middle' }} />
+      <instances.BackPieceRightCWVene
+        name="Back_2Piece_Right_CW_Vene"
+        userData={{ name: 'Back_2Piece_Right_CW_Vene' }}
+      />
+      <instances.BackPieceRightCWFlor
+        name="Back_2Piece_Right_CW_Flor"
+        userData={{ name: 'Back_2Piece_Right_CW_Flor' }}
+      />
+      <instances.BackPieceMiddle
+        name="Back_3Piece_Middle"
+        userData={{ name: 'Back_3Piece_Middle' }}
+      />
+      <instances.BodyBackThreePieceVenetianCutawayMiddle
+        name="Body_Back_Three_Piece_Venetian_Cutaway_Middle"
+        userData={{ name: 'Body_Back_Three_Piece_Venetian_Cutaway_Middle' }}
+      />
+      <instances.BodyBackThreePieceFlorentineCutawayMiddle
+        name="Body_Back_Three_Piece_Florentine_Cutaway_Middle"
+        userData={{ name: 'Body_Back_Three_Piece_Florentine_Cutaway_Middle' }}
+      />
       <instances.BackPieceLeft1 name="Back_3Piece_Left" userData={{ name: 'Back_3Piece_Left' }} />
-      <instances.BackPieceLeft1 name="Body_Back_Three_Piece_Venetian_Cutaway_Left" userData={{ name: 'Body_Back_Three_Piece_Venetian_Cutaway_Left' }} />
-      <instances.BodyBackDoubleStripLeft name="Body_Back_Double_Strip_Left" userData={{ name: 'Body_Back_Double_Strip_Left' }} />
-      <instances.BackPieceRight1 name="Back_3Piece_Right" userData={{ name: 'Back_3Piece_Right' }} />
-      <instances.BodyBackThreePieceVenetianCutawayRight name="Body_Back_Three_Piece_Venetian_Cutaway_Right" userData={{ name: 'Body_Back_Three_Piece_Venetian_Cutaway_Right' }} />
-      <instances.BodyBackThreePieceFlorentineCutawayRight name="Body_Back_Three_Piece_Florentine_Cutaway_Right" userData={{ name: 'Body_Back_Three_Piece_Florentine_Cutaway_Right' }} />
-      <instances.BodyBackThreePieceFlorentineCutawayLeft name="Body_Back_Three_Piece_Florentine_Cutaway_Left" userData={{ name: 'Body_Back_Three_Piece_Florentine_Cutaway_Left' }} />
-      <instances.BodyCenterBackStrip name="Body_Center_Back_Strip" userData={{ name: 'Body_Center_Back_Strip' }} />
-      <instances.BodyDoubleBackStripLeft name="Body_Double_Back_Strip_Left" userData={{ name: 'Body_Double_Back_Strip_Left' }} />
-      <instances.BodyDoubleBackStripRight name="Body_Double_Back_Strip_Right" userData={{ name: 'Body_Double_Back_Strip_Right' }} />
+      <instances.BackPieceLeft1
+        name="Body_Back_Three_Piece_Venetian_Cutaway_Left"
+        userData={{ name: 'Body_Back_Three_Piece_Venetian_Cutaway_Left' }}
+      />
+      <instances.BodyBackDoubleStripLeft
+        name="Body_Back_Double_Strip_Left"
+        userData={{ name: 'Body_Back_Double_Strip_Left' }}
+      />
+      <instances.BackPieceRight1
+        name="Back_3Piece_Right"
+        userData={{ name: 'Back_3Piece_Right' }}
+      />
+      <instances.BodyBackThreePieceVenetianCutawayRight
+        name="Body_Back_Three_Piece_Venetian_Cutaway_Right"
+        userData={{ name: 'Body_Back_Three_Piece_Venetian_Cutaway_Right' }}
+      />
+      <instances.BodyBackThreePieceFlorentineCutawayRight
+        name="Body_Back_Three_Piece_Florentine_Cutaway_Right"
+        userData={{ name: 'Body_Back_Three_Piece_Florentine_Cutaway_Right' }}
+      />
+      <instances.BodyBackThreePieceFlorentineCutawayLeft
+        name="Body_Back_Three_Piece_Florentine_Cutaway_Left"
+        userData={{ name: 'Body_Back_Three_Piece_Florentine_Cutaway_Left' }}
+      />
+      <instances.BodyCenterBackStrip
+        name="Body_Center_Back_Strip"
+        userData={{ name: 'Body_Center_Back_Strip' }}
+      />
+      <instances.BodyDoubleBackStripLeft
+        name="Body_Double_Back_Strip_Left"
+        userData={{ name: 'Body_Double_Back_Strip_Left' }}
+      />
+      <instances.BodyDoubleBackStripRight
+        name="Body_Double_Back_Strip_Right"
+        userData={{ name: 'Body_Double_Back_Strip_Right' }}
+      />
       <instances.SurfaceBack name="Surface_Back" userData={{ name: 'Surface_Back' }} />
       <instances.BackCWNone name="Back_CW_None" userData={{ name: 'Back_CW_None' }} />
       <instances.BackCWVene name="Back_CW_Vene" userData={{ name: 'Back_CW_Vene' }} />

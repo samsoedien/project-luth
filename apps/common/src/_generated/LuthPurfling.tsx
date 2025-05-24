@@ -76,24 +76,69 @@ export default function Model(props: JSX.IntrinsicElements['group']) {
   const instances = React.useContext(context)
   return (
     <group {...props} dispose={null}>
-      <instances.BodyPurflingTopCWVeneABStd name="Body_Purfling_Top_CW_Vene_AB_Std" userData={{ name: 'Body_Purfling_Top_CW_Vene_AB_Std' }} />
+      <instances.BodyPurflingTopCWVeneABStd
+        name="Body_Purfling_Top_CW_Vene_AB_Std"
+        userData={{ name: 'Body_Purfling_Top_CW_Vene_AB_Std' }}
+      />
       <instances.PurflingBottom name="Purfling_Bottom" userData={{ name: 'Purfling_Bottom' }} />
-      <instances.PurflingBottomCWFlor name="Purfling_Bottom_CW_Flor" userData={{ name: 'Purfling_Bottom_CW_Flor' }} />
-      <instances.PurflingBottomCWVene name="Purfling_Bottom_CW_Vene" userData={{ name: 'Purfling_Bottom_CW_Vene' }} />
+      <instances.PurflingBottomCWFlor
+        name="Purfling_Bottom_CW_Flor"
+        userData={{ name: 'Purfling_Bottom_CW_Flor' }}
+      />
+      <instances.PurflingBottomCWVene
+        name="Purfling_Bottom_CW_Vene"
+        userData={{ name: 'Purfling_Bottom_CW_Vene' }}
+      />
       <instances.PurflingTop name="Purfling_Top" userData={{ name: 'Purfling_Top' }} />
-      <instances.PurflingTopCWFlor name="Purfling_Top_CW_Flor" userData={{ name: 'Purfling_Top_CW_Flor' }} />
-      <instances.PurflingTopCWFlorABStd name="Purfling_Top_CW_Flor_AB_Std" userData={{ name: 'Purfling_Top_CW_Flor_AB_Std' }} />
-      <instances.PurflingTopCWNoneABStd name="Purfling_Top_CW_None_AB_Std" userData={{ name: 'Purfling_Top_CW_None_AB_Std' }} />
-      <instances.PurflingTopCWVene name="Purfling_Top_CW_Vene" userData={{ name: 'Purfling_Top_CW_Vene' }} />
-      <instances.BodyPurflingTopCWVeneABStd1 name="Body_Purfling_Top_CW_Vene_AB_Std001" userData={{ name: 'Body_Purfling_Top_CW_Vene_AB_Std.001' }} />
-      <instances.PurflingBottom1 name="Purfling_Bottom001" userData={{ name: 'Purfling_Bottom.001' }} />
-      <instances.PurflingBottomCWFlor1 name="Purfling_Bottom_CW_Flor001" userData={{ name: 'Purfling_Bottom_CW_Flor.001' }} />
-      <instances.PurflingBottomCWVene1 name="Purfling_Bottom_CW_Vene001" userData={{ name: 'Purfling_Bottom_CW_Vene.001' }} />
+      <instances.PurflingTopCWFlor
+        name="Purfling_Top_CW_Flor"
+        userData={{ name: 'Purfling_Top_CW_Flor' }}
+      />
+      <instances.PurflingTopCWFlorABStd
+        name="Purfling_Top_CW_Flor_AB_Std"
+        userData={{ name: 'Purfling_Top_CW_Flor_AB_Std' }}
+      />
+      <instances.PurflingTopCWNoneABStd
+        name="Purfling_Top_CW_None_AB_Std"
+        userData={{ name: 'Purfling_Top_CW_None_AB_Std' }}
+      />
+      <instances.PurflingTopCWVene
+        name="Purfling_Top_CW_Vene"
+        userData={{ name: 'Purfling_Top_CW_Vene' }}
+      />
+      <instances.BodyPurflingTopCWVeneABStd1
+        name="Body_Purfling_Top_CW_Vene_AB_Std001"
+        userData={{ name: 'Body_Purfling_Top_CW_Vene_AB_Std.001' }}
+      />
+      <instances.PurflingBottom1
+        name="Purfling_Bottom001"
+        userData={{ name: 'Purfling_Bottom.001' }}
+      />
+      <instances.PurflingBottomCWFlor1
+        name="Purfling_Bottom_CW_Flor001"
+        userData={{ name: 'Purfling_Bottom_CW_Flor.001' }}
+      />
+      <instances.PurflingBottomCWVene1
+        name="Purfling_Bottom_CW_Vene001"
+        userData={{ name: 'Purfling_Bottom_CW_Vene.001' }}
+      />
       <instances.PurflingTop1 name="Purfling_Top001" userData={{ name: 'Purfling_Top.001' }} />
-      <instances.PurflingTopCWFlor1 name="Purfling_Top_CW_Flor001" userData={{ name: 'Purfling_Top_CW_Flor.001' }} />
-      <instances.PurflingTopCWFlorABStd1 name="Purfling_Top_CW_Flor_AB_Std001" userData={{ name: 'Purfling_Top_CW_Flor_AB_Std.001' }} />
-      <instances.PurflingTopCWNoneABStd1 name="Purfling_Top_CW_None_AB_Std001" userData={{ name: 'Purfling_Top_CW_None_AB_Std.001' }} />
-      <instances.PurflingTopCWVene1 name="Purfling_Top_CW_Vene001" userData={{ name: 'Purfling_Top_CW_Vene.001' }} />
+      <instances.PurflingTopCWFlor1
+        name="Purfling_Top_CW_Flor001"
+        userData={{ name: 'Purfling_Top_CW_Flor.001' }}
+      />
+      <instances.PurflingTopCWFlorABStd1
+        name="Purfling_Top_CW_Flor_AB_Std001"
+        userData={{ name: 'Purfling_Top_CW_Flor_AB_Std.001' }}
+      />
+      <instances.PurflingTopCWNoneABStd1
+        name="Purfling_Top_CW_None_AB_Std001"
+        userData={{ name: 'Purfling_Top_CW_None_AB_Std.001' }}
+      />
+      <instances.PurflingTopCWVene1
+        name="Purfling_Top_CW_Vene001"
+        userData={{ name: 'Purfling_Top_CW_Vene.001' }}
+      />
     </group>
   )
 }

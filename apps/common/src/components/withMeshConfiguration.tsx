@@ -1,4 +1,5 @@
-import React, { ComponentType } from 'react'
+import React, { ComponentType, ReactNode, forwardRef } from 'react'
+import { Group } from 'three'
 import { useConfigurationStore } from '~/store/store'
 import { getConfiguredComponent } from '~/helpers/meshUtils'
 import { useInstanceGeometry } from '~/hooks/useInstanceGeometry'
@@ -11,16 +12,15 @@ export interface IWithMeshConfigurationProps {
   materialProps: ReturnType<typeof useTransparantMaterialProps>
 }
 
-export const withMeshConfiguration = <P extends IWithMeshConfigurationProps>(
+export function withMeshConfiguration<P extends object>(
   componentKey: ELuthComponent,
   GLTFJSXComponent: ComponentType,
-  Instances: ComponentType<{ children?: React.ReactNode }>,
-  WrappedComponent: ComponentType<P>,
-) => {
-  const EnhancedComponent = ({
-    children,
-    ...props
-  }: Omit<P, keyof IWithMeshConfigurationProps> & { children?: React.ReactNode }) => {
+  Instances: ComponentType<{ children?: ReactNode }>,
+  MeshComponent: ComponentType<P & IWithMeshConfigurationProps>,
+) {
+  const EnhancedComponent = forwardRef<Group, P & { children?: ReactNode }>((props, ref) => {
+    const { children, ...rest } = props
+
     const meshConfig = useConfigurationStore((state) =>
       getConfiguredComponent(state.configuration, componentKey),
     )
@@ -29,15 +29,15 @@ export const withMeshConfiguration = <P extends IWithMeshConfigurationProps>(
     const materialProps = useTransparantMaterialProps(meshConfig.name)
 
     return (
-      <group name={meshConfig.name} dispose={null}>
-        <WrappedComponent
-          {...(props as P)}
+      <group name={meshConfig.name} ref={ref} dispose={null}>
+        <MeshComponent
+          {...(rest as P)}
           meshConfig={meshConfig}
           instanceGeometry={instanceGeometry}
           materialProps={materialProps}
         >
           {children}
-        </WrappedComponent>
+        </MeshComponent>
         <group ref={instanceGroupRef} visible={false}>
           <Instances>
             <GLTFJSXComponent />
@@ -45,8 +45,9 @@ export const withMeshConfiguration = <P extends IWithMeshConfigurationProps>(
         </group>
       </group>
     )
-  }
+  })
 
   EnhancedComponent.displayName = `withMeshConfiguration(${ELuthComponent[componentKey]})`
+
   return EnhancedComponent
 }

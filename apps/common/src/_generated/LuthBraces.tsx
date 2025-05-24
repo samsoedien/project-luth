@@ -68,18 +68,39 @@ export default function Model(props: JSX.IntrinsicElements['group']) {
   const instances = React.useContext(context)
   return (
     <group {...props} dispose={null}>
-      <instances.BodyBraceFretboardReinforcementLeft name="Body_Brace_Fretboard_Reinforcement_Left" userData={{ name: 'Body_Brace_Fretboard_Reinforcement_Left' }} />
-      <instances.BodyBraceFretboardReinforcementRight name="Body_Brace_Fretboard_Reinforcement_Right" userData={{ name: 'Body_Brace_Fretboard_Reinforcement_Right' }} />
+      <instances.BodyBraceFretboardReinforcementLeft
+        name="Body_Brace_Fretboard_Reinforcement_Left"
+        userData={{ name: 'Body_Brace_Fretboard_Reinforcement_Left' }}
+      />
+      <instances.BodyBraceFretboardReinforcementRight
+        name="Body_Brace_Fretboard_Reinforcement_Right"
+        userData={{ name: 'Body_Brace_Fretboard_Reinforcement_Right' }}
+      />
       <instances.BodyBraceD name="Body_BraceD" userData={{ name: 'Body_BraceD' }} />
       <instances.BodyBraceE name="Body_BraceE" userData={{ name: 'Body_BraceE' }} />
       <instances.BodyBraceFLeft name="Body_BraceF_Left" userData={{ name: 'Body_BraceF_Left' }} />
-      <instances.BodyBraceFRight name="Body_BraceF_Right" userData={{ name: 'Body_BraceF_Right' }} />
+      <instances.BodyBraceFRight
+        name="Body_BraceF_Right"
+        userData={{ name: 'Body_BraceF_Right' }}
+      />
       <instances.BodyBraceGLeft name="Body_BraceG_Left" userData={{ name: 'Body_BraceG_Left' }} />
-      <instances.BodyBraceGRight name="Body_BraceG_Right" userData={{ name: 'Body_BraceG_Right' }} />
+      <instances.BodyBraceGRight
+        name="Body_BraceG_Right"
+        userData={{ name: 'Body_BraceG_Right' }}
+      />
       <instances.BodyBraceHLeft name="Body_BraceH_Left" userData={{ name: 'Body_BraceH_Left' }} />
-      <instances.BodyBraceHRight name="Body_BraceH_Right" userData={{ name: 'Body_BraceH_Right' }} />
-      <instances.BodyBridgePlate name="Body_Bridge_Plate" userData={{ name: 'Body_Bridge_Plate' }} />
-      <instances.BodyLateralBraceA name="Body_Lateral_BraceA" userData={{ name: 'Body_Lateral_BraceA' }} />
+      <instances.BodyBraceHRight
+        name="Body_BraceH_Right"
+        userData={{ name: 'Body_BraceH_Right' }}
+      />
+      <instances.BodyBridgePlate
+        name="Body_Bridge_Plate"
+        userData={{ name: 'Body_Bridge_Plate' }}
+      />
+      <instances.BodyLateralBraceA
+        name="Body_Lateral_BraceA"
+        userData={{ name: 'Body_Lateral_BraceA' }}
+      />
       <instances.BodyXBraceB name="Body_X_BraceB" userData={{ name: 'Body_X_BraceB' }} />
       <instances.BodyXBraceC name="Body_X_BraceC" userData={{ name: 'Body_X_BraceC' }} />
     </group>

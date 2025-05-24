@@ -56,7 +56,10 @@ export default function Model(props: JSX.IntrinsicElements['group']) {
       <instances.BodyStringB name="Body_String_B" userData={{ name: 'Body_String_B' }} />
       <instances.BodyStringD name="Body_String_D" userData={{ name: 'Body_String_D' }} />
       <instances.BodyStringG name="Body_String_G" userData={{ name: 'Body_String_G' }} />
-      <instances.BodyStringHighE name="Body_String_HighE" userData={{ name: 'Body_String_HighE' }} />
+      <instances.BodyStringHighE
+        name="Body_String_HighE"
+        userData={{ name: 'Body_String_HighE' }}
+      />
       <instances.BodyStringLowE name="Body_String_LowE" userData={{ name: 'Body_String_LowE' }} />
     </group>
   )
