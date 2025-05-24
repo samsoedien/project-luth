@@ -1,29 +1,57 @@
-import { useContext } from 'react'
+import { useContext, useMemo } from 'react'
 import { context as GLTFJSXContext } from '../../_generated/LuthAcoustic'
 import { GLTFJSXInstances } from '~/models/gltfjsx.model'
-import { IConfiguration } from '~/models/configuration.model'
+import { ELuthComponent, IConfiguration, IMeshConfiguration } from '~/models/configuration.model'
 import { useInstanceGeometry } from '~/hooks/useInstanceGeometry'
+import { useTexture } from '@react-three/drei'
+
+import LuthNeck, { Instances } from '../../_generated/LuthNeck'
+import { useConfigurationStore } from '~/store/store'
+import { useTransparantMaterialProps } from '~/hooks/useTransparentMaterial'
 
 export interface INeckMeshesProps {
-  configuration: IConfiguration
+  meshConfig: IMeshConfiguration<ELuthComponent>
   children: React.ReactNode
 }
 
-export default function NeckMeshes({ configuration, children }: INeckMeshesProps) {
-  const instances = useContext(GLTFJSXContext) as GLTFJSXInstances
-  const { instanceGeometry, instanceGroupRef } = useInstanceGeometry(configuration)
+export default function NeckMeshes({ meshConfig, children }: INeckMeshesProps) {
+  const { instanceGeometry, instanceGroupRef } = useInstanceGeometry(meshConfig)
+
+  // const spruceBaseColorMap = useTexture('spruce-test_BaseColor.jpg')
+  // const spruceAOMap = useTexture('spruce-test_AmbientOcclusion.jpg')
+  // const spruceNormalMap = useTexture('spruce-test_Normal.jpg')
+  // const spruceHeightMap = useTexture('spruce-test_Height.jpg')
+  // const spruceMetalicMap = useTexture('spruce-test_Metallic.jpg')
+  // const spruceRoughnessMap = useTexture('spruce-test_Roughness.jpg')
+
+  const materialProps = useTransparantMaterialProps(meshConfig.name)
 
   return (
-    <group name={configuration.name} dispose={null} visible={configuration.groupVisibility}>
+    <group name={meshConfig.name} dispose={null} visible={true}>
       {instanceGeometry.length > 0 &&
         instanceGeometry.map((child) => (
           <mesh key={child.uuid} name={child.name} geometry={child.geometry}>
-            <meshNormalMaterial />
+            {/* <meshStandardMaterial
+              map={spruceBaseColorMap}
+              displacementMap={spruceHeightMap}
+              roughnessMap={spruceRoughnessMap}
+              metalnessMap={spruceMetalicMap}
+              normalMap={spruceNormalMap}
+              aoMap={spruceAOMap}
+            /> */}
+            <meshStandardMaterial
+              {...materialProps}
+              attach="material"
+              ref={(material) => {
+                if (material) material.needsUpdate = true
+              }}
+            />
           </mesh>
         ))}
-      <group ref={instanceGroupRef} scale={0}>
-        <instances.BodyNeck name="Body_Neck" />
-        <instances.BodyHeel name="Body_Heel" />
+      <group ref={instanceGroupRef} visible={false}>
+        <Instances frustumCulled={false}>
+          <LuthNeck />
+        </Instances>
       </group>
 
       {children}

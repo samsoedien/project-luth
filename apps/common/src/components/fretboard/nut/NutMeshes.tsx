@@ -1,27 +1,30 @@
-import { useContext } from 'react'
-import { context as GLTFJSXContext } from '../../../_generated/LuthAcoustic'
-import { IConfiguration } from '../../../models/configuration.model'
-import { GLTFJSXInstances } from '~/models/gltfjsx.model'
+import {
+  ELuthComponent,
+  IConfiguration,
+  IMeshConfiguration,
+} from '../../../models/configuration.model'
 import { useInstanceGeometry } from '~/hooks/useInstanceGeometry'
+import LuthNut, { Instances } from '~/_generated/LuthNut'
 
 export interface INutMeshesProps {
-  configuration: IConfiguration
+  meshConfig: IMeshConfiguration<ELuthComponent>
 }
 
-export default function NutMeshes({ configuration }: INutMeshesProps) {
-  const instances = useContext(GLTFJSXContext) as GLTFJSXInstances
-  const { instanceGeometry, instanceGroupRef } = useInstanceGeometry(configuration)
+export default function NutMeshes({ meshConfig }: INutMeshesProps) {
+  const { instanceGeometry, instanceGroupRef } = useInstanceGeometry(meshConfig)
 
   return (
-    <group name={configuration.name} dispose={null}>
+    <group name={meshConfig.name} dispose={null}>
       {instanceGeometry.length > 0 &&
         instanceGeometry.map((child) => (
           <mesh key={child.uuid} name={child.name} geometry={child.geometry}>
-            <meshStandardMaterial color="white" />
+            <meshStandardMaterial color="black" />
           </mesh>
         ))}
-      <group ref={instanceGroupRef} scale={0}>
-        <instances.BodyNut name="Body_Nut" />
+      <group ref={instanceGroupRef} visible={false}>
+        <Instances>
+          <LuthNut />
+        </Instances>
       </group>
     </group>
   )

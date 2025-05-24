@@ -1,29 +1,27 @@
-import { useContext } from 'react'
-import { context as GLTFJSXContext } from '../../_generated/LuthAcoustic'
-import { GLTFJSXInstances } from '~/models/gltfjsx.model'
-import { IConfiguration } from '~/models/configuration.model'
+import { ELuthComponent, IMeshConfiguration } from '~/models/configuration.model'
 import { useInstanceGeometry } from '~/hooks/useInstanceGeometry'
 
+import LuthFretboard, { Instances } from '../../_generated/LuthFretboard'
+
 export interface IFretboardMeshesProps {
-  configuration: IConfiguration
+  meshConfig: IMeshConfiguration<ELuthComponent>
   children: React.ReactNode
 }
 
-export default function FretboardMeshes({ configuration, children }: IFretboardMeshesProps) {
-  const instances = useContext(GLTFJSXContext) as GLTFJSXInstances
-  const { instanceGeometry, instanceGroupRef } = useInstanceGeometry(configuration)
-
+export default function FretboardMeshes({ meshConfig, children }: IFretboardMeshesProps) {
+  const { instanceGeometry, instanceGroupRef } = useInstanceGeometry(meshConfig)
   return (
-    <group name={configuration.name} dispose={null} visible={configuration?.groupVisibility}>
+    <group name={meshConfig.name} dispose={null} visible={true}>
       {instanceGeometry.length > 0 &&
         instanceGeometry.map((child) => (
           <mesh key={child.uuid} name={child.name} geometry={child.geometry}>
             <meshNormalMaterial />
           </mesh>
         ))}
-      <group ref={instanceGroupRef} scale={0}>
-        <instances.BodyFretboard name="Body_Fretboard" />
-        <instances.BodyFretboard5 name="Body_Fretboard_1" />
+      <group ref={instanceGroupRef} visible={false}>
+        <Instances>
+          <LuthFretboard />
+        </Instances>
       </group>
       {children}
     </group>

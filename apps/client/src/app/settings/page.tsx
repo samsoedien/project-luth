@@ -43,7 +43,7 @@ export default function SettingsPage(): JSX.Element {
               <Checkbox id="include" defaultChecked />
               <label
                 htmlFor="include"
-                className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                className="text-sm leading-none font-medium peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
               >
                 Allow administrators to change the directory.
               </label>

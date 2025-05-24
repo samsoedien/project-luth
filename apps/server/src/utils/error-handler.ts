@@ -6,7 +6,7 @@ import { ZodError } from 'zod'
 
 class HttpException extends Error {}
 
-export const errorHandler = (method: Function) => {
+export const errorHandler = (method: any) => {
   return async (req: Request, res: Response, next: NextFunction) => {
     try {
       await method(req, res, next)

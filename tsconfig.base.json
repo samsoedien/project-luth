@@ -7,7 +7,7 @@
     "esModuleInterop": true
   },
   "exclude": ["**/node_modules/*", "**/*.stories.*", "**/*.test.*"],
-  "include": ["./packages/**/*", "./.eslintrc.js"],
+  "include": ["./packages/**/*"],
   "files": [],
   "references": [
     {

@@ -1,29 +1,26 @@
-import { useContext } from 'react'
-import { context as GLTFJSXContext } from '../../../_generated/LuthAcoustic'
+import LuthBackStrips, { Instances } from '~/_generated/LuthBackStrips'
 import { useInstanceGeometry } from '~/hooks/useInstanceGeometry'
-import { GLTFJSXInstances } from '~/models/gltfjsx.model'
-import { IConfiguration } from '~/models/configuration.model'
+import { ELuthComponent, IConfiguration, IMeshConfiguration } from '~/models/configuration.model'
 
 export interface IBackStripMeshesProps {
-  configuration: IConfiguration
+  meshConfig: IMeshConfiguration<ELuthComponent>
 }
 
-export default function BackStripMeshes({ configuration }: IBackStripMeshesProps) {
-  const instances = useContext(GLTFJSXContext) as GLTFJSXInstances
-  const { instanceGeometry, instanceGroupRef } = useInstanceGeometry(configuration)
+export default function BackStripMeshes({ meshConfig }: IBackStripMeshesProps) {
+  const { instanceGeometry, instanceGroupRef } = useInstanceGeometry(meshConfig)
 
   return (
-    <group name={configuration.name} dispose={null}>
+    <group name={meshConfig.name} dispose={null}>
       {instanceGeometry.length > 0 &&
         instanceGeometry.map((child) => (
           <mesh key={child.uuid} name={child.name} geometry={child.geometry}>
             <meshBasicMaterial color="white" />
           </mesh>
         ))}
-      <group ref={instanceGroupRef} scale={0}>
-        <instances.BodyBackCenterStrip name="Body_Back_Center_Strip" />
-        <instances.BodyBackDoubleStripLeft name="Body_Back_Double_Strip_Left" />
-        <instances.BodyBackDoubleStripRight name="Body_Back_Double_Strip_Right_(1)" />
+      <group ref={instanceGroupRef} visible={false}>
+        <Instances>
+          <LuthBackStrips />
+        </Instances>
       </group>
     </group>
   )

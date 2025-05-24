@@ -1,52 +1,37 @@
-import { useContext } from 'react'
-import { context as GLTFJSXContext } from '../../_generated/LuthAcoustic'
-import { GLTFJSXInstances } from '~/models/gltfjsx.model'
-import { useInstanceGeometry } from '~/hooks/useInstanceGeometry'
-import { IConfiguration } from '~/models/configuration.model'
-import { Html } from '@react-three/drei'
+import LuthSides, { Instances } from '~/_generated/LuthSides'
+import {
+  IWithMeshConfigurationProps,
+  withMeshConfiguration,
+} from '~/components/withMeshConfiguration' // Adjust import if needed
+import { ELuthComponent } from '~/models/configuration.model'
 
-export interface ISidesMeshesProps {
-  configuration: IConfiguration
+interface ISidesMeshesProps extends IWithMeshConfigurationProps {
   children: React.ReactNode
 }
 
-export default function SidesMeshes({ configuration, children }: ISidesMeshesProps) {
-  const instances = useContext(GLTFJSXContext) as GLTFJSXInstances
-  const { instanceGeometry, instanceGroupRef } = useInstanceGeometry(configuration)
-
+export function SidesMeshes({
+  meshConfig,
+  instanceGeometry,
+  materialProps,
+  children,
+}: ISidesMeshesProps) {
+  console.log('SidesMeshes', meshConfig.name)
   return (
-    <group name={configuration.name} dispose={null}>
-      {instanceGeometry.length > 0 &&
-        instanceGeometry.map((child) => (
-          <mesh
-            key={child.uuid}
-            name={child.name}
-            geometry={child.geometry}
-            castShadow
-            receiveShadow
-            onClick={(e) => console.log('click', e)}
-          >
-            <meshStandardMaterial color={'white'} />
-            {child.userData.annotations && (
-              <Html occlude>{`Thickness: ${child.userData.annotations.thickness}`}</Html>
-            )}
-          </mesh>
-        ))}
-      <group ref={instanceGroupRef} scale={0}>
-        <instances.BodySides name="Body_Sides" />
-        <instances.BodySidesVenetianCutaway
-          name="Body_Sides_Venetian_Cutaway"
-          userData={{ annotations: { thickness: 3 } }}
-        />
-        <instances.BodySidesFlorentineCutaway name="Body_Sides_Florentine_Cutaway" />
-        <instances.BodySidesScallopedCutaway name="Body_Sides_Scalloped_Cutaway_(1)" />
-        <instances.BodySidesArmBevel name="Body_Sides_Arm_Bevel" />
-        <instances.BodySidesArmBevelVenetianCutaway name="Body_Sides_Arm_Bevel_Venetian_Cutaway" />
-        <instances.BodySidesArmBevelFlorentineCutaway name="Body_Sides_Arm_Bevel_Florentine_Cutaway" />
-        <instances.BodySidesArmBevelScallopedCutaway name="Body_Sides_Arm_Bevel_Scalloped_Cutaway" />
-      </group>
-
+    <group name={meshConfig.name} dispose={null} visible={true}>
+      {instanceGeometry.map((child) => (
+        <mesh key={child.uuid} name={child.name} geometry={child.geometry}>
+          <meshStandardMaterial
+            {...materialProps}
+            attach="material"
+            ref={(material) => {
+              if (material) material.needsUpdate = true
+            }}
+          />
+        </mesh>
+      ))}
       {children}
     </group>
   )
 }
+
+export default withMeshConfiguration(ELuthComponent.Sides, LuthSides, Instances, SidesMeshes)

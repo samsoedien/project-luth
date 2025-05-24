@@ -3,15 +3,14 @@
 // StyleDictionaryColor.m
 //
 
-// Do not edit directly
-// Generated on Thu, 23 May 2024 12:18:09 GMT
+// Do not edit directly, this file was auto-generated.
 
 
-#import "StyleDictionaryColor.h"
+#import ".h"
 
-@implementation StyleDictionaryColor
+@implementation 
 
-+ (UIColor *)color:(StyleDictionaryColorName)colorEnum{
++ (UIColor *)color:()colorEnum{
   return [[self values] objectAtIndex:colorEnum];
 }
 
@@ -21,10 +20,10 @@
 
   dispatch_once(&onceToken, ^{
     colorArray = @[
-[UIColor colorWithRed:1.000f green:1.000f blue:1.000f alpha:1.000f],
-[UIColor colorWithRed:1.000f green:0.000f blue:0.000f alpha:1.000f],
-[UIColor colorWithRed:0.000f green:1.000f blue:0.000f alpha:1.000f],
-[UIColor colorWithRed:0.000f green:1.000f blue:0.000f alpha:1.000f]
+#fff,
+[object Object],
+rgb(0,255,0),
+rgb(0,255,0)
     ];
   });
 

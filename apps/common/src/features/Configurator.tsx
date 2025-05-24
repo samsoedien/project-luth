@@ -1,41 +1,49 @@
-import React from 'react'
 import { Leva, useControls } from 'leva'
 import { useConfigurationStore } from '../store/store'
+
 import {
-  EArmBevelOption,
-  EBackMultiPieceOption,
-  EBodyShapeOption,
-  ECutawayOption,
-} from '~/models/options.model'
-import { ELuthComponent } from '~/models/configuration.model'
-import BackOptions from './BackOptions'
+  ELuthComponent,
+  luthBaseDeps,
+  luthBodyDeps,
+  luthSoundboardDeps,
+} from '~/models/configuration.model'
+import BodyOptions from './options/BodyOptions'
+import SoundboardOptions from './options/SoundboardOptions'
+import ScaleOptions from './options/ScaleOptions'
+import BackOptions from './options/BackOptions'
+import NeckOptions from './options/NeckOptions'
+import RosetteOptions from './options/RosetteOptions'
+import KerflingOptions from './options/KerflingOptions'
+import BaseOptions from './options/BaseOptions'
+import ConfiguratorContext from './ConfiguratorContext'
+import ConfiguratorScope from './ConfiguratorScope'
 
 export default function Configurator() {
-  const bodyOptions = useConfigurationStore((state) => state.bodyOptions)
-  const setBodyOptions = useConfigurationStore((state) => state.setBodyOptions)
-
-  const backOptions = useConfigurationStore((state) => state.backOptions)
-  const setBackOptions = useConfigurationStore((state) => state.setBackOptions)
-
-  const scope = useConfigurationStore((state) => state.scope)
-  const setScope = useConfigurationStore((state) => state.setScope)
+  const activeComponent = useConfigurationStore((state) => state.activeComponent)
+  const setActiveComponent = useConfigurationStore((state) => state.setActiveComponent)
 
   const setControls = useConfigurationStore((state) => state.setControls)
 
+  const undo = useConfigurationStore((state) => state.undo)
+  const redo = useConfigurationStore((state) => state.redo)
+
+  const saveConfiguration = useConfigurationStore((state) => state.saveConfiguration)
+  const loadConfiguration = useConfigurationStore((state) => state.loadConfiguration)
+
   useControls('Scope', {
-    scope: {
+    activeComponent: {
       options: Object.values(ELuthComponent) as ELuthComponent[],
-      value: scope,
+      value: activeComponent,
       onChange: (value: ELuthComponent) => {
-        setScope(value)
+        setActiveComponent(value)
 
         setControlsFromScope(value)
       },
     },
   })
 
-  const setControlsFromScope = (scope: ELuthComponent) => {
-    switch (scope) {
+  const setControlsFromScope = (activeComponent: ELuthComponent) => {
+    switch (activeComponent) {
       case ELuthComponent.Base:
         setControls({
           rotation: [0, -Math.PI / 5, 0],
@@ -45,15 +53,43 @@ export default function Configurator() {
           snap: false,
         })
         break
+      case ELuthComponent.Body:
+        setControls({
+          rotation: [0, -Math.PI / 5, 0],
+          zoom: undefined,
+          polar: undefined,
+          azimuth: undefined,
+          snap: false,
+        })
+        break
+      case ELuthComponent.Scale:
+        setControls({
+          rotation: [0, 0, -Math.PI / 2],
+          zoom: undefined,
+          polar: undefined,
+          azimuth: undefined,
+          snap: true,
+        })
+        break
       case ELuthComponent.Soundboard:
         setControls({
           rotation: [0, 0, 0],
           zoom: 2,
           polar: [-Math.PI / 3, Math.PI / 3],
           azimuth: [-Math.PI / 4, Math.PI / 4],
-          snap: { mass: 5, tension: 140 },
-          config: { mass: 1, tension: 80 },
+          snap: true,
         })
+
+        break
+      case ELuthComponent.Braces:
+        setControls({
+          rotation: [-Math.PI / 3, Math.PI, 0],
+          zoom: 2,
+          polar: [-Math.PI / 3, Math.PI / 3],
+          azimuth: [-Math.PI / 4, Math.PI / 4],
+          snap: true,
+        })
+
         break
       case ELuthComponent.Back:
         setControls({
@@ -61,8 +97,9 @@ export default function Configurator() {
           zoom: 2,
           polar: [-Math.PI / 3, Math.PI / 3],
           azimuth: [-Math.PI / 4, Math.PI / 4],
-          snap: { mass: 5, tension: 140 },
-          config: { mass: 1, tension: 80 },
+          snap: true,
+          // snap: { mass: 5, tension: 140 },
+          // config: { mass: 1, tension: 80 },
         })
         break
       case ELuthComponent.Sides:
@@ -71,8 +108,9 @@ export default function Configurator() {
           zoom: 2,
           polar: [-Math.PI / 3, Math.PI / 3],
           azimuth: [-Math.PI / 4, Math.PI / 4],
-          snap: { mass: 5, tension: 140 },
-          config: { mass: 1, tension: 80 },
+          snap: true,
+          // snap: { mass: 5, tension: 140 },
+          // config: { mass: 1, tension: 80 },
         })
         break
       case ELuthComponent.Binding:
@@ -81,8 +119,9 @@ export default function Configurator() {
           zoom: 2,
           polar: [-Math.PI / 3, Math.PI / 3],
           azimuth: [-Math.PI / 4, Math.PI / 4],
-          snap: { mass: 5, tension: 140 },
-          config: { mass: 1, tension: 80 },
+          snap: true,
+          // snap: { mass: 5, tension: 140 },
+          // config: { mass: 1, tension: 80 },
         })
         break
       case ELuthComponent.EndGraft:
@@ -91,41 +130,83 @@ export default function Configurator() {
           zoom: 2,
           polar: [-Math.PI / 3, Math.PI / 3],
           azimuth: [-Math.PI / 4, Math.PI / 4],
-          snap: { mass: 5, tension: 140 },
-          config: { mass: 1, tension: 80 },
+          snap: true,
+          // snap: { mass: 5, tension: 140 },
+          // config: { mass: 1, tension: 80 },
         })
+        break
+      case ELuthComponent.Neck:
+        setControls({
+          rotation: [0, -Math.PI / 3, -Math.PI / 5],
+          zoom: 0.7,
+          polar: [-Math.PI / 3, Math.PI / 3],
+          azimuth: [-Math.PI / 4, Math.PI / 4],
+          snap: true,
+          // snap: { mass: 5, tension: 140 },
+          // config: { mass: 1, tension: 80 },
+        })
+
         break
     }
   }
 
-  useControls(
-    'Configuration', // Store names
-    {
-      cutaway: {
-        options: Object.values(ECutawayOption) as ECutawayOption[], // Use enum values
-        value: bodyOptions.cutaway, // Default value
-        onChange: (value: ECutawayOption) => {
-          setBodyOptions({ cutaway: value })
-        },
-      },
-      bodyShape: {
-        options: Object.values(EBodyShapeOption) as EBodyShapeOption[],
-        value: bodyOptions.bodyShape,
-        onChange: (value) => setBodyOptions({ bodyShape: value }),
-      },
-      armBevel: {
-        options: Object.values(EArmBevelOption) as EArmBevelOption[],
-        value: bodyOptions.armBevel,
-        onChange: (value) => setBodyOptions({ armBevel: value }),
-      },
-    },
-  )
+  const handleSave = () => {
+    saveConfiguration()
+    alert('Configuration saved to localStorage!')
+  }
 
-  // const { material, setMaterial, cutaway, setCutaway } = useConfiguration()
+  const handleLoad = () => {
+    const saved = localStorage.getItem('guitar-config')
+    if (saved) {
+      try {
+        const config = JSON.parse(saved)
+        loadConfiguration(config)
+        alert('Configuration loaded!')
+      } catch (e) {
+        console.error('Failed to parse configuration:', e)
+        alert('Error loading configuration.')
+      }
+    } else {
+      alert('No saved configuration found.')
+    }
+  }
+
   return (
-    <div className="absolute h-[160px] w-[320px]">
+    <div className="relative">
       <Leva />
+      <BaseOptions />
+      <BodyOptions />
+      <ScaleOptions />
+      <SoundboardOptions />
+      <RosetteOptions />
       <BackOptions />
+      <NeckOptions />
+      <KerflingOptions />
+
+      <ConfiguratorScope />
+      <ConfiguratorContext />
+
+      <div
+        style={{
+          position: 'absolute',
+          bottom: '48px',
+          left: '48px',
+          background: 'white',
+          boxShadow: '0 0 10px rgba(0,0,0,0.1)',
+          padding: '16px',
+          borderRadius: '8px',
+        }}
+      >
+        <div>
+          <button onClick={handleLoad}>Load configuration</button>
+          <button onClick={handleSave}>Save configuration</button>
+        </div>
+        <br />
+        <div>
+          <button onClick={undo}>Undo Action</button>
+          <button onClick={redo}>Redo Action</button>
+        </div>
+      </div>
     </div>
   )
 }

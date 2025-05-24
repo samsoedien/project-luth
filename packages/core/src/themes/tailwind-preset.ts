@@ -3,8 +3,8 @@ import type { Config } from 'tailwindcss'
 import animatePlugin from 'tailwindcss-animate'
 import { luthTailwindPlugin } from './plugin/tailwind-plugin'
 
-export const luthTailwindPreset = {
-  darkMode: ['class'],
+export const luthTailwindPreset: Config = {
+  darkMode: 'class',
   prefix: 'luth-',
   content: [],
   theme: {
