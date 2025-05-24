@@ -5,8 +5,9 @@ import withMeshConfiguration from './components/withMeshConfiguration'
 
 import LuthAcoustic from '~/_generated/LuthAcoustic'
 import { Box } from '@react-three/drei'
+import AcousticGuitar from './components/AcousticGuitar'
 
-const LuthModel = withMeshConfiguration(LuthAcoustic)
+// const LuthModel = withMeshConfiguration(LuthAcoustic)
 
 // import { ConfiguratorProvider } from './features/Configurator/ConfiguratorContext'
 
@@ -15,7 +16,8 @@ export function App() {
     <div className="app">
       <>
         <Scene isDebug={true}>
-          <LuthModel />
+          {/* <LuthModel /> */}
+          <AcousticGuitar />
         </Scene>
         <Configurator />
       </>

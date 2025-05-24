@@ -1,42 +1,31 @@
-import { useMemo } from 'react'
 import LuthBraces, { Instances } from '~/_generated/LuthBraces'
-import { useInstanceGeometry } from '~/hooks/useInstanceGeometry'
-import { useTransparantMaterialProps } from '~/hooks/useTransparentMaterial'
-import { ELuthComponent, IMeshConfiguration } from '~/models/configuration.model'
-import { useConfigurationStore } from '~/store/store'
+import {
+  IWithMeshConfigurationProps,
+  withMeshConfiguration,
+} from '~/components/withMeshConfiguration' // Adjust import if needed
+import { ELuthComponent } from '~/models/configuration.model'
 
-export interface IBracesMeshesProps {
-  meshConfig: IMeshConfiguration<ELuthComponent>
-}
-
-export default function BracesMeshes({ meshConfig }: IBracesMeshesProps) {
-  const { instanceGeometry, instanceGroupRef } = useInstanceGeometry(meshConfig)
-
-  const materialProps = useTransparantMaterialProps(meshConfig.name)
-
-  const activeComponent = useConfigurationStore((state) => state.activeComponent)
-  console.log('BracesMeshes rerendered', activeComponent)
-
+export function BracesMeshes({
+  meshConfig,
+  instanceGeometry,
+  materialProps,
+}: IWithMeshConfigurationProps) {
+  console.log('BracesMeshes', meshConfig.name)
   return (
-    <group name={meshConfig.name} dispose={null}>
-      {instanceGeometry.length > 0 &&
-        instanceGeometry.map((child) => (
-          <mesh key={child.uuid} name={child.name} geometry={child.geometry}>
-            {/* <meshNormalMaterial /> */}
-            <meshStandardMaterial
-              {...materialProps}
-              attach="material"
-              ref={(material) => {
-                if (material) material.needsUpdate = true
-              }}
-            />{' '}
-          </mesh>
-        ))}
-      <group ref={instanceGroupRef} visible={false}>
-        <Instances frustumCulled={false}>
-          <LuthBraces />
-        </Instances>
-      </group>
+    <group name={meshConfig.name} dispose={null} visible={true}>
+      {instanceGeometry.map((child) => (
+        <mesh key={child.uuid} name={child.name} geometry={child.geometry}>
+          <meshStandardMaterial
+            {...materialProps}
+            attach="material"
+            ref={(material) => {
+              if (material) material.needsUpdate = true
+            }}
+          />
+        </mesh>
+      ))}
     </group>
   )
 }
+
+export default withMeshConfiguration(ELuthComponent.Braces, LuthBraces, Instances, BracesMeshes)
