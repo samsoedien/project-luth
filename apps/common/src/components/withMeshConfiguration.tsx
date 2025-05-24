@@ -118,11 +118,6 @@ const withMeshConfiguration = <P extends IWithMeshConfigurationProps>(
       getConfiguredComponent(state.configuration, ELuthComponent.Sides),
     )
 
-    const activeComponent = getComponentScope(ELuthComponent.Body)
-    console.log('activeComponent', activeComponent)
-
-    console.log('sidesConfiguration', sidesConfiguration)
-
     console.log('rerendering withMeshConfiguration')
 
     const modelRef = useRef<Group>(null)

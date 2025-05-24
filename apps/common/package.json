@@ -36,6 +36,7 @@
     "model:codemod": "npx tsx scripts/export-gltfresult-codemod.js --dir ./src/_generated"
   },
   "dependencies": {
+    "@project-luth/core": "workspace:*",
     "@react-three/drei": "^10.0.8",
     "@react-three/fiber": "^9.1.2",
     "@react-three/postprocessing": "^3.0.4",

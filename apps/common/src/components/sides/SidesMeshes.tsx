@@ -13,11 +13,7 @@ export interface ISidesMeshesProps {
 }
 export default function SidesMeshes({ meshConfig, children }: ISidesMeshesProps) {
   const { instanceGeometry, instanceGroupRef } = useInstanceGeometry(meshConfig)
-
   const materialProps = useTransparantMaterialProps(meshConfig.name)
-
-  console.log('SidesMeshes rerender')
-  console.log('SidesMeshes', meshConfig)
 
   return (
     <group name={meshConfig.name} dispose={null}>

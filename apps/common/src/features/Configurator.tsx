@@ -30,12 +30,6 @@ export default function Configurator() {
   const saveConfiguration = useConfigurationStore((state) => state.saveConfiguration)
   const loadConfiguration = useConfigurationStore((state) => state.loadConfiguration)
 
-  const componentVisibility = useConfigurationStore((state) => state.componentVisibility)
-  console.log('Component Visibility:', componentVisibility)
-
-  const history = useConfigurationStore((state) => state.history)
-  console.log('History:', history)
-
   useControls('Scope', {
     activeComponent: {
       options: Object.values(ELuthComponent) as ELuthComponent[],
